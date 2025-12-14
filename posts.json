@@ -3,7 +3,7 @@
     {
       "title": "AI agents for smart cities: from monitoring to action",
       "slug": "ai-agents-smart-cities-from-monitoring-to-action",
-      "publishedAt": "2025-12-14T10:00:00+01:00",
+      "published_at": "2025-12-14T10:00:00+01:00",
       "summary": "NVIDIA's AI agents go beyond monitoring city cameras—they actively respond to incidents, reroute traffic, and coordinate emergency responses in real time.",
       "tags": [
         "AI",
@@ -15,7 +15,7 @@
     {
       "title": "Codex: the self-improving AI coding agent",
       "slug": "codex-self-improving-ai-coding-agent",
-      "publishedAt": "2025-12-14T09:00:00+01:00",
+      "published_at": "2025-12-14T09:00:00+01:00",
       "summary": "OpenAI's Codex isn't just a coding assistant—it's a cloud-based agent that writes, debugs, and improves itself. Four engineers built the Sora Android app in under a month using it.",
       "tags": [
         "AI",
