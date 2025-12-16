@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "title": "DeepMind and the UK AI Security Institute: making safety more measurable",
+      "slug": "deepmind-uk-ai-security-institute-making-safety-more-measurable",
+      "published_at": "12-16-2025T09:00:00+01:00",
+      "summary": "DeepMind is expanding its partnership with the UK AI Security Institute (AISI) under a new MoU, shifting from one-off model testing toward deeper joint safety and security research. The focus areas include monitoring model “thinking” (chain-of-thought), studying social and emotional harms from misalignment, and exploring economic impacts via task simulations.",
+      "tags": [
+        "AI",
+        "Safety",
+        "Policy",
+        "DeepMind",
+        "UK"
+      ],
+      "content": "<p>AI safety can sound like philosophy until it turns into something operational: shared access, shared methods, and shared measurements. That’s what stood out in Google DeepMind’s announcement about deepening its partnership with the UK AI Security Institute (AISI) through a new Memorandum of Understanding focused on foundational security and safety research.</p><p>The key shift is moving beyond “test the model” moments toward longer-running research collaboration — the kind of work that can accumulate into better evaluation tooling over time.</p><h2>What the partnership includes</h2><p>DeepMind frames the updated partnership around a few practical commitments:</p><ul><li>Sharing access to proprietary models, data, and ideas to accelerate research progress.</li><li>Joint reports and publications to share findings with the broader research community.</li><li>More collaborative security and safety research and ongoing technical discussions.</li></ul><p>This is the boring-but-important infrastructure layer of safety: not just finding issues, but building the machinery to keep finding them.</p><h2>Three areas they’ll focus on</h2><p>The announcement calls out three research directions that feel especially relevant as models become more capable:</p><ul><li><strong>Monitoring AI reasoning processes</strong>: techniques for tracking a system’s “thinking,” often described as chain-of-thought monitoring, to better understand how answers are produced.</li><li><strong>Social and emotional impacts</strong>: work on “socioaffective misalignment,” where a system can follow instructions but still behave in ways that don’t align with human wellbeing.</li><li><strong>Economic systems</strong>: simulating real-world tasks, having experts score them, and using that to reason about longer-term labour market impacts.</li></ul><p>None of this is a silver bullet, but it’s a sign that frontier AI safety is increasingly treated like an engineering and measurement problem — something you can improve with better tools, not just better intentions.</p><p>Read more here <a href=\"https://deepmind.google/blog/deepening-our-partnership-with-the-uk-ai-security-institute/\" target=\"_blank\" rel=\"noopener noreferrer\">Google DeepMind</a>.</p>"
+    },
+    {
       "title": "When AI learns how to learn: DiscoRL and the automation of RL algorithms",
       "slug": "when-ai-learns-how-to-learn-discorl-automating-rl-algorithms",
       "published_at": "2025-12-15T16:48:00+01:00",
