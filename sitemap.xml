@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
   <url>
     <loc>https://alessandrosblog.it.eu.org/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Privacy page -->
   <url>
     <loc>https://alessandrosblog.it.eu.org/#privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
-  <!-- Posts (hash routes from posts.json) -->
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/deepmind-uk-ai-security-institute-making-safety-more-measurable</loc>
     <changefreq>weekly</changefreq>
@@ -80,5 +77,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
 </urlset>
