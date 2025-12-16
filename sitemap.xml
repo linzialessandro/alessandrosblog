@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Privacy page -->
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Posts (hash routes from posts.json) -->
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/deepmind-uk-ai-security-institute-making-safety-more-measurable</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/perplexity-at-work-simple-model-get-more-done</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/mcp-google-services-missing-piece-ai-automation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/ai-agents-smart-cities-from-monitoring-to-action</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/codex-self-improving-ai-coding-agent</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/weathernext-2-trying-to-make-the-atmosphere-less-chaotic</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/ai-and-alzheimers-not-a-cure-but-a-smarter-way-to-fight</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/el-salvador-nationwide-ai-tutoring-program-whats-been-announced</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/perplexity-memory-personalization-without-repeating-yourself</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/how-people-actually-use-ai-agents-mostly-cognitive-work</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
