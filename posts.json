@@ -3,7 +3,7 @@
     {
       "title": "Why Proof Assistants Are Suddenly Practical",
       "slug": "why-proof-assistants-are-suddenly-practical",
-      "published_at": "2025-12-17T15:27:00+01:00",
+      "publishedAt": "2025-12-17T15:27:00+01:00",
       "summary": "Proof assistants used to feel like tools for specialists, mostly useful when you had the time and patience to formalize everything. That’s changing. A recent post by Terence Tao shows a more lightweight direction: interactive, tactic-driven proving inside Python, designed to certify the kinds of estimates and inequalities that show up constantly in real math work.",
       "tags": [
         "Mathematics",
@@ -15,7 +15,7 @@
     {
       "title": "DeepMind and the UK AI Security Institute: making safety more measurable",
       "slug": "deepmind-uk-ai-security-institute-making-safety-more-measurable",
-      "published_at": "2025-12-16T16:00:00+01:00",
+      "publishedAt": "2025-12-16T16:00:00+01:00",
       "summary": "DeepMind is expanding its partnership with the UK AI Security Institute (AISI) under a new MoU, shifting from one-off model testing toward deeper joint safety and security research. The focus areas include monitoring model “thinking” (chain-of-thought), studying social and emotional harms from misalignment, and exploring economic impacts via task simulations.",
       "tags": [
         "AI",
