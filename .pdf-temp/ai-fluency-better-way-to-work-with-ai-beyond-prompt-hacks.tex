@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper,oneside]{memoir}
+
+% Typography + fonts
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Font fallback: use Libertinus if available, otherwise TeX Gyre Pagella.
+\IfFontExistsTF{Libertinus Serif}{
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont{Libertinus Mono}
+}{
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
+}
+
+% Layout (memoir-native)
+\setlrmarginsandblock{1.15in}{1.15in}{*}
+\setulmarginsandblock{1.0in}{1.0in}{*}
+\checkandfixthelayout
+
+% No headers/footers/page numbers
+\pagestyle{empty}
+
+% Paragraph style
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+
+% Pandoc helpers
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+{\Large\bfseries AI Fluency: A Better Way to Work with AI (Beyond Prompt Hacks)\par}
+\vspace{1.25em}
+
+There's a whole mini-industry around ``the perfect prompt,'' but most of those tricks decay fast: models change, interfaces change, and the hack stops working. What's more useful is a stable mental model for collaborating with AI across tools and contexts.
+
+Anthropic's free AI Fluency course takes that route. Instead of teaching a bag of prompt hacks, it teaches a framework for working with AI effectively, efficiently, ethically, and safely, built around four core competencies (the ``4Ds''). The course is developed in partnership with academic experts Joseph Feller and Rick Dakan.
+
+\subsection{The 4Ds that make it practical}\label{the-4ds-that-make-it-practical}
+
+The framework is simple enough to remember, but deep enough to apply repeatedly:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Delegation}: Decide what should be done by you, what should be done by the model, and how to split tasks so you don't outsource judgment by accident.
+\item
+  \textbf{Description}: Communicate intent and constraints clearly (context, audience, format, examples), so the model has something concrete to aim for.
+\item
+  \textbf{Discernment}: Evaluate outputs critically---both the final result and how the model got there---so you can catch errors, weak logic, and hidden assumptions.
+\item
+  \textbf{Diligence}: Use AI responsibly: be transparent where needed, stay accountable for what you publish, and consider downstream impacts.
+\end{itemize}
+
+\subsection{Why this approach scales}\label{why-this-approach-scales}
+
+What I like about this is that it's tool-agnostic. The same habits apply whether the UI says Claude, ChatGPT, Grok, or something else---because the bottleneck isn't the brand, it's how well you set up the collaboration and how seriously you verify what comes back.
+
+The course also leans into practice: interactive exercises, real-world projects, and a ``Bad Prompt Makeover'' style activity that forces you to notice why vague requests create vague results. There's also a completion certificate, which is a nice forcing function if finishing courses usually drifts to the bottom of the todo list.
+
+\subsection{What this is really about}\label{what-this-is-really-about}
+
+AI is already reshaping workflows and job roles, but ``better prompting'' isn't the endgame. The people who get leverage will be the ones who can delegate strategically, communicate precisely, evaluate ruthlessly, and stay responsible for outcomes.
+
+You can enroll for free in the course here: \href{https://anthropic.skilljar.com/ai-fluency-framework-foundations}{Anthropic Academy}
+
+
+\end{document}

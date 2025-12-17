@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper,oneside]{memoir}
+
+% Typography + fonts
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Font fallback: use Libertinus if available, otherwise TeX Gyre Pagella.
+\IfFontExistsTF{Libertinus Serif}{
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont{Libertinus Mono}
+}{
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
+}
+
+% Layout (memoir-native)
+\setlrmarginsandblock{1.15in}{1.15in}{*}
+\setulmarginsandblock{1.0in}{1.0in}{*}
+\checkandfixthelayout
+
+% No headers/footers/page numbers
+\pagestyle{empty}
+
+% Paragraph style
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+
+% Pandoc helpers
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+{\Large\bfseries Codex: the self-improving AI coding agent\par}
+\vspace{1.25em}
+
+OpenAI\textquotesingle s Codex is a cloud-based AI coding agent that handles everything from writing features to debugging code. Launched as a research preview in May 2025, it\textquotesingle s available through ChatGPT, VS Code, and a CLI that\textquotesingle s drawing comparisons to Anthropic\textquotesingle s Claude Code.
+
+\subsection{The self-improvement loop}\label{the-self-improvement-loop}
+
+What sets Codex apart is its recursive development: OpenAI engineers use it to enhance Codex itself. This isn\textquotesingle t theoretical---the loop is delivering real results. Four engineers built the entire Sora Android app in under a month using Codex for most of the heavy lifting.
+
+The agent operates across interfaces but shines in the CLI, where developers report 10x productivity gains on routine tasks. Usage spiked after the CLI release, showing external developers are adopting it fast.
+
+\subsection{Not replacement, amplification}\label{not-replacement-amplification}
+
+Codex works as a "junior developer" that handles boilerplate, debugging, and implementation details. Humans focus on architecture, complex logic, and creative problem-solving. The pattern is clear:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Routine tasks:} Codex writes CRUD endpoints, fixes syntax errors, implements standard patterns.
+\item
+  \textbf{Human oversight:} Review architecture decisions, edge cases, security implications.
+\item
+  \textbf{Iteration:} Codex learns from feedback and code reviews to improve future outputs.
+\end{itemize}
+
+This isn\textquotesingle t automation replacing engineers; it\textquotesingle s leverage that lets small teams ship at scale.
+
+\subsection{Real-world validation}\label{real-world-validation}
+
+The Sora Android app is the proof point: a production app built rapidly by a tiny team. Codex handled the bulk of implementation while humans shaped the product direction. External developers report similar gains---faster prototyping, fewer bugs in early iterations, more time for high-level design.
+
+The self-improvement aspect means Codex gets better over time, not just from model updates but from learning the specific patterns and preferences of individual teams.
+
+\subsection{What changes for developers}\label{what-changes-for-developers}
+
+The shift is from "writing code" to "orchestrating code generation." Engineers become more like conductors: defining requirements clearly, reviewing outputs critically, and iterating rapidly. The bottleneck moves from implementation speed to problem framing and validation.
+
+CLI adoption suggests this pattern scales beyond OpenAI. When any developer can spin up a self-improving coding agent, the barrier to building complex software drops significantly.
+
+
+\end{document}

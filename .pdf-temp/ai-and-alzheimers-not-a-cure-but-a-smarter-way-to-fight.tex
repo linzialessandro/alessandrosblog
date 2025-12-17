@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper,oneside]{memoir}
+
+% Typography + fonts
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Font fallback: use Libertinus if available, otherwise TeX Gyre Pagella.
+\IfFontExistsTF{Libertinus Serif}{
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont{Libertinus Mono}
+}{
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
+}
+
+% Layout (memoir-native)
+\setlrmarginsandblock{1.15in}{1.15in}{*}
+\setulmarginsandblock{1.0in}{1.0in}{*}
+\checkandfixthelayout
+
+% No headers/footers/page numbers
+\pagestyle{empty}
+
+% Paragraph style
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+
+% Pandoc helpers
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+{\Large\bfseries AI and Alzheimer’s: not a cure, but a smarter way to fight\par}
+\vspace{1.25em}
+
+AI isn't curing Alzheimer's disease yet, but it's already reshaping how we fight it. Instead of waiting for a magic bullet, the real progress is in using AI to make existing drugs more effective, trials more efficient, and diagnosis more equitable. Two recent examples capture this shift well.
+
+\subsection{AI that matches the right patients to the right drugs}\label{ai-that-matches-the-right-patients-to-the-right-drugs}
+
+A team at the University of Cambridge used an AI model to re-analyse a completed Alzheimer's clinical trial that had failed in the overall population. The AI could predict, from early cognitive and imaging data, which patients were slow vs. rapid progressors toward full-blown Alzheimer's.
+
+When they re-ran the trial data through this lens, they found something striking: the drug slowed cognitive decline by 46\% in a subgroup of early-stage, slow-progressing patients with mild cognitive impairment. In the other group, it didn't help.
+
+The takeaway isn't that this drug is a cure; it's that AI can identify which patients are most likely to benefit. That means smaller, cheaper, faster trials, and a move toward precision medicine: matching the right drug to the right patient at the right time.
+
+\subsection{AI that finds undiagnosed cases in routine records}\label{ai-that-finds-undiagnosed-cases-in-routine-records}
+
+At UCLA, researchers built an AI tool that scans electronic health records to flag patients with undiagnosed Alzheimer's. This addresses a huge gap: Alzheimer's is significantly underdiagnosed, especially in underrepresented communities.
+
+Their model uses a semi-supervised approach that's designed to be fair across different populations. It looks at patterns in diagnoses, age, and clinical notes, and can pick up subtle signals (like certain comorbidities) that might otherwise be missed.
+
+When validated, it showed much higher sensitivity across racial/ethnic groups than traditional models, and patients flagged as high-risk had higher genetic risk scores for Alzheimer's. The goal isn't to replace clinicians, but to help them prioritize who needs a deeper evaluation, especially as new disease-modifying treatments become available.
+
+\subsection{What this means for the Alzheimer's fight}\label{what-this-means-for-the-alzheimers-fight}
+
+These examples show that near-term value of AI in Alzheimer's isn't about autonomous discovery, but about making the human-driven process smarter and more equitable.
+
+On the drug side, AI helps us:
+
+\begin{itemize}
+\tightlist
+\item
+  Rescue promising drugs that failed in broad trials by finding responsive subgroups.
+\item
+  Design smaller, more efficient trials that target the right patients.
+\item
+  Move toward a precision medicine approach where treatment is tailored to individual progression risk.
+\end{itemize}
+
+On the care side, AI helps us:
+
+\begin{itemize}
+\tightlist
+\item
+  Reduce diagnostic disparities by flagging high-risk patients in routine records.
+\item
+  Enable earlier intervention, when lifestyle changes and new therapies can have the most impact.
+\item
+  Scale detection in primary care without adding huge burdens on clinicians.
+\end{itemize}
+
+AI won't replace neurologists or drug developers, but it can make them much more effective. The real win is not a single breakthrough, but a system that's faster, fairer, and more precise.
+
+
+\end{document}

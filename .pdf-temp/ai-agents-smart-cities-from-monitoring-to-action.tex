@@ -1,0 +1,117 @@
+\documentclass[11pt,a4paper,oneside]{memoir}
+
+% Typography + fonts
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Font fallback: use Libertinus if available, otherwise TeX Gyre Pagella.
+\IfFontExistsTF{Libertinus Serif}{
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont{Libertinus Mono}
+}{
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
+}
+
+% Layout (memoir-native)
+\setlrmarginsandblock{1.15in}{1.15in}{*}
+\setulmarginsandblock{1.0in}{1.0in}{*}
+\checkandfixthelayout
+
+% No headers/footers/page numbers
+\pagestyle{empty}
+
+% Paragraph style
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+
+% Pandoc helpers
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+{\Large\bfseries AI agents for smart cities: from monitoring to action\par}
+\vspace{1.25em}
+
+NVIDIA\textquotesingle s latest work on smart city AI agents moves beyond passive monitoring. These aren\textquotesingle t just detection systems scanning camera feeds; they\textquotesingle re active decision-makers that respond to urban incidents in real time.
+
+\subsection{From detection to coordinated response}\label{from-detection-to-coordinated-response}
+
+The core idea is simple but powerful: connect city cameras to AI agents that don\textquotesingle t just flag problems, but act on them. When an agent detects a traffic accident, it doesn\textquotesingle t stop at alerting dispatch---it coordinates the full response:
+
+\begin{itemize}
+\tightlist
+\item
+  Identifies the incident location and severity from video feeds.
+\item
+  Notifies first responders with precise coordinates and context.
+\item
+  Reroutes traffic signals to clear paths for ambulances.
+\item
+  Updates digital signage and navigation apps for drivers.
+\end{itemize}
+
+This orchestration turns scattered city systems into a unified response network.
+
+\subsection{The agent architecture}\label{the-agent-architecture}
+
+Each agent specializes in a domain but collaborates through a central coordinator:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Perception agents:} Analyze camera feeds for accidents, crowds, infrastructure failures.
+\item
+  \textbf{Decision agents:} Prioritize responses based on urgency and available resources.
+\item
+  \textbf{Action agents:} Interface with traffic lights, dispatch systems, public alerts.
+\item
+  \textbf{Learning agents:} Refine detection accuracy and response protocols over time.
+\end{itemize}
+
+Running on NVIDIA hardware, the system processes multiple video streams simultaneously while maintaining low latency for time-critical decisions.
+
+\subsection{Real-world deployment patterns}\label{real-world-deployment-patterns}
+
+Cities aren\textquotesingle t starting from scratch. The agents integrate with existing infrastructure:
+
+\begin{itemize}
+\tightlist
+\item
+  Traffic management systems (signals, VMS boards).
+\item
+  Public safety networks (police, fire dispatch).
+\item
+  Navigation APIs (Waze, Google Maps).
+\item
+  Emergency medical services coordination.
+\end{itemize}
+
+The value compounds: faster response times reduce accident severity, cleared traffic paths save lives, and learned patterns improve future predictions.
+
+\subsection{What scales beyond traffic}\label{what-scales-beyond-traffic}
+
+The same agent architecture applies to other urban challenges:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Crowd management:} Detect unsafe densities at events, suggest dispersal routes.
+\item
+  \textbf{Infrastructure monitoring:} Spot road damage, bridge stress, utility failures.
+\item
+  \textbf{Public safety:} Flag suspicious activity, coordinate multi-agency responses.
+\item
+  \textbf{Environmental response:} Monitor flooding, air quality, deploy mitigation.
+\end{itemize}
+
+Once deployed, agents learn city-specific patterns, making the system smarter without constant human retuning.
+
+
+\end{document}

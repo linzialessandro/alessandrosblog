@@ -1,0 +1,79 @@
+\documentclass[11pt,a4paper,oneside]{memoir}
+
+% Typography + fonts
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Font fallback: use Libertinus if available, otherwise TeX Gyre Pagella.
+\IfFontExistsTF{Libertinus Serif}{
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont{Libertinus Mono}
+}{
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
+}
+
+% Layout (memoir-native)
+\setlrmarginsandblock{1.15in}{1.15in}{*}
+\setulmarginsandblock{1.0in}{1.0in}{*}
+\checkandfixthelayout
+
+% No headers/footers/page numbers
+\pagestyle{empty}
+
+% Paragraph style
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+
+% Pandoc helpers
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+{\Large\bfseries DeepMind and the UK AI Security Institute: making safety more measurable\par}
+\vspace{1.25em}
+
+AI safety can sound like philosophy until it turns into something operational: shared access, shared methods, and shared measurements. That's what stood out in Google DeepMind's announcement about deepening its partnership with the UK AI Security Institute (AISI) through a new Memorandum of Understanding focused on foundational security and safety research.
+
+The key shift is moving beyond ``test the model'' moments toward longer-running research collaboration --- the kind of work that can accumulate into better evaluation tooling over time.
+
+\subsection{What the partnership includes}\label{what-the-partnership-includes}
+
+DeepMind frames the updated partnership around a few practical commitments:
+
+\begin{itemize}
+\tightlist
+\item
+  Sharing access to proprietary models, data, and ideas to accelerate research progress.
+\item
+  Joint reports and publications to share findings with the broader research community.
+\item
+  More collaborative security and safety research and ongoing technical discussions.
+\end{itemize}
+
+This is the boring-but-important infrastructure layer of safety: not just finding issues, but building the machinery to keep finding them.
+
+\subsection{Three areas they'll focus on}\label{three-areas-theyll-focus-on}
+
+The announcement calls out three research directions that feel especially relevant as models become more capable:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Monitoring AI reasoning processes}: techniques for tracking a system's ``thinking,'' often described as chain-of-thought monitoring, to better understand how answers are produced.
+\item
+  \textbf{Social and emotional impacts}: work on ``socioaffective misalignment,'' where a system can follow instructions but still behave in ways that don't align with human wellbeing.
+\item
+  \textbf{Economic systems}: simulating real-world tasks, having experts score them, and using that to reason about longer-term labour market impacts.
+\end{itemize}
+
+None of this is a silver bullet, but it's a sign that frontier AI safety is increasingly treated like an engineering and measurement problem --- something you can improve with better tools, not just better intentions.
+
+
+\end{document}

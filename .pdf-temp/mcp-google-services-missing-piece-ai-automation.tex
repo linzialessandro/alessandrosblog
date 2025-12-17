@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper,oneside]{memoir}
+
+% Typography + fonts
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+
+% Font fallback: use Libertinus if available, otherwise TeX Gyre Pagella.
+\IfFontExistsTF{Libertinus Serif}{
+  \setmainfont{Libertinus Serif}
+  \setsansfont{Libertinus Sans}
+  \setmonofont{Libertinus Mono}
+}{
+  \setmainfont{TeX Gyre Pagella}
+  \setsansfont{TeX Gyre Heros}
+  \setmonofont{TeX Gyre Cursor}
+}
+
+% Layout (memoir-native)
+\setlrmarginsandblock{1.15in}{1.15in}{*}
+\setulmarginsandblock{1.0in}{1.0in}{*}
+\checkandfixthelayout
+
+% No headers/footers/page numbers
+\pagestyle{empty}
+
+% Paragraph style
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55\baselineskip}
+
+% Pandoc helpers
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+{\Large\bfseries MCP for Google services: the missing piece for real AI automation\par}
+\vspace{1.25em}
+
+The big blocker for ``agentic AI'' hasn't been intelligence. It's been \emph{reliable tool use}: how a model can safely read data, call APIs, and take actions without fragile glue code. Google's announcement of official Model Context Protocol (MCP) support for Google services is a practical step toward that future, because it turns huge parts of the Google ecosystem into standardized, discoverable tools for agents.
+
+\subsection{MCP as the connector layer}\label{mcp-as-the-connector-layer}
+
+MCP (Model Context Protocol) is described as a kind of ``USB‑C for AI'': a standard way for models to connect to tools and data. The promise is less about smarter responses and more about completing multi-step tasks in the real world, where answers depend on current data, permissions, and operational constraints.
+
+The pain point Google calls out is that community MCP servers often require developers to install and manage local servers, or deploy open-source solutions themselves, which can be fragile and burdensome. Google's move is to provide fully-managed, remote MCP servers so developers can point their agents (or standard MCP clients) at a consistent endpoint across Google and Google Cloud services.
+
+\subsection{What ``official, managed MCP servers'' changes}\label{what-official-managed-mcp-servers-changes}
+
+This is an automation upgrade disguised as plumbing. Instead of every team wiring their own set of connectors, Google is adding MCP as a unified layer on top of existing API infrastructure.
+
+In practice, it means an agent can do the boring-but-critical parts of work more reliably:
+
+\begin{itemize}
+\tightlist
+\item
+  Discover which tools exist (and what they do) through a standard interface.
+\item
+  Use tools with structured inputs/outputs, instead of scraping text from CLIs.
+\item
+  Operate with enterprise governance instead of ``just trust the prompt.''
+\end{itemize}
+
+\subsection{First services in scope}\label{first-services-in-scope}
+
+Google says MCP support is rolling out incrementally, starting with several high-impact services:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Google Maps}, via Maps Grounding Lite, to ground agents in trusted geospatial data (places, weather forecasts, routing, distance, travel time) and reduce hallucinations on location queries.
+\item
+  \textbf{BigQuery}, to let agents interpret schemas and run queries directly against enterprise data while keeping data in-place and governed (including access to features like forecasting).
+\item
+  \textbf{Compute Engine}, so agents can provision/resize infrastructure and handle day‑2 operations like adapting to changing workloads.
+\item
+  \textbf{GKE}, so agents can interact with Kubernetes APIs through a structured interface (less brittle parsing), enabling diagnosis, remediation, and cost optimization with guardrails.
+\end{itemize}
+
+\subsection{Security and observability: where automation becomes usable}\label{security-and-observability-where-automation-becomes-usable}
+
+Automation only becomes deployable when it's governable. Google highlights a ``find trusted tools + control access'' approach: Cloud API Registry and Apigee API Hub for discovery, Google Cloud IAM for access control, audit logging for observability, and Model Armor to help defend against agentic threats like indirect prompt injection.
+
+That's important because it reframes what an ``agent'' is in an enterprise setting: not a clever model, but a controlled operator that leaves logs, follows permissions, and uses approved tools.
+
+\subsection{The brain shift: from asking to delegating}\label{the-brain-shift-from-asking-to-delegating}
+
+There's a subtle cognitive shift that happens as tools become more reliable. When software is brittle, people keep tasks in their head and use tools as assistants. When tool use becomes robust and standardized, people start thinking in goals and delegations.
+
+MCP pushes in that direction: instead of ``write me a query,'' the task becomes ``find the best retail location,'' and the agent coordinates BigQuery analysis with Maps validation as one workflow. Google even sketches that exact example: an agent built with Agent Development Kit, backed by Gemini 3 Pro, forecasting revenue in BigQuery while cross-referencing Maps to scout nearby businesses and validate routes---all via managed MCP servers.
+
+This is the kind of change that compounds: not because any single model call is magical, but because the cost of connecting intelligence to action keeps dropping.
+
+
+\end{document}
