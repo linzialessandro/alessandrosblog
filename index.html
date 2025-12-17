@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessandro's blog — Publicly collecting what I learn</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alessandro’s blog — Publicly collecting what I learn</title>
+
     <style>
+        /* Base reset */
         * {
             margin: 0;
             padding: 0;
@@ -20,6 +22,7 @@
             --color-border: #e5e5e0;
             --color-accent: #2563eb;
             --color-accent-light: #3b82f6;
+
             --duration: 200ms;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -35,12 +38,14 @@
         }
 
         @media (prefers-color-scheme: dark) {
-            :root {
+            :root:not([data-theme]) {
                 --color-bg: #0d0d0a;
                 --color-surface: #1a1a18;
                 --color-text: #f5f5f0;
                 --color-text-secondary: #a8a8a0;
                 --color-border: #2a2a26;
+                --color-accent: #60a5fa;
+                --color-accent-light: #93c5fd;
             }
         }
 
@@ -49,19 +54,23 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
             background-color: var(--color-bg);
             color: var(--color-text);
             line-height: 1.6;
-            transition: background-color var(--duration) var(--ease),
-                color var(--duration) var(--ease);
+            transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
         }
 
         @media (prefers-reduced-motion: reduce) {
 
             html,
-            body,
-            * {
+            body {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -130,6 +139,16 @@
             outline-offset: 2px;
         }
 
+        /* Section headers */
+        .section-header {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text);
+        }
+
         /* Intro section */
         .intro {
             margin-bottom: 3rem;
@@ -165,16 +184,7 @@
             outline-offset: 2px;
         }
 
-        /* Section headers */
-        .section-header {
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-text);
-        }
-
+        /* Posts section */
         .posts-header {
             margin-bottom: 2rem;
             font-size: 1.5rem;
@@ -313,18 +323,6 @@
             outline-offset: 2px;
         }
 
-        .donate-text-link {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            border-bottom: 1px solid transparent;
-            transition: border-color var(--duration) var(--ease);
-        }
-
-        .donate-text-link:hover {
-            border-bottom-color: var(--color-accent);
-        }
-
         .donate-qr {
             margin: 1.5rem 0 0 0;
             text-align: center;
@@ -431,7 +429,7 @@
         .post-content {
             font-size: 1rem;
             line-height: 1.7;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .post-content h2 {
@@ -441,11 +439,19 @@
             color: var(--color-text);
         }
 
+        .post-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            color: var(--color-text);
+        }
+
         .post-content p {
             margin-bottom: 1.25rem;
         }
 
-        .post-content ul {
+        .post-content ul,
+        .post-content ol {
             margin-bottom: 1.25rem;
             padding-left: 1.5rem;
         }
@@ -464,6 +470,51 @@
             outline-offset: 2px;
         }
 
+        .post-content pre {
+            overflow: auto;
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.03);
+            margin-bottom: 1.25rem;
+        }
+
+        [data-theme="dark"] .post-content pre {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .post-content code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+                monospace;
+            font-size: 0.95em;
+        }
+
+        /* PDF download block (new) */
+        .pdf-download {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+        }
+
+        .pdf-download a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color var(--duration) var(--ease);
+        }
+
+        .pdf-download a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .pdf-download a:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* Post navigation */
         .post-navigation {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -530,7 +581,7 @@
             }
         }
 
-        /* Learning trace accent */
+        /* Accent text */
         .accent-line {
             display: inline-block;
             position: relative;
@@ -549,65 +600,60 @@
             <header>
                 <div class="header-top">
                     <div>
-                        <h1>Alessandro's blog</h1>
+                        <h1>Alessandro’s blog</h1>
                         <p class="subtitle">Publicly collecting what I learn</p>
                     </div>
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
                 </div>
+
+                <div class="section-header">What is this Blog?</div>
+                <section class="intro">
+                    <p>
+                        Every post here is a distilled learning: something I discovered in an article, book, or online
+                        exploration
+                        that shifted my thinking. I process it, reflect, write it down, and share it.
+                    </p>
+                    <p>No gatekeeping. No performance. Just learning in public.</p>
+                    <p>
+                        Want to know more about me? Check out my personal Google site
+                        <a href="https://sites.google.com/view/alessandro-linziihome" target="_blank"
+                            rel="noopener noreferrer">About Alessandro</a>.
+                    </p>
+                    <p>Want to take action and show support? Scroll at the bottom of this page.</p>
+                </section>
             </header>
 
-            <div class="section-header">What is this Blog?</div>
-            <section class="intro">
-                <p>
-                    Every post here is a distilled learning: something I discovered in an article, book, or online
-                    exploration that shifted my thinking. I process it, reflect, write it down, and share it.
-                </p>
-                <p>
-                    No gatekeeping. No performance. Just learning in public.
-                </p>
-                <p>
-                    Want to know more about me? Check out my personal Google site: <a
-                        href="https://sites.google.com/view/alessandro-linzi/home" target="_blank"
-                        rel="noopener noreferrer">About Alessandro</a>.
-                </p>
-                <p>
-                    Want to take action and show support? Scroll at the bottom of this page.
-                </p>
-            </section>
-
             <div class="posts-header">Posts</div>
-            <ul class="posts-list" id="postsList"></ul>
+            <ul class="posts-list" id="postsList" aria-label="Posts list"></ul>
 
             <section class="donate-section" aria-label="Support this blog">
                 <div class="section-header">Take Action, Show Your Support</div>
                 <div class="donate-card">
-
                     <p>
-                        If you've enjoyed these posts and want me to keep learning in public, a small donation helps a
-                        lot—mostly as a signal that this work is worth continuing. I deeply appreciate heartfelt
-                        support, and there's absolutely no pressure to contribute.
+                        If you’ve enjoyed these posts and want me to keep learning in public, a small donation helps a
+                        lot — mostly
+                        as a signal that this work is worth continuing. I deeply appreciate heartfelt support, and
+                        there’s
+                        absolutely no pressure to contribute.
                     </p>
 
                     <div class="donate-actions">
                         <a class="donate-button" href="https://paypal.me/Alessandro3319" target="_blank"
-                            rel="noopener noreferrer" aria-label="Donate via PayPal">
-                            Donate via PayPal
-                        </a>
-
-                        <p>
-                            Or copy/paste this link to your browser: https://paypal.me/Alessandro3319
-                        </p>
+                            rel="noopener noreferrer" aria-label="Donate via PayPal">Donate via PayPal</a>
                     </div>
-                    <p>
-                        Prefer scanning? Use the QR code (it opens the same PayPal link).
-                    </p>
 
-                    <figure class="donate-qr">
-                        <a href="https://paypal.me/Alessandro3319" target="_blank" rel="noopener noreferrer"
-                            aria-label="Open PayPal donation link (QR)">
-                            <img src="Paypal.JPG" alt="PayPal donation QR code" loading="lazy" />
-                        </a>
-                    </figure>
+                    <p>Or copy/paste this link to your browser: https://paypal.me/Alessandro3319</p>
+
+                    <div>
+                        <p>Prefer scanning? Use the QR code — it opens the same PayPal link.</p>
+                        <figure class="donate-qr">
+                            <a href="https://paypal.me/Alessandro3319" target="_blank" rel="noopener noreferrer"
+                                aria-label="Open PayPal donation link (QR)">
+                                <img src="Paypal.JPG" alt="PayPal donation QR code" loading="lazy" />
+                            </a>
+                            <figcaption>PayPal donation QR code</figcaption>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
@@ -622,152 +668,161 @@
         </div>
 
         <!-- Privacy Page -->
-        <div id="privacypage" style="display: none;">
+        <div id="privacypage" style="display: none">
             <a href="#" class="post-nav-back">← Back to home</a>
+
             <article class="post-container">
                 <header class="post-header">
                     <h1>Privacy</h1>
                 </header>
+
                 <div class="post-content">
-                    <p>
-                        This page is strictly informational and does not constitute legal advice.
-                    </p>
+                    <p>This page is strictly informational and does not constitute legal advice.</p>
                     <ul>
-                        <li>
-                            <strong>No analytics or tracking.</strong>
-                            We do not use any analytics or advertising cookies on this site, neither now nor ever in the
-                            future.
-                        </li>
-                        <li>
-                            <strong>Theme preference.</strong>
-                            Your preference for dark or light mode is stored locally on your device using localStorage.
-                        </li>
-                        <li>
-                            <strong>Server logging.</strong>
-                            Our server or content delivery network (e.g., Cloudflare) may log basic request information
-                            such as IP addresses for security and performance purposes.
-                        </li>
-                        <li>
-                            <strong>Contact me info.</strong>
-                            The contact me link directs you to X, a third-party service which operates under its own
-                            privacy policy.
-                        </li>
-                        <li>
-                            <strong>Donations.</strong>
-                            The donation link directs you to PayPal, a third-party service which operates under its own
-                            privacy policy.
-                        </li>
+                        <li><strong>No analytics or tracking.</strong> We do not use any analytics or advertising
+                            cookies on this site, neither now nor ever in the future.</li>
+                        <li><strong>Theme preference.</strong> Your preference for dark or light mode is stored locally
+                            on your device using localStorage.</li>
+                        <li><strong>Server logging.</strong> Our server or content delivery network (e.g., Cloudflare)
+                            may log basic request information such as IP addresses for security and performance
+                            purposes.</li>
+                        <li><strong>Contact me info.</strong> The contact me link directs you to X, a third-party
+                            service which operates under its own privacy policy.</li>
+                        <li><strong>Donations.</strong> The donation link directs you to PayPal, a third-party service
+                            which operates under its own privacy policy.</li>
                     </ul>
                 </div>
             </article>
         </div>
 
-        <!-- Post page (dynamically loaded) -->
-        <div id="postpage" style="display: none;"></div>
+        <!-- Post page dynamically loaded -->
+        <div id="postpage" style="display: none"></div>
     </div>
 
     <script>
-        const POSTS_FILE = 'posts.json';
-        const APP = document.getElementById('app');
-        const HOMEPAGE = document.getElementById('homepage');
-        const POSTPAGE = document.getElementById('postpage');
-        const PRIVACYPAGE = document.getElementById('privacypage');
-        const POSTS_LIST = document.getElementById('postsList');
-        const THEME_TOGGLE = document.getElementById('themeToggle');
+        const POSTSFILE = "posts.json";
+
+        const APP = document.getElementById("app");
+        const HOMEPAGE = document.getElementById("homepage");
+        const POSTPAGE = document.getElementById("postpage");
+        const PRIVACYPAGE = document.getElementById("privacypage");
+        const POSTSLIST = document.getElementById("postsList");
+        const THEMETOGGLE = document.getElementById("themeToggle");
 
         let posts = [];
 
-        // Theme management
+        /* Theme management */
         function initTheme() {
-            const stored = localStorage.getItem('theme');
-            const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const stored = localStorage.getItem("theme");
+            const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
             const theme = stored || system;
             applyTheme(theme);
             updateThemeToggle(theme);
         }
 
         function applyTheme(theme) {
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-            }
-            localStorage.setItem('theme', theme);
+            if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+            else document.documentElement.removeAttribute("data-theme");
+            localStorage.setItem("theme", theme);
         }
 
         function updateThemeToggle(theme) {
-            THEME_TOGGLE.textContent = theme === 'dark' ? '☀️' : '🌙';
+            THEMETOGGLE.textContent = theme === "dark" ? "☀️" : "🌙";
         }
 
-        THEME_TOGGLE.addEventListener('click', () => {
-            const current = localStorage.getItem('theme') || 'light';
-            const next = current === 'dark' ? 'light' : 'dark';
+        THEMETOGGLE.addEventListener("click", () => {
+            const current = localStorage.getItem("theme") || "light";
+            const next = current === "dark" ? "light" : "dark";
             applyTheme(next);
             updateThemeToggle(next);
         });
 
-        // Parse and format dates
-        function formatDate(isoString) {
-            const date = new Date(isoString);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
+        /* Helpers */
+        function escapeHtml(text) {
+            const div = document.createElement("div");
+            div.textContent = text ?? "";
+            return div.innerHTML;
         }
 
+        function getPublishedAt(post) {
+            return post.publishedAt || post.publishedat || "";
+        }
 
+        function getUpdatedAt(post) {
+            return post.updatedAt || post.updatedat || "";
+        }
 
-        // Load posts from JSON
-        // Load posts from JSON
+        function formatDate(isoString) {
+            if (!isoString) return "";
+            const date = new Date(isoString);
+            if (Number.isNaN(date.getTime())) return "";
+            return date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+        }
+
+        function getPdfUrl(slug) {
+            // Fully automatic plan: every post has a printable PDF at /pdfs/<slug>.pdf
+            return `/pdfs/${slug}.pdf`;
+        }
+
+        /* Load posts from JSON (supports both {posts:[...]} and top-level [...]) */
         async function loadPosts() {
             try {
-                const response = await fetch(POSTS_FILE);
-                if (!response.ok) throw new Error(`Failed to load ${POSTS_FILE}`);
+                const response = await fetch(POSTSFILE, { cache: "no-store" });
+                if (!response.ok) throw new Error(`Failed to load ${POSTSFILE}`);
+
                 const data = await response.json();
-                posts = data.posts.sort((a, b) =>
-                    new Date(b.published_at) - new Date(a.published_at)
-                );
+                const arr = Array.isArray(data) ? data : Array.isArray(data?.posts) ? data.posts : [];
+
+                posts = arr
+                    .slice()
+                    .sort((a, b) => new Date(getPublishedAt(b)) - new Date(getPublishedAt(a)));
+
                 renderHomepage();
             } catch (error) {
-                console.error('Error loading posts:', error);
-                POSTS_LIST.innerHTML = '<p>Error loading posts. Please try again later.</p>';
+                console.error("Error loading posts:", error);
+                POSTSLIST.innerHTML = "<p>Error loading posts. Please try again later.</p>";
             }
         }
 
-        // Render homepage
         function renderHomepage() {
-            POSTS_LIST.innerHTML = posts.map(post => `
-        <li class="post-card">
-            <a href="#post/${post.slug}" style="text-decoration: none; color: inherit; display: block;">
-                <div class="post-meta">
-                    <span class="post-date">${formatDate(post.published_at)}</span>
-                    ${post.tags && post.tags.length > 0 ? `
-                        <div class="post-tags">
-                            ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-                <h2 class="post-title">${escapeHtml(post.title)}</h2>
-                <p class="post-summary">${escapeHtml(post.summary)}</p>
-            </a>
-        </li>
-            `).join('');
+            POSTSLIST.innerHTML = posts
+                .map((post) => {
+                    const published = getPublishedAt(post);
+                    const tags = Array.isArray(post.tags) ? post.tags : [];
+
+                    return `
+              <li class="post-card">
+                <a href="#post/${encodeURIComponent(post.slug)}" style="text-decoration:none;color:inherit;display:block;">
+                  <div class="post-meta">
+                    <span class="post-date">${formatDate(published)}</span>
+                    ${tags.length
+                            ? `<div class="post-tags">${tags.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>`
+                            : ""
+                        }
+                  </div>
+                  <h2 class="post-title">${escapeHtml(post.title)}</h2>
+                  <p class="post-summary">${escapeHtml(post.summary)}</p>
+                </a>
+              </li>
+            `;
+                })
+                .join("");
         }
 
-        // Load and render post page
         async function loadPostPage(slug) {
-            const post = posts.find(p => p.slug === slug);
+            const post = posts.find((p) => p.slug === slug);
+
             if (!post) {
-                POSTPAGE.innerHTML = '<p>Post not found.</p>';
+                POSTPAGE.innerHTML = "<p>Post not found.</p>";
                 return;
             }
 
             try {
-                let content = post.content || '';
+                let content = post.content;
+
                 if (!content) {
-                    const response = await fetch(`posts/${slug}.html`);
-                    if (!response.ok) throw new Error(`Post file not found`);
+                    const response = await fetch(`posts/${slug}.html`, { cache: "no-store" });
+                    if (!response.ok) throw new Error("Post file not found");
                     content = await response.text();
                 }
 
@@ -775,76 +830,96 @@
                 const prevPost = postIndex < posts.length - 1 ? posts[postIndex + 1] : null;
                 const nextPost = postIndex > 0 ? posts[postIndex - 1] : null;
 
+                const published = getPublishedAt(post);
+                const updated = getUpdatedAt(post);
+                const pdfUrl = getPdfUrl(slug);
+
                 POSTPAGE.innerHTML = `
             <a href="#" class="post-nav-back">← Back to posts</a>
+
             <article class="post-container">
-                <header class="post-header">
-                    <h1>${escapeHtml(post.title)}</h1>
-                    <div class="post-info">
-                        <span>Published ${formatDate(post.published_at)}</span>
-                        ${post.updated_at ? `<span>Updated ${formatDate(post.updated_at)}</span>` : ''}
-                    </div>
-                </header>
-                <div class="post-content">
-                    ${post.content || content}
+              <header class="post-header">
+                <h1>${escapeHtml(post.title)}</h1>
+                <div class="post-info">
+                  <span>Published ${formatDate(published)}</span>
+                  ${updated ? `<span>Updated ${formatDate(updated)}</span>` : ""}
                 </div>
+              </header>
+
+              <div class="post-content">
+                ${content}
+                <p class="pdf-download">
+                  <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">
+                    Download a printable version of this article (PDF).
+                  </a>
+                </p>
+              </div>
             </article>
-            <nav class="post-navigation">
-                ${prevPost ? `
-                    <a href="#post/${prevPost.slug}" class="nav-item">
-                        <div class="nav-label">← Previous</div>
-                        <div class="nav-title">${escapeHtml(prevPost.title)}</div>
+
+            <nav class="post-navigation" aria-label="Post navigation">
+              ${prevPost
+                        ? `
+                    <a href="#post/${encodeURIComponent(prevPost.slug)}" class="nav-item">
+                      <div class="nav-label">Previous</div>
+                      <div class="nav-title">${escapeHtml(prevPost.title)}</div>
                     </a>
-                ` : `<div class="nav-item disabled"></div>`}
-                ${nextPost ? `
-                    <a href="#post/${nextPost.slug}" class="nav-item">
-                        <div class="nav-label">Next →</div>
-                        <div class="nav-title">${escapeHtml(nextPost.title)}</div>
+                  `
+                        : `<div class="nav-item disabled"><div class="nav-label">Previous</div><div class="nav-title">—</div></div>`
+                    }
+
+              ${nextPost
+                        ? `
+                    <a href="#post/${encodeURIComponent(nextPost.slug)}" class="nav-item">
+                      <div class="nav-label">Next</div>
+                      <div class="nav-title">${escapeHtml(nextPost.title)}</div>
                     </a>
-                ` : `<div class="nav-item disabled"></div>`}
+                  `
+                        : `<div class="nav-item disabled"><div class="nav-label">Next</div><div class="nav-title">—</div></div>`
+                    }
             </nav>
-        </div>
-                `;
+          `;
+
+                window.scrollTo(0, 0);
             } catch (error) {
-                console.error('Error loading post:', error);
-                POSTPAGE.innerHTML = '<p>Error loading post.</p>';
+                console.error("Error loading post:", error);
+                POSTPAGE.innerHTML = "<p>Error loading post.</p>";
             }
         }
 
-        // Route handling
+        /* Routing */
         function handleRoute() {
             const hash = window.location.hash.slice(1);
-            if (hash.startsWith('post/')) {
-                const slug = hash.substring(5);
-                HOMEPAGE.style.display = 'none';
-                POSTPAGE.style.display = 'block';
-                PRIVACYPAGE.style.display = 'none';
+
+            if (hash.startsWith("post/")) {
+                const slug = decodeURIComponent(hash.substring(5));
+                HOMEPAGE.style.display = "none";
+                PRIVACYPAGE.style.display = "none";
+                POSTPAGE.style.display = "block";
                 loadPostPage(slug);
-            } else if (hash === 'privacy') {
-                HOMEPAGE.style.display = 'none';
-                POSTPAGE.style.display = 'none';
-                PRIVACYPAGE.style.display = 'block';
-                window.scrollTo(0, 0);
-            } else {
-                HOMEPAGE.style.display = 'block';
-                POSTPAGE.style.display = 'none';
-                PRIVACYPAGE.style.display = 'none';
+                return;
             }
+
+            if (hash === "privacy") {
+                HOMEPAGE.style.display = "none";
+                POSTPAGE.style.display = "none";
+                PRIVACYPAGE.style.display = "block";
+                window.scrollTo(0, 0);
+                return;
+            }
+
+            HOMEPAGE.style.display = "block";
+            POSTPAGE.style.display = "none";
+            PRIVACYPAGE.style.display = "none";
         }
 
-        // Escape HTML to prevent injection
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // Initialize
-        window.addEventListener('hashchange', handleRoute);
+        /* Init */
+        window.addEventListener("hashchange", handleRoute);
         initTheme();
         loadPosts();
         handleRoute();
     </script>
+
+    <!-- reference: [file:4] -->
 </body>
 
 </html>
