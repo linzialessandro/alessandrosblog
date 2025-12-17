@@ -29,7 +29,7 @@
     {
       "title": "When AI learns how to learn: DiscoRL and the automation of RL algorithms",
       "slug": "when-ai-learns-how-to-learn-discorl-automating-rl-algorithms",
-      "published_at": "2025-12-15T16:48:00+01:00",
+      "publishedAt": "2025-12-15T16:48:00+01:00",
       "summary": "Reinforcement learning has powered many of the biggest AI milestones, but the learning rules behind it are still mostly hand-designed. A new Nature paper shows a different path: let machines discover the learning rule itself, by meta-learning from the experience of many agents across many environments. The result is a discovered rule (DiscoRL) that beats existing learning rules on Atari and transfers surprisingly well to other benchmarks it never saw during discovery. The interesting shift is not a single benchmark win, but a change in how progress could happen.",
       "tags": [
         "AI",
@@ -42,7 +42,7 @@
     {
       "title": "Perplexity at Work: a simple model for getting more done",
       "slug": "perplexity-at-work-simple-model-get-more-done",
-      "published_at": "2025-12-15T09:00:00+01:00",
+      "publishedAt": "2025-12-15T09:00:00+01:00",
       "summary": "Perplexity at Work argues AI productivity fails less from weak models and more from fragmented workflows. It proposes a three-step approach: reclaim focus by reducing context switching, scale your output with integrated research/creation tools, then convert that leverage into measurable results through repeatable automations like shortcuts and scheduled tasks.",
       "tags": [
         "AI",
@@ -55,7 +55,7 @@
     {
       "title": "MCP for Google services: the missing piece for real AI automation",
       "slug": "mcp-google-services-missing-piece-ai-automation",
-      "published_at": "2025-12-14T14:00:00+01:00",
+      "publishedAt": "2025-12-14T14:00:00+01:00",
       "summary": "Google is rolling out fully-managed, remote MCP servers so AI agents can reliably use Google Cloud and Google services as tools. The shift is subtle but big: models stop being just “smart text” and become systems that can plan and act across real infrastructure with governance.",
       "tags": [
         "AI",
@@ -68,7 +68,7 @@
     {
       "title": "AI agents for smart cities: from monitoring to action",
       "slug": "ai-agents-smart-cities-from-monitoring-to-action",
-      "published_at": "2025-12-14T10:00:00+01:00",
+      "publishedAt": "2025-12-14T10:00:00+01:00",
       "summary": "NVIDIA's AI agents go beyond monitoring city cameras—they actively respond to incidents, reroute traffic, and coordinate emergency responses in real time.",
       "tags": [
         "AI",
@@ -80,7 +80,7 @@
     {
       "title": "Codex: the self-improving AI coding agent",
       "slug": "codex-self-improving-ai-coding-agent",
-      "published_at": "2025-12-14T09:00:00+01:00",
+      "publishedAt": "2025-12-14T09:00:00+01:00",
       "summary": "OpenAI's Codex isn't just a coding assistant—it's a cloud-based agent that writes, debugs, and improves itself. Four engineers built the Sora Android app in under a month using it.",
       "tags": [
         "AI",
@@ -92,7 +92,7 @@
     {
       "title": "WeatherNext 2: Trying to Make the Atmosphere Less Chaotic (for Us)",
       "slug": "weathernext-2-trying-to-make-the-atmosphere-less-chaotic",
-      "published_at": "2025-12-09T09:15:00+01:00",
+      "publishedAt": "2025-12-09T09:15:00+01:00",
       "summary": "Google DeepMind’s WeatherNext 2 pushes global AI forecasting toward hourly resolution, runs up to 8× faster, and can generate hundreds of coherent scenarios—useful when the worst-case path matters more than the average.",
       "tags": [
         "AI",
@@ -104,7 +104,7 @@
     {
       "title": "AI and Alzheimer’s: not a cure, but a smarter way to fight",
       "slug": "ai-and-alzheimers-not-a-cure-but-a-smarter-way-to-fight",
-      "published_at": "2025-12-11T09:00:00+01:00",
+      "publishedAt": "2025-12-11T09:00:00+01:00",
       "summary": "AI isn’t curing Alzheimer’s yet, but it’s already changing how we find and test treatments. Two recent examples show how AI can match the right patients to the right drugs and uncover hidden cases in routine health records.",
       "tags": [
         "AI",
@@ -116,7 +116,7 @@
     {
       "title": "El Salvador’s Nationwide AI Tutoring Program: What’s Been Announced",
       "slug": "el-salvador-nationwide-ai-tutoring-program-whats-been-announced",
-      "published_at": "2025-12-12T10:30:00+01:00",
+      "publishedAt": "2025-12-12T10:30:00+01:00",
       "summary": "El Salvador and xAI announced a two-year plan to roll out Grok-based tutoring across 5,000+ public schools, aiming to reach over one million students and support teachers with curriculum-aligned, adaptive help.",
       "tags": [
         "AI",
@@ -128,7 +128,7 @@
     {
       "title": "Perplexity Memory: Personalization Without Repeating Yourself",
       "slug": "perplexity-memory-personalization-without-repeating-yourself",
-      "published_at": "2025-12-05T14:45:00+01:00",
+      "publishedAt": "2025-12-05T14:45:00+01:00",
       "summary": "Perplexity’s new memory layer makes AI assistants feel continuous across sessions: it can recall preferences, preload relevant context, and keep personalization even when switching models—while staying user-controlled and optional.",
       "tags": [
         "AI",
@@ -140,7 +140,7 @@
     {
       "title": "How People Actually Use AI Agents (It’s Mostly Cognitive Work)",
       "slug": "how-people-actually-use-ai-agents-mostly-cognitive-work",
-      "published_at": "2025-12-11T16:20:00+01:00",
+      "publishedAt": "2025-12-11T16:20:00+01:00",
       "summary": "A December 2025 study from Perplexity and Harvard researchers suggests AI agents are used more as thinking partners than digital concierges, with 57% of activity focused on productivity/workflow and learning/research.",
       "tags": [
         "AI",
@@ -152,7 +152,7 @@
     {
       "title": "AI Fluency: A Better Way to Work with AI (Beyond Prompt Hacks)",
       "slug": "ai-fluency-better-way-to-work-with-ai-beyond-prompt-hacks",
-      "published_at": "2025-12-07T11:00:00+01:00",
+      "publishedAt": "2025-12-07T11:00:00+01:00",
       "summary": "Anthropic’s free AI Fluency course shifts the focus from prompt tricks to a durable collaboration framework built around the “4Ds”: Delegation, Description, Discernment, and Diligence.",
       "tags": [
         "AI",
@@ -164,7 +164,7 @@
     {
       "title": "The Illusion of Thinking: What Reasoning Models Get Right (and Where They Break)",
       "slug": "illusion-of-thinking-reasoning-models-problem-complexity",
-      "published_at": "2025-12-10T15:10:00+01:00",
+      "publishedAt": "2025-12-10T15:10:00+01:00",
       "summary": "A NeurIPS 2025 paper argues that “reasoning” models don’t fail gracefully: performance can collapse past a complexity threshold, and extra token budget doesn’t automatically buy better thinking.",
       "tags": [
         "AI",
@@ -176,7 +176,7 @@
     {
       "title": "Exploring Quantum Chaos: The Power of OTOCs",
       "slug": "exploring-quantum-chaos-otocs",
-      "published_at": "2025-11-29T13:40:00+01:00",
+      "publishedAt": "2025-11-29T13:40:00+01:00",
       "summary": "A look at Out-of-Time-Order Correlators (OTOCs), why they’re a useful lens on quantum chaos, and how Google’s Quantum Echoes experiments connect verifiable outputs with beyond-classical computation.",
       "tags": [
         "Quantum Computing",
@@ -188,7 +188,7 @@
     {
       "title": "Project Suncatcher: Pioneering Space-Based AI Infrastructure",
       "slug": "project-suncatcher-pioneering-space-based-ai-infrastructure",
-      "published_at": "2025-11-27T09:55:00+01:00",
+      "publishedAt": "2025-11-27T09:55:00+01:00",
       "summary": "Project Suncatcher is a research moonshot exploring solar-powered satellite constellations equipped with TPUs and ultra-fast optical links to one day scale AI compute in space.",
       "tags": [
         "AI",
@@ -200,7 +200,7 @@
     {
       "title": "Unraveling Consciousness: The Urgent Scientific Quest in the Age of AI",
       "slug": "unraveling-consciousness-urgent-scientific-quest-age-of-ai",
-      "published_at": "2025-11-21T10:30:00+01:00",
+      "publishedAt": "2025-11-21T10:30:00+01:00",
       "summary": "Researchers argue consciousness science has become urgent as AI and neurotechnology accelerate, with major implications for medicine, ethics, law, and how society defines moral responsibility.",
       "tags": [
         "AI",
@@ -212,7 +212,7 @@
     {
       "title": "Ax-Prover: Revolutionizing Automated Theorem Proving with Multi-Agent Systems",
       "slug": "ax-prover-revolutionizing-automated-theorem-proving-multi-agent-systems",
-      "published_at": "2025-11-24T11:25:00+01:00",
+      "publishedAt": "2025-11-24T11:25:00+01:00",
       "summary": "Ax-Prover is a multi-agent system that combines LLM reasoning with Lean verification via MCP, delivering formally validated proofs and strong results across math and quantum-physics benchmarks.",
       "tags": [
         "AI",
@@ -224,7 +224,7 @@
     {
       "title": "Revolutionizing Life Sciences with Claude: From Discovery to Market",
       "slug": "revolutionizing-life-sciences-with-claude",
-      "published_at": "2025-12-02T15:00:00+01:00",
+      "publishedAt": "2025-12-02T15:00:00+01:00",
       "summary": "Notes on Anthropic’s “Claude for Life Sciences”: better benchmark performance, connectors into core lab tools, and agent-like skills aimed at making research workflows less painful.",
       "tags": [
         "AI",
@@ -236,7 +236,7 @@
     {
       "title": "Advancing Science and Math with GPT-5.2",
       "slug": "advancing-science-math-gpt-5-2",
-      "published_at": "2025-12-13T12:45:00+01:00",
+      "publishedAt": "2025-12-13T12:45:00+01:00",
       "summary": "How GPT-5.2 Pro and Thinking are transforming scientific research with unprecedented mathematical reasoning and problem-solving capabilities.",
       "tags": [
         "AI",
