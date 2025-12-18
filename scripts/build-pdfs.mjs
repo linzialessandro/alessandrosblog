@@ -14,7 +14,6 @@ function getPublishedAt(post) {
 }
 
 function normalizePostsJson(data) {
-  // Accept either { "posts": [...] } or top-level [...]
   if (Array.isArray(data)) return data;
   if (Array.isArray(data?.posts)) return data.posts;
   return [];
@@ -22,12 +21,10 @@ function normalizePostsJson(data) {
 
 function stripReadMoreParagraphs(html) {
   if (!html) return "";
-  // Remove paragraphs starting with “Read more here …” (case-insensitive)
   return html.replace(/<p[^>]*>\s*read more here[\s\S]*?<\/p>/gi, "");
 }
 
 function latexEscapeTitle(s) {
-  // Only used for the title (Pandoc generates LaTeX for the body).
   return (s ?? "")
     .replace(/\\/g, "\\textbackslash{}")
     .replace(/[{]/g, "\\{")
@@ -42,8 +39,6 @@ function latexEscapeTitle(s) {
 }
 
 function toLatexBodyViaPandoc(html) {
-  // Convert HTML fragment -> LaTeX fragment.
-  // --no-highlight avoids extra LaTeX highlighting deps.
   return execSync("pandoc -f html -t latex --wrap=none --no-highlight", {
     input: html,
     encoding: "utf-8",
@@ -51,13 +46,12 @@ function toLatexBodyViaPandoc(html) {
 }
 
 function memoirDoc({ title, bodyLatex }) {
-  // IMPORTANT: no fontspec here. We use TeX Live font packages (robust).
   return String.raw`\documentclass[11pt,a4paper,oneside]{memoir}
 
 % Fonts (robust: no fontspec / no OS font discovery)
 \usepackage[T1]{fontenc}
-\usepackage{tgpagella}     % TeX Gyre Pagella via LaTeX package
-\usepackage{inconsolata}   % nice monospace
+\usepackage{tgpagella}
+\usepackage{inconsolata}
 \usepackage{microtype}
 
 % Layout (memoir-native)
@@ -95,12 +89,12 @@ function main() {
 
   posts.sort((a, b) => new Date(getPublishedAt(b)) - new Date(getPublishedAt(a)));
 
-  console.log(`Found ${posts.length} posts. Generating PDFs...\n`);
+  console.log(`Found ${posts.length} posts. Generating missing PDFs only...\n`);
 
-  // Build workspace with NO spaces (OS temp dir), then copy PDFs back into repo/pdf/
   const baseTmp = fs.mkdtempSync(path.join(os.tmpdir(), "alessandrosblog-pdf-"));
 
   let ok = 0;
+  let skipped = 0;
   let fail = 0;
 
   for (const post of posts) {
@@ -113,12 +107,20 @@ function main() {
       continue;
     }
 
+    const outPdf = path.join(PDFS_DIR, `${slug}.pdf`);
+
+    // Skip rule: if the PDF already exists, do nothing.
+    if (fs.existsSync(outPdf)) {
+      console.log(`Skipping: ${slug}.pdf (already exists)\n`);
+      skipped++;
+      continue;
+    }
+
     console.log(`Building: ${slug}.pdf`);
 
     const jobDir = fs.mkdtempSync(path.join(baseTmp, `${slug}-`));
     const texPath = path.join(jobDir, `${slug}.tex`);
     const pdfPath = path.join(jobDir, `${slug}.pdf`);
-    const outPdf = path.join(PDFS_DIR, `${slug}.pdf`);
 
     try {
       const filteredHtml = stripReadMoreParagraphs(contentHtml);
@@ -127,7 +129,6 @@ function main() {
 
       fs.writeFileSync(texPath, fullTex, "utf-8");
 
-      // Compile in jobDir so xelatex never sees a path with spaces.
       execFileSync("xelatex", ["-halt-on-error", "-interaction=nonstopmode", `${slug}.tex`], {
         cwd: jobDir,
         stdio: "inherit",
@@ -145,7 +146,7 @@ function main() {
     }
   }
 
-  console.log(`Done. ${ok} PDFs created, ${fail} failed.`);
+  console.log(`Done. ${ok} PDFs created, ${skipped} skipped, ${fail} failed.`);
   if (fail > 0) process.exitCode = 1;
 }
 
