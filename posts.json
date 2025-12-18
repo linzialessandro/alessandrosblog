@@ -3,7 +3,7 @@
     {
       "title": "Guardrails for when AI gets personal",
       "slug": "guardrails-for-when-ai-gets-personal",
-      "publishedAt": "2025-12-18T213700+0100",
+      "publishedAt": "2025-12-18T21:37:00+01:00",
       "summary": "AI safety is easy to discuss and hard to operationalize. Anthropic’s latest update is interesting because it focuses on shipped safeguards and how they measure whether those safeguards work, especially in emotionally loaded conversations. The post centers on two areas: handling suicide and self-harm topics with care, and reducing sycophancy (the model telling users what they want to hear). The bigger point is that “helpful” isn’t only about better answers, it’s also about preventing predictable failure modes. This is my short take on what stood out.",
       "tags": [
         "AI",
