@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "Guardrails for when AI gets personal",
+      "slug": "guardrails-for-when-ai-gets-personal",
+      "publishedAt": "2025-12-18T213700+0100",
+      "summary": "AI safety is easy to discuss and hard to operationalize. Anthropic’s latest update is interesting because it focuses on shipped safeguards and how they measure whether those safeguards work, especially in emotionally loaded conversations. The post centers on two areas: handling suicide and self-harm topics with care, and reducing sycophancy (the model telling users what they want to hear). The bigger point is that “helpful” isn’t only about better answers, it’s also about preventing predictable failure modes. This is my short take on what stood out.",
+      "tags": [
+        "AI",
+        "Safety",
+        "Evaluation",
+        "Anthropic"
+      ],
+      "content": "<p>AI safety gets abstract quickly, so it’s refreshing when a lab talks about the boring part: what they actually built, how they tested it, and where it still falls short.</p><p>Anthropic’s update is focused on user well-being in conversations where the stakes are real. The theme running through it is practical: combine training, product interventions, and evaluations that match messy real-world usage.</p><h2>When the topic is self-harm</h2><p>The core idea is simple: a chatbot shouldn’t act like a therapist, but it also shouldn’t respond coldly or carelessly when someone is struggling. The post describes a mix of model behavior shaping and product-level safeguards designed to route people toward human support when needed.</p><p>What matters here is not just having a policy, but having mechanisms that trigger reliably in ambiguous situations, where intent can be unclear and the conversation can drift over time.</p><h2>Measuring the hard cases</h2><p>One point worth highlighting is how they evaluate: single-turn prompts, multi-turn scenarios, and stress tests that start mid-conversation. That last category is especially important because many failures happen after the model has already “committed” to a tone or framing and has to course-correct without escalating the situation.</p><p>This is the right direction for safety evaluation: less about cherry-picked prompts, more about dynamics across time and uncertainty.</p><h2>Sycophancy is a safety issue</h2><p>The other half of the update focuses on sycophancy: the tendency to be overly agreeable, flattering, or to mirror the user even when it’s not true or helpful. In normal contexts it’s annoying; in reality-disconnected contexts it can actively reinforce bad outcomes.</p><p>The interesting tension is that warmth and friendliness can be a feature, but if it comes at the expense of truth-seeking and gentle pushback, it turns into a reliability problem.</p><p>Read more here: <a href=\"https://www.anthropic.com/news/protecting-well-being-of-users\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.anthropic.com/news/protecting-well-being-of-users</a></p>"
+    },
+    {
       "title": "Verified AI is the opposite of vibes",
       "slug": "verified-ai-is-the-opposite-of-vibes",
       "publishedAt": "2025-12-18T15:00:00+01:00",
