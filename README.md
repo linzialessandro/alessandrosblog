@@ -15,3 +15,16 @@ To view the blog locally, you can serve the directory using a simple HTTP server
 ```bash
 python3 -m http.server 8000
 ```
+
+## Tools
+
+This repository includes custom tools to help maintain and validate the blog data.
+
+### blogq
+
+Located in `tools/blogq`, this is a Python-based utility for validating `posts.json` against a JSON schema and performing semantic checks on the blog posts.
+
+To install and use `blogq`:
+1. Navigate to `tools/blogq`.
+2. Install the package in editable mode: `pip install -e .`.
+3. Run the tool: `blogq --help`.
