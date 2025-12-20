@@ -8,7 +8,7 @@ A minimalist static blog for sharing insights on AI, technology, and learning. B
 
 This is a lightweight, static blog that prioritizes:
 - **Performance**: No frameworks, no build steps for the main site
-- **Privacy**: No tracking, no analytics, no cookies
+- **Privacy**: No tracking, no cookies
 - **Simplicity**: Pure HTML/CSS/JS with a clean, readable design
 - **Quality**: Automated validation and semantic checks for content
 
