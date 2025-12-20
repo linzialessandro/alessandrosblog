@@ -92,8 +92,20 @@ Always run `blogq check posts.json` before committing changes.
 
 ## Contributing
 
-This is a personal blog, but if you notice any issues or have suggestions, feel free to open an issue.
+**Contributions are welcome!** 🎉
+
+This blog is now open source, and I encourage contributions from the community. Whether you want to:
+- Fix typos or improve content clarity
+- Suggest new features or improvements
+- Report bugs or issues
+- Enhance the tooling or build process
+
+Feel free to open an issue or submit a pull request on [GitHub](https://github.com/linzialessandro/alessandrosblog).
+
+If you'd like to build a similar blog using this codebase, you're welcome to do so under the MIT license.
 
 ## License
 
-Content © Alessandro Linzi. Code is available for reference and learning purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Content © Alessandro Linzi.
