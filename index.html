@@ -918,9 +918,11 @@
 
         /* Init */
         window.addEventListener("hashchange", handleRoute);
-        initTheme();
-        loadPosts();
-        handleRoute();
+        (async () => {
+            await initTheme();
+            await loadPosts();
+            handleRoute();
+        })();
     </script>
 
     <!-- reference: [file:4] -->
