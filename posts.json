@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "Continuous Efficiency: AI as a daily habit for greener software",
+      "slug": "continuous-efficiency-ai-greener-software",
+      "publishedAt": "2025-12-21T19:05:00+01:00",
+      "summary": "Sustainability rarely wins sprint planning, but efficiency always matters. Continuous Efficiency is an attempt to make energy-aware optimization incremental, automated, and part of everyday development.",
+      "tags": [
+        "AI",
+        "Sustainability",
+        "Green Software",
+        "GitHub"
+      ],
+      "content": "<p>When was the last time someone asked in a standup: <em>“How could we do this more sustainably?”</em> I don’t hear it often—not because developers don’t care, but because time is scarce and the backlog is loud.</p><p>The GitHub Next and GitHub Sustainability teams propose a framing that feels more actionable: treat sustainability as <strong>efficiency</strong>. Faster code, less waste, fewer resources burned. Their name for the practice is <em>Continuous Efficiency</em>: incremental, validated improvements that accumulate over time instead of arriving as a big “green refactor” that never gets scheduled.</p><h2>Why “continuous” is the point</h2><p>Most teams already have habits that run continuously: tests, linters, formatting, security checks, CI. Continuous Efficiency tries to join that family. The promise is not magic optimization; it’s that small improvements can happen regularly, be measured, and be reviewed—so the codebase gently trends toward being cheaper to run and easier to maintain.</p><h2>Where AI fits</h2><p>The key enabling idea is combining Continuous AI (automation enriched by modern LLMs inside collaboration workflows) with Green Software practices (building systems that are more energy-efficient and typically more performant and resilient). In the best case, this turns sustainability from “extra work” into “default behavior”.</p><h2>Agentic workflows as a delivery mechanism</h2><p>One concrete implementation discussed is an experimental approach called Agentic Workflows running in GitHub Actions. The interesting part is authoring: instead of writing traditional automation logic, you describe intent in natural language inside a Markdown file, then compile it into a standard workflow. At runtime an agent can inspect repository context, propose changes, and surface them through familiar collaboration artifacts like comments and pull requests—while staying within the guardrails of the platform.</p><h2>Standards, rules, and performance work</h2><p>Two directions stand out. First, turning standards into executable rules: describe what “good” looks like, then apply it across a codebase more broadly than conventional pattern-based tooling. Second, performance improvement in heterogeneous real-world repos: an iterative approach where an agent can discover how to build and benchmark a project, run measurements, and propose targeted optimizations under human guidance.</p><p>I like this because it doesn’t pretend expertise disappears. Instead, it tries to scale it: making improvements easier to start, easier to validate, and easier to repeat—so teams can keep learning in public, but also keep their software lean.</p>\n\n<p><strong>Contributor:</strong> Alessandro Linzi</p>\n\n<p>Read more here: <a href=\"https://github.blog/news-insights/policy-news-and-insights/the-future-of-ai-powered-software-optimization-and-how-it-can-help-your-team/\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub Blog</a></p>"
+    },
+    {
       "title": "Bloom is a factory for behavioral evaluations",
       "slug": "bloom-factory-for-behavioral-evaluations",
       "publishedAt": "2025-12-21T13:28:00+01:00",
