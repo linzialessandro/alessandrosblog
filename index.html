@@ -590,6 +590,193 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Compact filter UI */
+        .posts-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-controls-compact {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .filter-button {
+            padding: 0.5rem 0.75rem;
+            background-color: var(--color-surface);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: inherit;
+            font-weight: 500;
+            transition: all var(--duration) var(--ease);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .filter-button:hover {
+            border-color: var(--color-accent);
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .filter-button:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        .filter-badge {
+            font-size: 0.75rem;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .clear-filters-compact {
+            padding: 0.25rem 0.5rem;
+            background: none;
+            border: none;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: inherit;
+            text-decoration: underline;
+            transition: color var(--duration) var(--ease);
+        }
+
+        .clear-filters-compact:hover {
+            color: var(--color-accent);
+        }
+
+        .filter-count-compact {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Filter popover */
+        .filter-popover {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            width: 320px;
+            max-width: calc(100vw - 2rem);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        [data-theme="dark"] .filter-popover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .filter-popover-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .tag-search {
+            width: 100%;
+            padding: 0.5rem;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: border-color var(--duration) var(--ease);
+        }
+
+        .tag-search:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .tag-search::placeholder {
+            color: var(--color-text-secondary);
+        }
+
+        .filter-chips {
+            padding: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            display: inline-block;
+            font-size: 0.85rem;
+            padding: 0.5rem 0.75rem;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            border-radius: 6px;
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            transition: all var(--duration) var(--ease);
+            font-family: inherit;
+        }
+
+        .filter-chip:hover {
+            border-color: var(--color-accent);
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .filter-chip:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        .filter-chip.selected {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .filter-popover-footer {
+            padding: 1rem;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .clear-filters-button {
+            padding: 0.5rem 1rem;
+            background-color: var(--color-surface);
+            color: var(--color-text-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: inherit;
+            transition: all var(--duration) var(--ease);
+        }
+
+        .clear-filters-button:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .clear-filters-button:focus-visible {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        /* Position container for popover */
+        .filter-controls-compact {
+            position: relative;
+        }
     </style>
 </head>
 
@@ -623,7 +810,31 @@
                 </section>
             </header>
 
-            <div class="posts-header">Posts</div>
+            <!-- Compact filter controls -->
+            <div class="posts-header-row">
+                <div class="posts-header">Posts</div>
+                <div class="filter-controls-compact">
+                    <button id="filterButton" class="filter-button" aria-expanded="false" aria-controls="filterPopover">
+                        Filter<span id="filterBadge" class="filter-badge" style="display: none;"></span>
+                    </button>
+                    <button id="clearFiltersCompact" class="clear-filters-compact" style="display: none;"
+                        aria-label="Clear all filters">Clear</button>
+                    <span id="filterCountCompact" class="filter-count-compact" aria-live="polite"></span>
+
+                    <!-- Filter popover -->
+                    <div id="filterPopover" class="filter-popover" style="display: none;" role="dialog"
+                        aria-label="Filter posts by tags">
+                        <div class="filter-popover-header">
+                            <input type="text" id="tagSearch" class="tag-search" placeholder="Search tags…"
+                                aria-label="Search tags">
+                        </div>
+                        <div id="filterChips" class="filter-chips"></div>
+                        <div class="filter-popover-footer">
+                            <button id="clearFiltersPopover" class="clear-filters-button">Clear filters</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <ul class="posts-list" id="postsList" aria-label="Posts list"></ul>
 
             <section class="donate-section" aria-label="Support this blog">
@@ -712,8 +923,20 @@
         const PRIVACYPAGE = document.getElementById("privacypage");
         const POSTSLIST = document.getElementById("postsList");
         const THEMETOGGLE = document.getElementById("themeToggle");
+        const FILTERBUTTON = document.getElementById("filterButton");
+        const FILTERBADGE = document.getElementById("filterBadge");
+        const FILTERPOPOVER = document.getElementById("filterPopover");
+        const FILTERCHIPS = document.getElementById("filterChips");
+        const TAGSEARCH = document.getElementById("tagSearch");
+        const CLEARFILTERSCOMPACT = document.getElementById("clearFiltersCompact");
+        const CLEARFILTERSPOPOVER = document.getElementById("clearFiltersPopover");
+        const FILTERCOUNTCOMPACT = document.getElementById("filterCountCompact");
 
         let posts = [];
+        let allTags = new Set();
+        let selectedTags = new Set();
+        let isPopoverOpen = false;
+        let tagSearchQuery = "";
 
         /* Theme management */
         function initTheme() {
@@ -768,6 +991,160 @@
             return `/pdfs/${slug}.pdf`;
         }
 
+        /* Tag filtering functions */
+        function extractAllTags() {
+            const tags = new Set();
+            posts.forEach(post => {
+                if (Array.isArray(post.tags)) {
+                    post.tags.forEach(tag => tags.add(tag));
+                }
+            });
+            return Array.from(tags).sort();
+        }
+
+        function loadFiltersFromHash() {
+            const hash = window.location.hash.slice(1);
+            if (hash.startsWith("tags=")) {
+                const tagsParam = hash.substring(5);
+                return tagsParam.split(",").filter(t => t.trim());
+            }
+            return null;
+        }
+
+        function loadFiltersFromLocalStorage() {
+            try {
+                const stored = localStorage.getItem("selectedTags");
+                return stored ? JSON.parse(stored) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveFiltersToHash() {
+            if (selectedTags.size > 0) {
+                const tagsParam = Array.from(selectedTags).join(",");
+                window.location.hash = `tags=${tagsParam}`;
+            } else {
+                window.location.hash = "";
+            }
+        }
+
+        function saveFiltersToLocalStorage() {
+            try {
+                localStorage.setItem("selectedTags", JSON.stringify(Array.from(selectedTags)));
+            } catch (e) {
+                console.warn("Could not save filters to localStorage", e);
+            }
+        }
+
+        /* Popover control */
+        function openFilterPopover() {
+            isPopoverOpen = true;
+            FILTERPOPOVER.style.display = "block";
+            FILTERBUTTON.setAttribute("aria-expanded", "true");
+            TAGSEARCH.focus();
+        }
+
+        function closeFilterPopover() {
+            isPopoverOpen = false;
+            FILTERPOPOVER.style.display = "none";
+            FILTERBUTTON.setAttribute("aria-expanded", "false");
+            tagSearchQuery = "";
+            TAGSEARCH.value = "";
+            renderFilterChips();
+        }
+
+        function toggleFilterPopover() {
+            if (isPopoverOpen) {
+                closeFilterPopover();
+            } else {
+                openFilterPopover();
+            }
+        }
+
+        /* Tag search */
+        function getFilteredTagsBySearch() {
+            if (!tagSearchQuery) return Array.from(allTags);
+            const query = tagSearchQuery.toLowerCase();
+            return Array.from(allTags).filter(tag => tag.toLowerCase().includes(query));
+        }
+
+        function renderFilterChips() {
+            const tagsToShow = getFilteredTagsBySearch();
+
+            if (tagsToShow.length === 0) {
+                FILTERCHIPS.innerHTML = '<p style="color: var(--color-text-secondary); font-size: 0.85rem; text-align: center;">No tags found</p>';
+                return;
+            }
+
+            FILTERCHIPS.innerHTML = tagsToShow
+                .map(tag => {
+                    const isSelected = selectedTags.has(tag);
+                    return `<button class="filter-chip ${isSelected ? "selected" : ""}" 
+                                    data-tag="${escapeHtml(tag)}" 
+                                    aria-pressed="${isSelected}"
+                                    role="button">${escapeHtml(tag)}</button>`;
+                })
+                .join("");
+
+            // Add click handlers
+            FILTERCHIPS.querySelectorAll(".filter-chip").forEach(chip => {
+                chip.addEventListener("click", () => {
+                    const tag = chip.dataset.tag;
+                    if (selectedTags.has(tag)) {
+                        selectedTags.delete(tag);
+                    } else {
+                        selectedTags.add(tag);
+                    }
+                    saveFiltersToHash();
+                    saveFiltersToLocalStorage();
+                    renderFilterChips();
+                    updateFilterUI();
+                    renderHomepage();
+                });
+            });
+        }
+
+        function updateFilterUI() {
+            const count = selectedTags.size;
+            const filteredPosts = getFilteredPosts();
+            const total = posts.length;
+            const shown = filteredPosts.length;
+
+            // Update badge
+            if (count > 0) {
+                FILTERBADGE.textContent = ` (${count})`;
+                FILTERBADGE.style.display = "inline";
+            } else {
+                FILTERBADGE.style.display = "none";
+            }
+
+            // Update clear button
+            if (count > 0) {
+                CLEARFILTERSCOMPACT.style.display = "inline";
+            } else {
+                CLEARFILTERSCOMPACT.style.display = "none";
+            }
+
+            // Update count text
+            if (count > 0) {
+                FILTERCOUNTCOMPACT.textContent = `${shown} of ${total}`;
+            } else {
+                FILTERCOUNTCOMPACT.textContent = "";
+            }
+        }
+
+        function getFilteredPosts() {
+            if (selectedTags.size === 0) {
+                return posts;
+            }
+            // OR semantics: show posts that match ANY selected tag
+            return posts.filter(post => {
+                if (!Array.isArray(post.tags)) return false;
+                return post.tags.some(tag => selectedTags.has(tag));
+            });
+        }
+
         /* Load posts from JSON (supports both {posts:[...]} and top-level [...]) */
         async function loadPosts() {
             try {
@@ -781,7 +1158,21 @@
                     .slice()
                     .sort((a, b) => new Date(getPublishedAt(b)) - new Date(getPublishedAt(a)));
 
+                // Extract tags and initialize filters
+                allTags = new Set(extractAllTags());
+
+                // Load filters from hash (priority) or localStorage
+                const hashTags = loadFiltersFromHash();
+                if (hashTags) {
+                    selectedTags = new Set(hashTags.filter(t => allTags.has(t)));
+                } else {
+                    const storedTags = loadFiltersFromLocalStorage();
+                    selectedTags = new Set(storedTags.filter(t => allTags.has(t)));
+                }
+
+                renderFilterChips();
                 renderHomepage();
+                updateFilterCount();
             } catch (error) {
                 console.error("Error loading posts:", error);
                 POSTSLIST.innerHTML = "<p>Error loading posts. Please try again later.</p>";
@@ -789,7 +1180,8 @@
         }
 
         function renderHomepage() {
-            POSTSLIST.innerHTML = posts
+            const filteredPosts = getFilteredPosts();
+            POSTSLIST.innerHTML = filteredPosts
                 .map((post) => {
                     const published = getPublishedAt(post);
                     const tags = Array.isArray(post.tags) ? post.tags : [];
@@ -911,13 +1303,73 @@
                 return;
             }
 
+            // Homepage (with or without tag filters)
             HOMEPAGE.style.display = "block";
             POSTPAGE.style.display = "none";
             PRIVACYPAGE.style.display = "none";
+
+            // Handle tag filters from hash
+            if (hash.startsWith("tags=")) {
+                const tagsParam = hash.substring(5);
+                const tags = tagsParam.split(",").filter(t => t.trim());
+                selectedTags = new Set(tags.filter(t => allTags.has(t)));
+                saveFiltersToLocalStorage();
+                renderFilterChips();
+                updateFilterUI();
+                renderHomepage();
+            } else if (hash === "") {
+                // Plain homepage - load from localStorage if available
+                const storedTags = loadFiltersFromLocalStorage();
+                selectedTags = new Set(storedTags.filter(t => allTags.has(t)));
+                renderFilterChips();
+                updateFilterUI();
+                renderHomepage();
+            }
         }
 
         /* Init */
         window.addEventListener("hashchange", handleRoute);
+
+        // Filter button toggle
+        FILTERBUTTON.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleFilterPopover();
+        });
+
+        // Tag search
+        TAGSEARCH.addEventListener("input", (e) => {
+            tagSearchQuery = e.target.value;
+            renderFilterChips();
+        });
+
+        // Clear filters (both buttons)
+        function clearAllFilters() {
+            selectedTags.clear();
+            saveFiltersToHash();
+            saveFiltersToLocalStorage();
+            renderFilterChips();
+            updateFilterUI();
+            renderHomepage();
+        }
+
+        CLEARFILTERSCOMPACT.addEventListener("click", clearAllFilters);
+        CLEARFILTERSPOPOVER.addEventListener("click", clearAllFilters);
+
+        // Click outside to close popover
+        document.addEventListener("click", (e) => {
+            if (isPopoverOpen && !FILTERPOPOVER.contains(e.target) && e.target !== FILTERBUTTON) {
+                closeFilterPopover();
+            }
+        });
+
+        // Escape to close popover
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && isPopoverOpen) {
+                closeFilterPopover();
+                FILTERBUTTON.focus();
+            }
+        });
+
         (async () => {
             await initTheme();
             await loadPosts();
