@@ -94,7 +94,54 @@ Always run `blogq check posts.json` before committing changes.
 
 **Contributions are welcome!** 🎉
 
-This blog is now open source, and I encourage contributions from the community. Whether you want to:
+This blog is now open source, and I encourage contributions from the community. Whether you want to contribute features or content, please follow these guidelines:
+
+### Contributing Features or Code
+
+If you're interested in contributing to the codebase:
+
+1. **Study the codebase thoroughly** before making changes
+2. **Only contribute what you understand** - ensure you fully comprehend how your changes integrate with the existing architecture
+3. **Respect the privacy-first philosophy** - this blog prioritizes user privacy with no tracking, no cookies, and no analytics. Any feature contributions must maintain these principles
+4. Follow the existing code style and patterns
+5. Test your changes locally before submitting
+6. Run validation tools (e.g., `blogq`) to ensure quality
+
+### Contributing Blog Posts
+
+If you'd like to contribute a blog post:
+
+**Content Guidelines:**
+
+Posts should align with the blog's focus on **AI, technology, and learning**. Acceptable topics include:
+- Artificial Intelligence and machine learning insights
+- Technology trends, tools, and best practices
+- Software development and engineering
+- Learning experiences, tutorials, and educational content
+- Research summaries and technical analysis
+
+**Prohibited content:**
+- Unlawful, illegal, or harmful content
+- Spam, promotional content, or advertisements
+- Offensive, discriminatory, or inflammatory material
+- Topics unrelated to the blog's core philosophy
+- Low-quality or AI-generated content without human insight
+
+**Submission Process:**
+
+1. **Add your post** to `posts.json` following the Content Guidelines above
+2. **Sign your post** - include your name/attribution at the end of the post content
+3. **Generate the PDF version** - use the build script to create a printable PDF:
+   ```bash
+   node scripts/build-pdfs.mjs
+   ```
+4. Validate your changes with `blogq check posts.json`
+5. Submit a pull request with both the `posts.json` update and the generated PDF
+
+All submitted posts are subject to review and must maintain the blog's standards of quality, accuracy, and relevance.
+
+### General Guidelines
+
 - Fix typos or improve content clarity
 - Suggest new features or improvements
 - Report bugs or issues
