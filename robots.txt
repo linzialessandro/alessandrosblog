@@ -1,0 +1,22 @@
+User-agent: *
+# Allow everything by default, including posts.json (required for rendering)
+Allow: /
+
+# Block tools and source code directories
+Disallow: /tools/
+Disallow: /scripts/
+Disallow: /submissions/
+Disallow: /.git/
+Disallow: /.venv/
+Disallow: /.pdf-temp/
+
+# Block duplicate content (PDFs are mirrors of posts)
+Disallow: /pdfs/
+
+# Block repository metadata files
+Disallow: /README.md
+Disallow: /LICENSE
+Disallow: /package.json
+Disallow: /.gitignore
+
+Sitemap: https://alessandrosblog.it.eu.org/sitemap.xml

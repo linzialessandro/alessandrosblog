@@ -1,80 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://alessandrosblog.it.eu.org/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
   </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#privacy</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
-
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/ai-transparency-is-slipping</loc>
+    <lastmod>2025-12-22</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/continuous-efficiency-ai-greener-software</loc>
+    <lastmod>2025-12-21</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/bloom-factory-for-behavioral-evaluations</loc>
+    <lastmod>2025-12-21</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/google-research-2025-recap-strategy-document</loc>
+    <lastmod>2025-12-20</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/monitoring-ai-reasoning-chain-of-thought-monitorability</loc>
+    <lastmod>2025-12-19</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/gemini-secondary-school-tool-easy-transformation-isnt</loc>
+    <lastmod>2025-12-19</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/guardrails-for-when-ai-gets-personal</loc>
+    <lastmod>2025-12-18</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/verified-ai-is-the-opposite-of-vibes</loc>
+    <lastmod>2025-12-18</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/why-proof-assistants-are-suddenly-practical</loc>
+    <lastmod>2025-12-17</lastmod>
+  </url>
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/deepmind-uk-ai-security-institute-making-safety-more-measurable</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-16</lastmod>
   </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-15</lastmod>
   </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/perplexity-at-work-simple-model-get-more-done</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-15</lastmod>
   </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/mcp-google-services-missing-piece-ai-automation</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-14</lastmod>
   </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/ai-agents-smart-cities-from-monitoring-to-action</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-14</lastmod>
   </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/codex-self-improving-ai-coding-agent</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-14</lastmod>
   </url>
-
   <url>
-    <loc>https://alessandrosblog.it.eu.org/#post/weathernext-2-trying-to-make-the-atmosphere-less-chaotic</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://alessandrosblog.it.eu.org/#post/advancing-science-math-gpt-5-2</loc>
+    <lastmod>2025-12-13</lastmod>
   </url>
-
-  <url>
-    <loc>https://alessandrosblog.it.eu.org/#post/ai-and-alzheimers-not-a-cure-but-a-smarter-way-to-fight</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/el-salvador-nationwide-ai-tutoring-program-whats-been-announced</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-12</lastmod>
   </url>
-
-  <url>
-    <loc>https://alessandrosblog.it.eu.org/#post/perplexity-memory-personalization-without-repeating-yourself</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <url>
     <loc>https://alessandrosblog.it.eu.org/#post/how-people-actually-use-ai-agents-mostly-cognitive-work</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-12-11</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/ai-and-alzheimers-not-a-cure-but-a-smarter-way-to-fight</loc>
+    <lastmod>2025-12-11</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/illusion-of-thinking-reasoning-models-problem-complexity</loc>
+    <lastmod>2025-12-10</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/weathernext-2-trying-to-make-the-atmosphere-less-chaotic</loc>
+    <lastmod>2025-12-09</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/ai-fluency-better-way-to-work-with-ai-beyond-prompt-hacks</loc>
+    <lastmod>2025-12-07</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/perplexity-memory-personalization-without-repeating-yourself</loc>
+    <lastmod>2025-12-05</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/revolutionizing-life-sciences-with-claude</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/exploring-quantum-chaos-otocs</loc>
+    <lastmod>2025-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/project-suncatcher-pioneering-space-based-ai-infrastructure</loc>
+    <lastmod>2025-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/ax-prover-revolutionizing-automated-theorem-proving-multi-agent-systems</loc>
+    <lastmod>2025-11-24</lastmod>
+  </url>
+  <url>
+    <loc>https://alessandrosblog.it.eu.org/#post/unraveling-consciousness-urgent-scientific-quest-age-of-ai</loc>
+    <lastmod>2025-11-21</lastmod>
   </url>
 </urlset>

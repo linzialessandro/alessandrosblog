@@ -77,6 +77,20 @@ ERROR <schema> /posts/5/slug: Slug violates policy.
 WARN  my-post /posts/3/tags/0: Tag has leading/trailing whitespace.
 ```
 
+### Sitemap Generator
+
+A Node.js script to generate `sitemap.xml` from `posts.json`. It accounts for both hash-based routes (`/#post/...`) and static HTML files (`/posts/...`) if they exist.
+
+**Usage:**
+
+```bash
+# Generate sitemap.xml
+node tools/generate-sitemap.js
+
+# Dry run (print to console without writing)
+node tools/generate-sitemap.js --dry-run
+```
+
 ## Content Guidelines
 
 When adding new blog posts to `posts.json`:
