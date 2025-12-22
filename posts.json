@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "Microsoft Ignite 2025: Taming the Agent Swarm",
+      "slug": "microsoft-ignite-2025-agents-work-iq",
+      "publishedAt": "2025-12-22T16:30:00+01:00",
+      "summary": "Microsoft is pivoting from chatbots to \"Work IQ,\" trying to solve the context problem that makes most current AI annoying to use. Also: a look at the 1.3 billion agent prediction and why \"Shadow AI\" might be the next big headache.",
+      "tags": [
+        "AI",
+        "Microsoft",
+        "Agents",
+        "Opinion"
+      ],
+      "content": "<p>We’ve all reached that frustration point with AI tools: they can write a poem about a toaster, but they have no idea who your boss is or where you saved that Q3 spreadsheet.</p><p>That missing piece is exactly what Microsoft Ignite 2025 tried to address. The keynote was heavy on metaphors—something about AI not being a \"cherry on top\" but the ice cream itself—but if you look past the marketing, they are acknowledging a hard truth: chatbots are cool, but they aren't actually <em>integrated</em> yet.</p><h2>Making AI Understand \"Work\"</h2><p>The most promising update is something they call <strong>Work IQ</strong>. It’s an attempt to give the model a memory of your actual workday—your habits, your colleagues, and the specific jargon your team uses.</p><p>This feels like the right move. The reason most enterprise AI demos fall flat is the \"cold start\" problem. You have to explain everything to the bot every time. If Work IQ actually works, it stops the AI from being a generic consultant and turns it into a team member that already has the context.</p><h2>The \"Shadow AI\" Problem</h2><p>There was one number in the announcement that actually made me sit up: they are projecting <strong>1.3 billion AI agents by 2028</strong>.</p><p>Think about that for a second. We used to worry about \"Shadow IT\"—employees using unauthorized Dropbox accounts or Trello boards. Now, imagine thousands of autonomous scripts running in the background of your company, making decisions without anyone knowing who built them or what data they can access.</p><p>Microsoft’s solution is <strong>Agent 365</strong>, which is basically an HR department for bots. It lets IT admins see, secure, and govern these agents. It sounds boring, but honestly, it’s probably the most critical feature they announced. Without it, that swarm of 1.3 billion agents is just a security nightmare waiting to happen.</p><h2>Getting the Plumbing Right</h2><p>They also introduced <strong>Fabric IQ</strong> and <strong>Foundry IQ</strong> to help connect raw data to these agents. It’s less flashy than a new LLM release, but it confirms a trend I’m seeing everywhere: the \"magic\" phase of AI is over.</p><p>We are firmly in the plumbing phase now. It’s no longer about how smart the model is; it’s about whether you can hook it up to your real data without breaking everything. Microsoft is betting that if they own the plumbing (the data layer) and the governance (the security layer), they’ll win the agent era. They're probably right.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://blogs.microsoft.com/blog/2025/11/18/from-idea-to-deployment-the-complete-lifecycle-of-ai-on-display-at-ignite-2025/\" target=\"_blank\" rel=\"noopener noreferrer\">Microsoft Blog</a></p>"
+    },
+    {
       "title": "AI Transparency Is Slipping (And That’s a Problem)",
       "slug": "ai-transparency-is-slipping",
       "publishedAt": "2025-12-22T07:27:12+01:00",
