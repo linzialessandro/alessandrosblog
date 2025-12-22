@@ -6,12 +6,6 @@ updates:
     schedule:
       interval: "weekly"
 
-  # Monitor npm packages in scripts/ (Weekly)
-  - package-ecosystem: "npm"
-    directory: "/scripts"
-    schedule:
-      interval: "weekly"
-
   # Monitor GitHub Actions (Monthly)
   - package-ecosystem: "github-actions"
     directory: "/"
