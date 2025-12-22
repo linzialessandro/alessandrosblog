@@ -5,9 +5,3 @@ updates:
     directory: "/tools/blogq"
     schedule:
       interval: "weekly"
-
-  # Monitor GitHub Actions (Monthly)
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "monthly"
