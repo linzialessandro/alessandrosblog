@@ -436,6 +436,68 @@
         }
 
         /* Post page styles */
+        .post-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .stat-chip {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            padding: 0.25rem 0.5rem;
+            border: 1px solid var(--color-border);
+            border-radius: 999px;
+            background-color: var(--color-surface);
+        }
+
+        .related-posts {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .related-posts h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-posts ul {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .related-posts a {
+            text-decoration: none;
+            display: block;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            transition: all var(--duration) var(--ease);
+            color: inherit;
+        }
+
+        .related-posts a:hover {
+            border-color: var(--color-accent);
+            background-color: rgba(37, 99, 235, 0.02);
+        }
+
+        .related-posts .related-meta {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.35rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .related-posts .related-title {
+            font-weight: 600;
+        }
+
         .post-container {
             max-width: 700px;
             margin: 0 auto;
@@ -1274,6 +1336,59 @@
                 .join("");
         }
 
+        /* Post Statistics & Related Helpers */
+        function htmlToText(html) {
+            const div = document.createElement("div");
+            div.innerHTML = html;
+            return (div.textContent || "").replace(/\s+/g, " ").trim();
+        }
+
+        function countWords(text) {
+            if (!text) return 0;
+            return text.trim().split(/\s+/).length;
+        }
+
+        function estimateMinutes(words, wpm = 200) {
+            if (words <= 0) return 1;
+            return Math.max(1, Math.round(words / wpm));
+        }
+
+        function getRelatedPosts(currentPost, allPosts, max = 3) {
+            const currentTags = Array.isArray(currentPost.tags) ? currentPost.tags : [];
+            let candidates = [];
+
+            if (currentTags.length === 0) {
+                // Fallback: recent posts excluding current
+                candidates = allPosts.filter(p => p.slug !== currentPost.slug);
+            } else {
+                // Score by tag intersection
+                candidates = allPosts
+                    .filter(p => p.slug !== currentPost.slug)
+                    .map(p => {
+                        const otherTags = Array.isArray(p.tags) ? p.tags : [];
+                        const intersection = currentTags.filter(t => otherTags.includes(t));
+                        return {
+                            post: p,
+                            score: intersection.length
+                        };
+                    })
+                    .filter(item => item.score > 0)
+                    .sort((a, b) => {
+                        // Sort by score desc, then date desc
+                        if (a.score !== b.score) return b.score - a.score;
+                        return new Date(getPublishedAt(b.post)) - new Date(getPublishedAt(a.post));
+                    })
+                    .map(item => item.post);
+            }
+
+            // If still empty (e.g. tags but no matches), fallback to recent
+            if (candidates.length === 0) {
+                candidates = allPosts.filter(p => p.slug !== currentPost.slug);
+            }
+
+            return candidates.slice(0, max);
+        }
+
         async function loadPostPage(slug) {
             const post = posts.find((p) => p.slug === slug);
 
@@ -1286,7 +1401,9 @@
                 let content = post.content;
 
                 if (!content) {
-                    const response = await fetch(`posts/${slug}.html`, { cache: "no-store" });
+                    const response = await fetch(`posts/${slug}.html`, {
+                        cache: "no-store"
+                    });
                     if (!response.ok) throw new Error("Post file not found");
                     content = await response.text();
                 }
@@ -1299,6 +1416,12 @@
                 const updated = getUpdatedAt(post);
                 const pdfUrl = getPdfUrl(slug);
 
+                // Stats & Related
+                const text = htmlToText(content);
+                const words = countWords(text);
+                const minutes = estimateMinutes(words);
+                const related = getRelatedPosts(post, posts);
+
                 POSTPAGE.innerHTML = `
             <a href="#" class="post-nav-back">← Back to posts</a>
 
@@ -1308,6 +1431,10 @@
                 <div class="post-info">
                   <span>Published ${formatDate(published)}</span>
                   ${updated ? `<span>Updated ${formatDate(updated)}</span>` : ""}
+                  <div class="post-stats" aria-label="Post statistics">
+                    <span class="stat-chip">${minutes} min read</span>
+                    <span class="stat-chip">${words.toLocaleString()} words</span>
+                  </div>
                 </div>
               </header>
 
@@ -1319,6 +1446,25 @@
                   </a>
                 </p>
               </div>
+              
+              ${related.length > 0 ? `
+              <aside class="related-posts" aria-label="Related posts">
+                <h2>Related posts</h2>
+                <ul>
+                  ${related.map(r => `
+                    <li>
+                      <a href="#post/${encodeURIComponent(r.slug)}">
+                        <div class="related-meta">
+                          <span>${formatDate(getPublishedAt(r))}</span>
+                          ${Array.isArray(r.tags) && r.tags.length ? `<span>${escapeHtml(r.tags[0])}</span>` : ``}
+                        </div>
+                        <div class="related-title">${escapeHtml(r.title)}</div>
+                      </a>
+                    </li>
+                  `).join("")}
+                </ul>
+              </aside>
+              ` : ""}
             </article>
 
             <nav class="post-navigation" aria-label="Post navigation">
