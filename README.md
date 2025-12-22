@@ -129,16 +129,47 @@ Posts should align with the blog's focus on **AI, technology, and learning**. Ac
 
 **Submission Process:**
 
-1. **Add your post** to `posts.json` following the Content Guidelines above
-2. **Sign your post** - include your name/attribution at the end of the post content
-3. **Generate the PDF version** - use the build script to create a printable PDF:
-   ```bash
-   node scripts/build-pdfs.mjs
-   ```
-4. Validate your changes with `blogq check posts.json`
-5. Submit a pull request with both the `posts.json` update and the generated PDF
+We now support a draft-based workflow for contributors.
 
-All submitted posts are subject to review and must maintain the blog's standards of quality, accuracy, and relevance.
+1.  **Draft your post**: Create a `.md` or `.txt` file.
+2.  **Add Front Matter**: The file must start with a metadata block.
+3.  **Submit**: Place your draft in `submissions/inbox/` (or send to a maintainer).
+
+**Draft Format Example:**
+
+```markdown
+---
+title: My Insightful Post
+summary: A brief summary of the post (max 600 chars).
+tags: AI, Technology
+source: https://example.com/source-article
+contributor: Your Name
+publishedAt: 2025-12-25T10:00:00+01:00
+slug: my-insightful-post
+---
+
+Here is the body of the post. You can use:
+- Paragraphs
+- ## Headers
+- - Lists
+- [Links](https://example.com)
+- \`inline code\`
+```
+
+**Maintainer Instructions:**
+
+To complile accepted drafts into `posts.json`:
+
+1.  Move the draft to `submissions/accepted/`.
+2.  Run the compiler:
+    ```bash
+    # Check what will happen
+    node tools/compile-contrib-posts.js --dry-run
+    
+    # Compile and update posts.json (moves draft to processed/)
+    node tools/compile-contrib-posts.js
+    ```
+
 
 ### General Guidelines
 
