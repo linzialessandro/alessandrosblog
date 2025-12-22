@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Monitor pip packages in tools/blogq/ (Weekly)
+  - package-ecosystem: "pip"
+    directory: "/tools/blogq"
+    schedule:
+      interval: "weekly"
+
+  # Monitor npm packages in scripts/ (Weekly)
+  - package-ecosystem: "npm"
+    directory: "/scripts"
+    schedule:
+      interval: "weekly"
+
+  # Monitor GitHub Actions (Monthly)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
