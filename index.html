@@ -1483,7 +1483,6 @@
                       <a href="#post/${encodeURIComponent(r.slug)}">
                         <div class="related-meta">
                           <span>${formatDate(getPublishedAt(r))}</span>
-                          ${Array.isArray(r.tags) && r.tags.length ? `<span>${escapeHtml(r.tags[0])}</span>` : ``}
                         </div>
                         <div class="related-title">${escapeHtml(r.title)}</div>
                       </a>
