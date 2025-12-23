@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "title": "Cloudflare's Graph-Based Maintenance Scheduler",
+      "slug": "cloudflare-maintenance-scheduler-workers-graph",
+      "publishedAt": "2025-12-23T09:00:00+01:00",
+      "summary": "How Cloudflare re-architected their maintenance scheduler using a graph-based data model on Workers to handle global infrastructure constraints without OOM errors.",
+      "tags": [
+        "Engineering",
+        "Distributed Systems",
+        "Cloudflare"
+      ],
+      "content": "<p>I always find it fascinating to see how major infrastructure players solve their own internal tooling problems. Cloudflare recently shared how they built their automated maintenance scheduler, and the evolution of their architecture is a textbook example of hitting the limits of naive implementations.</p><p>The problem is classic constraint satisfaction: With data centers in 330+ cities, you can't just turn off a router for maintenance whenever you feel like it. You have to ensure that doing so doesn't isolate a region or break a specific customer's routing rule (like their \"Aegis\" product, which binds traffic to specific IPs).</p><h2>The \"Naive\" Approach vs. The Graph</h2><p>Their first attempt was to load all the data—server relationships, product configs, health metrics—into a single Worker. Unsurprisingly, this hit memory limits immediately. You can't fit the state of a global network into a single ephemeral function's RAM.</p><p>The fix was to shift mental models from \"loading a dataset\" to \"traversing a graph.\" They adopted an object-association model inspired by Facebook's TAO. Instead of \"give me all Aegis pools,\" the query becomes \"give me the Aegis pools associated with <em>this</em> specific datacenter.\"</p><p>This reduced response sizes by 100x, but introduced a new problem: the \"N+1 query\" issue, or what they call the \"thundering herd\" of tiny requests.</p><h2>Middleware as the Hero</h2><p>To solve the request volume, they built a fetch pipeline middleware that handles:</p><ul><li><strong>Deduplication:</strong> Merging identical in-flight requests (similar to Go's <code>singleflight</code>).</li><li><strong>LRU Caching:</strong> A tiny in-memory cache for the immediate execution context.</li><li><strong>CDN Caching:</strong> Caching GET requests at the edge with careful TTLs (1 minute for real-time data, hours for static infrastructure data).</li></ul><p>The result was a ~99% cache hit rate. It’s a great reminder that when you move to micro-requests, the network overhead becomes your new bottleneck, and caching strategy becomes your primary optimization lever.</p><h2>What I take from this</h2><p>The most interesting part for me wasn't the scheduler itself, but the pivot to <strong>Parquet files on R2</strong> for historical analysis.</p><p>Querying months of Prometheus TSDB blocks from object storage is painfully slow because of random reads. By converting that data to Parquet (a columnar format), they could issue precise range requests, fetching only the specific columns needed. They report a 15x performance improvement. It’s a strong argument for using big-data formats even in operational tooling when the scale gets large enough.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://blog.cloudflare.com/building-our-maintenance-scheduler-on-workers/\" target=\"_blank\" rel=\"noopener noreferrer\">Cloudflare — Building our maintenance scheduler</a></p>"
+    },
+    {
       "title": "Microsoft Ignite 2025: Taming the Agent Swarm",
       "slug": "microsoft-ignite-2025-agents-work-iq",
       "publishedAt": "2025-12-22T16:30:00+01:00",
