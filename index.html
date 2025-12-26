@@ -20,32 +20,38 @@
             --color-text: #1a1a18;
             --color-text-secondary: #6b6b66;
             --color-border: #e5e5e0;
-            --color-accent: #2563eb;
-            --color-accent-light: #3b82f6;
+            --color-accent: #008899;
+            --color-accent-light: #990099;
+            --color-glow: rgba(0, 136, 153, 0.1);
+            --color-glow-secondary: rgba(153, 0, 153, 0.1);
 
             --duration: 200ms;
             --ease: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         [data-theme="dark"] {
-            --color-bg: #0d0d0a;
-            --color-surface: #1a1a18;
-            --color-text: #f5f5f0;
-            --color-text-secondary: #a8a8a0;
-            --color-border: #2a2a26;
-            --color-accent: #60a5fa;
-            --color-accent-light: #93c5fd;
+            --color-bg: #050505;
+            --color-surface: #0a0a0a;
+            --color-text: #ffffff;
+            --color-text-secondary: #d0d0d0;
+            --color-border: #1a1a1a;
+            --color-accent: #00fbff;
+            --color-accent-light: #ff00ff;
+            --color-glow: rgba(0, 251, 255, 0.4);
+            --color-glow-secondary: rgba(255, 0, 255, 0.4);
         }
 
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme]) {
-                --color-bg: #0d0d0a;
-                --color-surface: #1a1a18;
-                --color-text: #f5f5f0;
-                --color-text-secondary: #a8a8a0;
-                --color-border: #2a2a26;
-                --color-accent: #60a5fa;
-                --color-accent-light: #93c5fd;
+                --color-bg: #050505;
+                --color-surface: #0a0a0a;
+                --color-text: #ffffff;
+                --color-text-secondary: #d0d0d0;
+                --color-border: #1a1a1a;
+                --color-accent: #00fbff;
+                --color-accent-light: #ff00ff;
+                --color-glow: rgba(0, 251, 255, 0.4);
+                --color-glow-secondary: rgba(255, 0, 255, 0.4);
             }
         }
 
@@ -54,10 +60,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
             background-color: var(--color-bg);
             color: var(--color-text);
-            line-height: 1.6;
+            line-height: 1.75;
             transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
         }
 
@@ -305,10 +311,10 @@
             width: fit-content;
             padding: 0.75rem 1.25rem;
             border-radius: 8px;
-            text-decoration: none;
+            text-decoration: none !important;
             font-weight: 600;
             background-color: var(--color-accent);
-            color: #ffffff;
+            color: #ffffff !important;
             border: 1px solid var(--color-accent);
             transition: all var(--duration) var(--ease);
         }
@@ -893,6 +899,75 @@
         .filter-controls-compact {
             position: relative;
         }
+
+        /* cyberwave patch */
+        header,
+        .intro,
+        .post-card,
+        .donate-card,
+        .theme-toggle,
+        .social-icon-button {
+            box-shadow: 0 0 5px var(--color-glow);
+            transition: all var(--duration) var(--ease) !important;
+        }
+
+        header:hover,
+        .intro:hover,
+        .post-card:hover,
+        .donate-card:hover,
+        .theme-toggle:hover,
+        .social-icon-button:hover {
+            border-color: var(--color-accent) !important;
+            box-shadow: 0 0 15px var(--color-glow);
+        }
+
+        .post-card:nth-child(even) {
+            box-shadow: 0 0 5px var(--color-glow-secondary);
+        }
+
+        .post-card:nth-child(even):hover {
+            border-color: var(--color-accent-light) !important;
+            box-shadow: 0 0 15px var(--color-glow-secondary);
+        }
+
+        .tag {
+            background-color: rgba(0, 251, 255, 0.1) !important;
+            border: 1px solid var(--color-accent) !important;
+            color: var(--color-accent) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .accent-line {
+            text-shadow: 0 0 8px var(--color-glow);
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--color-accent-light) !important;
+            outline-offset: 4px !important;
+        }
+
+        /* Button readability fix for dark mode */
+        [data-theme="dark"] .donate-button {
+            color: #050505 !important;
+            border-bottom: none !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme]) .donate-button {
+                color: #050505 !important;
+                border-bottom: none !important;
+            }
+        }
+
+        /* Ensure donate buttons in intro sections don't inherit link styles */
+        .intro .donate-button {
+            border-bottom: none !important;
+        }
+
+        .intro .donate-button:hover {
+            border-bottom: none !important;
+        }
     </style>
 </head>
 
@@ -974,7 +1049,7 @@
 
                 <div style="margin: 1.5rem 0;">
                     <a class="donate-button" href="https://github.com/linzialessandro/alessandrosblog" target="_blank"
-                        rel="noopener noreferrer" style="color: #ffffff !important;">
+                        rel="noopener noreferrer">
                         Submit on GitHub
                     </a>
                 </div>
