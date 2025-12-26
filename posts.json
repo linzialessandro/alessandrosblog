@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "title": "Agentic Engineering: Simplicity is the Ultimate Sophistication",
+      "slug": "agentic-engineering-simplicity-just-talk-to-it",
+      "publishedAt": "2025-12-26T15:00:00+01:00",
+      "summary": "Peter Steinberger argues that the most effective agentic workflow isn't a complex framework, but a direct conversation with a capable model. As context windows grow and models improve, the best tooling might just be a CLI and good intuition.",
+      "tags": [
+        "AI",
+        "Agents",
+        "Productivity"
+      ],
+      "content": "<p>There is a tendency to over-engineer solutions before we fully understand the problem. In the exploding world of AI agents, this manifests as complex harnesses, RAG pipelines for codebases, and elaborate \"sub-agent\" architectures. Peter Steinberger’s latest post, <em>Just Talk To It</em>, offers a refreshing counter-argument: the best agentic workflow is often just a direct conversation.</p><h2>The \"Blast Radius\" heuristic</h2><p>One of the most useful mental models Steinberger introduces is the concept of <strong>\"blast radius\"</strong>. Before asking an agent to make changes, he assesses the potential impact: is this a small, atomic commit (a \"small bomb\") or a massive refactor (a \"Fat Man\")?</p><p>This is engineering intuition applied to AI. You don't need a formal \"plan mode\" for every tweak, but you do need to know when to stop, check the status, or ask for options before proceeding. It turns the interaction from a \"prompt and pray\" loop into a collaborative steering process.</p><h2>Collapsing the complexity</h2><p>The post argues that many tools (MCPs, heavy frameworks) are solving problems that are rapidly disappearing. With effective context windows reaching ~230k tokens and models like GPT-5-codex, the need for RAG over a codebase diminishes. The model can simply read the relevant files.</p><p>Steinberger suggests that we are moving past the phase of needing complex scaffolding to make models useful. Instead, the tooling should fade into the background—simple CLIs, fast terminals, and atomic git operations—letting the engineer focus on the high-level architecture and the conversation with the model.</p><h2>The model as a senior engineer</h2><p>I appreciate the shift in perspective here: treating the AI not as a function call, but as a senior engineer. You delegate, you review, and sometimes you just \"talk to it\" to flesh out an idea. As Steinberger puts it, \"Just because I don’t write the code anymore doesn’t mean I don’t think hard about architecture.\"</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://steipete.me/posts/just-talk-to-it\" target=\"_blank\" rel=\"noopener noreferrer\">Peter Steinberger: Just Talk To It</a></p>"
+    },
+    {
       "title": "Command Line Interface Guidelines: A modern philosophy for the terminal",
       "slug": "command-line-interface-guidelines-modern-philosophy",
       "publishedAt": "2025-12-25T12:00:00+01:00",
