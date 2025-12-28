@@ -5,7 +5,7 @@ import { execFileSync, execSync } from "child_process";
 
 const REPO_ROOT = process.cwd();
 const POSTS_JSON = path.join(REPO_ROOT, "posts.json");
-const PDFS_DIR = path.join(REPO_ROOT, "pdfs");
+const PDFS_DIR = path.join(REPO_ROOT, "assets", "pdfs");
 
 if (!fs.existsSync(PDFS_DIR)) fs.mkdirSync(PDFS_DIR, { recursive: true });
 
@@ -72,6 +72,15 @@ function memoirDoc({ title, bodyLatex }) {
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+% Logo stamp
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\AddToShipoutPictureBG{%
+  \AtPageUpperLeft{%
+    \raisebox{-1.5cm}{\hspace{\paperwidth}\hspace{-2.5cm}\includegraphics[width=1.5cm]{logo.png}}%
+  }
+}
+
 \begin{document}
 
 {\Large\bfseries ${latexEscapeTitle(title)}\par}
@@ -128,6 +137,12 @@ function main() {
       const fullTex = memoirDoc({ title, bodyLatex });
 
       fs.writeFileSync(texPath, fullTex, "utf-8");
+
+      // Copy logo
+      const logoSrc = path.join(REPO_ROOT, "assets", "logo.png");
+      if (fs.existsSync(logoSrc)) {
+        fs.copyFileSync(logoSrc, path.join(jobDir, "logo.png"));
+      }
 
       execFileSync("xelatex", ["-halt-on-error", "-interaction=nonstopmode", `${slug}.tex`], {
         cwd: jobDir,

@@ -1,0 +1,108 @@
+\documentclass[11pt, a4paper, extrafontsizes,openany]{memoir}
+
+% --- Language & Encoding ---
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% --- Typography ---
+% FIX: We rely on fontspec's default behavior. 
+% By NOT specifying \setmainfont, fontspec automatically loads 
+% Latin Modern using internal filenames, avoiding system lookup errors.
+\defaultfontfeatures{Ligatures=TeX}
+
+% --- Layout & Design ---
+\setlrmarginsandblock{3.5cm}{3.5cm}{*}
+\setulmarginsandblock{3.5cm}{3.5cm}{*}
+\checkandfixthelayout
+
+\usepackage{xcolor}
+\definecolor{accentcolor}{RGB}{41, 128, 185} % A calm blue
+\definecolor{darkgray}{RGB}{50, 50, 50}
+
+% --- Links ---
+\usepackage[colorlinks=true, linkcolor=accentcolor, urlcolor=accentcolor]{hyperref}
+\usepackage{graphicx}
+
+% --- Title Styling ---
+\pretitle{\begin{center}\includegraphics[width=4cm]{assets/logo.png}\\[1em]\Huge\bfseries\color{darkgray}}
+\posttitle{\par\vskip 0.5em\normalfont\large\textit{A manifesto for a quieter web}\end{center}\vskip 2em}
+\preauthor{\begin{center}\large\lineskip 0.5em}
+\postauthor{\par\end{center}}
+\predate{\begin{center}\large}
+\postdate{\par\end{center}}
+
+% --- Section Styling ---
+\setsecheadstyle{\Large\bfseries\color{darkgray}}
+\setsubsecheadstyle{\large\bfseries\itshape\color{darkgray}}
+
+\begin{document}
+
+% --- Title Page ---
+\title{Running My Blog in 2025: Behind the Scenes}
+\author{Alessandro Linzi}
+\date{December 2025}
+
+\maketitle
+
+\thispagestyle{empty}
+\begin{abstract}
+    \noindent This is the story of why I stopped scrolling and started building. It is a look at the philosophy of "learning out loud" and how modern AI tools like Google Antigravity and Perplexity helped me construct a privacy-first, open-source haven for ideas in an increasingly noisy digital world.
+\end{abstract}
+
+\vfill
+\begin{center}
+    \small \url{https://alessandrosblog.it.eu.org}
+\end{center}
+\newpage
+
+% --- Content ---
+
+\chapter*{The Signal and the Noise}
+
+For years, my "learning out loud" was scattered across social timelines—ephemeral bursts of insight sandwiched between ads and algorithmic distractions. By late 2024, I realized that while I was sharing, I wasn't \textit{building}. I was renting space on platforms that incentivized engagement over depth.
+
+I wanted a home. A digital garden where ideas could mature, where mathematics and code could live side-by-side, and where "privacy" wasn't just a toggle in a settings menu, but the default state of existence.
+
+This blog is that home. It is a return to the "small web"—static, fast, and owned entirely by me (and now, by you).
+
+\section*{Building in the Age of AI Agents}
+
+Building a blog from scratch in 2025 is a paradox. On one hand, we have tools of immense complexity; on the other, I wanted a result of extreme simplicity. I didn't want a heavy framework. I wanted pure HTML, CSS, and a JSON file.
+
+To achieve this, I leaned heavily on the AI tools that have defined this year:
+
+\subsection*{Perplexity: The Architect}
+Before a single line of code was written, I used \textbf{Perplexity} to challenge my assumptions. I didn't just ask \textit{"how to build a blog"}; I asked it to critique the modern web. We debated the necessity of cookies (conclusion: unnecessary), the weight of JavaScript frameworks (conclusion: often bloated), and the best structure for a flat-file database.
+
+Perplexity helped me design the \texttt{posts.json} schema that powers this site. It acted as a research partner, filtering through the noise of "best practices" to find the timeless ones: semantic HTML and accessible design.
+
+\subsection*{Google Antigravity: The Builder}
+When it came time to write the infrastructure, I turned to \textbf{Google Antigravity}. The agentic capabilities of the platform were instrumental in writing the tooling that keeps this blog sane.
+
+I delegated the creation of \texttt{blogq}—my custom Python validator—to an Antigravity agent. I described the rules: \textit{"No slugs with capital letters, no tracking pixels, force secure links, and validate the JSON schema strictly."} The agent wrote the rigorous test suite that now runs before every commit. It allowed me to focus on the \textit{content} of the proofs and posts, knowing the \textit{structure} was being guarded by an automated engineer we built together.
+
+\section*{The Philosophy: Learning Out Loud}
+
+The core mission of this space is to demystify complexity. Whether it's a formal proof in Isabelle/HOL or a breakdown of the latest sustainability algorithms in AI, the goal is to show the work.
+
+\begin{itemize}
+    \item \textbf{Privacy First:} You will find no cookie banners here because there are no cookies. I do not track you. The only metric that matters is whether you found something useful.
+    \item \textbf{Performance as Respect:} The site loads instantly because your time is valuable. There are no build steps between me writing and you reading, just a raw sync of text.
+    \item \textbf{Open Source by Default:} This entire project is open source. The engine that runs this blog is available for you to inspect, critique, and steal.
+\end{itemize}
+
+\section*{A Hope for the Future}
+
+My hope is that this blog serves as more than just a repository of my thoughts. I want it to be a template for yours.
+
+We are moving toward a web where personal publishing is reclaimed from walled gardens. By making this project open source, I invite you to clone it. Use the \texttt{blogq} tool to validate your own ideas. Improve the \texttt{build-pdfs.mjs} script to generate better documents. 
+
+If you find a typo in a proof, fix it. If you have a better way to explain a concept, submit a draft. This is a living document of my learning journey, but it is hosted on an open platform so that it might become part of yours.
+
+Welcome to the behind-the-scenes. 
+
+\vspace{2em}
+\noindent\textit{— Alessandro}
+
+\end{document}

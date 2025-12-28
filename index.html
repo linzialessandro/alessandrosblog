@@ -977,9 +977,13 @@
         <div id="homepage">
             <header>
                 <div class="header-top">
-                    <div>
-                        <h1>Alessandro’s blog</h1>
-                        <p class="subtitle">Publicly collecting what I learn</p>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <img src="assets/logo.png" alt="Alessandro's Blog Logo"
+                            style="width: 80px; height: 80px; border-radius: 8px;">
+                        <div>
+                            <h1>Alessandro’s blog</h1>
+                            <p class="subtitle">Publicly collecting what I learn</p>
+                        </div>
                     </div>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
                 </div>
@@ -993,7 +997,7 @@
                     </p>
                     <p>No gatekeeping. No performance. Just learning in public.</p>
                     <p>
-                        Why this blog? Check out the <a href="behind-the-scenes.pdf" target="_blank">Behind the
+                        Why this blog? Check out the <a href="assets/behind-the-scenes.pdf" target="_blank">Behind the
                             Scenes</a>.
                     </p>
                     <p>
@@ -1082,7 +1086,7 @@
                         <figure class="donate-qr">
                             <a href="https://paypal.me/Alessandro3319" target="_blank" rel="noopener noreferrer"
                                 aria-label="Open PayPal donation link (QR)">
-                                <img src="Paypal.JPG" alt="PayPal donation QR code" loading="lazy" />
+                                <img src="assets/Paypal.JPG" alt="PayPal donation QR code" loading="lazy" />
                             </a>
                             <figcaption>PayPal donation QR code</figcaption>
                         </figure>
@@ -1224,8 +1228,8 @@
         }
 
         function getPdfUrl(slug) {
-            // Fully automatic plan: every post has a printable PDF at /pdfs/<slug>.pdf
-            return `/pdfs/${slug}.pdf`;
+            // Fully automatic plan: every post has a printable PDF at /assets/pdfs/<slug>.pdf
+            return `/assets/pdfs/${slug}.pdf`;
         }
 
         /* Tag filtering functions */
@@ -1533,6 +1537,10 @@
 
             <article class="post-container">
               <header class="post-header">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; opacity: 0.8;">
+                    <img src="assets/logo.png" alt="Alessandro's Blog" style="width: 40px; height: 40px; border-radius: 4px;">
+                    <span style="font-weight: 600; font-size: 0.9rem; color: var(--color-text);">Alessandro’s Blog</span>
+                </div>
                 <h1>${escapeHtml(post.title)}</h1>
                 <div class="post-info">
                   <span>Published ${formatDate(published)}</span>
