@@ -1,6 +1,18 @@
 {
   "posts": [
     {
+      "title": "Zhipu AI: The First AI Company to Go Public",
+      "slug": "zhipu-ai-first-ai-ipo",
+      "publishedAt": "2025-12-30T11:48:00+01:00",
+      "summary": "Zhipu AI, officially known as Knowledge Atlas Technology, has priced its Hong Kong IPO and will begin trading on January 8, 2026, becoming the first major large language model company to go public globally.",
+      "tags": [
+        "AI",
+        "IPO",
+        "China"
+      ],
+      "content": "<p>Zhipu AI, officially registered as Knowledge Atlas Technology Joint Stock Co. Ltd., has priced its Hong Kong IPO, positioning itself to become the first major large language model (LLM) company to list on a global exchange. The Beijing-based startup, which emerged from Tsinghua University in 2019, finalized the issuance of 37.42 million new H-shares at HK$116.20 each, raising approximately HK$4.35 billion (around $560 million). Trading is scheduled to begin on January 8, 2026, under ticker symbol 2513.</p><h2>Valuation and Investors</h2><p>The IPO values Zhipu at approximately HK$51.8 billion ($6.7 billion). Before going public, the company secured significant capital through funding rounds backed by major tech players including Alibaba, Tencent, Ant Group, and Saudi Aramco. Cornerstone investors have already committed roughly HK$3 billion to the offering, demonstrating strong institutional confidence.</p><h2>Business and Performance</h2><p>Known as one of China's \"AI Six Tigers,\" Zhipu has established itself through both open-source contributions and commercial services. The company plans to allocate 70% of IPO proceeds to R&D for general-purpose large AI models and 10% toward optimizing its Model-as-a-Service (MaaS) platform. Revenue grew from modest levels to 191 million yuan in the first half of 2025, though the company reported a net loss of 2.36 billion yuan during the same period, primarily due to high computing power expenses.</p><h2>Global First</h2><p>Zhipu's listing beats both Western competitors like OpenAI and Anthropic, as well as domestic rival Minimax, to become the world's first publicly traded foundation model company. This milestone comes at a time when the AI industry faces intense pressure to demonstrate viable business models alongside cutting-edge capabilities. The company internationally markets itself as Z.ai and has gained recognition for its GLM model series.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://pandaily.com/zhipu-ai-launches-hong-kong-ipo-with-hk-3-billion-in-cornerstone-commitments-poised-to-be-2026-s-largest-opening-ipo/\" target=\"_blank\" rel=\"noopener noreferrer\">Pandaily</a></p>"
+    },
+    {
       "title": "Math Fine-Tuning in 2025: SFT is Dead, Long Live GRPO",
       "slug": "math-fine-tuning-2025-grpo-unsloth",
       "publishedAt": "2025-12-28T16:00:00+01:00",
