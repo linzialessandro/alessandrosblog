@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "Science is a data sorting problem, and AI is the new sort function",
+      "slug": "science-data-sorting-problem-ai-acceleration",
+      "publishedAt": "2026-01-16T12:20:00+01:00",
+      "summary": "Anthropic’s push into scientific acceleration isn’t about writing better abstracts; it’s about navigating the massive search spaces of fusion and biology. The real utility of AI in science is moving from “generating ideas” to “filtering noise” at a scale humans simply can’t match.",
+      "tags": [
+        "AI",
+        "Science",
+        "Research",
+        "Anthropic"
+      ],
+      "content": "<p>We often confuse “scientific productivity” with “writing papers faster.” But the bottleneck in modern science isn’t typing; it’s the sheer volume of high-dimensional data—telemetry from fusion reactors, genomic sequences, or material properties—that no human brain can parse in real-time.</p><p>Anthropic’s latest update on accelerating scientific research marks a distinct shift in tone from “AI as a writer” to “AI as an analyst.” The focus isn’t on having Claude generate novel hypotheses out of thin air, but on using the model to compress the distance between an experiment and an insight.</p><h2>The Search Space Problem</h2><p>In fields like materials science or nuclear physics, discovery is essentially a search problem. You are looking for a stable configuration in a near-infinite space of possibilities. Traditional simulation is precise but slow; human intuition is fast but biased and limited by bandwidth.</p><p>The argument here is that heavy-duty models act as high-dimensional librarians. They don’t just summarize literature; they can ingest massive datasets (like those from the U.S. Department of Energy) and identify correlations or anomalies that would take a PhD student months to spot. This turns the model into a filter: it doesn’t do the science for you, but it points the telescope where the interesting physics is likely hiding.</p><h2>Safety is the limiting reagent</h2><p>The constraint, as always, is reliability. In a chat interface, a hallucination is annoying. In a nuclear stockpile stewardship workflow or a bio-lab, a hallucination is a safety incident. This is why the integration of safety protocols—like the U.S. AI Safety Institute’s testing—is becoming indistinguishable from product development.</p><p>If AI is going to be scientific infrastructure, it has to fail gracefully. It needs to know when it doesn’t know, and it needs to hand off to a human verifier before a critical threshold is crossed. We are moving toward a world where the “result” of an AI query isn’t an answer, but a verified shortlist of experiments to run next.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://www.anthropic.com/news/accelerating-scientific-research\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic Blog</a></p>"
+    },
+    {
       "title": "Personal Intelligence is the new moat: Google vs. Perplexity",
       "slug": "personal-intelligence-moat-google-perplexity",
       "publishedAt": "2026-01-15T16:00:00+01:00",
