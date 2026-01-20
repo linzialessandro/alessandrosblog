@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "Scaling AI literacy requires training the trainers",
+      "slug": "anthropic-teach-for-all-partnership",
+      "publishedAt": "2026-01-20T16:35:00+01:00",
+      "summary": "AI in education often focuses on tools for students, but the bottleneck is usually teacher confidence. Anthropic’s partnership with Teach For All targets the human infrastructure—equipping educators globally to shape how AI is actually adopted.",
+      "tags": [
+        "AI",
+        "Education",
+        "Anthropic",
+        "Society"
+      ],
+      "content": "<p>There is a tendency to treat AI in schools as a software deployment problem: get the accounts, set the permissions, and hope for the best. But the real friction point isn’t access; it’s pedagogy.</p><p>If teachers don’t understand the models, they can’t guide students to use them critically. Anthropic’s new partnership with Teach For All is interesting because it ignores the shiny object (student tools) to focus on the lever that actually moves the system: the educators themselves.</p><h2>The infrastructure of understanding</h2><p>The initiative focuses on a global “Train the Trainer” model. The goal is to co-develop an AI training course designed specifically for Teach For All’s network of partner organizations across 60+ countries.</p><p>This matters because the gap in AI adoption is rarely about who has the fastest internet connection anymore; it’s about who has the mental model to use the tools effectively. By training educators to be AI-literate, the program tries to ensure that AI becomes a scaffold for deeper learning rather than just a shortcut for homework.</p><h2>Moving the baseline</h2><p>We spend a lot of time worrying about AI equity in terms of compute costs. But the deeper equity issue is guidance. Students in well-resourced environments already have adults helping them navigate these tools.</p><p>Collaborations like this attempt to democratize that guidance. It’s an optimistic bet that if you empower the teachers in under-resourced communities with the same rigorous understanding of AI capabilities and safety as the engineers building them, the benefits of the technology will actually distribute, rather than concentrate.</p>\n\n<p><strong>Contributor:</strong> Alessandro Linzi</p>\n\n<p>Read more here: <a href=\"https://www.anthropic.com/news/anthropic-teach-for-all\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic blog</a></p>"
+    },
+    {
       "title": "Deep Learning’s \"Zoo\" has a common ancestor: Categorical Deep Learning",
       "slug": "categorical-deep-learning-algebraic-theory",
       "publishedAt": "2026-01-20T14:30:00+01:00",
