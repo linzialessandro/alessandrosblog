@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "The democratization of reasoning: Gemini meets the SAT",
+      "slug": "gemini-sat-practice-reasoning-gap",
+      "publishedAt": "2026-01-22T15:00:00+01:00",
+      "summary": "Standardized test prep has always had an equity problem: access to the test is easy, but access to the *reasoning* behind the answers is expensive. Google’s partnership with the College Board to integrate Gemini into SAT practice changes the dynamic by scaling the specific behavior of a human tutor: explaining the 'why'.",
+      "tags": [
+        "AI",
+        "Education",
+        "Google",
+        "Learning"
+      ],
+      "content": "<p>Standardized tests have always had a persistent equity problem. The test itself measures what you know, but your score often measures how much professional coaching you could access to explain what you <em>didn't</em> know.</p><p>That gap is why Google’s collaboration with the College Board and The Princeton Review to bring Gemini into SAT practice is worth a deeper look. It attacks the scarcity of tutoring directly. While the headlines focus on the tool being “free,” that misses the point (and ignores the hardware barrier of owning a device). The real shift here isn't price; it's the move from static verification to dynamic explanation.</p><h2>Closing the feedback loop</h2><p>Learning happens in the feedback loop. In the old model of self-study, a student takes a practice test, checks the key, and sees they got Question 14 wrong. They know the correct answer is C, but they often don’t understand the underlying logic. A human tutor fixes this by spotting the misconception and walking the student through the reasoning step-by-step.</p><p>Gemini is now attempting to scale that specific interaction. It doesn't just grade the test; it offers reasoning-based feedback that breaks down the problem, clarifies the concepts, and helps the student reason their way to the correct answer without just handing it over.</p><h2>Grounding the model</h2><p>This is a high-value use case for modern LLMs because it leverages their strength in reasoning while constraining them to a ground-truth dataset. By using official questions from The Princeton Review, the system avoids the common pitfall of AI “hallucinating” poorly structured test questions. It turns the model from a creative writer into a context-aware coach that knows exactly what the test is asking.</p><p>We are seeing a transition from “tech-enabled” prep (digitizing the paper test) to “AI-native” prep (simulating the tutor). It doesn't solve every equity issue in education, but it does commoditize the kind of personalized feedback that used to cost $100 an hour.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://blog.google/products-and-platforms/products/education/practice-sat-gemini/\" target=\"_blank\" rel=\"noopener noreferrer\">Google Blog</a></p>"
+    },
+    {
       "title": "Why Anthropic calls it a 'Constitution'",
       "slug": "anthropic-constitution-why-the-name-matters",
       "publishedAt": "2026-01-21T18:00:00+01:00",
