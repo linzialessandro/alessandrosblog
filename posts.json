@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "title": "Google’s roadmap for the post-quantum transition",
+      "slug": "google-roadmap-post-quantum-transition",
+      "publishedAt": "2026-02-10T07:30:00+01:00",
+      "summary": "Google has released a detailed technical look at their transition to Post-Quantum Cryptography (PQC). Rather than focusing on theoretical risks, the update provides a practical framework for one of the largest infrastructure migrations in the internet's history, centering on algorithmic standards and cryptographic agility.",
+      "tags": [
+        "Cryptography",
+        "Engineering",
+        "Google",
+        "Standards",
+        "Infrastructure"
+      ],
+      "content": "<p>We often talk about quantum computing in the context of physics or future hardware capabilities. However, for software engineers and infrastructure architects, the “quantum era” is primarily a migration project. It involves a fundamental swap of the mathematical primitives that underpin internet security, moving from classical algorithms to Post-Quantum Cryptography (PQC).</p><p>Google’s recent publication outlines their internal roadmap for this transition, offering a valuable case study for the rest of the industry. The focus here is not on the \"if\" or \"when\" of quantum hardware, but on the concrete engineering steps required to modernize our cryptographic stack today.</p><h2>Standardizing the math</h2><p>The most significant shift is that PQC is no longer an abstract research topic; it has standardized implementations. The National Institute of Standards and Technology (NIST) has finalized the primary algorithms: <strong>ML-KEM</strong> (Module-Lattice-Based Key-Encapsulation Mechanism) for general encryption and <strong>ML-DSA</strong> (Module-Lattice-Based Digital Signature Algorithm) for digital signatures.</p><p>Google is actively integrating these standards into Chrome and its internal infrastructure. This moves PQC from the realm of academic papers into production libraries, meaning developers can—and should—start treating these new algorithms as the default targets for long-term system design.</p><h2>The inventory challenge</h2><p>Perhaps the most practical insight from Google’s roadmap is that the biggest hurdle isn't mathematical—it's organizational. Before you can upgrade your encryption, you have to find it. Many systems rely on \"shadow cryptography\": keys and algorithms hardcoded into legacy appliances, older codebases, or third-party dependencies.</p><p>The transition to PQC forces organizations to solve the <strong>cryptographic discovery</strong> problem. It requires building automated tooling to scan binaries, network traffic, and configurations to create a comprehensive inventory of where and how encryption is being used. You cannot upgrade what you cannot see.</p><h2>Building for agility</h2><p>Ultimately, this transition highlights the importance of <strong>crypto-agility</strong>. In the past, encryption protocols were often baked deeply into application logic, making them difficult to replace. The modern approach treats cryptography as a modular component.</p><p>By abstracting cryptographic implementations, systems can switch between algorithms (classical, PQC, or hybrid) via configuration rather than requiring code rewrites. Google’s approach suggests that this agility is not just a preparation for quantum computing, but a best practice for healthy, maintainable software architecture in general.</p>\n\n<p><strong>Contributor:</strong> Alessandro Linzi</p>\n\n<p>Read more here: <a href=\"https://blog.google/innovation-and-ai/technology/safety-security/the-quantum-era-is-coming-are-we-ready-to-secure-it/\" target=\"_blank\" rel=\"noopener noreferrer\">Google Blog</a></p>"
+    },
+    {
       "title": "Perplexity Model Council: the rise of Ensemble UI",
       "slug": "perplexity-model-council-ensemble-ui",
       "publishedAt": "2026-02-12T09:00:00+01:00",
