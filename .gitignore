@@ -48,3 +48,4 @@ MANIFEST
 venv/
 ENV/
 env/
+.agent/
