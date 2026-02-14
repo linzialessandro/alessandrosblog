@@ -1,6 +1,20 @@
 {
   "posts": [
     {
+      "title": "Arcgentica: Solving the hardest benchmark by letting models code",
+      "slug": "arcgentica-solving-hardest-benchmark-letting-models-code",
+      "publishedAt": "2026-02-12T16:59:47+01:00",
+      "summary": "Symbolica’s new framework, Agentica, achieves state-of-the-art on the ARC-AGI-2 benchmark. The secret isn't a bigger model—it's a persistent Python REPL that lets agents test hypotheses, mutate state, and “think” by running code rather than just predicting tokens.",
+      "tags": [
+        "AI",
+        "Reasoning",
+        "ARC-AGI",
+        "Symbolica",
+        "Code Agents"
+      ],
+      "content": "<p>We have spent the last two years obsessing over “Chain of Thought”—the idea that if an LLM talks to itself in English, it gets smarter. Symbolica’s latest work on the ARC-AGI-2 benchmark suggests a different, harder path: the best way for a model to reason isn’t to talk. It’s to code.</p><h2>The ARC-AGI Problem</h2><p>ARC-AGI is widely considered the only benchmark that actually matters for reasoning. Unlike the bar exam or coding tests, you can’t memorize it. It consists of visual grid puzzles that require discovering a novel rule from a few examples and applying it. Most LLMs fail miserably at it because they rely on pattern-matching training data, whereas ARC requires on-the-fly abstraction.</p><h2>The \"Arcgentica\" Breakthrough</h2><p>Symbolica’s new post details how they used their <strong>Agentica</strong> framework to hit a massive 85.28% score on ARC-AGI-2 (using Opus 4.6). But the interesting part isn’t the score; it’s the architecture.</p><p>Standard agentic workflows use “tool calling”—stateless API hits where the model sends a JSON packet and gets a result. Symbolica argues this is broken for reasoning. Instead, they gave the agent a <strong>persistent Python REPL</strong>. </p><p>This allows the model to:</p><ul><li><strong>Maintain state:</strong> Keep objects in memory and mutate them (like a human working on a whiteboard).</li><li><strong>Interleave thinking and doing:</strong> Write a line of code, run it to see if the hypothesis holds, and then iterate.</li><li><strong>Compose abstractions:</strong> Define functions that become new tools for the rest of the session.</li></ul><h2>Why \"State\" is the missing link</h2><p>This reinforces a trend I’ve been tracking: the move from <em>probabilistic generation</em> to <em>verified construction</em>. When a model writes English, it has no way to know if it’s hallucinating until it’s too late. When a model writes code in a REPL, the interpreter acts as a reality check. If the code crashes, the model knows it’s wrong and tries again.</p><p>Symbolica calls this a move towards \"Category Theoretic\" architectures, but you don't need to understand the math to see the engineering truth: giving models a reliable, stateful workspace turns them from predictors into solvers.</p>\n\n<p><strong>Contributor:</strong> Alessandro Linzi</p>\n\n<p>Read more here: <a href=\"https://www.symbolica.ai/blog/arcgentica\" target=\"_blank\" rel=\"noopener noreferrer\">Symbolica AI Blog</a></p>"
+    },
+    {
       "title": "Google’s roadmap for the post-quantum transition",
       "slug": "google-roadmap-post-quantum-transition",
       "publishedAt": "2026-02-10T07:30:00+01:00",
