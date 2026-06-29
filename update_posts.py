@@ -1,0 +1,33 @@
+import json
+import os
+
+blog_dir = "/Users/alessandro/Library/Mobile Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website"
+posts_file = os.path.join(blog_dir, "posts.json")
+
+with open(posts_file, 'r') as f:
+    data = json.load(f)
+
+new_post = {
+    "title": "Mistral Releases Leanstral: An Open-Source Foundation for Trustworthy Vibe-Coding",
+    "slug": "mistral-leanstral-open-source-vibe-coding",
+    "publishedAt": "2026-03-17T10:00:00+01:00",
+    "summary": "Mistral AI has introduced Leanstral, the first open-source code agent specifically designed for the Lean 4 proof assistant, enabling formal verification of AI-generated code.",
+    "tags": [
+        "AI",
+        "Mistral AI",
+        "Leanstral",
+        "Coding Agents",
+        "Open Source"
+    ],
+    "content": "<p>In a major step towards verifiable AI coding, Mistral AI has announced the release of <strong>Leanstral</strong>, the first open-source code agent designed specifically for the Lean 4 proof assistant. This new model aims to address the scaling bottleneck of human review in high-stakes domains by formally proving its implementations against strict specifications.</p><h2>Verifiable Code Generation</h2><p>While AI agents have become highly capable at generating code, verifying that code for mission-critical applications still requires extensive human expertise. Leanstral tackles this by integrating with Lean 4, a proof assistant capable of expressing complex mathematical objects and software specifications. This allows the agent not only to write code but to mathematically prove its correctness.</p><h2>Efficient and Accessible</h2><p>With 6B active parameters and a highly sparse architecture, Leanstral is optimized for proof engineering tasks. Despite its smaller size, it demonstrates a significant efficiency advantage over much larger open-source models and offers competitive performance against leading proprietary models at a fraction of the cost.</p><p>Mistral has released Leanstral's weights under an Apache 2.0 license. It is also available via a free API endpoint and seamlessly integrated into Mistral Vibe for zero-setup vibe coding and proving.</p>\n\n<p><strong>Contributor:</strong> Alessandro Linzi</p>\n\n<p>Read more here: <a href=\"https://mistral.ai/news/leanstral/\" target=\"_blank\" rel=\"noopener noreferrer\">Mistral AI News</a></p>"
+}
+
+# Add to the beginning of the list, after sorting by date if needed, or simply prepend since the list seems reverse-chronological
+data['posts'].insert(0, new_post)
+# sort posts by publishedAt descending
+data['posts'].sort(key=lambda x: x['publishedAt'], reverse=True)
+
+with open(posts_file, 'w') as f:
+    json.dump(data, f, indent=2)
+
+print("Posts updated successfully.")
