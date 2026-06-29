@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "blogq"
 version = "0.1.0"
 requires-python = ">=3.11"
-dependencies = ["jsonschema>=4.25"]
+dependencies = ["jsonschema>=4.26.0"]
 
 [project.scripts]
 blogq = "blogq.cli:main"
