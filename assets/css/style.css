@@ -758,4 +758,357 @@
             .post-info { flex-direction: column; gap: 0.75rem; align-items: center; }
             .donate-btn { width: 100%; }
         }
-    
+
+        /* ══════════════════════════════════════════════════════
+           BEHIND THE SCENES MODAL (APPLE STYLE)
+        ══════════════════════════════════════════════════════ */
+        .bts-modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1000;
+            background: color-mix(in srgb, var(--bg) 95%, transparent);
+            backdrop-filter: blur(40px) saturate(220%);
+            -webkit-backdrop-filter: blur(40px) saturate(220%);
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            
+            /* CSS Scroll Snapping for one-at-a-time slide view */
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            
+            /* Hidden state */
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(1.02);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+        }
+
+        .bts-modal.open {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        .bts-close-btn {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-raised);
+            color: var(--text-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1010;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            transition: transform 0.4s var(--ease), background-color 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .bts-close-btn:hover {
+                transform: rotate(90deg) scale(1.08);
+                background: var(--text);
+                color: var(--bg);
+                border-color: var(--text);
+            }
+        }
+
+        .bts-content-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 
+           Fullscreen snaps. Only one visible at a time.
+        */
+        .bts-section {
+            min-height: 100dvh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 6rem 1.5rem;
+            box-sizing: border-box;
+            
+            /* High-end opacity fade out when not centered */
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .bts-section.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Hero Section overrides */
+        .bts-hero {
+            text-align: center;
+            /* Override inherit transition behavior for start state */
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+
+        .bts-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-strong);
+            opacity: 0;
+            box-shadow: 0 0 40px color-mix(in srgb, var(--accent) 15%, transparent);
+        }
+
+        .bts-title {
+            font-family: var(--font-serif);
+            font-size: clamp(3.25rem, 8vw, 5.5rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            background: linear-gradient(158deg, var(--text) 40%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bts-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.85rem);
+            font-weight: 300;
+            color: var(--text-2);
+            margin-bottom: 4rem;
+            opacity: 0;
+        }
+
+        .bts-author {
+            font-size: 1rem;
+            color: var(--text-3);
+            line-height: 1.7;
+            margin-bottom: 5rem;
+            opacity: 0;
+        }
+        
+        .bts-author strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Subtle and slow pulsing Explore button */
+        .bts-scroll-down {
+            background: none;
+            border: none;
+            color: var(--text-2);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0;
+            transition: color 0.3s var(--ease);
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .bts-scroll-down:hover {
+                color: var(--accent);
+            }
+        }
+        
+        .bts-arrow {
+            /* No looping movement animations to prevent motion sickness */
+            margin-top: 0.25rem;
+            opacity: 0.7;
+        }
+
+        /* Orchestrated Intro Animations */
+        .bts-modal.open .bts-logo {
+            animation: btsFadeScale 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+        }
+        .bts-modal.open .bts-title {
+            animation: btsSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+        }
+        .bts-modal.open .bts-subtitle {
+            animation: btsSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+        }
+        .bts-modal.open .bts-author {
+            animation: btsSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+        }
+        .bts-modal.open .bts-scroll-down {
+            animation: btsFadeIn 1s ease 1s both;
+        }
+
+        @keyframes btsFadeScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes btsSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes btsFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Abstract Section */
+        .bts-abstract p {
+            font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+            line-height: 1.6;
+            font-weight: 300;
+            color: var(--text);
+            text-align: center;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, var(--text) 30%, var(--text-2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Standard Sections */
+        .bts-section h2 {
+            font-size: clamp(2.25rem, 5vw, 3.75rem);
+            margin-bottom: 2.5rem;
+            color: var(--text);
+            font-style: italic;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--text) 40%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bts-section h3 {
+            font-size: 1.75rem;
+            margin-top: 4rem;
+            margin-bottom: 1.25rem;
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .bts-section p {
+            font-size: 1.125rem;
+            line-height: 1.85;
+            color: var(--text-2);
+            margin-bottom: 1.75rem;
+            font-weight: 300;
+        }
+
+        /* Luxury Counters for Lists */
+        .bts-list {
+            list-style: none;
+            counter-reset: bts-counter;
+            padding-left: 0;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .bts-list li {
+            font-size: 1.125rem;
+            color: var(--text-2);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 4.5rem;
+        }
+        
+        .bts-list li::before {
+            counter-increment: bts-counter;
+            content: "0" counter(bts-counter);
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            font-family: var(--font-serif);
+            font-size: 2.25rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--accent);
+            opacity: 0.75;
+            line-height: 1;
+        }
+        
+        .bts-list strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .bts-closing {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 4vw, 2.5rem) !important;
+            font-style: italic;
+            text-align: center;
+            margin-top: 6rem;
+            color: var(--text) !important;
+            background: linear-gradient(135deg, var(--text) 30%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bts-section code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            background: var(--bg-raised); 
+            padding: 0.25em 0.5em;
+            border: 1px solid var(--border); 
+            font-size: 0.9em;
+            border-radius: 6px;
+            color: var(--text);
+        }
+
+        .bts-footer-close-btn {
+            display: block;
+            margin: 4rem auto 0;
+            padding: 0.875rem 2.5rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-strong);
+            background: var(--text);
+            color: var(--bg);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s var(--ease), background-color 0.3s var(--ease), color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .bts-footer-close-btn:hover {
+                transform: scale(1.04);
+                background: var(--accent);
+                border-color: var(--accent);
+                color: #fff;
+                box-shadow: 0 12px 30px -10px var(--ring);
+            }
+        }
+        .bts-footer-close-btn:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 640px) {
+            .bts-close-btn {
+                top: 1.25rem;
+                right: 1.25rem;
+                width: 44px;
+                height: 44px;
+            }
+            .bts-content-wrap {
+                padding: 0 1.25rem;
+            }
+            .bts-section { 
+                padding: 4rem 1rem;
+            }
+            .bts-list li { padding-left: 3rem; }
+            .bts-list li::before { font-size: 1.75rem; }
+        }

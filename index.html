@@ -34,7 +34,7 @@
                     <p class="hero-eyebrow">Learning in public</p>
                     <h1 class="hero-headline">Ideas worth<br>keeping.</h1>
                     <p class="hero-sub">A distilled collection of things I discovered — in articles, books, and online explorations — that shifted my thinking.</p>
-                    <a class="hero-cta" href="assets/behind-the-scenes.pdf?v=2" target="_blank" rel="noopener noreferrer">Behind the Scenes &nbsp;↗</a>
+                    <button class="hero-cta" id="btsOpenBtn" aria-expanded="false" aria-controls="btsModal">Behind the Scenes &nbsp;↗</button>
                 </div>
                 <div class="hero-scroll" aria-hidden="true">
                     <span class="hero-scroll-label">Scroll</span>
@@ -145,6 +145,85 @@
 
         <!-- ═══════════════ POST PAGE (dynamic) ═══════════════ -->
         <div id="postpage" style="display:none"></div>
+
+        <!-- ═══════════════ BEHIND THE SCENES MODAL ═══════════════ -->
+        <div id="btsModal" class="bts-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="btsTitle">
+            <button id="btsCloseBtn" class="bts-close-btn" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="bts-content-wrap">
+                <!-- Title & Logo -->
+                <section class="bts-section bts-hero">
+                    <img src="assets/logo.png" alt="Logo" class="bts-logo">
+                    <h1 id="btsTitle" class="bts-title">Running Our Blog in 2025</h1>
+                    <p class="bts-subtitle">Behind the Scenes</p>
+                    <div class="bts-author">
+                        <p><strong>Alessandro Linzi</strong></p>
+                        <p>Udine</p>
+                    </div>
+                    <button class="bts-scroll-down" id="btsExploreBtn" aria-label="Scroll to abstract">
+                        <span>Begin Reading</span>
+                        <svg class="bts-arrow" width="14" height="24" viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 17l6 6 6-6M7 1v22"/></svg>
+                    </button>
+                </section>
+
+                <!-- Abstract -->
+                <section class="bts-section bts-abstract scroll-reveal">
+                    <p>We believe that a digital space should be as quiet and focused as a pristine sheet of paper. This document outlines our journey away from the noise of algorithmic timelines, toward a beautifully static, privacy-obsessed web experience. By harnessing modern AI—Google Antigravity and Perplexity—we didn't just build a blog. We crafted a sanctuary for thought.</p>
+                </section>
+
+                <!-- Section 1 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Clarity Over Noise</h2>
+                    <p>For years, sharing ideas meant shouting into the void of social timelines—ephemeral moments lost in a sea of algorithms and ads. By late 2024, it became profoundly clear: we were consuming, we were sharing, but we weren't building. We were renting space on platforms that valued your attention more than your understanding.</p>
+                    <p>We wanted a home. A digital garden designed for ideas to breathe. A space where mathematics, code, and philosophy could coexist seamlessly. A place where privacy isn't a toggle hidden in a settings menu, but a fundamental human right built directly into the foundation.</p>
+                    <p>This blog is that home. It is a return to the true essence of the web: impossibly fast, completely static, and entirely ours—and now, yours.</p>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Engineering Simplicity</h2>
+                    <p>Building something simple in 2025 is surprisingly complex. While the industry rushes toward heavier frameworks and bloated codebases, we set a different goal: absolute minimalism. No trackers. No heavy JavaScript. Just pure HTML, refined CSS, and a remarkably elegant JSON architecture.</p>
+                    <p>To achieve this level of simplicity, we partnered with the most advanced AI tools available.</p>
+
+                    <h3>Perplexity: The Architect</h3>
+                    <p>Before writing a single line of code, we used <strong>Perplexity</strong> to challenge every assumption. We didn't ask how to build a blog; we asked how to redefine one. Together, we stripped away the unnecessary—concluding that cookies are a compromise we refuse to make, and heavy frameworks are a burden the reader shouldn't bear. Perplexity helped us design the immaculate <code>posts.json</code> schema that powers this experience, anchoring our design in semantic HTML and universal accessibility.</p>
+
+                    <h3>Google Antigravity: The Builder</h3>
+                    <p>When it came to execution, we turned to <strong>Google Antigravity</strong>. Its agentic intelligence was the perfect partner to build the invisible tooling that keeps this space pristine.</p>
+                    <p>We delegated the creation of <code>blogq</code>—our custom Python validation engine—to Antigravity. We gave it four uncompromising rules:</p>
+                    <ol class="bts-list">
+                        <li>URL slugs must be lowercase and perfectly clean.</li>
+                        <li>Tracking pixels are fundamentally prohibited.</li>
+                        <li>Every connection must be cryptographically secure (HTTPS).</li>
+                        <li>The JSON schema must be validated with zero tolerance for error.</li>
+                    </ol>
+                    <p>The result is a rigorous, automated test suite that runs silently before every commit. It handles the structural integrity, so we can focus entirely on the art of the content.</p>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Our Philosophy</h2>
+                    <p>The core mission of this space is to make the complex intuitive. Whether it's a formal proof in Isabelle/HOL or the latest breakthrough in artificial intelligence, our goal is to show the work with absolute clarity.</p>
+                    <p>We build on three uncompromising principles:</p>
+                    <ol class="bts-list">
+                        <li><strong>Privacy by Design.</strong> You will find no cookie banners here, because there are no cookies. We don't track you. The only metric that matters is the value you take away.</li>
+                        <li><strong>Performance as Respect.</strong> Your time is invaluable. That's why this site loads instantly. There are no dynamic build steps between our writing and your reading—just a seamless, fluid experience.</li>
+                        <li><strong>Open by Default.</strong> The engine behind this blog is entirely open source. It is available for you to inspect, dissect, and make your own.</li>
+                    </ol>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Designing the Future</h2>
+                    <p>This space is more than an archive of our thoughts. It's a blueprint for yours.</p>
+                    <p>As the web pivots back toward personal publishing—away from walled gardens—we invite you to take this foundation and build upon it. Clone the repository. Run the <code>blogq</code> validator on your own ideas. Evolve the <code>build-pdfs.mjs</code> engine.</p>
+                    <p>If you spot an error in a proof, fix it. If you see a way to explain a concept more beautifully, share it. This is a living testament to the pursuit of knowledge, hosted on an open platform so it can become a part of your journey.</p>
+                    <p class="bts-closing">Welcome to the pursuit of better.</p>
+                    <button class="bts-footer-close-btn" id="btsFooterCloseBtn" aria-label="Close modal and return to blog">Back to Blog</button>
+                </section>
+            </div>
+        </div>
 
     </div><!-- #app -->
 
