@@ -32,7 +32,7 @@ import { Router } from './router.js';
         const exploreBtn = document.getElementById(exploreBtnId);
         const footerCloseBtn = document.getElementById(footerCloseBtnId);
         
-        if (!modal || !openBtn || !closeBtn) return;
+        if (!modal || !openBtn || !closeBtn) { console.log("Missing elements for", modalId); return; } console.log("Setup modal success for", modalId);
         
         const sections = modal.querySelectorAll('.scroll-reveal');
 
