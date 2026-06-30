@@ -21,6 +21,7 @@ This is a lightweight, static blog that prioritizes:
 ├── api/                # Static API endpoints for lazy loading
 │   ├── index.json      # Metadata index of all posts (loaded on startup)
 │   └── posts/          # Individual post JSON files (loaded on demand)
+├── docs/               # Project documentation (OKF Knowledge Graph)
 ├── sitemap.xml         # SEO sitemap
 ├── pdfs/               # PDF versions of blog posts
 ├── scripts/            # Build and utility scripts
