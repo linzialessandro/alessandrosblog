@@ -192,6 +192,12 @@ export class Renderer {
         this.currentStore = store;
         this.renderChips(store);
         this.updateFilterUI(store);
+        
+        document.title = "Alessandro's blog — Publicly collecting what I learn";
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.content = "A distilled collection of things I discovered — in articles, books, and online explorations — that shifted my thinking.";
+        }
 
         const fp = store.getFilteredPosts();
         if (!fp.length) { 
@@ -225,9 +231,17 @@ export class Renderer {
         try {
             let content = post.content;
             if (!content) {
-                const r = await fetch(`posts/${slug}.html`, { cache: "no-store" });
-                if (!r.ok) throw new Error();
-                content = await r.text();
+                const r = await fetch(`api/posts/${slug}.json`, { cache: "no-store" });
+                if (r.ok) {
+                    const fullPost = await r.json();
+                    content = fullPost.content;
+                    post.content = content; // Cache for next time
+                } else {
+                    const r2 = await fetch(`posts/${slug}.html`, { cache: "no-store" });
+                    if (!r2.ok) throw new Error();
+                    content = await r2.text();
+                    post.content = content;
+                }
             }
             
             const idx = store.getPostIndex(post);
@@ -237,6 +251,7 @@ export class Renderer {
             const rel = store.getRelatedPosts(post);
 
             this.POSTPAGE.innerHTML = `
+            <div class="reading-progress" aria-hidden="true"></div>
             <div class="wrap post-page-wrap">
                 <a href="#" class="back-link">← Back to archive</a>
                 <article>
@@ -274,6 +289,17 @@ export class Renderer {
                 </nav>
             </div>`;
             window.scrollTo(0, 0);
+            
+            // Update SEO Meta Tags
+            document.title = `${post.title} — Alessandro's blog`;
+            let metaDesc = document.querySelector('meta[name="description"]');
+            if (!metaDesc) {
+                metaDesc = document.createElement('meta');
+                metaDesc.name = "description";
+                document.head.appendChild(metaDesc);
+            }
+            metaDesc.content = post.summary || "";
+
         } catch {
             this.POSTPAGE.innerHTML = "<p>Error loading post.</p>";
         }

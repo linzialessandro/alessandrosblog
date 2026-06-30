@@ -1,6 +1,6 @@
 // assets/js/store.js
 
-const POSTSFILE = "posts.json";
+const POSTSFILE = "api/index.json";
 
 export class BlogStore {
     constructor() {

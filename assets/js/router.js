@@ -12,39 +12,46 @@ export class Router {
         this.route();
     }
 
-    route() {
+    async route() {
         const hash = location.hash.slice(1);
         
-        if (hash.startsWith("post/")) {
-            const slug = decodeURIComponent(hash.slice(5));
-            this.renderer.showView('postpage');
-            this.renderer.renderPostPage(this.store, slug);
-            return;
-        }
-        
-        if (hash === "privacy") {
-            this.renderer.showView('privacypage');
-            window.scrollTo(0, 0);
-            return;
-        }
-
-        // Default to Homepage
-        this.renderer.showView('homepage');
-        
-        if (hash.startsWith("tags=")) {
-            const tags = hash.slice(5).split(",").filter(Boolean);
-            this.store.setFilter(tags);
-        } else if (hash === "") {
-            // Restore from local storage if no hash provided
-            const storedTags = this.store.getStoredTags();
-            if (storedTags.length > 0) {
-                // We update the hash, which will trigger route() again, 
-                // but this time with tags=...
-                this.updateTagsHash(storedTags);
-                return; // exit current route handle
-            } else {
-                this.store.setFilter([]);
+        const updateDOM = async () => {
+            if (hash.startsWith("post/")) {
+                const slug = decodeURIComponent(hash.slice(5));
+                this.renderer.showView('postpage');
+                await this.renderer.renderPostPage(this.store, slug);
+                return;
             }
+            
+            if (hash === "privacy") {
+                this.renderer.showView('privacypage');
+                window.scrollTo(0, 0);
+                return;
+            }
+
+            // Default to Homepage
+            this.renderer.showView('homepage');
+            
+            if (hash.startsWith("tags=")) {
+                const tags = hash.slice(5).split(",").filter(Boolean);
+                this.store.setFilter(tags);
+            } else if (hash === "") {
+                const storedTags = this.store.getStoredTags();
+                if (storedTags.length > 0) {
+                    this.updateTagsHash(storedTags);
+                    return;
+                } else {
+                    this.store.setFilter([]);
+                }
+            }
+        };
+
+        if (!document.startViewTransition) {
+            await updateDOM();
+        } else {
+            document.startViewTransition(async () => {
+                await updateDOM();
+            });
         }
     }
 
