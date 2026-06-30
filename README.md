@@ -16,12 +16,16 @@ This is a lightweight, static blog that prioritizes:
 
 ```
 .
-├── index.html          # Main blog page with single-page routing
-├── posts.json          # Blog posts data (validated by blogq)
+├── index.html          # Main blog page with single-page routing & View Transitions
+├── posts.json          # Blog posts source data (validated by blogq)
+├── api/                # Static API endpoints for lazy loading
+│   ├── index.json      # Metadata index of all posts (loaded on startup)
+│   └── posts/          # Individual post JSON files (loaded on demand)
 ├── sitemap.xml         # SEO sitemap
 ├── pdfs/               # PDF versions of blog posts
 ├── scripts/            # Build and utility scripts
-│   └── build-pdfs.mjs  # PDF generation script
+│   ├── build-pdfs.mjs  # PDF generation script
+│   └── build-static-api.js # Splits posts.json into the static API
 └── tools/              # Development and validation tools
     └── blogq/          # Posts validation tool
 ```
@@ -172,7 +176,7 @@ Here is the body of the post. You can use:
 
 **Maintainer Instructions:**
 
-To complile accepted drafts into `posts.json`:
+To compile accepted drafts into `posts.json` and generate the static API files:
 
 1.  Move the draft to `submissions/accepted/`.
 2.  Run the compiler:
@@ -182,6 +186,10 @@ To complile accepted drafts into `posts.json`:
     
     # Compile and update posts.json (moves draft to processed/)
     node tools/compile-contrib-posts.js
+    ```
+3.  Re-generate the static API endpoints:
+    ```bash
+    node scripts/build-static-api.js
     ```
 
 
