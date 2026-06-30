@@ -155,8 +155,8 @@
                 <!-- Title & Logo -->
                 <section class="bts-section bts-hero">
                     <img src="assets/logo.png" alt="Logo" class="bts-logo">
-                    <h1 id="btsTitle" class="bts-title">Running Our Blog in 2025</h1>
-                    <p class="bts-subtitle">Behind the Scenes</p>
+                    <h1 id="btsTitle" class="bts-title">Behind the Architecture</h1>
+                    <p class="bts-subtitle">Vibe Coding a Premium Web Experience</p>
                     <div class="bts-author">
                         <p><strong>Alessandro Linzi</strong></p>
                         <p>Udine</p>
@@ -169,47 +169,48 @@
 
                 <!-- Abstract -->
                 <section class="bts-section bts-abstract scroll-reveal">
-                    <p>We believe that a digital space should be as quiet and focused as a pristine sheet of paper. This document outlines our journey away from the noise of algorithmic timelines, toward a beautifully static, privacy-obsessed web experience. By harnessing modern AI—Google Antigravity and Perplexity—we didn't just build a blog. We crafted a sanctuary for thought.</p>
+                    <p>We believe that a digital space should be as quiet, focused, and elegantly crafted as a pristine sheet of paper. This document outlines our journey of building a beautifully static, privacy-obsessed web experience from scratch. By adopting a "vibe coding" philosophy, we didn't just assemble a blog—we used this opportunity to learn the intricacies of modern programming, studying best practices to build and maintain a truly premium project.</p>
                 </section>
 
                 <!-- Section 1 -->
                 <section class="bts-section scroll-reveal">
-                    <h2>Clarity Over Noise</h2>
-                    <p>For years, sharing ideas meant shouting into the void of social timelines—ephemeral moments lost in a sea of algorithms and ads. By late 2024, it became profoundly clear: we were consuming, we were sharing, but we weren't building. We were renting space on platforms that valued your attention more than your understanding.</p>
-                    <p>We wanted a home. A digital garden designed for ideas to breathe. A space where mathematics, code, and philosophy could coexist seamlessly. A place where privacy isn't a toggle hidden in a settings menu, but a fundamental human right built directly into the foundation.</p>
-                    <p>This blog is that home. It is a return to the true essence of the web: impossibly fast, completely static, and entirely ours—and now, yours.</p>
+                    <h2>Standing on the Shoulders of Giants</h2>
+                    <p>While modern AI tools have dramatically lowered the barrier to entry, empowering less expert individuals to build sophisticated software, we never forget the foundation we stand upon. These remarkable technologies are available today only because of the open source community and the decades of meticulous, brilliant work by incredibly skilled engineers.</p>
+                    <p>We deeply value their contributions. As we "vibe code" this platform—letting intuition and aesthetic goals guide our prompts—we do so with immense respect for the rigorous engineering principles established by those who came before us.</p>
                 </section>
 
                 <!-- Section 2 -->
                 <section class="bts-section scroll-reveal">
-                    <h2>Engineering Simplicity</h2>
-                    <p>Building something simple in 2025 is surprisingly complex. While the industry rushes toward heavier frameworks and bloated codebases, we set a different goal: absolute minimalism. No trackers. No heavy JavaScript. Just pure HTML, refined CSS, and a remarkably elegant JSON architecture.</p>
-                    <p>To achieve this level of simplicity, we partnered with the most advanced AI tools available.</p>
+                    <h2>Engineering Simplicity with Google AI</h2>
+                    <p>Building something elegantly simple in 2026 is surprisingly complex. We aimed for absolute minimalism: no heavy frameworks, no dynamic servers, and zero trackers. Just pure semantic HTML, a refined CSS design system, and an incredibly efficient static architecture.</p>
+                    <p>To achieve this, we partnered exclusively with Google AI, leveraging the power of <strong>Gemini</strong> via Google AI Studio and the autonomous agentic capabilities of the <strong>Antigravity suite</strong>—all at the cost of a standard Google AI Pro subscription.</p>
 
-                    <h3>Perplexity: The Architect</h3>
-                    <p>Before writing a single line of code, we used <strong>Perplexity</strong> to challenge every assumption. We didn't ask how to build a blog; we asked how to redefine one. Together, we stripped away the unnecessary—concluding that cookies are a compromise we refuse to make, and heavy frameworks are a burden the reader shouldn't bear. Perplexity helped us design the immaculate <code>posts.json</code> schema that powers this experience, anchoring our design in semantic HTML and universal accessibility.</p>
+                    <h3>The Global Project Architecture</h3>
+                    <p>The codebase is designed as a modular, build-free client connected to a statically compiled API. Here is how the ecosystem functions:</p>
+                    <ul class="bts-list">
+                        <li><strong>The Source of Truth (<code>posts.json</code>):</strong> A single, structured JSON document containing the raw markdown, metadata, and configuration for every article.</li>
+                        <li><strong>Static API Engine (<code>api/</code>):</strong> To ensure instantaneous page loads, a Node.js compiler splits the main JSON data into a lightweight index (<code>api/index.json</code>) for the landing page and individual, lazy-loaded post files (<code>api/posts/*.json</code>) retrieved on demand.</li>
+                        <li><strong>Semantic Router (<code>main.js</code>):</strong> A client-side router that intercepts browser navigation and leverages modern <strong>View Transitions API</strong> to morph the page fluidly between post listings and reading layouts without full-page reloads.</li>
+                        <li><strong>Verification Engine (<code>blogq</code>):</strong> A custom Python package developed with Antigravity that acts as our gatekeeper, checking every post for security vulnerabilities, syntax consistency, slug cleanliness, and links safety before it can be committed.</li>
+                        <li><strong>Premium Offline Formats (<code>build-pdfs.mjs</code>):</strong> An automated serverless pipeline that compiles our articles into beautifully typeset, printable PDF documents.</li>
+                    </ul>
+                </section>
 
-                    <h3>Google Antigravity: The Builder</h3>
-                    <p>When it came to execution, we turned to <strong>Google Antigravity</strong>. Its agentic intelligence was the perfect partner to build the invisible tooling that keeps this space pristine.</p>
-                    <p>We delegated the creation of <code>blogq</code>—our custom Python validation engine—to Antigravity. We gave it four uncompromising rules:</p>
-                    <ol class="bts-list">
-                        <li>URL slugs must be lowercase and perfectly clean.</li>
-                        <li>Tracking pixels are fundamentally prohibited.</li>
-                        <li>Every connection must be cryptographically secure (HTTPS).</li>
-                        <li>The JSON schema must be validated with zero tolerance for error.</li>
-                    </ol>
-                    <p>The result is a rigorous, automated test suite that runs silently before every commit. It handles the structural integrity, so we can focus entirely on the art of the content.</p>
+                <!-- Section 2.5: Infrastructure -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Infrastructure & Independent Domain Registry</h2>
+                    <p>Consistent with our philosophy of quiet, independent digital spaces, we avoid the complexity and constraints of mainstream commercial domain registries. The blog's online presence is anchored on the free and open web, utilizing a domain name provided by the historic <strong><a href="https://nic.eu.org" target="_blank" rel="noopener">EU.org / nic.eu.org</a></strong> registry.</p>
+                    <p>By relying on this community-driven infrastructure—which has championed free domain names for non-commercial users since 1996—we pay homage to the original, decentralized ideals of the internet.</p>
                 </section>
 
                 <!-- Section 3 -->
                 <section class="bts-section scroll-reveal">
                     <h2>Our Philosophy</h2>
-                    <p>The core mission of this space is to make the complex intuitive. Whether it's a formal proof in Isabelle/HOL or the latest breakthrough in artificial intelligence, our goal is to show the work with absolute clarity.</p>
-                    <p>We build on three uncompromising principles:</p>
+                    <p>The core mission of this space is to make the complex intuitive, balancing high aesthetics with uncompromising performance. We build on three principles:</p>
                     <ol class="bts-list">
-                        <li><strong>Privacy by Design.</strong> You will find no cookie banners here, because there are no cookies. We don't track you. The only metric that matters is the value you take away.</li>
-                        <li><strong>Performance as Respect.</strong> Your time is invaluable. That's why this site loads instantly. There are no dynamic build steps between our writing and your reading—just a seamless, fluid experience.</li>
-                        <li><strong>Open by Default.</strong> The engine behind this blog is entirely open source. It is available for you to inspect, dissect, and make your own.</li>
+                        <li><strong>Privacy by Design.</strong> You will find no cookie banners here, because there are no cookies. We don't track you.</li>
+                        <li><strong>Performance as Respect.</strong> Your time is invaluable. There are no dynamic build steps between our writing and your reading—just a seamless, fluid static delivery.</li>
+                        <li><strong>Open by Default.</strong> The engine behind this blog is entirely open source, available for you to inspect, dissect, and learn from.</li>
                     </ol>
                 </section>
 
@@ -217,8 +218,7 @@
                 <section class="bts-section scroll-reveal">
                     <h2>Designing the Future</h2>
                     <p>This space is more than an archive of our thoughts. It's a blueprint for yours.</p>
-                    <p>As the web pivots back toward personal publishing—away from walled gardens—we invite you to take this foundation and build upon it. Clone the repository. Run the <code>blogq</code> validator on your own ideas. Evolve the <code>build-pdfs.mjs</code> engine.</p>
-                    <p>If you spot an error in a proof, fix it. If you see a way to explain a concept more beautifully, share it. This is a living testament to the pursuit of knowledge, hosted on an open platform so it can become a part of your journey.</p>
+                    <p>As the web pivots back toward personal publishing—away from walled gardens—we invite you to take this foundation and build upon it. Clone the repository, study the architecture, run the <code>blogq</code> validator on your own ideas, and explore the possibilities of vibe coding alongside AI.</p>
                     <p class="bts-closing">Welcome to the pursuit of better.</p>
                     <button class="bts-footer-close-btn" id="btsFooterCloseBtn" aria-label="Close modal and return to blog">Back to Blog</button>
                 </section>
