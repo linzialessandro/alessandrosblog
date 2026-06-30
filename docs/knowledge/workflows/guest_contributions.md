@@ -18,6 +18,7 @@ The guest post ingestion pipeline is segmented across three directories under `/
 1. `/submissions/inbox/`: New candidate drafts submitted by contributors.
 2. `/submissions/accepted/`: Approved drafts placed here by maintainers, ready for compilation.
 3. `/submissions/processed/`: Archival folder. The compiler automatically moves drafts here after successful integration into the database.
+4. `/submissions/rejected/`: Drafts that were reviewed but declined. Moved here manually by maintainers.
 
 ---
 
@@ -29,7 +30,8 @@ The guest post ingestion pipeline is segmented across three directories under `/
 1. **Reads Approved Drafts**: Inspects `/submissions/accepted/` for `.md` or `.txt` files.
 2. **Parses Frontmatter**: Extracts metadata structured between `---` YAML boundaries.
    - *Required metadata*: `title`, `summary`, `contributor`, `source`.
-   - *Optional metadata*: `slug` (auto-generated if omitted), `publishedAt` (defaults to current timestamp if omitted), `tags`.
+   - *Optional metadata*: `slug` (auto-generated from title if omitted), `publishedAt` (defaults to current UTC timestamp if omitted).
+   - `tags` is listed as optional in frontmatter, but the compiler **enforces at least 1 tag** — a draft without tags will be skipped with an error.
 3. **Applies Validation Rules**:
    - Max summary length: 600 characters.
    - Slug check: Must be alphanumeric and hyphens only, lowercase, and unique.

@@ -63,7 +63,7 @@ graph TD
 - **Purpose**: Transpiles HTML blog posts into professionally typeset PDFs utilizing `pandoc` and `xelatex`.
 - **Workflow**:
   1. Loops through sorted posts in `posts.json`.
-  2. If `assets/pdfs/{slug}.pdf` already exists, it is skipped.
+  2. If `assets/pdfs/{slug}.pdf` already exists, it is skipped (incremental: only generates missing PDFs).
   3. Sanitizes content: removes `<p>read more here...</p>` tag structures, escapes LaTeX reserved characters.
   4. Calls `pandoc` shell process to convert filtered HTML body into LaTeX blocks (`pandoc -f html -t latex`).
   5. Wraps output in a custom Memoir Document template (which defines fonts like Pagella and Inconsolata, margins, ESO-Pic logo overlays).

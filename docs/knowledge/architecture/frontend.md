@@ -18,8 +18,9 @@ The application state and presentation flow are driven by three modules located 
 ### 1. The Model: `store.js` (`BlogStore`)
 - **Responsibility**: Manages the local cache of posts, filters (active tags), and state updates.
 - **State Properties**:
-  - `posts`: Full list of blog posts metadata.
-  - `selectedTags`: Set containing the currently active filter tags.
+  - `posts`: Full list of blog posts metadata (sorted newest-first).
+  - `selectedTags`: Set of currently active filter tag strings.
+  - `allTags`: Sorted Set of every unique tag across all posts.
 - **Features**:
   - Fetches the static index `api/index.json` on startup.
   - Manages tag selection/deselection.
@@ -38,7 +39,8 @@ The application state and presentation flow are driven by three modules located 
 ### 3. The Controller/Router: `router.js` (`Router`)
 - **Responsibility**: Monitors browser location hashes and navigates transitions.
 - **Hash Schema**:
-  - Homepage: `/` or empty hash.
+  - Homepage (no filter): empty hash (``).
+  - Homepage (filtered): `#tags=AI,Technology`.
   - Privacy page: `#privacy`.
   - Individual Post: `#post/{slug}`.
 - **View Transitions**:
@@ -49,10 +51,11 @@ The application state and presentation flow are driven by three modules located 
 
 ```mermaid
 graph TD
-    A[Browser Hash Change / Load] --> B[Router]
-    B -->|Fetch Post Details| C[BlogStore]
-    C -->|Notify Changes| D[Renderer]
-    D -->|Build DOM / Theme Toggle| E[DOM Updates with View Transitions]
+    A[Browser Hash Change / Load] --> B[Router.route]
+    B -->|showView + renderPostPage| C[Renderer]
+    B -->|setFilter| D[BlogStore]
+    D -->|_notify / onChange callback| C
+    C -->|Build DOM / View Transition| E[DOM]
 ```
 
 ## Relevant Files

@@ -11,3 +11,4 @@ Documentation about development and pipeline workflows.
 
 - [Build Pipelines](/docs/knowledge/workflows/build_pipelines.md)
 - [Guest Contributions Workflow](/docs/knowledge/workflows/guest_contributions.md)
+- [SEO Strategy](/docs/knowledge/workflows/seo.md)

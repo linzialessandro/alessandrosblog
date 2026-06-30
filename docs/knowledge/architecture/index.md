@@ -10,3 +10,6 @@ timestamp: 2026-06-30T18:23:00Z
 Documentation regarding the structure and architectural decisions of Alessandro's Blog.
 
 - [Frontend SPA Architecture](/docs/knowledge/architecture/frontend.md)
+- [CSS Design System](/docs/knowledge/architecture/design_system.md)
+- [Post Data Schema](/docs/knowledge/architecture/post_schema.md)
+- [Infrastructure & Dependencies](/docs/knowledge/architecture/infrastructure.md)
