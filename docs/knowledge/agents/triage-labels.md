@@ -1,3 +1,11 @@
+---
+type: Concept
+title: Triage Labels
+description: Mapping of triage roles to label strings used in the issue tracker.
+tags: [agents, guidelines, triage]
+timestamp: 2026-06-30T14:17:00Z
+---
+
 # Triage Labels
 
 The skills speak in terms of five canonical triage roles. This file maps those roles to the actual label strings used in this repo's issue tracker.

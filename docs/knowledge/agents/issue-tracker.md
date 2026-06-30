@@ -1,3 +1,11 @@
+---
+type: Concept
+title: Issue Tracker Guidelines
+description: Instructions for agents on how to interact with the GitHub issue tracker.
+tags: [agents, guidelines, github]
+timestamp: 2026-06-30T14:17:00Z
+---
+
 # Issue tracker: GitHub
 
 Issues and PRDs for this repo live as GitHub issues. Use the `gh` CLI for all operations.
