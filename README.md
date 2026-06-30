@@ -148,11 +148,18 @@ Posts should align with the blog's focus on **AI, technology, and learning**. Ac
 
 **Submission Process:**
 
-We now support a draft-based workflow for contributors.
+We offer two frictionless ways to submit your work, directly accessible via the "Contribute" section on the blog's homepage:
 
-1.  **Draft your post**: Create a `.md` or `.txt` file.
-2.  **Add Front Matter**: The file must start with a metadata block.
-3.  **Submit**: Place your draft in `submissions/inbox/` (or send to a maintainer).
+1. **Submit via Web (Recommended)**: If you have a **free GitHub account**, you can submit your draft directly through the web browser. Click the "Submit a Post →" button on the website and select "Submit via GitHub Web Editor". It will open a pre-filled Markdown file in our repository. Simply replace the placeholder content with your article, and propose the new file!
+2. **Submit via Email**: If you prefer not to use GitHub, you can send your draft via email to `alessandro.linzi.phd@icloud.com`. The link on the website will open your default email client with a pre-filled template.
+
+**Manual / Advanced Submission:**
+
+For users who want full control:
+1. Fork the repository and clone it locally.
+2. Draft your post as a `.md` file in `submissions/inbox/`.
+3. Add the Front Matter (see below).
+4. Submit a Pull Request.
 
 **Draft Format Example:**
 

@@ -24,78 +24,84 @@ import { Router } from './router.js';
         }
     });
 
-    // Behind The Scenes Modal Logic
-    const btsOpenBtn = document.getElementById('btsOpenBtn');
-    const btsCloseBtn = document.getElementById('btsCloseBtn');
-    const btsModal = document.getElementById('btsModal');
-    const btsSections = document.querySelectorAll('.scroll-reveal');
+    // Reusable Modal Logic
+    const setupModal = (modalId, openBtnId, closeBtnId, exploreBtnId, footerCloseBtnId) => {
+        const modal = document.getElementById(modalId);
+        const openBtn = document.getElementById(openBtnId);
+        const closeBtn = document.getElementById(closeBtnId);
+        const exploreBtn = document.getElementById(exploreBtnId);
+        const footerCloseBtn = document.getElementById(footerCloseBtnId);
+        
+        if (!modal || !openBtn || !closeBtn) return;
+        
+        const sections = modal.querySelectorAll('.scroll-reveal');
 
-    const observerOptions = {
-        root: btsModal,
-        rootMargin: '-30% 0px -30% 0px', // Trigger activation near viewport center
-        threshold: 0
-    };
+        const observerOptions = {
+            root: modal,
+            rootMargin: '-30% 0px -30% 0px',
+            threshold: 0
+        };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-            } else {
-                entry.target.classList.remove('in-view'); // Fade out when leaving center
-            }
-        });
-    }, observerOptions);
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, observerOptions);
 
-    if (btsOpenBtn && btsCloseBtn && btsModal) {
-        btsOpenBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            btsModal.scrollTop = 0; // Reset scroll position
-            btsModal.classList.add('open');
-            btsModal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        const openModal = (e) => {
+            if (e) e.preventDefault();
+            modal.scrollTop = 0;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
             
-            // Start observing sections
-            btsSections.forEach(section => {
-                section.classList.remove('in-view'); // Reset for repeat opens
+            sections.forEach(section => {
+                section.classList.remove('in-view');
                 sectionObserver.observe(section);
             });
-        });
+        };
 
-        const btsExploreBtn = document.getElementById('btsExploreBtn');
-        if (btsExploreBtn) {
-            btsExploreBtn.addEventListener('click', () => {
-                const abstractSection = document.querySelector('.bts-abstract');
+        const closeModal = () => {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            
+            sections.forEach(section => {
+                sectionObserver.unobserve(section);
+            });
+        };
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        if (footerCloseBtn) footerCloseBtn.addEventListener('click', closeModal);
+
+        if (exploreBtn) {
+            exploreBtn.addEventListener('click', () => {
+                const abstractSection = modal.querySelector('.bts-abstract');
                 if (abstractSection) {
                     abstractSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         }
 
-        const closeModal = () => {
-            btsModal.classList.remove('open');
-            btsModal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-            
-            // Stop observing
-            btsSections.forEach(section => {
-                sectionObserver.unobserve(section);
-            });
-        };
+        // Return the closeModal function so we can hook it into the global Escape listener
+        return closeModal;
+    };
 
-        btsCloseBtn.addEventListener('click', closeModal);
+    const closeBtsModal = setupModal('btsModal', 'btsOpenBtn', 'btsCloseBtn', 'btsExploreBtn', 'btsFooterCloseBtn');
+    const closeContributeModal = setupModal('contributeModal', 'contributeOpenBtn', 'contributeCloseBtn', 'contributeExploreBtn', 'contributeFooterCloseBtn');
 
-        const btsFooterCloseBtn = document.getElementById('btsFooterCloseBtn');
-        if (btsFooterCloseBtn) {
-            btsFooterCloseBtn.addEventListener('click', closeModal);
+    // Close open modals on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (document.getElementById('btsModal')?.classList.contains('open') && closeBtsModal) closeBtsModal();
+            if (document.getElementById('contributeModal')?.classList.contains('open') && closeContributeModal) closeContributeModal();
         }
-
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && btsModal.classList.contains('open')) {
-                closeModal();
-            }
-        });
-    }
+    });
 
     try {
         await store.load();

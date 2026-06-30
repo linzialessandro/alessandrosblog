@@ -89,7 +89,7 @@
                         <div class="sidebar-card">
                             <div class="sidebar-label">Contribute</div>
                             <p>I welcome guest posts on AI, technology, and learning. Original, thoughtful work only.</p>
-                            <a class="sidebar-link" href="https://github.com/linzialessandro/alessandrosblog" target="_blank" rel="noopener noreferrer">Submit on GitHub →</a>
+                            <button class="sidebar-link" id="contributeOpenBtn" aria-expanded="false" aria-controls="contributeModal" style="background:none; border:none; padding:0; cursor:pointer; font-family:inherit;">Submit a Post →</button>
                         </div>
 
                         <!-- About -->
@@ -221,6 +221,57 @@
                     <p>As the web pivots back toward personal publishing—away from walled gardens—we invite you to take this foundation and build upon it. Clone the repository, study the architecture, run the <code>blogq</code> validator on your own ideas, and explore the possibilities of vibe coding alongside AI.</p>
                     <p class="bts-closing">Welcome to the pursuit of better.</p>
                     <button class="bts-footer-close-btn" id="btsFooterCloseBtn" aria-label="Close modal and return to blog">Back to Blog</button>
+                </section>
+            </div>
+        </div>
+
+        <!-- ═══════════════ CONTRIBUTE MODAL ═══════════════ -->
+        <div id="contributeModal" class="bts-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contributeTitle">
+            <button id="contributeCloseBtn" class="bts-close-btn" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="bts-content-wrap">
+                <!-- Title & Logo -->
+                <section class="bts-section bts-hero">
+                    <img src="assets/logo.png" alt="Logo" class="bts-logo">
+                    <h1 id="contributeTitle" class="bts-title">Share Your Knowledge</h1>
+                    <p class="bts-subtitle">Join us in learning in public.</p>
+                    <button class="bts-scroll-down" id="contributeExploreBtn" aria-label="Scroll to submission options">
+                        <span>How to Submit</span>
+                        <svg class="bts-arrow" width="14" height="24" viewBox="0 0 14 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 17l6 6 6-6M7 1v22"/></svg>
+                    </button>
+                </section>
+
+                <!-- Abstract -->
+                <section class="bts-section bts-abstract scroll-reveal">
+                    <p>We welcome original, high-quality posts about AI, technology, and learning. To ensure a seamless experience for both authors and readers, we use a structured Markdown format with specific metadata (front matter).</p>
+                    <p>We've created two frictionless ways for you to submit your work.</p>
+                </section>
+
+                <!-- Section 1 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Option 1: Submit via Web (Recommended)</h2>
+                    <p>If you have a <strong>free GitHub account</strong>, you can submit your draft directly through the web browser. This method is the fastest and ensures your formatting is correct.</p>
+                    <p>Clicking the button below will open a pre-filled Markdown file in our repository. Simply replace the placeholder content with your article, and propose the new file!</p>
+                    
+                    <a class="donate-btn" style="margin-top:2rem; width:auto; display:inline-block;" href="https://github.com/linzialessandro/alessandrosblog/new/main/Website/submissions/inbox?filename=new-post.md&value=---%0Atitle%3A%20%22%22%0Asummary%3A%20%22%22%0Atags%3A%20%0Asource%3A%20%22%22%0Acontributor%3A%20%22%22%0ApublishedAt%3A%20%222026-06-30T12%3A00%3A00Z%22%0Aslug%3A%20%22%22%0A---%0A%0AYour%20content%20here..." target="_blank" rel="noopener noreferrer">Submit via GitHub Web Editor</a>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Option 2: Submit via Email</h2>
+                    <p>If you prefer not to use GitHub, you can send your draft via email. Clicking the button below will open your default email client with a pre-filled template.</p>
+                    <p>Make sure to fill in all the required metadata fields at the top of the email before sending.</p>
+
+                    <a class="donate-btn" style="margin-top:2rem; width:auto; display:inline-block; background:transparent; color:var(--text); box-shadow:none; border-color:var(--text-3);" href="mailto:alessandro.linzi.phd@icloud.com?subject=New%20Blog%20Post%20Submission&body=---%0Atitle%3A%20%22%22%0Asummary%3A%20%22%22%0Atags%3A%20%0Asource%3A%20%22%22%0Acontributor%3A%20%22%22%0ApublishedAt%3A%20%222026-06-30T12%3A00%3A00Z%22%0Aslug%3A%20%22%22%0A---%0A%0AYour%20content%20here...">Submit via Email</a>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="bts-section scroll-reveal">
+                    <h2>Advanced: Manual Pull Request</h2>
+                    <p>For advanced users who want full control, you can fork the repository, clone it locally, run our <code>blogq</code> validator, and submit a Pull Request. You'll find full instructions in the <a href="https://github.com/linzialessandro/alessandrosblog" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">README</a>.</p>
+                    <p class="bts-closing">We look forward to reading your insights.</p>
+                    <button class="bts-footer-close-btn" id="contributeFooterCloseBtn" aria-label="Close modal and return to blog">Back to Blog</button>
                 </section>
             </div>
         </div>

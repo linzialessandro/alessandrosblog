@@ -9,9 +9,16 @@ timestamp: 2026-06-30T18:23:00Z
 
 # Guest Contributions Workflow
 
-Alessandro's Blog welcomes guest posts on AI, technology, and learning. To streamline contributions, we enforce a draft-based pipeline using Markdown files and an automated compiler.
+Alessandro's Blog welcomes guest posts on AI, technology, and learning. To streamline contributions, we provide low-friction UI workflows alongside a traditional draft-based pipeline using Markdown files and an automated compiler.
 
-## Submission Directory States
+## User-Facing Submission Workflows
+
+Contributors can submit drafts via a convenient modal on the blog's homepage without manually interacting with the file system.
+
+1. **Submit via Web (Recommended)**: Utilizes a parameterized GitHub URL to open the GitHub Web Editor directly in the `submissions/inbox/` directory. It pre-fills the editor with the required front-matter template. *Requires a free GitHub account.*
+2. **Submit via Email**: Opens the contributor's native email client with a `mailto:` link pointing to `alessandro.linzi.phd@icloud.com`. The subject line and email body are automatically pre-filled with the front-matter template.
+
+## Manual Submission Directory States
 
 The guest post ingestion pipeline is segmented across three directories under `/submissions/`:
 
