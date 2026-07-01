@@ -100,12 +100,13 @@ node tools/generate-sitemap.js --dry-run
 
 When adding new blog posts to `posts.json`:
 
-1. **Required fields**: `title`, `slug`, `publishedAt`, `summary`, `tags`, `content`
-2. **Slug format**: Lowercase letters, numbers, and hyphens only (e.g., `my-blog-post`)
-3. **Date format**: ISO 8601 datetime (e.g., `2025-12-20T10:00:00Z`)
-4. **Summary**: Maximum 600 characters
-5. **Tags**: At least one tag, no duplicates, no leading/trailing whitespace
-6. **External links**: Use `target="_blank" rel="noopener noreferrer"` for security
+1. **Required fields**: `title`, `slug`, `publishedAt`, `summary`, `tags`, `content`, `source`
+2. **Optional fields**: `sourceName` (e.g., "Anthropic News" instead of just the domain link)
+3. **Slug format**: Lowercase letters, numbers, and hyphens only (e.g., `my-blog-post`)
+4. **Date format**: ISO 8601 datetime (e.g., `2025-12-20T10:00:00Z`)
+5. **Summary**: Maximum 600 characters
+6. **Tags**: At least one tag, no duplicates, no leading/trailing whitespace
+7. **External links**: Use `target="_blank" rel="noopener noreferrer"` for security
 
 Always run `blogq check posts.json` before committing changes.
 
@@ -169,6 +170,7 @@ title: My Insightful Post
 summary: A brief summary of the post (max 600 chars).
 tags: AI, Technology
 source: https://example.com/source-article
+sourceName: Example News
 contributor: Your Name
 publishedAt: 2025-12-25T10:00:00+01:00
 slug: my-insightful-post

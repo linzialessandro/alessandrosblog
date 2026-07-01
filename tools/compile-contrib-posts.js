@@ -343,17 +343,21 @@ async function main() {
         let htmlContent = convertMarkdown(body);
 
         // Append Footer
-        const footer = `
-<p><strong>Contributor:</strong> ${escapeHtml(meta.contributor)}</p>
-<p>Read more here: <a href="${escapeHtml(meta.source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(meta.source)}</a></p>`; // Simple link text as url
+        let linkText = "Source";
+        if (meta.sourceName) {
+            linkText = meta.sourceName;
+        } else {
+            try {
+                const urlObj = new URL(meta.source);
+                linkText = urlObj.hostname.replace(/^www\./, '');
+            } catch (e) {
+                // Ignore invalid URL
+            }
+        }
 
-        // Better read more link format: use source domain or just "Link"
-        // Prompt Example: <p>Read more here: <a href="SOURCE_URL" ...>link</a></p>
-        // Let's use "Link" or "Source".
-        // Adjusted footer to match the exact requirement better:
         const footerCorrected = `
 <p><strong>Contributor:</strong> ${escapeHtml(meta.contributor)}</p>
-<p>Read more here: <a href="${escapeHtml(meta.source)}" target="_blank" rel="noopener noreferrer">source</a></p>`;
+<p>Read more here: <a href="${escapeHtml(meta.source)}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkText)}</a></p>`;
 
         htmlContent += footerCorrected;
 
