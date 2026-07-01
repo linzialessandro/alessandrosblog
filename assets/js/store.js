@@ -59,20 +59,14 @@ export class BlogStore {
         this._notify();
     }
 
-    clearFilter() {
-        this.selectedTags.clear();
-        this.saveStoredTags();
-        this._notify();
-    }
-
-    toggleTag(tag) {
-        if (this.selectedTags.has(tag)) {
-            this.selectedTags.delete(tag);
+    calculateToggledTags(tag) {
+        const newTags = new Set(this.selectedTags);
+        if (newTags.has(tag)) {
+            newTags.delete(tag);
         } else {
-            this.selectedTags.add(tag);
+            newTags.add(tag);
         }
-        this.saveStoredTags();
-        this._notify();
+        return [...newTags];
     }
 
     getFilteredPosts() {

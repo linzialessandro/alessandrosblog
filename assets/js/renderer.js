@@ -1,8 +1,9 @@
 // assets/js/renderer.js
 
 export class Renderer {
-    constructor(router) {
-        this.router = router;
+    constructor() {
+        this.onFilterToggle = null;
+        this.onClearFilters = null;
         
         // DOM Elements
         this.HOMEPAGE       = document.getElementById("homepage");
@@ -21,16 +22,20 @@ export class Renderer {
 
         this.isPopoverOpen = false;
         this.tagSearchQuery = "";
+        this.modalCloseHandlers = [];
         
         this._bindEvents();
     }
     
-    // Inject router later to break cyclic dependency during initialization
-    setRouter(router) {
-        this.router = router;
-    }
 
     _bindEvents() {
+        // Modals
+        const closeBts = this._setupModal('btsModal', 'btsOpenBtn', 'btsCloseBtn', 'btsExploreBtn', 'btsFooterCloseBtn');
+        if (closeBts) this.modalCloseHandlers.push(closeBts);
+        
+        const closeContribute = this._setupModal('contributeModal', 'contributeOpenBtn', 'contributeCloseBtn', 'contributeExploreBtn', 'contributeFooterCloseBtn');
+        if (closeContribute) this.modalCloseHandlers.push(closeContribute);
+
         // Theme toggle
         this.THEMETOGGLE.addEventListener("click", () => {
             const next = (localStorage.getItem("theme") || "light") === "dark" ? "light" : "dark";
@@ -52,7 +57,7 @@ export class Renderer {
         });
 
         const clearAll = () => {
-            if (this.router) this.router.updateTagsHash([]);
+            if (this.onClearFilters) this.onClearFilters();
         };
         
         this.CLEARCOMPACT.addEventListener("click", clearAll);
@@ -65,9 +70,12 @@ export class Renderer {
         });
         
         document.addEventListener("keydown", e => {
-            if (e.key === "Escape" && this.isPopoverOpen) { 
-                this.closePopover(); 
-                this.FILTERBUTTON.focus(); 
+            if (e.key === "Escape") {
+                if (this.isPopoverOpen) { 
+                    this.closePopover(); 
+                    this.FILTERBUTTON.focus(); 
+                }
+                this.modalCloseHandlers.forEach(handler => handler());
             }
         });
     }
@@ -86,6 +94,59 @@ export class Renderer {
             : document.documentElement.removeAttribute("data-theme");
         localStorage.setItem("theme", t);
         this.THEMETOGGLE.textContent = t === "dark" ? "☀️" : "🌙";
+    }
+
+    /* ── Modals ── */
+    _setupModal(modalId, openBtnId, closeBtnId, exploreBtnId, footerCloseBtnId) {
+        const modal = document.getElementById(modalId);
+        const openBtn = document.getElementById(openBtnId);
+        const closeBtn = document.getElementById(closeBtnId);
+        const exploreBtn = document.getElementById(exploreBtnId);
+        const footerCloseBtn = document.getElementById(footerCloseBtnId);
+        
+        if (!modal || !openBtn || !closeBtn) return null;
+        
+        const sections = modal.querySelectorAll('.scroll-reveal');
+        const observerOptions = { root: modal, rootMargin: '-30% 0px -30% 0px', threshold: 0 };
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, observerOptions);
+
+        const openModal = (e) => {
+            if (e) e.preventDefault();
+            modal.scrollTop = 0;
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            sections.forEach(s => { s.classList.remove('in-view'); sectionObserver.observe(s); });
+        };
+
+        const closeModal = () => {
+            if (!modal.classList.contains('open')) return;
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            sections.forEach(s => sectionObserver.unobserve(s));
+        };
+
+        openBtn.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+        if (footerCloseBtn) footerCloseBtn.addEventListener('click', closeModal);
+
+        if (exploreBtn) {
+            exploreBtn.addEventListener('click', () => {
+                const abstractSection = modal.querySelector('.bts-abstract');
+                if (abstractSection) abstractSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        return closeModal;
     }
 
     /* ── View Transitions ── */
@@ -161,17 +222,8 @@ export class Renderer {
         this.FILTERCHIPS.querySelectorAll(".filter-chip").forEach(chip => {
             chip.addEventListener("click", () => {
                 const t = chip.dataset.tag;
-                
-                // Toggle the tag in a copy of the selected tags, then tell the router
-                const newTags = new Set(store.selectedTags);
-                if (newTags.has(t)) {
-                    newTags.delete(t);
-                } else {
-                    newTags.add(t);
-                }
-                
-                if (this.router) {
-                    this.router.updateTagsHash([...newTags]);
+                if (this.onFilterToggle) {
+                    this.onFilterToggle(t);
                 }
             });
         });

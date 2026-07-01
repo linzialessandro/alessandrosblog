@@ -1,10 +1,8 @@
 // assets/js/router.js
 
 export class Router {
-    constructor(store, renderer) {
-        this.store = store;
-        this.renderer = renderer;
-        
+    constructor() {
+        this.onRoute = null;
         window.addEventListener("hashchange", () => this.route());
     }
 
@@ -14,44 +12,22 @@ export class Router {
 
     async route() {
         const hash = location.hash.slice(1);
-        
-        const updateDOM = async () => {
-            if (hash.startsWith("post/")) {
-                const slug = decodeURIComponent(hash.slice(5));
-                this.renderer.showView('postpage');
-                await this.renderer.renderPostPage(this.store, slug);
-                return;
-            }
-            
-            if (hash === "privacy") {
-                this.renderer.showView('privacypage');
-                window.scrollTo(0, 0);
-                return;
-            }
+        let state;
 
-            // Default to Homepage
-            this.renderer.showView('homepage');
-            
-            if (hash.startsWith("tags=")) {
-                const tags = hash.slice(5).split(",").filter(Boolean);
-                this.store.setFilter(tags);
-            } else if (hash === "") {
-                const storedTags = this.store.getStoredTags();
-                if (storedTags.length > 0) {
-                    this.updateTagsHash(storedTags);
-                    return;
-                } else {
-                    this.store.setFilter([]);
-                }
-            }
-        };
-
-        if (!document.startViewTransition) {
-            await updateDOM();
+        if (hash.startsWith("post/")) {
+            const slug = decodeURIComponent(hash.slice(5));
+            state = { view: 'postpage', slug };
+        } else if (hash === "privacy") {
+            state = { view: 'privacypage' };
+        } else if (hash.startsWith("tags=")) {
+            const tags = hash.slice(5).split(",").filter(Boolean);
+            state = { view: 'homepage', tags };
         } else {
-            document.startViewTransition(async () => {
-                await updateDOM();
-            });
+            state = { view: 'homepage', empty: true };
+        }
+
+        if (this.onRoute) {
+            await this.onRoute(state);
         }
     }
 
