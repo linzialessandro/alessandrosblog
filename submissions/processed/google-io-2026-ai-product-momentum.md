@@ -2,7 +2,7 @@
 title: Google I/O 2026: Inside the Agentic Era and Google's 3.2 Quadrillion Token AI Momentum
 summary: At Google I/O 2026, Sundar Pichai showcased the massive adoption of Gemini across Google's surfaces, revealing token processing scale of 3.2 quadrillion per month and over 2.5 billion active users for AI Overviews.
 tags: AI, Google, Technology, Gemini, Google I/O
-source: https://blog.google/innovation-and-ai/sundar-pichai-io-2026/#momentum
+source: https://blog.google/innovation-and-ai/sundar-pichai-io-2026/
 sourceName: Google Blog
 contributor: Alessandro Linzi
 publishedAt: 2026-05-20T15:00:00+02:00
