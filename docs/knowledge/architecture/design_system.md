@@ -99,7 +99,8 @@ Animates the thin vertical scroll line in the hero section:
 ```
 
 ### View Transitions
-Page transitions use the browser-native `document.startViewTransition()` API (see [Frontend Architecture](/docs/knowledge/architecture/frontend.md)).
+Page transitions use the browser-native `document.startViewTransition()` API (see [Frontend Architecture](frontend.md)).
+
 
 ---
 

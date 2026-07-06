@@ -1,14 +1,8 @@
----
-type: Index
-title: System Workflows
-description: Index of system processes, contribution mechanisms, and pipeline automations.
-timestamp: 2026-06-30T18:23:00Z
----
-
 # Workflows
 
-Documentation about development and pipeline workflows.
+Index of system processes, contribution mechanisms, and pipeline automations.
 
-- [Build Pipelines](/docs/knowledge/workflows/build_pipelines.md)
-- [Guest Contributions Workflow](/docs/knowledge/workflows/guest_contributions.md)
-- [SEO Strategy](/docs/knowledge/workflows/seo.md)
+* [Build Pipelines](build_pipelines.md) - Documents compilation workflows including static API generation, sitemap updates, and LaTeX PDF compiling.
+* [Guest Contributions Workflow](guest_contributions.md) - Outlines the lifecycle of guest post submissions and the contributor draft compilation script.
+* [SEO Strategy](seo.md) - Documents how the blog manages search engine discoverability without a build system — dynamic meta tags, sitemap URL logic, robots.txt, and Cloudflare analytics.
+

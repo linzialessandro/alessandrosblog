@@ -1,15 +1,9 @@
----
-type: Index
-title: Architecture Guidelines
-description: Index of documentation detailing the system and frontend architecture of the Blog.
-timestamp: 2026-06-30T18:23:00Z
----
-
 # Architecture
 
-Documentation regarding the structure and architectural decisions of Alessandro's Blog.
+Index of documentation detailing the system and frontend architecture of Alessandro's Blog.
 
-- [Frontend SPA Architecture](/docs/knowledge/architecture/frontend.md)
-- [CSS Design System](/docs/knowledge/architecture/design_system.md)
-- [Post Data Schema](/docs/knowledge/architecture/post_schema.md)
-- [Infrastructure & Dependencies](/docs/knowledge/architecture/infrastructure.md)
+* [Frontend SPA Architecture](frontend.md) - Details the modular client-side SPA architecture, state management, and View Transitions-based routing.
+* [CSS Design System](design_system.md) - Documents the design token architecture, layout primitives, dark mode mechanism, animation system, and all major component classes.
+* [Post Data Schema](post_schema.md) - Documents the structure of a Post entry in posts.json, all fields, their constraints, and how each is consumed across the system.
+* [Infrastructure & Dependencies](infrastructure.md) - Documents the hosting setup, DNS, dependency management, external tool requirements, and the deliberate absence of a CI/CD pipeline.
+

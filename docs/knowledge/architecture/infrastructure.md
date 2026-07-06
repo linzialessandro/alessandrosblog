@@ -71,7 +71,7 @@ Node.js scripts have **no `package.json`** and therefore no npm dependency track
 
 ## Deliberate Absence of CI/CD
 
-There is no CI/CD pipeline (no GitHub Actions, no automated deploy on push). This is an intentional architectural decision documented in [ADR-001](/docs/adr/ADR-001-no-framework.md).
+There is no CI/CD pipeline (no GitHub Actions, no automated deploy on push). This is an intentional architectural decision documented in [ADR-001](../../adr/ADR-001-no-framework.md).
 
 **Manual workflow for a new post:**
 1. Add entry to `posts.json`.
@@ -110,7 +110,7 @@ Disallow: /.gitignore
 Sitemap: https://alessandrosblog.it.eu.org/sitemap.xml
 ```
 
-See [SEO Strategy](/docs/knowledge/workflows/seo.md) for full details.
+See [SEO Strategy](../workflows/seo.md) for full details.
 
 ## Relevant Files
 - [.github/dependabot.yml](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/.github/dependabot.yml)

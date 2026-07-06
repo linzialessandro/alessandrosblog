@@ -1,12 +1,8 @@
----
-type: Index
-title: Agent Guidelines
-description: Index for AI agent guidelines, instructions, and triaging rules.
-timestamp: 2026-06-30T14:17:00Z
----
-
 # Agent Guidelines
 
-- [Domain Exploration](/docs/knowledge/agents/domain.md)
-- [Issue Tracker Guidelines](/docs/knowledge/agents/issue-tracker.md)
-- [Triage Labels](/docs/knowledge/agents/triage-labels.md)
+Index for AI agent guidelines, instructions, and triaging rules.
+
+* [Domain Docs](domain.md) - How engineering skills should consume this repo's domain documentation.
+* [Issue Tracker Guidelines](issue-tracker.md) - Instructions for agents on how to interact with the GitHub issue tracker.
+* [Triage Labels](triage-labels.md) - Mapping of triage roles to label strings used in the issue tracker.
+

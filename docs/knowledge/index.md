@@ -1,17 +1,15 @@
 ---
-type: Index
-title: Project Knowledge Base
-description: The entry point for the project's OKF knowledge graph.
-timestamp: 2026-06-30T18:27:00Z
+okf_version: "0.1"
 ---
 
-# Knowledge Base
+# Project Knowledge Base
 
 Welcome to the Blog Website knowledge graph.
 
-- [Glossary](/docs/knowledge/glossary.md)
-- [Architecture Notes](/docs/knowledge/architecture/index.md)
-- [System Workflows](/docs/knowledge/workflows/index.md)
-- [Components & Utilities](/docs/knowledge/components/index.md)
-- [Agent Guidelines](/docs/knowledge/agents/index.md)
-- [Architecture Decision Records](/docs/adr/index.md)
+* [Glossary](glossary.md) - Definitions for the core concepts in the Blog Website.
+* [Architecture Notes](architecture/index.md) - Index of documentation detailing the system and frontend architecture of the Blog.
+* [System Workflows](workflows/index.md) - Index of system processes, contribution mechanisms, and pipeline automations.
+* [Components & Utilities](components/index.md) - Index of custom tooling, scripts, and validators.
+* [Agent Guidelines](agents/index.md) - Index for AI agent guidelines, instructions, and triaging rules.
+* [Architecture Decision Records](../adr/index.md) - Chronological log of significant architectural decisions made for Alessandro's Blog.
+
