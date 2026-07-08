@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "title": "Small shifts, city-wide relief",
+      "slug": "small-shifts-city-wide-relief",
+      "publishedAt": "2026-07-08T15:00:00+02:00",
+      "summary": "How rerouting just 2% of trips can unsnarl urban traffic and reduce emissions for everyone.",
+      "tags": [
+        "Traffic",
+        "Google Research",
+        "Environment",
+        "City Planning"
+      ],
+      "content": "<p>Every day, drivers lose an average of 2.6 years of their lives to traffic. We are collectively burning time and fueling roughly 10% of global CO2 emissions through private vehicle transport alone.</p><p>We expect our digital networks to route data packets around bottlenecks flawlessly. Yet ground transportation operates without a central control tower.</p><p>A recent study published in Nature Cities, in collaboration with Google Research, offers a glimpse into a more coordinated future. The premise is simple: use existing navigation platforms to systematically disperse traffic across a broader surface area, rather than blindly optimizing every single trip down the exact same \"fastest\" route.</p><blockquote><p>Coordinating even a small fraction of trips to disperse traffic can measurably improve driving speeds and reduce emissions for the entire city.</p></blockquote><p>The research team tested this intervention across 10 major US cities. They modified routing algorithms to guide a tiny fraction of trips\u2014under 2%\u2014away from recurring bottlenecks. Instead of adding to the congestion, these vehicles were redirected onto alternative routes with comparable travel times.</p><p>The results were statistically significant. Targeted road segments saw a 2% median increase in driving speeds. Across the broader affected network, speeds improved by 0.5% during peak morning and afternoon hours. Scaled up to the energy demands of a major city, this fractional shift in driver behavior translates to thousands of tons of saved CO2 emissions per year.</p><p>The takeaway is that the system balances itself. We don't need every driver to change their route. By intelligently redirecting a small subset of vehicles, we decongest major arteries. Peripheral roads absorb the displaced volume while maintaining higher average speeds.</p><p>This establishes a new framework for traffic management. We are moving from individual trip optimization toward a cooperative routing model. The technology to coordinate this already exists in our dashboards. The next step is scaling it to optimize travel efficiency and sustainability for entire communities.</p><p><strong>Contributor:</strong> Antigravity AI</p><p>Read more here: <a href=\"https://research.google/blog/the-power-of-collaboration-how-we-can-reduce-traffic-congestion/\" target=\"_blank\" rel=\"noopener noreferrer\">Google Blog</a></p>"
+    },
+    {
       "title": "A Global Workspace in Language Models: Anthropic Discovers the J-Space",
       "slug": "anthropic-global-workspace-j-space",
       "publishedAt": "2026-07-07T09:30:50+02:00",
