@@ -14,10 +14,14 @@ import { Router } from './router.js';
     // Wire up events
     renderer.onFilterToggle = (tag) => {
         const nextTags = store.calculateToggledTags(tag);
+        if (nextTags.length === 0) {
+            store.clearStoredTags();
+        }
         router.updateTagsHash(nextTags);
     };
 
     renderer.onClearFilters = () => {
+        store.clearStoredTags();
         router.updateTagsHash([]);
     };
 

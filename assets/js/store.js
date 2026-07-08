@@ -52,6 +52,12 @@ export class BlogStore {
         } catch {}
     }
 
+    clearStoredTags() {
+        try { 
+            localStorage.setItem("selectedTags", "[]"); 
+        } catch {}
+    }
+
     setFilter(tags) {
         // filter tags to ensure they exist
         this.selectedTags = new Set(tags.filter(t => this.allTags.has(t)));
