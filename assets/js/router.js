@@ -20,7 +20,7 @@ export class Router {
         } else if (hash === "privacy") {
             state = { view: 'privacypage' };
         } else if (hash.startsWith("tags=")) {
-            const tags = hash.slice(5).split(",").filter(Boolean);
+            const tags = hash.slice(5).split(",").map(decodeURIComponent).filter(Boolean);
             state = { view: 'homepage', tags };
         } else {
             state = { view: 'homepage', empty: true };
