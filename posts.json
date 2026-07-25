@@ -1,6 +1,78 @@
 {
   "posts": [
     {
+      "title": "SpaceXAI Launches Grok 4.5 for High-Efficiency Agent Workflows",
+      "slug": "spacexai-grok-4-5-agentic-reasoning",
+      "publishedAt": "2026-07-24T15:00:00+02:00",
+      "summary": "SpaceXAI released Grok 4.5, targeting agentic software engineering and high token efficiency across complex developer tasks.",
+      "tags": [
+        "AI",
+        "xAI",
+        "SpaceX",
+        "Grok",
+        "Coding Agents",
+        "Reasoning"
+      ],
+      "content": "<p>SpaceXAI officially launched <strong>Grok 4.5</strong>, its flagship reasoning model for software engineering and complex analytical tasks.</p><p>The model features improved token efficiency. It solves programming benchmarks using fewer reasoning steps than previous model versions.</p><h2>Deep Tool Integration</h2><p>Grok 4.5 optimizes multi-turn interaction with development environments. It plans multi-file code refactors and executes shell commands with low error rates.</p><p>The model integrates with major developer tools, including Cursor, Microsoft 365, and Google Workspace add-ins.</p><blockquote><p>Token efficiency allows AI agents to solve complex coding tasks at lower operational costs.</p></blockquote><h2>Deployment and API Access</h2><p>SpaceXAI made Grok 4.5 available via web, mobile applications, and enterprise API endpoints. Developers can select Grok 4.5 in the Grok Build harness.</p><p>The model rollout begins immediately for developer tier users and enterprise API customers.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://x.ai/blog/grok-4-5-release\" target=\"_blank\" rel=\"noopener noreferrer\">xAI Official Blog</a></p>"
+    },
+    {
+      "title": "Google Releases Gemini 3.6 Flash for Scalable AI Agent Workflows",
+      "slug": "google-gemini-3-6-flash-agentic-models",
+      "publishedAt": "2026-07-21T09:15:00+02:00",
+      "summary": "Google introduced Gemini 3.6 Flash along with specialized lightweight models to improve latency, efficiency, and reliability for autonomous agent applications.",
+      "tags": [
+        "AI",
+        "Google",
+        "Gemini",
+        "AI Agents",
+        "Google Research"
+      ],
+      "content": "<p>Google announced the immediate availability of <strong>Gemini 3.6 Flash</strong>. The model family targets low-latency, high-throughput AI agent workloads.</p><p>Google also introduced two specialized variants: 3.5 Flash-Lite and 3.5 Flash Cyber. These smaller models reduce API costs for repetitive background tasks.</p><h2>Optimized for Multi-Step Reasoning</h2><p>Autonomous agents execute many consecutive API calls to solve tasks. Gemini 3.6 Flash delivers twice the generation speed of previous Flash models.</p><p>The architecture improves tool-use precision and reduces structured JSON decoding errors. It maintains long context context windows up to 2 million tokens.</p><blockquote><p>Faster inference speeds directly reduce execution time for multi-step agent loops.</p></blockquote><h2>Enterprise Availability</h2><p>Developers can access Gemini 3.6 Flash through Google AI Studio and Vertex AI. The model supports structured outputs, function calling, and parallel tool execution.</p><p>Google updated its SDKs to support native agent streaming with Gemini 3.6 Flash.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://blog.google/technology/ai/gemini-3-6-flash-agentic-models/\" target=\"_blank\" rel=\"noopener noreferrer\">Google Blog</a></p>"
+    },
+    {
+      "title": "OpenAI Expands ChatGPT Work for Desktop Productivity",
+      "slug": "openai-chatgpt-work-desktop-productivity",
+      "publishedAt": "2026-07-18T10:00:00+02:00",
+      "summary": "OpenAI updated the ChatGPT desktop application to introduce a global context switcher and expanded ChatGPT Voice capabilities in the Work workspace.",
+      "tags": [
+        "AI",
+        "OpenAI",
+        "ChatGPT",
+        "Productivity",
+        "Enterprise"
+      ],
+      "content": "<p>OpenAI released an update for the ChatGPT desktop application on macOS and Windows. The release introduces a dedicated <strong>Work workspace</strong> for professional tasks.</p><p>Users can toggle instantly between personal chats and workplace environments. The app maintains distinct context boundaries and memory stores for each workspace.</p><h2>Enhanced Voice and Desktop Integration</h2><p>The update brings ChatGPT Voice into the desktop Work mode. Users can dictate code changes, query documents, and trigger desktop shortcuts hands-free.</p><p>The application connects directly with local developer tools and text editors. It reads open files without manual copying and pasting.</p><blockquote><p>Dedicated workspace modes prevent context mixing and keep professional workflows organized.</p></blockquote><h2>Security and Privacy Controls</h2><p>Enterprise administrators can set policies for the Work workspace. Data created inside the Work mode complies with corporate retention policies.</p><p>OpenAI rolled out the desktop update to all Plus, Team, and Enterprise subscribers today.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://openai.com/index/chatgpt-work-desktop-updates/\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI Newsroom</a></p>"
+    },
+    {
+      "title": "SpaceXAI Open-Sources Grok Build Harness for Agent Execution",
+      "slug": "spacexai-grok-build-open-source-harness",
+      "publishedAt": "2026-07-16T14:30:00+02:00",
+      "summary": "SpaceXAI open-sourced the Grok Build agent execution harness under an Apache 2.0 license to enable custom agentic workflows.",
+      "tags": [
+        "AI",
+        "xAI",
+        "SpaceX",
+        "Grok",
+        "Open Source",
+        "Coding Agents"
+      ],
+      "content": "<p>SpaceXAI open-sourced the code for <strong>Grok Build</strong>, its specialized agent execution framework. The repository is available under the permissive Apache 2.0 license.</p><p>Grok Build helps developers construct and run autonomous coding agents. It handles local tool invocation, file editing, and sandboxed command execution.</p><h2>Standardizing Agentic Execution</h2><p>Building reliable AI agents requires robust execution harnesses. The Grok Build harness separates model reasoning from system execution.</p><p>The harness includes standard protocols for workspace access and tool schemas. Developers can integrate any LLM backend into the open-source runner.</p><blockquote><p>Open-sourcing the agent harness allows engineers to inspect, modify, and secure autonomous workflows.</p></blockquote><h2>Community Safety and Auditing</h2><p>SpaceXAI published the codebase to increase software transparency. Public access allows security researchers to audit agent permissions and sandbox isolation.</p><p>Developers can clone the repository from GitHub today. The project includes full documentation and example tool integrations.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://x.ai/blog/grok-build-open-source\" target=\"_blank\" rel=\"noopener noreferrer\">xAI Official Blog</a></p>"
+    },
+    {
+      "title": "Anthropic Partners with AMD to Deploy 2 Gigawatts of Compute Infrastructure",
+      "slug": "anthropic-amd-2gw-compute-infrastructure-partnership",
+      "publishedAt": "2026-07-14T11:00:00+02:00",
+      "summary": "Anthropic and AMD announced a multi-year partnership to deploy 2 gigawatts of compute capacity using AMD Instinct MI450 Series GPUs.",
+      "tags": [
+        "AI Infrastructure",
+        "Anthropic",
+        "AMD",
+        "Hardware",
+        "Compute"
+      ],
+      "content": "<p>Anthropic announced a strategic partnership with AMD to expand its global AI compute infrastructure. The multi-year deal secures up to 2 gigawatts of dedicated compute capacity.</p><p>The expansion uses next-generation AMD Instinct MI450 Series GPUs. These processors provide high memory bandwidth and fast inter-chip interconnects for large model training.</p><h2>Scaling Compute for Claude</h2><p>Training frontier models requires huge hardware resources. Anthropic will use the new AMD clusters to train future model families. The deployment also supports low-latency inference for enterprise users.</p><p>AMD designed the MI450 architecture specifically for high-throughput AI workloads. The new systems reduce power consumption per token compared to older GPU generations.</p><blockquote><p>Securing 2 gigawatts of compute capacity ensures long-term infrastructure stability for frontier model development.</p></blockquote><h2>Diversifying Compute Infrastructure</h2><p>This deal diversifies the hardware supply chain for Anthropic. Relying on multiple hardware vendors reduces deployment bottlenecks and lowers operational risks.</p><p>The first cluster will go online later this year. Additional data center capacity will scale continuously through 2028.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href=\"https://www.anthropic.com/news/amd-compute-infrastructure-partnership\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic News</a></p>"
+    },
+    {
       "title": "Small shifts, city-wide relief",
       "slug": "small-shifts-city-wide-relief",
       "publishedAt": "2026-07-08T15:00:00+02:00",
