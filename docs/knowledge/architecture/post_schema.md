@@ -4,14 +4,19 @@ title: Post Data Schema
 description: Documents the structure of a Post entry in posts.json, all fields, their constraints, and how each is consumed across the system.
 resource: Website/posts.json
 tags: [architecture, data, schema, posts]
-timestamp: 2026-06-30T18:27:00Z
+timestamp: 2026-07-30T23:45:00Z
 ---
 
 # Post Data Schema
 
 `posts.json` is the single source of truth for all blog content. It contains one top-level `posts` array. Each element is a **Post** object, validated by `blogq` against `posts.schema.json`.
 
-The database is split by the Static API Builder at build time into `api/index.json` (metadata only) and individual `api/posts/{slug}.json` files (full content), allowing lazy loading.
+At build time the [Static Generators](../components/static_generators.md) produce:
+
+- **Static API** — `api/index.json` (metadata) + `api/posts/{slug}.json` (full content) for SPA lazy loading
+- **Static Post Pages** — `posts/{slug}.html` for crawlers and social cards
+- **Atom Feed** / **sitemap** — distribution and indexing
+- **BUILD_ID** — cache-bust token for SPA fetches
 
 ---
 
@@ -37,15 +42,15 @@ The database is split by the Static API Builder at build time into `api/index.js
 
 | Field | Type | Required | Constraints | Consumer(s) |
 |---|---|---|---|---|
-| `title` | `string` | ✅ Yes | Min length 1 | `renderer.js` (post header, list card, `<title>` tag, related posts, nav) |
-| `slug` | `string` | ✅ Yes | Pattern `^[a-z0-9]+(?:-[a-z0-9]+)*$`, unique | `store.js` (`getPost`), `router.js` (hash navigation), `build-static-api.js` (filename), `build-pdfs.mjs` (PDF filename), `renderer.js` (href links) |
-| `publishedAt` | `string` | ✅ Yes | ISO 8601 `date-time` format | `store.js` (sort order), `renderer.js` (formatted date display), `build-pdfs.mjs` (sort order) |
-| `summary` | `string` | ✅ Yes | Max 600 chars | `renderer.js` (post card subtitle, `<meta name="description">`) |
-| `tags` | `string[]` | ✅ Yes | Min 1 item, unique, no whitespace | `store.js` (`allTags` set, filter logic, `getRelatedPosts` scoring), `renderer.js` (tag chips, filter popover) |
-| `content` | `string` | ✅ Yes | HTML string, min length 1 | `renderer.js` (`renderPostPage` injects via `innerHTML`), `build-pdfs.mjs` (HTML → LaTeX via pandoc) |
-| `updatedAt` | `string` | ❌ Optional | ISO 8601 `date-time` format | `renderer.js` (shows "Updated" label on post page), `generate-sitemap.js` (`<lastmod>`) |
-| `source` | `string` | ❌ Optional | URL | `build-static-api.js` (included in index metadata), `compile-contrib-posts.js` (required for guest posts) |
-| `contributor` | `string` | ❌ Optional | Free string | `build-static-api.js` (included in index), `compile-contrib-posts.js` (required for guest posts, appended to HTML footer) |
+| `title` | `string` | ✅ Yes | Min length 1 | SPA renderer; static page `<title>` / OG; feed `<title>`; Article JSON-LD `headline` |
+| `slug` | `string` | ✅ Yes | Pattern `^[a-z0-9]+(?:-[a-z0-9]+)*$`, unique | SPA routing; filenames for API, static HTML, PDFs; feed/sitemap permalinks |
+| `publishedAt` | `string` | ✅ Yes | ISO 8601 `date-time` format | Sort order; static page / feed dates; Article `datePublished` |
+| `summary` | `string` | ✅ Yes | Max 600 chars | List cards; meta description; OG; feed summary; Article `description` |
+| `tags` | `string[]` | ✅ Yes | Min 1 item, unique, no whitespace | Filters; related posts; static `article:tag`; feed categories |
+| `content` | `string` | ✅ Yes | HTML string, min length 1 | SPA post body; static page body; feed HTML content; PDF via pandoc |
+| `updatedAt` | `string` | ❌ Optional | ISO 8601 `date-time` format | SPA "Updated" label; sitemap `<lastmod>`; feed `<updated>`; Article `dateModified` |
+| `source` | `string` | ❌ Optional | URL | Index metadata; required for guest posts |
+| `contributor` | `string` | ❌ Optional | Free string | Index metadata; guest post footer |
 
 ---
 

@@ -159,9 +159,10 @@ GitHub Actions workflow `.github/workflows/publish.yml` runs steps 1–4 (plus `
 
 ## Relevant Files
 
-- [build-static-pages.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/scripts/build-static-pages.js)
-- [generate-feed.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-feed.js)
-- [generate-sitemap.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-sitemap.js)
-- [robots.txt](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/robots.txt)
-- [renderer.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/assets/js/renderer.js)
-- [publish.yml](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/.github/workflows/publish.yml)
+- [build-static-pages.js](../../../scripts/build-static-pages.js)
+- [generate-feed.js](../../../tools/generate-feed.js)
+- [generate-sitemap.js](../../../tools/generate-sitemap.js)
+- [robots.txt](../../../robots.txt)
+- [renderer.js](../../../assets/js/renderer.js)
+- [publish.yml](../../../.github/workflows/publish.yml)
+- [Static Generators](../components/static_generators.md)

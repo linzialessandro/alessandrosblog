@@ -3,7 +3,7 @@ type: Concept
 title: Domain Docs
 description: How engineering skills should consume this repo's domain documentation.
 tags: [agents, guidelines, domain]
-timestamp: 2026-06-30T14:17:00Z
+timestamp: 2026-07-30T23:45:00Z
 ---
 
 # Domain Docs
@@ -20,13 +20,18 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 
 ## File structure
 
-Single-context repo OKF structure:
+Single-context repo OKF structure (repository root is the Website):
 
 ```
 /
-├── docs/knowledge/
-├── docs/adr/
-└── src/
+├── docs/knowledge/     # Concepts, glossary, log, agent guidelines
+├── docs/adr/           # Architecture decision records
+├── assets/js/          # SPA modules
+├── scripts/            # Static generators (API, pages, PDFs)
+├── tools/              # blogq, feed/sitemap generators
+├── api/                # Generated Static API
+├── posts/              # Generated Static Post Pages
+└── posts.json          # Source of truth for Posts
 ```
 
 ## Use the glossary's vocabulary

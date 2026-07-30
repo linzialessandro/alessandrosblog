@@ -4,12 +4,12 @@ title: blogq (Blog Post Validator)
 description: Technical overview of the python validation CLI tool enforcing json schemas and semantic rules on posts.json.
 resource: Website/tools/blogq/
 tags: [components, validation, schema, testing, security]
-timestamp: 2026-06-30T18:23:00Z
+timestamp: 2026-07-30T23:45:00Z
 ---
 
 # blogq (Blog Post Validator)
 
-`blogq` is a custom Python-based CLI quality-control tool built to validate the schema structure and semantic rules of `posts.json` prior to commits.
+`blogq` is a custom Python-based CLI quality-control tool built to validate the schema structure and semantic rules of `posts.json` prior to commits and in CI (`publish.yml`).
 
 ## Architecture & Integration
 
@@ -71,7 +71,19 @@ pip install -e .
 blogq check posts.json
 ```
 
+## Tests
+
+Unit tests live in `tools/blogq/tests/` (pytest). Install the optional `dev` extra and run:
+
+```bash
+pip install -e "tools/blogq[dev]"
+pytest tools/blogq/tests -q
+```
+
+CI runs the same suite in `.github/workflows/publish.yml`.
+
 ## Relevant Files
-- [posts.schema.json](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/blogq/src/blogq/schema/posts.schema.json)
-- [validate.py](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/blogq/src/blogq/validate.py)
-- [semantic.py](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/blogq/src/blogq/checks/semantic.py)
+- [posts.schema.json](../../../tools/blogq/src/blogq/schema/posts.schema.json)
+- [validate.py](../../../tools/blogq/src/blogq/validate.py)
+- [semantic.py](../../../tools/blogq/src/blogq/checks/semantic.py)
+- [tests/](../../../tools/blogq/tests/)

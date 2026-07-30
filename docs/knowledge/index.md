@@ -6,10 +6,11 @@ okf_version: "0.1"
 
 Welcome to the Blog Website knowledge graph.
 
-* [Glossary](glossary.md) - Definitions for the core concepts in the Blog Website.
-* [Architecture Notes](architecture/index.md) - Index of documentation detailing the system and frontend architecture of the Blog.
-* [System Workflows](workflows/index.md) - Index of system processes, contribution mechanisms, and pipeline automations.
-* [Components & Utilities](components/index.md) - Index of custom tooling, scripts, and validators.
-* [Agent Guidelines](agents/index.md) - Index for AI agent guidelines, instructions, and triaging rules.
-* [Architecture Decision Records](../adr/index.md) - Chronological log of significant architectural decisions made for Alessandro's Blog.
+* [Glossary](glossary.md) - Core domain terms (Post, Static API, Static Post Page, BUILD_ID, Atom Feed, JSON-LD, Publish Pipeline, …).
+* [Architecture Notes](architecture/index.md) - SPA, design system, post schema, hosting and CI publish.
+* [System Workflows](workflows/index.md) - Build pipelines, guest contributions, SEO strategy.
+* [Components & Utilities](components/index.md) - blogq validator and static generators.
+* [Agent Guidelines](agents/index.md) - How agents should consume domain docs and triage work.
+* [Architecture Decision Records](../adr/index.md) - Significant architectural decisions.
+* [Directory Update Log](log.md) - Changelog for this knowledge graph.
 

@@ -2,8 +2,7 @@
 
 Index of documentation detailing the system and frontend architecture of Alessandro's Blog.
 
-* [Frontend SPA Architecture](frontend.md) - Details the modular client-side SPA architecture, state management, and View Transitions-based routing.
-* [CSS Design System](design_system.md) - Documents the design token architecture, layout primitives, dark mode mechanism, animation system, and all major component classes.
-* [Post Data Schema](post_schema.md) - Documents the structure of a Post entry in posts.json, all fields, their constraints, and how each is consumed across the system.
-* [Infrastructure & Dependencies](infrastructure.md) - Documents the hosting setup, DNS, dependency management, external tool requirements, and the deliberate absence of a CI/CD pipeline.
-
+* [Frontend SPA Architecture](frontend.md) - Modular client-side SPA (store, renderer, router), View Transitions routing, and BUILD_ID cache-busted API fetches.
+* [CSS Design System](design_system.md) - Design token architecture, layout primitives, dark mode mechanism, animation system, and major component classes.
+* [Post Data Schema](post_schema.md) - Structure of a Post entry in `posts.json`, field constraints, and consumers across SPA, static pages, feed, and sitemap.
+* [Infrastructure & Dependencies](infrastructure.md) - Hosting, DNS, tool dependencies, Dependabot, and the lightweight CI publish pipeline (artifacts; PDFs remain local).

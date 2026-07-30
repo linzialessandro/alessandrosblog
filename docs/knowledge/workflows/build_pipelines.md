@@ -153,9 +153,10 @@ The `[skip ci]` token prevents an infinite regenerate loop.
 ---
 
 ## Relevant Files
-- [build-static-api.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/scripts/build-static-api.js)
-- [build-static-pages.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/scripts/build-static-pages.js)
-- [generate-feed.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-feed.js)
-- [generate-sitemap.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-sitemap.js)
-- [build-pdfs.mjs](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/scripts/build-pdfs.mjs)
-- [publish.yml](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/.github/workflows/publish.yml)
+- [build-static-api.js](../../../scripts/build-static-api.js)
+- [build-static-pages.js](../../../scripts/build-static-pages.js)
+- [generate-feed.js](../../../tools/generate-feed.js)
+- [generate-sitemap.js](../../../tools/generate-sitemap.js)
+- [build-pdfs.mjs](../../../scripts/build-pdfs.mjs)
+- [publish.yml](../../../.github/workflows/publish.yml)
+- [Static Generators](../components/static_generators.md)
