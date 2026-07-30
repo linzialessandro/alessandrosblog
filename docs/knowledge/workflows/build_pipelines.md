@@ -75,6 +75,28 @@ graph TD
   node scripts/build-pdfs.mjs
   ```
 
+---
+
+## Running the Full Pipeline
+
+After compiling new posts with `compile-contrib-posts.js`, **always** run these three steps in order:
+
+```bash
+# 1. Rebuild static JSON endpoints
+node scripts/build-static-api.js
+
+# 2. Regenerate sitemap
+node tools/generate-sitemap.js
+
+# 3. Build PDFs for any new posts (incremental — skips existing)
+node scripts/build-pdfs.mjs
+```
+
+> [!IMPORTANT]
+> Skipping the PDF build step will leave newly published posts without a downloadable PDF artifact. Always run all three commands after any compilation.
+
+---
+
 ## Relevant Files
 - [build-static-api.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/scripts/build-static-api.js)
 - [generate-sitemap.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-sitemap.js)
