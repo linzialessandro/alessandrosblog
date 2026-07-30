@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Mathematical Discovery: From Guessing to Verifying — Alessandro's blog</title>
+  <meta name="description" content="AI is starting to matter in math not because it “knows” theorems, but because it can search, propose, and—crucially—verify. The interesting shift is the couplin">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/ai-mathematical-discovery-from-guessing-to-verifying.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI for Mathematical Discovery: From Guessing to Verifying">
+  <meta property="og:description" content="AI is starting to matter in math not because it “knows” theorems, but because it can search, propose, and—crucially—verify. The interesting shift is the couplin">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/ai-mathematical-discovery-from-guessing-to-verifying.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI for Mathematical Discovery: From Guessing to Verifying">
+  <meta name="twitter:description" content="AI is starting to matter in math not because it “knows” theorems, but because it can search, propose, and—crucially—verify. The interesting shift is the couplin">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-27T17:00:00+01:00">
+  <meta property="article:modified_time" content="2025-12-27T17:00:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Mathematics">
+  <meta property="article:tag" content="Theorem Proving">
+  <meta property="article:tag" content="DeepMind">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI for Mathematical Discovery: From Guessing to Verifying",
+  "description": "AI is starting to matter in math not because it “knows” theorems, but because it can search, propose, and—crucially—verify. The interesting shift is the coupling of large generative models with formal proof checkers and symbolic engines, turning mathematical discovery into a loop of conjecture, proof search, and certified correctness.",
+  "datePublished": "2025-12-27T17:00:00+01:00",
+  "dateModified": "2025-12-27T17:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/ai-mathematical-discovery-from-guessing-to-verifying.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/ai-mathematical-discovery-from-guessing-to-verifying">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>AI for Mathematical Discovery: From Guessing to Verifying</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-27T17:00:00+01:00">December 27, 2025</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Mathematics</span><span class="tag">Theorem Proving</span><span class="tag">DeepMind</span></div>
+      </div>
+      
+      <div class="content">
+        <p>There’s a specific kind of optimism that shows up whenever AI touches mathematics: the dream that a machine will stumble onto a new theorem the way a human does—by taste, by pattern, by obsession. What’s actually happening is less romantic and (to me) more interesting: we are learning how to make discovery <em>operational</em>.</p>
+
+<p>“Operational” here means a loop you can run: translate a problem into a formal object, generate candidate steps, check them, and feed the verified signal back into the system. Not a single shot “answer”, but a process that can grind for hours, days, weeks—without drifting into hallucination.</p>
+
+<h2>Why formal systems change the game</h2>
+<p>If you’ve used Isabelle/HOL, Lean, Coq, or friends, you already know the key point: a proof assistant is not impressed by eloquence. It accepts only a proof that type-checks and reduces where it should. That strictness is exactly what current language models lack in natural language mode: they can be persuasive while being wrong.</p>
+
+<p>The deep idea in many recent systems is to exploit a verifier as the ultimate critic. The model is allowed to be creative and messy, but every step gets forced through a tiny gate: does the checker accept it?</p>
+
+<h2>DeepMind’s IMO result as a case study</h2>
+<p>DeepMind described a system that reached silver-medal level on the 2024 International Mathematical Olympiad by combining two complementary components: AlphaProof (focused on formal reasoning in Lean via reinforcement learning) and AlphaGeometry 2 (a neuro-symbolic geometry solver with a fast symbolic engine). That pairing matters: one part searches proofs in a formal language, the other has domain-specific geometry machinery.</p>
+
+<p>Two details are worth noticing. First, the IMO problems were manually translated into a formal language before the systems could work on them, which highlights that “autoformalization” is still a major bottleneck. Second, once in the formal domain, the systems could spend serious compute time exploring proof space, and the correctness of any found proof is not a vibe—it is mechanically verified.</p>
+
+<h2>The real frontier: conjectures, not just solutions</h2>
+<p>Solving a fixed problem is already hard, but discovery is often about proposing the right intermediate statements. In practice, mathematicians don’t move linearly from axioms to theorem; they invent lemmas, strengthen hypotheses, and adjust definitions until the landscape becomes navigable.</p>
+
+<p>AI systems that live inside a formal environment (Lean, Isabelle, etc.) can in principle search not only for proofs but for useful stepping stones—lemmas that shorten proofs, reusable tactics, or alternative formulations that make automation feasible. That’s where “math discovery” starts to feel real: not replacing insight, but mass-producing plausible local moves and letting the verifier keep only the ones that survive.</p>
+
+<h2>What this suggests for working mathematicians</h2>
+<ul>
+<li><strong>Verification becomes the backbone</strong>: any workflow that keeps the model tethered to a proof checker avoids the most damaging failure mode (confident nonsense).</li>
+<li><strong>Human time shifts</strong>: less time spent on low-level bookkeeping and more time spent choosing definitions, deciding which subproblems matter, and interpreting what a formal proof is actually saying.</li>
+<li><strong>Autoformalization is strategic</strong>: the moment “informal → formal” becomes reliable, the space of problems accessible to these loops expands dramatically.</li>
+</ul>
+
+<p>None of this guarantees new Fields-level theorems in the short term. But it does point to a plausible medium-term reality: mathematicians using AI the way programmers use compilers and fuzzers—tools that don’t supply meaning, but relentlessly enforce correctness while exploring huge spaces of possibilities.</p>
+
+<p><strong>Contributor:</strong> Alessandro Linzi</p>
+
+<p>Read more here: <a href="https://deepmind.google/blog/ai-solves-imo-problems-at-silver-medal-level/" target="_blank" rel="noopener noreferrer">DeepMind Blog</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/ai-mathematical-discovery-from-guessing-to-verifying">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-native assignments: using Gemini in Classroom without outsourcing thinking — Alessandro's blog</title>
+  <meta name="description" content="Gemini in Classroom makes AI feel like infrastructure, not a novelty. The opportunity is real, but only if assignments are redesigned so the thinking stays visi">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/ai-native-assignments-gemini-classroom.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI-native assignments: using Gemini in Classroom without outsourcing thinking">
+  <meta property="og:description" content="Gemini in Classroom makes AI feel like infrastructure, not a novelty. The opportunity is real, but only if assignments are redesigned so the thinking stays visi">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/ai-native-assignments-gemini-classroom.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI-native assignments: using Gemini in Classroom without outsourcing thinking">
+  <meta name="twitter:description" content="Gemini in Classroom makes AI feel like infrastructure, not a novelty. The opportunity is real, but only if assignments are redesigned so the thinking stays visi">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-23T14:06:00+01:00">
+  <meta property="article:modified_time" content="2025-12-23T14:06:00+01:00">
+  <meta property="article:tag" content="Google">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Education">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI-native assignments: using Gemini in Classroom without outsourcing thinking",
+  "description": "Gemini in Classroom makes AI feel like infrastructure, not a novelty. The opportunity is real, but only if assignments are redesigned so the thinking stays visible and assessable.",
+  "datePublished": "2025-12-23T14:06:00+01:00",
+  "dateModified": "2025-12-23T14:06:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/ai-native-assignments-gemini-classroom.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/ai-native-assignments-gemini-classroom">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>AI-native assignments: using Gemini in Classroom without outsourcing thinking</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-23T14:06:00+01:00">December 23, 2025</time>
+        <div class="tags"><span class="tag">Google</span><span class="tag">AI</span><span class="tag">Education</span></div>
+      </div>
+      
+      <div class="content">
+        <p>Google is turning Gemini into a built-in layer inside Classroom, and it’s now positioned as a no-cost suite of tools for educators with Google Workspace for Education accounts, with 30+ features aimed at saving time on common teaching tasks.</p><p>That sounds like convenience, but it’s also a curriculum stress test: if the tool can generate the “school-shaped” artifact instantly, then the assignment has to move up a level and grade the process, not the polish.</p><h2>The shift: from tool-use to task design</h2><p>When AI is always available, the question isn’t “can students use it?” but “what exactly counts as learning, and how do we make it observable?” The fastest way to get this wrong is to keep the same prompts, the same rubrics, the same homework format—and just hope honesty wins.</p><p>Instead, treat AI like a new medium. The job becomes designing tasks where AI output is allowed, but shallow thinking is not.</p><h2>Three rules for AI-native assignments</h2><h3>1) Make the process gradeable</h3><p>Use a simple structure that forces students to show work:</p><ul><li><strong>Draft A (human):</strong> messy, incomplete, but honest.</li><li><strong>Draft B (AI-assisted):</strong> revised with Gemini (or any model).</li><li><strong>Decision log:</strong> 8–12 bullet points explaining what changed and why.</li></ul><p>Grade the decision log like an argument: clarity, tradeoffs, and whether the student can justify accepting or rejecting suggestions.</p><h3>2) Require verification, not just fluency</h3><p>AI makes “sounds right” dangerously cheap. So build a verification step into the deliverable:</p><ul><li>Two external sources (not AI) supporting or contradicting key claims.</li><li>A “conflict note” when sources disagree.</li><li>A final paragraph titled <em>What I’m still unsure about</em>.</li></ul><p>This turns AI output into a hypothesis generator, not an authority.</p><h3>3) Anchor authenticity with short orals</h3><p>Keep AI in homework if desired—but shift authenticity checks into class:</p><ul><li>3-minute micro-viva: explain one key choice from the decision log.</li><li>Live “debug”: fix one weak paragraph without AI.</li><li>One-minute source defense: why that source is credible.</li></ul><p>The point isn’t to punish AI use; it’s to reward understanding.</p><h2>How Classroom features map to these rules</h2><p>Gemini in Classroom is framed around helping educators kickstart lessons, differentiate materials, and generate things like quizzes and rubrics.</p><p>Used well, that time savings can be reinvested into better task constraints (the part that actually drives learning).</p><ul><li><strong>Rubrics:</strong> Generate a first draft rubric, then add explicit criteria for “decision quality” and “verification quality.”</li><li><strong>Teacher-led NotebookLM in Classroom:</strong> Create a study guide and Audio Overview grounded only in teacher-provided materials, then ask students to extract claims + evidence from that bounded set.</li><li><strong>Teacher-led Gems in Classroom:</strong> Build a “Quiz me” or “Study partner” Gem that helps students practice, but require them to cite exactly which class resource the answer came from.</li></ul><p>Google also describes upcoming or expanding analytics and standards-based tracking—tagging coursework to learning standards, viewing performance analytics, and surfacing insights like missing assignments or improving grades.</p><p>That matters because AI-native assessment often creates more small artifacts (logs, checks, orals). Analytics can help spot who is falling behind early, before the gap becomes permanent.</p><h2>A 30-minute rollout plan (realistic)</h2><p>If there’s only time for one iteration, start here:</p><ol><li>Pick one writing assignment already in the next two weeks.</li><li>Use Gemini to draft the rubric, then add 2 criteria: “Decision log quality” and “Verification quality.”</li><li>Create one bounded support artifact (NotebookLM study guide grounded in your uploaded materials).</li><li>Add a 3-minute micro-viva at the start of next lesson: each student defends one decision from their log.</li><li>Use Classroom insights/analytics to follow up with students who missed steps (not just the final submission).</li></ol><p>This approach doesn’t require perfect policy. It requires a repeatable structure.</p><h2>The hidden risk: outsourcing as a habit</h2><p>AI can make school feel easier while learning becomes thinner. The antidote is not banning, but redesigning tasks so effort shifts from typing to judgment: selecting, verifying, defending, and revising under constraints.</p><p>If students learn that “good work” means “good decisions,” AI becomes a lever for learning instead of a shortcut around it.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://blog.google/outreach-initiatives/education/classroom-ai-features/" target="_blank" rel="noopener noreferrer">Google Blog</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/ai-native-assignments-gemini-classroom">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

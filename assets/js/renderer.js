@@ -1,5 +1,7 @@
 // assets/js/renderer.js
 
+import { BUILD_ID } from './build-id.js';
+
 export class Renderer {
     constructor() {
         this.onFilterToggle = null;
@@ -283,13 +285,13 @@ export class Renderer {
         try {
             let content = post.content;
             if (!content) {
-                const r = await fetch(`api/posts/${slug}.json`, { cache: "no-store" });
+                const r = await fetch(`api/posts/${slug}.json?v=${encodeURIComponent(BUILD_ID)}`);
                 if (r.ok) {
                     const fullPost = await r.json();
                     content = fullPost.content;
                     post.content = content; // Cache for next time
                 } else {
-                    const r2 = await fetch(`posts/${slug}.html`, { cache: "no-store" });
+                    const r2 = await fetch(`posts/${slug}.html?v=${encodeURIComponent(BUILD_ID)}`);
                     if (!r2.ok) throw new Error();
                     content = await r2.text();
                     post.content = content;

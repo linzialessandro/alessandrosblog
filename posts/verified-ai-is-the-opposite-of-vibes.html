@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verified AI is the opposite of vibes — Alessandro's blog</title>
+  <meta name="description" content="Most AI systems are persuasive even when they are wrong. That is fine for brainstorming, but it breaks down fast in science and engineering. Axiomatic AI is bui">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/verified-ai-is-the-opposite-of-vibes.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Verified AI is the opposite of vibes">
+  <meta property="og:description" content="Most AI systems are persuasive even when they are wrong. That is fine for brainstorming, but it breaks down fast in science and engineering. Axiomatic AI is bui">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/verified-ai-is-the-opposite-of-vibes.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Verified AI is the opposite of vibes">
+  <meta name="twitter:description" content="Most AI systems are persuasive even when they are wrong. That is fine for brainstorming, but it breaks down fast in science and engineering. Axiomatic AI is bui">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-18T15:00:00+01:00">
+  <meta property="article:modified_time" content="2025-12-18T15:00:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Mathematics">
+  <meta property="article:tag" content="Verification">
+  <meta property="article:tag" content="Research">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Verified AI is the opposite of vibes",
+  "description": "Most AI systems are persuasive even when they are wrong. That is fine for brainstorming, but it breaks down fast in science and engineering. Axiomatic AI is building a different stack: AI grounded in logic, proofs, and physics models. The idea is not to generate a plausible answer, but to return results that can be checked.",
+  "datePublished": "2025-12-18T15:00:00+01:00",
+  "dateModified": "2025-12-18T15:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/verified-ai-is-the-opposite-of-vibes.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/verified-ai-is-the-opposite-of-vibes">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>Verified AI is the opposite of vibes</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-18T15:00:00+01:00">December 18, 2025</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Mathematics</span><span class="tag">Verification</span><span class="tag">Research</span></div>
+      </div>
+      
+      <div class="content">
+        <p>Most AI feels like magic until it matters. The moment a result feeds into a design decision, a publication, or a piece of production infrastructure, “sounds plausible” stops being a feature and starts being a liability.</p><p>Axiomatic AI’s pitch is refreshingly blunt: build AI grounded in logic, evidence, and the scientific method, where outputs are mathematically verified and traceable, not just probable. In their framing, the goal is <em>no hallucinations</em>—because the system doesn’t return an answer unless it can be verified.</p><h2>From probability to proof</h2><p>The key shift is to treat verification as part of the computation, not as something humans do afterward. Axiomatic AI highlights using formal proof tools (notably Lean 4) to check logical soundness and mathematical rigor. That means mathematics isn’t “explained” in natural language; it’s expressed in a formal system that a computer can check.</p><p>This matters because a lot of scientific and engineering failures are not dramatic conceptual mistakes—they’re subtle errors that propagate: a wrong assumption, a missing constraint, a sign mistake, an approximation silently applied outside its regime. The whole point of a theorem prover is to make those failures loud.</p><h2>Physics as a guardrail</h2><p>Another part of the stack is grounding in physics-based models (their examples mention fundamental equations like Maxwell’s and Schrödinger’s) so predictions respect physical laws and can be validated against known solutions. The idea is simple: if a model is going to claim something about the physical world, it should be constrained by the structure of the physical world.</p><p>It’s less “generate an answer” and more “compute within a framework where breaking the laws of physics is not allowed.”</p><h2>Specialized agents, formal interfaces</h2><p>Axiomatic AI also describes specialized agents for different domains (math, physics, engineering) that communicate through formal interfaces—e.g., a math agent verifies equations before a physics agent runs a simulation. That’s an underrated systems idea: modular reasoning is only useful if the modules can’t lie to each other. Formal interfaces are how you get that.</p><p>In other words, “agentic” isn’t the headline here; <em>verifiable coordination</em> is.</p><h2>Measurement as a first-class output</h2><p>What really completes the picture is that they’re not only talking about proofs. They also talk about experimental control: integrating AI with hardware workflows (via CloudLab and their AX platform), using adaptive experimentation and Bayesian optimization to explore parameter spaces efficiently, and logging measurement conditions for reproducibility.</p><p>This is where “trustworthy AI” stops being abstract. If the system can suggest an experiment, run it, collect data, and record every knob it touched, the result becomes something you can reproduce, not just something you can screenshot.</p><h2>AX Verified Research and provenance</h2><p>Finally, AX Verified Research™ is basically an opinionated answer to the reproducibility crisis: track every result through knowledge graphs that capture data lineage, experimental conditions, and verification status. Their examples mention Neo4j to represent relationships between datasets, analyses, and publications, and to query which artifacts contributed to a given result.</p><p>This is the part that feels most “infrastructure”: not just correctness, but traceability. If a plot is wrong, it should be possible to walk backward to the dataset, the transformation, the version, and the assumptions—without archaeology.</p><p><strong>Contributor:</strong> Alessandro Linzi</p>
+
+<p>Read more here: <a href="https://axiomatic-ai.com/technology/axiomatic-intelligence/" target="_blank" rel="noopener noreferrer">Axiomatic AI Website</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/verified-ai-is-the-opposite-of-vibes">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

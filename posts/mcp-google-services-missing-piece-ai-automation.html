@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP for Google services: the missing piece for real AI automation — Alessandro's blog</title>
+  <meta name="description" content="Google is rolling out fully-managed, remote MCP servers so AI agents can reliably use Google Cloud and Google services as tools. The shift is subtle but big: mo">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/mcp-google-services-missing-piece-ai-automation.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="MCP for Google services: the missing piece for real AI automation">
+  <meta property="og:description" content="Google is rolling out fully-managed, remote MCP servers so AI agents can reliably use Google Cloud and Google services as tools. The shift is subtle but big: mo">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/mcp-google-services-missing-piece-ai-automation.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MCP for Google services: the missing piece for real AI automation">
+  <meta name="twitter:description" content="Google is rolling out fully-managed, remote MCP servers so AI agents can reliably use Google Cloud and Google services as tools. The shift is subtle but big: mo">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-14T14:00:00+01:00">
+  <meta property="article:modified_time" content="2025-12-14T14:00:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Agents">
+  <meta property="article:tag" content="Automation">
+  <meta property="article:tag" content="Google Cloud">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MCP for Google services: the missing piece for real AI automation",
+  "description": "Google is rolling out fully-managed, remote MCP servers so AI agents can reliably use Google Cloud and Google services as tools. The shift is subtle but big: models stop being just “smart text” and become systems that can plan and act across real infrastructure with governance.",
+  "datePublished": "2025-12-14T14:00:00+01:00",
+  "dateModified": "2025-12-14T14:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/mcp-google-services-missing-piece-ai-automation.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/mcp-google-services-missing-piece-ai-automation">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>MCP for Google services: the missing piece for real AI automation</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-14T14:00:00+01:00">December 14, 2025</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Agents</span><span class="tag">Automation</span><span class="tag">Google Cloud</span></div>
+      </div>
+      
+      <div class="content">
+        <p>The big blocker for “agentic AI” hasn’t been intelligence. It’s been <em>reliable tool use</em>: how a model can safely read data, call APIs, and take actions without fragile glue code. Google’s announcement of official Model Context Protocol (MCP) support for Google services is a practical step toward that future, because it turns huge parts of the Google ecosystem into standardized, discoverable tools for agents.</p>
+
+<h2>MCP as the connector layer</h2>
+<p>MCP (Model Context Protocol) is described as a kind of “USB‑C for AI”: a standard way for models to connect to tools and data. The promise is less about smarter responses and more about completing multi-step tasks in the real world, where answers depend on current data, permissions, and operational constraints.</p>
+
+<p>The pain point Google calls out is that community MCP servers often require developers to install and manage local servers, or deploy open-source solutions themselves, which can be fragile and burdensome. Google’s move is to provide fully-managed, remote MCP servers so developers can point their agents (or standard MCP clients) at a consistent endpoint across Google and Google Cloud services.</p>
+
+<h2>What “official, managed MCP servers” changes</h2>
+<p>This is an automation upgrade disguised as plumbing. Instead of every team wiring their own set of connectors, Google is adding MCP as a unified layer on top of existing API infrastructure.</p>
+
+<p>In practice, it means an agent can do the boring-but-critical parts of work more reliably:</p>
+<ul>
+<li>Discover which tools exist (and what they do) through a standard interface.</li>
+<li>Use tools with structured inputs/outputs, instead of scraping text from CLIs.</li>
+<li>Operate with enterprise governance instead of “just trust the prompt.”</li>
+</ul>
+
+<h2>First services in scope</h2>
+<p>Google says MCP support is rolling out incrementally, starting with several high-impact services:</p>
+<ul>
+<li><strong>Google Maps</strong>, via Maps Grounding Lite, to ground agents in trusted geospatial data (places, weather forecasts, routing, distance, travel time) and reduce hallucinations on location queries.</li>
+<li><strong>BigQuery</strong>, to let agents interpret schemas and run queries directly against enterprise data while keeping data in-place and governed (including access to features like forecasting).</li>
+<li><strong>Compute Engine</strong>, so agents can provision/resize infrastructure and handle day‑2 operations like adapting to changing workloads.</li>
+<li><strong>GKE</strong>, so agents can interact with Kubernetes APIs through a structured interface (less brittle parsing), enabling diagnosis, remediation, and cost optimization with guardrails.</li>
+</ul>
+
+<h2>Security and observability: where automation becomes usable</h2>
+<p>Automation only becomes deployable when it’s governable. Google highlights a “find trusted tools + control access” approach: Cloud API Registry and Apigee API Hub for discovery, Google Cloud IAM for access control, audit logging for observability, and Model Armor to help defend against agentic threats like indirect prompt injection.</p>
+
+<p>That’s important because it reframes what an “agent” is in an enterprise setting: not a clever model, but a controlled operator that leaves logs, follows permissions, and uses approved tools.</p>
+
+<h2>The brain shift: from asking to delegating</h2>
+<p>There’s a subtle cognitive shift that happens as tools become more reliable. When software is brittle, people keep tasks in their head and use tools as assistants. When tool use becomes robust and standardized, people start thinking in goals and delegations.</p>
+
+<p>MCP pushes in that direction: instead of “write me a query,” the task becomes “find the best retail location,” and the agent coordinates BigQuery analysis with Maps validation as one workflow. Google even sketches that exact example: an agent built with Agent Development Kit, backed by Gemini 3 Pro, forecasting revenue in BigQuery while cross-referencing Maps to scout nearby businesses and validate routes—all via managed MCP servers.</p>
+
+<p>This is the kind of change that compounds: not because any single model call is magical, but because the cost of connecting intelligence to action keeps dropping.</p>
+
+<p><strong>Contributor:</strong> Alessandro Linzi</p>
+
+<p>Read more here: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-official-mcp-support-for-google-services" target="_blank" rel="noopener noreferrer">Google Cloud announces official MCP support for Google services.</a>.</p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/mcp-google-services-missing-piece-ai-automation">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

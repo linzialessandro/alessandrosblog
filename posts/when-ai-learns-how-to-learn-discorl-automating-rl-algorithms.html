@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When AI learns how to learn: DiscoRL and the automation of RL algorithms — Alessandro's blog</title>
+  <meta name="description" content="Reinforcement learning has powered many of the biggest AI milestones, but the learning rules behind it are still mostly hand-designed. A new Nature paper shows ">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="When AI learns how to learn: DiscoRL and the automation of RL algorithms">
+  <meta property="og:description" content="Reinforcement learning has powered many of the biggest AI milestones, but the learning rules behind it are still mostly hand-designed. A new Nature paper shows ">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="When AI learns how to learn: DiscoRL and the automation of RL algorithms">
+  <meta name="twitter:description" content="Reinforcement learning has powered many of the biggest AI milestones, but the learning rules behind it are still mostly hand-designed. A new Nature paper shows ">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-15T16:48:00+01:00">
+  <meta property="article:modified_time" content="2025-12-15T16:48:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Reinforcement Learning">
+  <meta property="article:tag" content="Research">
+  <meta property="article:tag" content="DeepMind">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "When AI learns how to learn: DiscoRL and the automation of RL algorithms",
+  "description": "Reinforcement learning has powered many of the biggest AI milestones, but the learning rules behind it are still mostly hand-designed. A new Nature paper shows a different path: let machines discover the learning rule itself, by meta-learning from the experience of many agents across many environments. The result is a discovered rule (DiscoRL) that beats existing learning rules on Atari and transfers surprisingly well to other benchmarks it never saw during discovery. The interesting shift is not a single benchmark win, but a change in how progress could happen.",
+  "datePublished": "2025-12-15T16:48:00+01:00",
+  "dateModified": "2025-12-15T16:48:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>When AI learns how to learn: DiscoRL and the automation of RL algorithms</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-15T16:48:00+01:00">December 15, 2025</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Reinforcement Learning</span><span class="tag">Research</span><span class="tag">DeepMind</span></div>
+      </div>
+      
+      <div class="content">
+        <p>Reinforcement learning (RL) sits under a lot of the iconic AI wins of the last decade. But there’s an irony in how it’s usually built: the agent learns through experience, while the learning rule itself is still mostly handcrafted by humans. A new Nature paper argues that this split is becoming unnecessary — and demonstrates a system that can <em>discover</em> a high-performing RL update rule from experience at scale.</p><p>The headline result is bold but easy to appreciate: the discovered rule (called <strong>DiscoRL</strong>) outperformed existing learning rules on the classic Atari benchmark, and then held up well on other challenging benchmarks that weren’t part of the discovery process. The deeper point is the direction of travel: if learning rules can be learned, algorithm design starts to look less like artisanal engineering and more like something that can compound with compute and diverse experience.</p><h2>The idea in plain terms</h2><p>Most RL algorithms differ in how they update an agent’s policy and predictions after it takes actions and receives rewards. In this work, instead of choosing that update rule upfront, the researchers represent the rule as a trainable “meta-network” that outputs targets the agent should move toward — effectively learning <em>how</em> the agent should update itself.</p><p>They then run a population of agents across many environments, and continuously improve the meta-network so that the agents trained under it achieve higher returns. Over time, this process produces a learning rule that is competitive with, and in some cases better than, the manually designed rules the field has relied on.</p><h2>Why this matters</h2><p>If this approach scales, it changes the bottleneck. Instead of relying on slow human iteration to invent new update rules, you can search a much larger space of possible algorithms using experience and meta-optimization — and let the resulting rule generalize beyond the environments it was discovered on.</p><p>The paper also makes a practical point: the discovered rule improves as discovery uses more diverse and complex environments, which hints at an “algorithm scaling law” style dynamic — better rules as a function of experience diversity, not just model size. That’s a big deal for anyone thinking about general-purpose agents.</p><h2>What stood out (without the math)</h2><p>A few pieces are worth calling out even without diving into technical details. First, the authors report that DiscoRL surpassed prior approaches on Atari in their setup, and that a variant discovered on a larger and more diverse environment set improved performance on multiple other benchmarks.</p><p>Second, their analysis suggests the learned rule develops its own useful internal predictions that don’t map cleanly onto standard RL concepts like “value functions,” and that these learned predictions end up informing the policy update rather than staying as a side quest. In other words: it’s not just rediscovering the same tricks with different knobs.</p><h2>The bigger takeaway</h2><p>This is a glimpse of a future where AI systems don’t just learn tasks — they also learn the learning machinery that makes them effective. That doesn’t mean research becomes automatic, but it does suggest progress may shift from “invent a new rule” to “design a discovery process that reliably produces strong rules.”</p><p><strong>Contributor:</strong> Alessandro Linzi</p>
+
+<p>Read more here: <a href="https://www.nature.com/articles/s41586-025-09761-x" target="_blank" rel="noopener noreferrer">Nature</a>.</p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/when-ai-learns-how-to-learn-discorl-automating-rl-algorithms">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

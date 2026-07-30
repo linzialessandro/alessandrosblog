@@ -16,19 +16,29 @@ This is a lightweight, static blog that prioritizes:
 
 ```
 .
-├── index.html          # Main blog page with single-page routing & View Transitions
-├── posts.json          # Blog posts source data (validated by blogq)
-├── api/                # Static API endpoints for lazy loading
-│   ├── index.json      # Metadata index of all posts (loaded on startup)
-│   └── posts/          # Individual post JSON files (loaded on demand)
-├── docs/               # Project documentation (OKF Knowledge Graph)
-├── sitemap.xml         # SEO sitemap
-├── pdfs/               # PDF versions of blog posts
-├── scripts/            # Build and utility scripts
-│   ├── build-pdfs.mjs  # PDF generation script
-│   └── build-static-api.js # Splits posts.json into the static API
-└── tools/              # Development and validation tools
-    └── blogq/          # Posts validation tool
+├── index.html              # SPA shell (homepage meta + WebSite JSON-LD + Atom link)
+├── posts.json              # Blog posts source data (validated by blogq)
+├── feed.xml                # Atom feed (latest 20 posts)
+├── sitemap.xml             # SEO sitemap (prefers static post URLs)
+├── api/                    # Static API endpoints for lazy loading
+│   ├── index.json          # Metadata index of all posts (loaded on startup)
+│   └── posts/              # Individual post JSON files (loaded on demand)
+├── posts/                  # Pre-rendered HTML pages per post (crawlers / social)
+├── assets/
+│   ├── js/                 # SPA modules (store, router, renderer, build-id)
+│   └── pdfs/               # PDF versions of blog posts
+├── docs/                   # Project documentation (OKF Knowledge Graph)
+├── scripts/
+│   ├── build-static-api.js     # Splits posts.json + writes BUILD_ID
+│   ├── build-static-pages.js   # Pre-renders posts/{slug}.html
+│   └── build-pdfs.mjs          # PDF generation (local; needs pandoc + xelatex)
+├── tools/
+│   ├── blogq/              # Posts validation tool (+ unit tests)
+│   ├── generate-feed.js    # Atom feed generator
+│   ├── generate-sitemap.js # Sitemap generator
+│   └── compile-contrib-posts.js
+└── .github/workflows/
+    └── publish.yml         # CI: validate + regenerate API/pages/feed/sitemap
 ```
 
 ## Local Development
@@ -84,7 +94,7 @@ WARN  my-post /posts/3/tags/0: Tag has leading/trailing whitespace.
 
 ### Sitemap Generator
 
-A Node.js script to generate `sitemap.xml` from `posts.json`. It accounts for both hash-based routes (`/#post/...`) and static HTML files (`/posts/...`) if they exist.
+A Node.js script to generate `sitemap.xml` from `posts.json`. It prefers static HTML files (`/posts/{slug}.html`) when present, otherwise falls back to hash routes (`/#post/...`).
 
 **Usage:**
 
@@ -95,6 +105,46 @@ node tools/generate-sitemap.js
 # Dry run (print to console without writing)
 node tools/generate-sitemap.js --dry-run
 ```
+
+### Atom Feed Generator
+
+Produces `feed.xml` (Atom) from `posts.json`, linking to static post URLs and embedding full HTML content from the static API.
+
+```bash
+node tools/generate-feed.js
+node tools/generate-feed.js --dry-run
+```
+
+The homepage advertises the feed via:
+
+```html
+<link rel="alternate" type="application/atom+xml" title="Alessandro's blog" href="feed.xml">
+```
+
+### Static HTML Pre-Renderer
+
+Generates crawler-friendly `posts/{slug}.html` pages with title, description, Open Graph tags, canonical URL, and Article JSON-LD.
+
+```bash
+node scripts/build-static-pages.js
+```
+
+### Full publish pipeline
+
+After changing `posts.json` (or accepting a contribution), regenerate artifacts in this order:
+
+```bash
+blogq check posts.json
+node scripts/build-static-api.js    # also writes assets/js/build-id.js for cache busting
+node scripts/build-static-pages.js
+node tools/generate-feed.js
+node tools/generate-sitemap.js
+# optional (local only): node scripts/build-pdfs.mjs
+```
+
+On push to `main`, `.github/workflows/publish.yml` runs validation, rebuilds API/pages/feed/sitemap, and commits artifacts with `[skip ci]`. **PDFs are not built in CI** (TeX Live is heavy); generate them locally when needed.
+
+`BUILD_ID` is a short content hash of `posts.json`. The SPA appends `?v=BUILD_ID` to API fetches so browsers/CDNs can cache JSON between publishes without `cache: "no-store"`.
 
 ## Content Guidelines
 
@@ -186,7 +236,7 @@ Here is the body of the post. You can use:
 
 **Maintainer Instructions:**
 
-To compile accepted drafts into `posts.json` and generate the static API files:
+To compile accepted drafts into `posts.json` and regenerate site artifacts:
 
 1.  Move the draft to `submissions/accepted/`.
 2.  Run the compiler:
@@ -197,10 +247,16 @@ To compile accepted drafts into `posts.json` and generate the static API files:
     # Compile and update posts.json (moves draft to processed/)
     node tools/compile-contrib-posts.js
     ```
-3.  Re-generate the static API endpoints:
+3.  Validate and regenerate artifacts:
     ```bash
+    blogq check posts.json
     node scripts/build-static-api.js
+    node scripts/build-static-pages.js
+    node tools/generate-feed.js
+    node tools/generate-sitemap.js
+    # optional: node scripts/build-pdfs.mjs
     ```
+    Or push to `main` and let the publish workflow regenerate API/pages/feed/sitemap.
 
 
 ### General Guidelines

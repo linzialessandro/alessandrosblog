@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Magic Cycle: How Google is Industrializing Discovery — Alessandro's blog</title>
+  <meta name="description" content="Google Research’s 2025 retrospective reveals a shift from isolated breakthroughs to a unified engine they call the “magic cycle.” By coupling quantum simulation">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/google-research-magic-cycle-industrializing-discovery.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Magic Cycle: How Google is Industrializing Discovery">
+  <meta property="og:description" content="Google Research’s 2025 retrospective reveals a shift from isolated breakthroughs to a unified engine they call the “magic cycle.” By coupling quantum simulation">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/google-research-magic-cycle-industrializing-discovery.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Magic Cycle: How Google is Industrializing Discovery">
+  <meta name="twitter:description" content="Google Research’s 2025 retrospective reveals a shift from isolated breakthroughs to a unified engine they call the “magic cycle.” By coupling quantum simulation">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-01-14T15:10:00+01:00">
+  <meta property="article:modified_time" content="2026-01-14T15:10:00+01:00">
+  <meta property="article:tag" content="Google">
+  <meta property="article:tag" content="Research">
+  <meta property="article:tag" content="Quantum Computing">
+  <meta property="article:tag" content="Infrastructure">
+  <meta property="article:tag" content="Science">
+  <meta property="article:tag" content="AI">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Magic Cycle: How Google is Industrializing Discovery",
+  "description": "Google Research’s 2025 retrospective reveals a shift from isolated breakthroughs to a unified engine they call the “magic cycle.” By coupling quantum simulation, space-based infrastructure, and agentic science, they aren’t just building better models—they are building a machine that accelerates the rate of scientific discovery itself.",
+  "datePublished": "2026-01-14T15:10:00+01:00",
+  "dateModified": "2026-01-14T15:10:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/google-research-magic-cycle-industrializing-discovery.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/google-research-magic-cycle-industrializing-discovery">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>The Magic Cycle: How Google is Industrializing Discovery</h1>
+      
+      <div class="meta">
+        <time datetime="2026-01-14T15:10:00+01:00">January 14, 2026</time>
+        <div class="tags"><span class="tag">Google</span><span class="tag">Research</span><span class="tag">Quantum Computing</span><span class="tag">Infrastructure</span><span class="tag">Science</span><span class="tag">AI</span></div>
+      </div>
+      
+      <div class="content">
+        <p>There is a specific kind of momentum that happens when a research lab stops looking for “wins” and starts building an engine. Reading through Google Research’s massive 2025 retrospective, you get the sense that the era of isolated breakthroughs—a better chatbot here, a weather model there—is ending. In its place is something they call the “magic cycle.”</p><p>The term sounds like marketing fluff, but the mechanism is pure engineering. It describes a feedback loop where foundational research fuels products, products generate novel data at scale, and that data forces the research to tackle harder, messier problems. The result isn’t just better software; it is the industrialization of scientific discovery.</p><h2>The Quantum Bridge: From Theory to Material Reality</h2><p>For years, quantum computing has been a “someday” technology. 2025 looks like the year it became a “today” tool for specific, high-value problems. The introduction of the <strong>Willow</strong> chip and the <strong>Quantum Echoes</strong> algorithm is significant not because of qubit counts, but because of <em>verifiable utility</em>.</p><p>Running 13,000 times faster than classical supercomputers for specific simulation tasks is a metric that changes behavior. It moves us from “can we simulate this molecule?” to “let’s screen a thousand variants before lunch.” This is critical for materials science and drug discovery, where the bottleneck has always been the computational cost of simulating nature accurately. Google is effectively trying to turn chemistry into a software problem.</p><h2>Science as an Agentic Workflow</h2><p>The most profound shift in the report is the move from AI as a tool to AI as a co-scientist. We are seeing systems like the <strong>AI Co-scientist</strong> (built with DeepMind) that don’t just answer questions; they propose hypotheses, write code to test them, and interpret the results.</p><p>This pairs with <strong>WeatherNext 2</strong>, which treats weather forecasting not as a deterministic prediction but as a generative problem. By generating hundreds of physically consistent scenarios in minutes, it allows us to reason about tail risks—the “one-in-a-hundred-year” floods and fires—with a fidelity that was previously impossible. When you combine this with <strong>AlphaFold 3</strong>, the pattern is clear: the goal is to model the physical world well enough to run experiments <em>in silico</em> rather than <em>in vitro</em>.</p><h2>Escaping Earth’s Constraints: Project Suncatcher</h2><p>Perhaps the most audacious signal in the report is <strong>Project Suncatcher</strong>. It acknowledges a hard truth: scaling AI infrastructure on Earth is hitting limits—land, water, and energy are finite. Suncatcher proposes moving the compute to where the energy is: space.</p><p>The concept of solar-powered satellite constellations acting as orbital data centers sounds like science fiction, but it is a rational response to the energy density problem. If the “magic cycle” demands exponentially more compute, and the grid can’t supply it, you have to look up. It is a reminder that the constraints on AI progress are rapidly shifting from algorithmic to physical.</p><h2>The Interface is Dissolving</h2><p>On the user side, <strong>Gemini 3</strong> and the concept of <strong>Generative UI</strong> signal the end of the static application. The idea that an AI generates a custom interface—widgets, visualizations, interactive tools—on the fly creates a new paradigm. You don’t search for an app that does what you want; the system builds a micro-app for your specific intent, uses it, and then discards it.</p><p>This collapses the distance between “I have a question” and “I have a tool to solve it.” It also implies that the future of software development isn’t just writing apps, but defining the design systems that allow AI to write them for us.</p><h2>The Loop Closes</h2><p>The “magic cycle” is ultimately about velocity. When your search engine (Google) feeds your reasoning model (Gemini), which designs your chip (TPU), which runs your quantum simulation (Willow), which discovers a new material, which improves your hardware efficiency… you aren’t just competing on product features. You are competing on the speed of evolution.</p><p>Google’s 2025 isn’t just a list of launches. It is a blueprint for how a technology company attempts to become a general-purpose scientific instrument.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://research.google/blog/accelerating-the-magic-cycle-of-research-breakthroughs-and-real-world-applications/" target="_blank" rel="noopener noreferrer">Google Blog</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/google-research-magic-cycle-industrializing-discovery">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

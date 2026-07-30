@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Illusion of Thinking: What Reasoning Models Get Right (and Where They Break) — Alessandro's blog</title>
+  <meta name="description" content="A NeurIPS 2025 paper argues that “reasoning” models don’t fail gracefully: performance can collapse past a complexity threshold, and extra token budget doesn’t ">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/illusion-of-thinking-reasoning-models-problem-complexity.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Illusion of Thinking: What Reasoning Models Get Right (and Where They Break)">
+  <meta property="og:description" content="A NeurIPS 2025 paper argues that “reasoning” models don’t fail gracefully: performance can collapse past a complexity threshold, and extra token budget doesn’t ">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/illusion-of-thinking-reasoning-models-problem-complexity.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Illusion of Thinking: What Reasoning Models Get Right (and Where They Break)">
+  <meta name="twitter:description" content="A NeurIPS 2025 paper argues that “reasoning” models don’t fail gracefully: performance can collapse past a complexity threshold, and extra token budget doesn’t ">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-10T15:10:00+01:00">
+  <meta property="article:modified_time" content="2025-12-10T15:10:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="LLMs">
+  <meta property="article:tag" content="Research">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Illusion of Thinking: What Reasoning Models Get Right (and Where They Break)",
+  "description": "A NeurIPS 2025 paper argues that “reasoning” models don’t fail gracefully: performance can collapse past a complexity threshold, and extra token budget doesn’t automatically buy better thinking.",
+  "datePublished": "2025-12-10T15:10:00+01:00",
+  "dateModified": "2025-12-10T15:10:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/illusion-of-thinking-reasoning-models-problem-complexity.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/illusion-of-thinking-reasoning-models-problem-complexity">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>The Illusion of Thinking: What Reasoning Models Get Right (and Where They Break)</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-10T15:10:00+01:00">December 10, 2025</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">LLMs</span><span class="tag">Research</span></div>
+      </div>
+      
+      <div class="content">
+        
+    <p>
+      Reasoning models look like a big step forward: they generate a long chain of intermediate steps, then land on an answer. On math and coding benchmarks, that often works. But a question keeps bothering me: are these models actually getting better at reasoning, or are they just performing well on the kinds of problems we already know how to measure?
+    </p>
+
+    <p>
+      A NeurIPS 2025 paper called <em>The Illusion of Thinking</em> tackles that question using controllable puzzle environments. The key trick is that the puzzles let researchers dial up compositional complexity while keeping the underlying logic consistent, so you can study not only final accuracy, but also what happens inside the “thinking trace” as problems get harder.
+    </p>
+
+    <h2>Why problem complexity matters</h2>
+
+    <p>
+      Most evaluations emphasize “did the model get the right answer?” on well-known benchmark distributions. The paper argues that this is incomplete (and sometimes misleading), because it doesn’t reveal how reasoning behavior changes when you systematically push difficulty beyond the familiar range.
+    </p>
+
+    <p>
+      By controlling complexity directly, the authors can observe when a model’s apparent reasoning ability is robust and when it starts to behave more like pattern-matching under stress.
+    </p>
+
+    <h2>Key findings that stood out</h2>
+
+    <ol>
+      <li>
+        Accuracy can collapse once problems cross a certain complexity threshold, rather than degrading gradually.
+      </li>
+      <li>
+        The scaling behavior is counter-intuitive: “reasoning effort” (often measured via how much the model writes/uses its thinking tokens) increases with complexity up to a point, then drops as tasks get even harder—even when token budget is still available.
+      </li>
+      <li>
+        Under matched inference compute, the paper describes three regimes:
+        <ul>
+          <li>
+            Low complexity: standard LLMs can outperform LRMs, suggesting extra “thinking” can add noise when tasks are easy.
+          </li>
+          <li>
+            Medium complexity: LRMs tend to do better, where structured intermediate reasoning actually helps.
+          </li>
+          <li>
+            High complexity: both approaches can fail badly, highlighting a fundamental limitation rather than a tuning issue.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Exact computation remains a weak spot: the traces often look heuristic and inconsistent, which is a red flag for tasks that require algorithmic, deterministic steps.
+      </li>
+    </ol>
+
+    <h2>What this changes for evaluation</h2>
+
+    <p>
+      The takeaway isn’t “reasoning models are useless.” It’s that we should be more careful about what we infer from benchmark wins. If accuracy collapses beyond a complexity boundary, then “more tokens” or “more compute at inference” isn’t a universal fix—and it becomes important to test models in settings where difficulty is controlled, not just sampled.
+    </p>
+
+    <p>
+      It also reinforces something that’s easy to forget: a convincing chain-of-thought can be a UI artifact, not proof of stable internal computation. If the trace quality degrades or becomes inconsistent as complexity rises, the model may be narrating a path rather than executing one.
+    </p>
+
+    <h2>Why I’m paying attention</h2>
+
+    <p>
+      This line of work feels important because it forces a sharper definition of “reasoning.” If a model can only reason inside a comfort zone, then the real problem becomes: how do we build systems that fail predictably, expose uncertainty, and reliably handle tasks that demand exactness?
+    </p>
+
+    <p><strong>Contributor:</strong> Alessandro Linzi</p>
+
+<p>
+      Read more here: <a href="https://machinelearning.apple.com/research/illusion-of-thinking">Apple ML Research</a>
+    </p>
+  
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/illusion-of-thinking-reasoning-models-problem-complexity">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NotebookLM Deep Research is what “efficient research” should feel like — Alessandro's blog</title>
+  <meta name="description" content="NotebookLM’s new Deep Research feature treats sources as the workflow, not a footnote. It builds a source-grounded report by browsing hundreds of sites, then le">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/notebooklm-deep-research-efficient-ai-workflow.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="NotebookLM Deep Research is what “efficient research” should feel like">
+  <meta property="og:description" content="NotebookLM’s new Deep Research feature treats sources as the workflow, not a footnote. It builds a source-grounded report by browsing hundreds of sites, then le">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/notebooklm-deep-research-efficient-ai-workflow.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="NotebookLM Deep Research is what “efficient research” should feel like">
+  <meta name="twitter:description" content="NotebookLM’s new Deep Research feature treats sources as the workflow, not a footnote. It builds a source-grounded report by browsing hundreds of sites, then le">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-01-04T12:03:00+01:00">
+  <meta property="article:modified_time" content="2026-01-04T12:03:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Productivity">
+  <meta property="article:tag" content="Google">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NotebookLM Deep Research is what “efficient research” should feel like",
+  "description": "NotebookLM’s new Deep Research feature treats sources as the workflow, not a footnote. It builds a source-grounded report by browsing hundreds of sites, then lets you import the report and sources into your notebook so you can keep thinking without context switching.",
+  "datePublished": "2026-01-04T12:03:00+01:00",
+  "dateModified": "2026-01-04T12:03:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/notebooklm-deep-research-efficient-ai-workflow.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/notebooklm-deep-research-efficient-ai-workflow">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>NotebookLM Deep Research is what “efficient research” should feel like</h1>
+      
+      <div class="meta">
+        <time datetime="2026-01-04T12:03:00+01:00">January 4, 2026</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">Productivity</span><span class="tag">Google</span></div>
+      </div>
+      
+      <div class="content">
+        <p>Efficiency in AI workflows is rarely about the model being “smart”. It’s about whether your context stays intact long enough to matter.</p><p>Most people don’t lose time because they can’t find information. They lose time because the research loop shatters into fragments: search results in one place, notes in another, a half-written draft somewhere else, and a model chat that forgets what you did five minutes ago.</p><p>Google’s latest NotebookLM update is worth paying attention to because it’s a very opinionated answer to that fragmentation: build a rich set of sources, keep them attached to the work, and make the AI operate inside that boundary.</p><h2>Deep Research is “source acquisition” as a feature</h2><p>Deep Research is positioned as a research agent: you give it a question, it creates a research plan, browses hundreds of websites, refines its search as it learns, and produces an organized, source-grounded report.</p><p>The subtle detail is that the report is not treated as a final deliverable. In NotebookLM, the report is an intermediate artifact you can pull into your notebook and then keep interrogating.</p><p>This is the workflow shift: instead of asking the model to be correct in one shot, you ask the system to assemble a corpus and then you do iterative thinking on top of it.</p><h2>The report is just the beginning</h2><p>NotebookLM explicitly frames Deep Research as a bootstrap mechanism: you can add the report and its sources into the notebook, then continue working with the rest of your materials while Deep Research runs in the background.</p><p>That matters because “research” is rarely linear. The moment you read something interesting, you want to pull in adjacent sources, compare claims, extract definitions, and rewrite your mental model. The faster you can do that without leaving the workspace, the more likely you are to stay in a productive state.</p><p>In practice, this also changes how prompts should be written. Instead of prompting for answers, prompt for corpus-building: what sources are missing, which concepts need multiple viewpoints, what is likely to be misunderstood, what should be verified, and what deserves an explicit counterexample.</p><h2>Why this makes an AI workflow efficient</h2><p>There’s a predictable pattern in knowledge work:</p><ul><li>At the beginning you need breadth (coverage, vocabulary, map of the territory).</li><li>Then you need structure (a plan, a taxonomy, a set of subquestions).</li><li>Finally you need compression (a brief, a lesson, a decision memo, a publishable draft).</li></ul><p>Deep Research is a direct attempt to speed up the breadth phase without losing traceability, because the output is grounded in sources you can keep attached to the notebook.</p><p>It also reduces the worst productivity killer: repeated “reloading” of context. If a tool forces you to restate what you’ve read and why it matters every time you switch steps, you spend your day paying a tax on your own memory.</p><h2>More source types means fewer excuses</h2><p>The second half of the update is less flashy but arguably more important: NotebookLM is expanding the file types you can treat as sources.</p><p>Google highlights support for Google Sheets (structured data), Drive files as URLs (copy-paste like a normal link), images (including photos of handwritten notes), PDFs directly from Google Drive, and Microsoft Word documents (.docx).</p><p>This matters because real projects are messy. Research is not only “articles and papers”; it’s also spreadsheets, drafts, screenshots, and notes captured at the wrong time in the wrong place. The more friction there is in turning those artifacts into a coherent source set, the more likely you are to abandon the attempt and go back to ad‑hoc prompting.</p><h2>A concrete workflow that actually holds up</h2><p>Here’s a workflow that makes Deep Research useful rather than just impressive:</p><ul><li><strong>Start with Deep Research</strong> to generate a first corpus and a report, then import both into the notebook.</li><li><strong>Interrogate the corpus</strong>: extract key terms, competing definitions, and claims that appear “obvious” but need checking.</li><li><strong>Force disagreement</strong>: ask for the strongest counterarguments and for where sources conflict, not just where they align.</li><li><strong>Build an outline</strong> that separates facts (source-backed) from interpretations (yours) and from open questions (explicitly unknown).</li><li><strong>Write last</strong>: treat writing as selection and synthesis, not as exploration.</li></ul><p>This turns NotebookLM into something closer to an instrumented research environment: sources go in, questions get sharper, and the output becomes a byproduct of a stable knowledge base.</p><p>The risk is also straightforward: speed makes it tempting to stop early. A “source-grounded” report can still be shallow, cherry-picked, or mismatched to your actual goal. The point of the notebook is that it makes ongoing verification cheap enough that you might actually do it.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://blog.google/technology/google-labs/notebooklm-deep-research-file-types/" target="_blank" rel="noopener noreferrer">Google Blog</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/notebooklm-deep-research-efficient-ai-workflow">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

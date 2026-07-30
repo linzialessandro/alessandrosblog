@@ -1,5 +1,7 @@
 // assets/js/store.js
 
+import { BUILD_ID } from './build-id.js';
+
 const POSTSFILE = "api/index.json";
 
 export class BlogStore {
@@ -20,7 +22,9 @@ export class BlogStore {
 
     async load() {
         try {
-            const r = await fetch(POSTSFILE, { cache: "no-store" });
+            // BUILD_ID is a content hash of posts.json, regenerated on each API build.
+            // Query param forces a fresh fetch after publishes while keeping HTTP cache for unchanged deploys.
+            const r = await fetch(`${POSTSFILE}?v=${encodeURIComponent(BUILD_ID)}`);
             if (!r.ok) throw new Error();
             const data = await r.json();
             const arr = Array.isArray(data) ? data : (data?.posts || []);

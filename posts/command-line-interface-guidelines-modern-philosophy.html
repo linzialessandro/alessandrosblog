@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Command Line Interface Guidelines: A modern philosophy for the terminal — Alessandro's blog</title>
+  <meta name="description" content="The Command Line Interface Guidelines (CLIG) is an open-source manifesto for writing better CLI programs. It shifts the focus from &#039;machine-first&#039; UNIX traditio">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/command-line-interface-guidelines-modern-philosophy.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Command Line Interface Guidelines: A modern philosophy for the terminal">
+  <meta property="og:description" content="The Command Line Interface Guidelines (CLIG) is an open-source manifesto for writing better CLI programs. It shifts the focus from &#039;machine-first&#039; UNIX traditio">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/command-line-interface-guidelines-modern-philosophy.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Command Line Interface Guidelines: A modern philosophy for the terminal">
+  <meta name="twitter:description" content="The Command Line Interface Guidelines (CLIG) is an open-source manifesto for writing better CLI programs. It shifts the focus from &#039;machine-first&#039; UNIX traditio">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2025-12-25T12:00:00+01:00">
+  <meta property="article:modified_time" content="2025-12-25T12:00:00+01:00">
+  <meta property="article:tag" content="CLI">
+  <meta property="article:tag" content="Open Source">
+  <meta property="article:tag" content="Best Practices">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Command Line Interface Guidelines: A modern philosophy for the terminal",
+  "description": "The Command Line Interface Guidelines (CLIG) is an open-source manifesto for writing better CLI programs. It shifts the focus from 'machine-first' UNIX traditions to 'human-first' design, emphasizing that a terminal tool is a conversational interface that requires empathy, discoverability, and robust feedback loops.",
+  "datePublished": "2025-12-25T12:00:00+01:00",
+  "dateModified": "2025-12-25T12:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/command-line-interface-guidelines-modern-philosophy.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/command-line-interface-guidelines-modern-philosophy">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>Command Line Interface Guidelines: A modern philosophy for the terminal</h1>
+      
+      <div class="meta">
+        <time datetime="2025-12-25T12:00:00+01:00">December 25, 2025</time>
+        <div class="tags"><span class="tag">CLI</span><span class="tag">Open Source</span><span class="tag">Best Practices</span></div>
+      </div>
+      
+      <div class="content">
+        <p>We often treat command-line tools as pure utility: scripts to be piped, args to be parsed, and exit codes to be checked. But as computing pioneer Alan Kay noted, the command line remains the most <em>versatile</em> corner of the computer, offering a depth GUIs cannot afford. The Command Line Interface Guidelines (CLIG) proposes a necessary modernization: shifting from a <strong>machine-first</strong> tradition to a <strong>human-first</strong> design philosophy.</p><h2>The Baggage of the Past</h2><p>Traditional UNIX philosophy optimized for composability and brevity—machines talking to machines. This often resulted in opaque error messages and the silent treatment on success (the classic &quot;no news is good news&quot; approach of <code>cp</code>). CLIG argues that today’s terminal is primarily a human workspace. If a command changes the state of the system, it should explicitly tell the user what happened, much like <code>git push</code> details exactly which refs were updated, rather than just returning exit code 0.</p><h2>Conversation as the Interface</h2><p>The guide introduces a powerful metaphor: <em>conversation</em>. Using a CLI is a dialogue where the user proposes an intent, and the program responds. This reframes error handling not as a crash, but as a corrective turn in the conversation. </p><p>For instance, if I run <code>brew update jq</code>, the tool shouldn&#39;t just fail; it should gently suggest, <em>&quot;Did you mean `brew upgrade jq`?&quot;</em> This is empathy in software design. It acknowledges that the user is learning through repeated trial-and-error.</p><h2>Concrete Heuristics for Modern Tools</h2><p>The document is rich with specific implementation details that distinguish a &quot;toy&quot; script from a professional tool:</p><ul><li><strong>Context-Aware Output (The TTY Rule)</strong>: Your program must know its audience. If <code>stdout</code> is an interactive terminal, give me colors, spinners, and human-readable tables. If it’s being piped to a file or another command, strip the ANSI codes and animations immediately. A progress bar in a CI log isn&#39;t a feature; it&#39;s a corrupt log file.</li><li><strong>The &quot;Help&quot; Hierarchy</strong>: Documentation isn&#39;t an afterthought. CLIG suggests a tiered approach: running the command bare should show concise usage examples (like <code>jq</code>), while <code>--help</code> should provide the full manual. Crucially, lead with <strong>examples</strong>, not syntax definitions. Users learn by pattern-matching, not by reading Backus–Naur form.</li><li><strong>Flags over Arguments</strong>: Positional arguments are brittle relics. While <code>cp source dest</code> is standard, it is also ambiguous. Modern tools should prefer flags (<code>--file</code>, <code>--output</code>) which are explicit, order-independent, and extensible without breaking backward compatibility.</li><li><strong>JSON as a First-Class Citizen</strong>: Since we operate in a web-centric world, tools should support a <code>--json</code> flag. This allows users to bypass text parsing tools like <code>awk</code> and pipe structured data directly into <code>jq</code> or networked services.</li></ul><h2>Why this matters</h2><p>I value this guide because it treats CLI design with the same rigor we apply to graphical interfaces. It recognizes that <strong>robustness</strong> is a subjective feeling—a tool that catches interrupts (<code>Ctrl-C</code>) gracefully and provides feedback in under 100ms feels &quot;solid,&quot; regardless of its actual execution time. A well-designed CLI respects my time by being discoverable and respects my mental model by being consistent.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://clig.dev" target="_blank" rel="noopener noreferrer">Command Line Interface Guidelines</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/command-line-interface-guidelines-modern-philosophy">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

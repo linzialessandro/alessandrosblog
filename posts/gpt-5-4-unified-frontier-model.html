@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPT-5.4: The Unified Frontier Model — Alessandro's blog</title>
+  <meta name="description" content="OpenAI&#039;s launch of GPT-5.4 represents a consolidation of modalities. By deeply integrating text, vision, and audio natively, it sets a new baseline for what a &#039;">
+  
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/gpt-5-4-unified-frontier-model.html">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="GPT-5.4: The Unified Frontier Model">
+  <meta property="og:description" content="OpenAI&#039;s launch of GPT-5.4 represents a consolidation of modalities. By deeply integrating text, vision, and audio natively, it sets a new baseline for what a &#039;">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/gpt-5-4-unified-frontier-model.html">
+  <meta property="og:site_name" content="Alessandro's blog">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GPT-5.4: The Unified Frontier Model">
+  <meta name="twitter:description" content="OpenAI&#039;s launch of GPT-5.4 represents a consolidation of modalities. By deeply integrating text, vision, and audio natively, it sets a new baseline for what a &#039;">
+  
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-04-02T10:30:00+01:00">
+  <meta property="article:modified_time" content="2026-04-02T10:30:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="OpenAI">
+  <meta property="article:tag" content="GPT-5">
+  <meta property="article:tag" content="Multimodal">
+  <meta property="article:tag" content="Innovation">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "GPT-5.4: The Unified Frontier Model",
+  "description": "OpenAI's launch of GPT-5.4 represents a consolidation of modalities. By deeply integrating text, vision, and audio natively, it sets a new baseline for what a 'multimodal' model actually means.",
+  "datePublished": "2026-04-02T10:30:00+01:00",
+  "dateModified": "2026-04-02T10:30:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/gpt-5-4-unified-frontier-model.html"
+  }
+}
+  </script>
+
+  <style>
+    :root {
+      --bg-color: #FAF9F6;
+      --text-color: #1C1917;
+      --accent-color: #92400E;
+      --nav-border: rgba(28, 25, 23, 0.1);
+      --card-bg: rgba(255, 255, 255, 0.5);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0D0B0A;
+        --text-color: #F5F0EB;
+        --accent-color: #FBBF24;
+        --nav-border: rgba(245, 240, 235, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: var(--text-color);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .nav {
+      border-bottom: 1px solid var(--nav-border);
+      padding: 1rem 0;
+      margin-bottom: 3rem;
+    }
+    
+    .nav-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-logo {
+      height: 32px;
+      width: auto;
+    }
+    
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+    
+    .nav-title:hover {
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+    
+    .meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      background: var(--card-bg);
+      border: 1px solid var(--nav-border);
+      padding: 0.1rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+    
+    .content {
+      font-size: 1.1rem;
+    }
+    
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    .content pre {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      border: 1px solid var(--nav-border);
+    }
+    
+    .content code {
+      font-family: monospace;
+      background: var(--card-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    
+    .content pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    .content blockquote {
+      border-left: 4px solid var(--accent-color);
+      margin: 1.5rem 0;
+      padding-left: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    
+    .read-more {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--nav-border);
+      text-align: center;
+    }
+    
+    .read-more a {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #FFF;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+    }
+    
+    .read-more a:hover {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo-link">
+        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+      </a>
+      <a href="/" class="nav-title">Alessandro's blog</a>
+    </div>
+  </nav>
+  
+  <main class="container">
+    <noscript>
+      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
+        This is a static version of the page. <a href="/#post/gpt-5-4-unified-frontier-model">View the full interactive blog experience</a> if you enable JavaScript.
+      </div>
+    </noscript>
+
+    <article>
+      <h1>GPT-5.4: The Unified Frontier Model</h1>
+      
+      <div class="meta">
+        <time datetime="2026-04-02T10:30:00+01:00">April 2, 2026</time>
+        <div class="tags"><span class="tag">AI</span><span class="tag">OpenAI</span><span class="tag">GPT-5</span><span class="tag">Multimodal</span><span class="tag">Innovation</span></div>
+      </div>
+      
+      <div class="content">
+        <p>The release of GPT-5.4 in April 2026 feels less like a step forward in pure intelligence and more like a massive structural refactoring. OpenAI hasn't just made the model "smarter"; they have fundamentally changed how it processes reality.</p><h2>The End of Bolted-On Modalities</h2><p>In previous iterations, "multimodal" often meant a text model wearing different hats. You had a vision encoder that translated an image into text, which the LLM then read. You had a transcription model that turned audio into text, which the LLM then read. It was a Rube Goldberg machine of intelligence—functional, but lossy.</p><p>GPT-5.4 is described as a "unified" model. This means it is natively multimodal. It doesn't translate an image to text before thinking about it; it thinks in images. It doesn't transcribe a voice; it processes the audio wave directly, understanding tone, pacing, and emotion.</p><h2>Why Native Integration Matters</h2><p>This architectural shift is profound for two reasons.</p><p>First, it drastically reduces latency. When you remove the intermediate translation steps, the system can react in real-time. This is the requirement for true conversational agents and embodied robotics. An AI cannot drive a car or hold a natural, interrupting conversation if it has to constantly translate sensory input into English.</p><p>Second, it captures the nuance that text strips away. Text is a highly compressed, low-bandwidth format. When you describe a painting, you lose 90% of the information. A unified model can reason over the raw, uncompressed data of the physical world.</p><h2>The New Baseline</h2><p>With GPT-5.4, OpenAI has established a new baseline. A model that only understands text is now effectively legacy software. The frontier is no longer defined by how well an AI can write an essay, but by how accurately it can perceive and interpret the messy, multi-sensory environment of human existence.</p>
+
+<p><strong>Contributor:</strong> Alessandro Linzi</p>
+
+<p>Read more here: <a href="https://openai.com/research" target="_blank" rel="noopener noreferrer">OpenAI Announcements</a></p>
+      </div>
+    </article>
+    
+    <div class="read-more">
+      <a href="/#post/gpt-5-4-unified-frontier-model">View on blog &rarr;</a>
+    </div>
+  </main>
+</body>
+</html>

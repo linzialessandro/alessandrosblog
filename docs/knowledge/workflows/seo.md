@@ -1,19 +1,50 @@
 ---
 type: Concept
 title: SEO Strategy
-description: Documents how the blog manages search engine discoverability without a build system — dynamic meta tags, sitemap URL logic, robots.txt, and Cloudflare analytics.
-resource: Website/tools/generate-sitemap.js
-tags: [workflows, seo, metadata, sitemap]
-timestamp: 2026-06-30T18:27:00Z
+description: Documents search discoverability — static pre-rendered posts, JSON-LD, Atom feed, sitemap URL logic, robots.txt, and privacy-first analytics.
+resource: Website/scripts/build-static-pages.js
+tags: [workflows, seo, metadata, sitemap, feed, json-ld]
+timestamp: 2026-07-30T23:30:00Z
 ---
 
 # SEO Strategy
 
-Alessandro's Blog achieves full SEO coverage dynamically at runtime, without a static site generator or build-time HTML rendering. Every page update is client-side.
+Alessandro's Blog is indexable through **static pre-rendered HTML** for every post, plus a crawlable homepage, sitemap, Atom feed, and structured data. The SPA remains the interactive reading experience; static pages exist for crawlers, social unfurlers, and readers without JavaScript.
 
 ---
 
-## Dynamic Meta Tag Management
+## Static Pre-Rendered Posts (primary crawl surface)
+
+`scripts/build-static-pages.js` generates `posts/{slug}.html` for every entry in `posts.json`.
+
+Each static page includes:
+
+| Signal | Purpose |
+|---|---|
+| `<title>` + meta description | SERP snippet basics |
+| Canonical URL | `https://alessandrosblog.it.eu.org/posts/{slug}.html` |
+| Open Graph + Twitter Card tags | Social previews (text-only; no auto `og:image` yet) |
+| Article meta (`published_time`, tags) | Article unfurlers |
+| JSON-LD `Article` | Rich-result eligibility |
+| Full HTML body | Readable without JS |
+
+Static pages link back into the SPA via `/#post/{slug}` for the interactive experience.
+
+---
+
+## Homepage Metadata & Structured Data
+
+`index.html` ships crawler-visible homepage signals (not only JS-injected tags):
+
+- Meta description and canonical URL
+- Atom feed discovery: `<link rel="alternate" type="application/atom+xml" href="feed.xml">`
+- JSON-LD `@graph` with `WebSite` + `Person` (no `SearchAction` — the site has no dedicated search URL)
+
+The SPA `Renderer` still updates `<title>` / description on client-side route changes for in-app navigation.
+
+---
+
+## Dynamic Meta Tag Management (SPA)
 
 The `Renderer` class in `renderer.js` updates `<title>` and `<meta name="description">` on every route change.
 
@@ -29,17 +60,21 @@ document.title = `${post.title} — Alessandro's blog`;
 metaDesc.content = post.summary || "";
 ```
 
-The `<meta>` element is **created dynamically** if it doesn't already exist in the `<head>`:
-```js
-if (!metaDesc) {
-    metaDesc = document.createElement('meta');
-    metaDesc.name = "description";
-    document.head.appendChild(metaDesc);
-}
-```
-
 > [!NOTE]
-> Since meta tags are set by JavaScript, they may not be visible to crawlers that do not execute JS. Cloudflare and most modern search engine bots do execute JS for indexing. The sitemap provides a complementary signal for crawlers that do not.
+> Rely on static `posts/{slug}.html` for crawlers that do not execute JS. SPA meta updates are for interactive navigation and progressive enhancement.
+
+---
+
+## Atom Feed
+
+`tools/generate-feed.js` writes `feed.xml` (Atom) with the latest 20 posts:
+
+- Title, summary, published/updated dates
+- Feed-level author
+- Permalink to the static HTML URL when available
+- Full HTML content in CDATA (loaded from `api/posts/{slug}.json`)
+
+Discoverability: homepage `<link rel="alternate" type="application/atom+xml">`.
 
 ---
 
@@ -47,16 +82,19 @@ if (!metaDesc) {
 
 `tools/generate-sitemap.js` builds `sitemap.xml` with two URL strategies per post:
 
-| Condition | URL Format | Priority |
-|---|---|---|
-| Static HTML file exists at `posts/{slug}.html` | `https://alessandrosblog.it.eu.org/posts/{slug}.html` | Preferred (clean URL) |
-| No static file | `https://alessandrosblog.it.eu.org/#post/{slug}` | Fallback (hash route) |
+| Condition | URL Format |
+|---|---|
+| Static HTML file exists at `posts/{slug}.html` | `https://alessandrosblog.it.eu.org/posts/{slug}.html` |
+| No static file | `https://alessandrosblog.it.eu.org/#post/{slug}` |
 
 **Fixed entries** always present:
-- `/` — Homepage (daily change frequency)
+
+- `/` — Homepage
 - `/#privacy` — Privacy page
 
-The `<lastmod>` tag uses `updatedAt` if present, otherwise falls back to `publishedAt`. `<priority>` and `<changefreq>` tags are omitted (Google ignores them per official guidance).
+`<lastmod>` uses `updatedAt` if present, otherwise `publishedAt`. `<priority>` and `<changefreq>` are omitted (Google ignores them).
+
+**Order:** run `build-static-pages.js` **before** `generate-sitemap.js` so clean URLs are preferred.
 
 ---
 
@@ -80,13 +118,14 @@ Disallow: /.gitignore
 Sitemap: https://alessandrosblog.it.eu.org/sitemap.xml
 ```
 
-All crawlers are permitted to index the main site. Source code directories, submission drafts, and PDFs (which duplicate post content) are explicitly blocked to prevent duplicate content indexing.
+All crawlers may index the main site. Source directories, submission drafts, and PDFs (which duplicate post content) are blocked to reduce duplicate-content noise.
 
 ---
 
 ## Analytics
 
 This blog uses **Cloudflare Web Analytics** — a privacy-first analytics system that:
+
 - Uses **no cookies**.
 - Collects **no personal data**.
 - Reports only aggregate traffic metrics (page views, referrers, device types).
@@ -97,20 +136,32 @@ This is disclosed in the Privacy page (`#privacy`).
 
 ## Recommended Post-Publish SEO Checklist
 
-When a new post is published, run these commands to keep SEO signals current:
+When a new post is published, regenerate SEO artifacts (or let CI do it on push to `main`):
 
 ```bash
-# 1. Rebuild API (required for the post to appear)
+# 1. Rebuild API + cache-bust BUILD_ID
 node scripts/build-static-api.js
 
-# 2. Regenerate sitemap (updates <lastmod> timestamps)
+# 2. Pre-render static HTML for crawlers / social cards
+node scripts/build-static-pages.js
+
+# 3. Atom feed
+node tools/generate-feed.js
+
+# 4. Sitemap (after static pages exist)
 node tools/generate-sitemap.js
 
-# 3. Commit and push
+# 5. Commit and push
 git add . && git commit -m "content: publish 'Post Title'" && git push
 ```
 
+GitHub Actions workflow `.github/workflows/publish.yml` runs steps 1–4 (plus `blogq check`) on push to `main` and commits artifacts with `[skip ci]`. PDF generation remains a manual local step.
+
 ## Relevant Files
+
+- [build-static-pages.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/scripts/build-static-pages.js)
+- [generate-feed.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-feed.js)
 - [generate-sitemap.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/generate-sitemap.js)
 - [robots.txt](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/robots.txt)
 - [renderer.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/assets/js/renderer.js)
+- [publish.yml](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/.github/workflows/publish.yml)
