@@ -52,12 +52,8 @@ function generateSitemap() {
         priority: '1.0'
     });
 
-    // Privacy
-    urls.push({
-        loc: `${DOMAIN}/#privacy`,
-        changefreq: 'monthly',
-        priority: '0.3'
-    });
+    // Note: do NOT include hash URLs like /#privacy — sitemap protocol forbids fragments
+    // and Google may reject or fail to process the whole sitemap.
 
     // Posts
     // Sort by publishedAt newest first for stable ordering
@@ -72,15 +68,18 @@ function generateSitemap() {
         const updatedAt = post.updatedAt || post.publishedAt;
         const lastMod = formatDate(updatedAt);
 
-        // Check availability of static HTML file
+        // On-disk file is posts/{slug}.html; public URL is extensionless because the
+        // host 308-redirects *.html → clean paths. Sitemap must list final URLs only.
         const htmlPath = path.join(__dirname, `../posts/${post.slug}.html`);
         let loc;
         if (fs.existsSync(htmlPath)) {
-            loc = `${DOMAIN}/posts/${post.slug}.html`;
+            loc = `${DOMAIN}/posts/${post.slug}`;
             htmlCount++;
         } else {
-            loc = `${DOMAIN}/#post/${post.slug}`;
+            // Last-resort SPA deep link is not ideal for indexing; omit from sitemap.
+            console.warn(`Warning: No static HTML for "${post.slug}" — skipping (no hash URLs in sitemap)`);
             hashCount++;
+            continue;
         }
 
         urls.push({

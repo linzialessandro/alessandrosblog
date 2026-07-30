@@ -9,7 +9,7 @@
  *  1. Google Search Console → add property https://alessandrosblog.it.eu.org/
  *  2. Verify ownership (DNS TXT or HTML file)
  *  3. Sitemaps → submit https://alessandrosblog.it.eu.org/sitemap.xml
- *  4. URL Inspection → test a few posts/{slug}.html pages
+ *  4. URL Inspection → test a few /posts/{slug} pages (extensionless public URLs)
  */
 
 const fs = require('fs');
@@ -72,7 +72,8 @@ function main() {
     }
     const htmlRel = `posts/${slug}.html`;
     const ogRel = `assets/og/${slug}.png`;
-    const loc = `${DOMAIN}/posts/${slug}.html`;
+    // Public loc is extensionless; file on disk keeps .html
+    const loc = `${DOMAIN}/posts/${slug}`;
 
     if (!exists(htmlRel)) {
       missingHtml++;
@@ -124,7 +125,7 @@ function main() {
     console.log('  1. Search Console → property for https://alessandrosblog.it.eu.org/');
     console.log('  2. Verify ownership');
     console.log(`  3. Submit sitemap ${DOMAIN}/sitemap.xml`);
-    console.log('  4. Inspect a few /posts/{slug}.html URLs');
+    console.log('  4. Inspect a few /posts/{slug} URLs');
     process.exit(1);
   }
 

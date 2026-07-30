@@ -11,8 +11,8 @@
   </author>
   <entry>
     <title>When AI Breaks Cryptography: Anthropic&apos;s Claude Finds Mathematical Flaws in Real Algorithms</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-claude-mythos-cryptographic-weaknesses.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/anthropic-claude-mythos-cryptographic-weaknesses.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-claude-mythos-cryptographic-weaknesses" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/anthropic-claude-mythos-cryptographic-weaknesses</id>
     <published>2026-07-30T17:38:00.000Z</published>
     <updated>2026-07-30T17:38:00.000Z</updated>
     <summary>Anthropic&apos;s Claude Mythos Preview autonomously discovered mathematical weaknesses in HAWK, a post-quantum signature scheme, and 7-round AES — a new frontier where AI moves from finding implementation bugs to breaking algorithms themselves.</summary>
@@ -29,8 +29,8 @@
   </entry>
   <entry>
     <title>SpaceXAI Launches Grok 4.5 for High-Efficiency Agent Workflows</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/spacexai-grok-4-5-agentic-reasoning.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/spacexai-grok-4-5-agentic-reasoning.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/spacexai-grok-4-5-agentic-reasoning" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/spacexai-grok-4-5-agentic-reasoning</id>
     <published>2026-07-24T13:00:00.000Z</published>
     <updated>2026-07-24T13:00:00.000Z</updated>
     <summary>SpaceXAI released Grok 4.5, targeting agentic software engineering and high token efficiency across complex developer tasks.</summary>
@@ -44,8 +44,8 @@
   </entry>
   <entry>
     <title>Google Releases Gemini 3.6 Flash for Scalable AI Agent Workflows</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/google-gemini-3-6-flash-agentic-models.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/google-gemini-3-6-flash-agentic-models.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/google-gemini-3-6-flash-agentic-models" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/google-gemini-3-6-flash-agentic-models</id>
     <published>2026-07-21T07:15:00.000Z</published>
     <updated>2026-07-21T07:15:00.000Z</updated>
     <summary>Google introduced Gemini 3.6 Flash along with specialized lightweight models to improve latency, efficiency, and reliability for autonomous agent applications.</summary>
@@ -58,8 +58,8 @@
   </entry>
   <entry>
     <title>OpenAI Expands ChatGPT Work for Desktop Productivity</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/openai-chatgpt-work-desktop-productivity.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/openai-chatgpt-work-desktop-productivity.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/openai-chatgpt-work-desktop-productivity" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/openai-chatgpt-work-desktop-productivity</id>
     <published>2026-07-18T08:00:00.000Z</published>
     <updated>2026-07-18T08:00:00.000Z</updated>
     <summary>OpenAI updated the ChatGPT desktop application to introduce a dedicated Work workspace, global context switching, and expanded desktop integrations.</summary>
@@ -72,8 +72,8 @@
   </entry>
   <entry>
     <title>SpaceXAI Open-Sources Grok Build Harness for Agent Execution</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/spacexai-grok-build-open-source-harness.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/spacexai-grok-build-open-source-harness.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/spacexai-grok-build-open-source-harness" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/spacexai-grok-build-open-source-harness</id>
     <published>2026-07-16T12:30:00.000Z</published>
     <updated>2026-07-16T12:30:00.000Z</updated>
     <summary>SpaceXAI open-sourced the Grok Build agent execution harness under an Apache 2.0 license to enable custom, secure agentic developer workflows.</summary>
@@ -87,8 +87,8 @@
   </entry>
   <entry>
     <title>Anthropic Partners with AMD to Deploy 2 Gigawatts of Compute Infrastructure</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-amd-2gw-compute-infrastructure-partnership.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/anthropic-amd-2gw-compute-infrastructure-partnership.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-amd-2gw-compute-infrastructure-partnership" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/anthropic-amd-2gw-compute-infrastructure-partnership</id>
     <published>2026-07-14T09:00:00.000Z</published>
     <updated>2026-07-14T09:00:00.000Z</updated>
     <summary>Anthropic and AMD announced a multi-year partnership to deploy 2 gigawatts of compute capacity using AMD Instinct MI450 Series GPUs for Claude model scaling.</summary>
@@ -101,8 +101,8 @@
   </entry>
   <entry>
     <title>Small shifts, city-wide relief</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/small-shifts-city-wide-relief.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/small-shifts-city-wide-relief.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/small-shifts-city-wide-relief" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/small-shifts-city-wide-relief</id>
     <published>2026-07-08T13:00:00.000Z</published>
     <updated>2026-07-08T13:00:00.000Z</updated>
     <summary>How rerouting just 2% of trips can unsnarl urban traffic and reduce emissions for everyone.</summary>
@@ -114,8 +114,8 @@
   </entry>
   <entry>
     <title>A Global Workspace in Language Models: Anthropic Discovers the J-Space</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-global-workspace-j-space.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/anthropic-global-workspace-j-space.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-global-workspace-j-space" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/anthropic-global-workspace-j-space</id>
     <published>2026-07-07T07:30:50.000Z</published>
     <updated>2026-07-07T07:30:50.000Z</updated>
     <summary>Anthropic researchers have discovered the J-space, a privileged mental workspace within Claude&apos;s neural network that functions similarly to the global workspace in the human brain.</summary>
@@ -149,8 +149,8 @@
   </entry>
   <entry>
     <title>Claude Science: The Operating System for Modern Research</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/claude-science-ai-workbench-modern-research.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/claude-science-ai-workbench-modern-research.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/claude-science-ai-workbench-modern-research" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/claude-science-ai-workbench-modern-research</id>
     <published>2026-07-01T08:35:41.000Z</published>
     <updated>2026-07-01T08:35:41.000Z</updated>
     <summary>Anthropic has launched Claude Science, a comprehensive AI workbench designed to unify the fragmented landscape of scientific research. By integrating tools, compute, and auditable artifacts, it promises to accelerate the pace of discovery.</summary>
@@ -165,8 +165,8 @@
   </entry>
   <entry>
     <title>Previewing the GPT-5.6 Sol Series: OpenAI&apos;s Next-Generation Reasoning Engine</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/previewing-gpt-5-6-sol.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/previewing-gpt-5-6-sol.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/previewing-gpt-5-6-sol" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/previewing-gpt-5-6-sol</id>
     <published>2026-06-27T13:30:00.000Z</published>
     <updated>2026-06-27T13:30:00.000Z</updated>
     <summary>OpenAI has introduced a limited preview of the GPT-5.6 model series, featuring the Sol, Terra, and Luna tiers. The release marks a shift toward tiered reasoning capabilities and government-gated deployment protocols.</summary>
@@ -181,8 +181,8 @@
   </entry>
   <entry>
     <title>Standardizing the Agentic Web: The Agentic Resource Discovery (ARD) Specification</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/agentic-resource-discovery-ard-specification.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/agentic-resource-discovery-ard-specification.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/agentic-resource-discovery-ard-specification" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/agentic-resource-discovery-ard-specification</id>
     <published>2026-06-17T18:43:42.000Z</published>
     <updated>2026-06-17T18:43:42.000Z</updated>
     <summary>Google has announced Agentic Resource Discovery (ARD), an open specification designed to solve the fragmentation of the agent ecosystem by providing a standard for discovering and verifying AI capabilities across the web.</summary>
@@ -199,8 +199,8 @@
   </entry>
   <entry>
     <title>U.S. Government Pressures Anthropic to Suspend Claude Fable and Mythos Models</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-fable-mythos-suspension.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/anthropic-fable-mythos-suspension.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-fable-mythos-suspension" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/anthropic-fable-mythos-suspension</id>
     <published>2026-06-13T08:00:00.000Z</published>
     <updated>2026-06-13T08:00:00.000Z</updated>
     <summary>Anthropic has disabled global access to its next-generation Claude Fable 5 and Mythos 5 models after a Department of Commerce export control directive raised national security concerns.</summary>
@@ -214,8 +214,8 @@
   </entry>
   <entry>
     <title>Siri AI and Apple&apos;s Next-Generation Intelligence: The Split Road</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/siri-ai-apple-intelligence-next-generation.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/siri-ai-apple-intelligence-next-generation.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/siri-ai-apple-intelligence-next-generation" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/siri-ai-apple-intelligence-next-generation</id>
     <published>2026-06-09T14:30:00.000Z</published>
     <updated>2026-06-09T14:30:00.000Z</updated>
     <summary>At WWDC 2026, Apple announced the next generation of Apple Intelligence and Siri AI, featuring personal context integration and onscreen awareness. Yet compliance with the EU&apos;s Digital Markets Act means European users will have to wait.</summary>
@@ -230,8 +230,8 @@
   </entry>
   <entry>
     <title>The Pause: Anthropic&apos;s Warning on Recursive Self-Improvement</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-warning-recursive-self-improvement-pause.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/anthropic-warning-recursive-self-improvement-pause.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/anthropic-warning-recursive-self-improvement-pause" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/anthropic-warning-recursive-self-improvement-pause</id>
     <published>2026-06-04T09:00:00.000Z</published>
     <updated>2026-06-04T09:00:00.000Z</updated>
     <summary>In a striking move, Anthropic’s leadership has called for a global pause on the development of recursive self-improving models. It is a stark reminder that the capabilities of AI are outpacing our ability to control it.</summary>
@@ -248,8 +248,8 @@
   </entry>
   <entry>
     <title>WWDC 2026: Apple Intelligence and the Gemini Partnership</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/wwdc-2026-apple-intelligence-gemini-partnership.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/wwdc-2026-apple-intelligence-gemini-partnership.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/wwdc-2026-apple-intelligence-gemini-partnership" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/wwdc-2026-apple-intelligence-gemini-partnership</id>
     <published>2026-05-28T15:00:00.000Z</published>
     <updated>2026-05-28T15:00:00.000Z</updated>
     <summary>Apple&apos;s WWDC 2026 keynote revealed the true shape of Apple Intelligence: a systemwide, privacy-first Siri powered under the hood by Google&apos;s Gemini models. It is a masterful stroke of integration.</summary>
@@ -266,8 +266,8 @@
   </entry>
   <entry>
     <title>Embodied AI: The Physical World Meets Intelligence</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/embodied-ai-co-scientist-robotics.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/embodied-ai-co-scientist-robotics.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/embodied-ai-co-scientist-robotics" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/embodied-ai-co-scientist-robotics</id>
     <published>2026-05-21T13:15:00.000Z</published>
     <updated>2026-05-21T13:15:00.000Z</updated>
     <summary>With DeepMind&apos;s Co-Scientist and Gemini Robotics-ER 1.6, AI is stepping out of the digital realm and into the physical laboratory. The synthesis of reasoning engines and physical actuators is accelerating discovery.</summary>
@@ -284,8 +284,8 @@
   </entry>
   <entry>
     <title>Google I/O 2026: Inside the Agentic Era and Google&apos;s 3.2 Quadrillion Token AI Momentum</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/google-io-2026-ai-product-momentum.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/google-io-2026-ai-product-momentum.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/google-io-2026-ai-product-momentum" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/google-io-2026-ai-product-momentum</id>
     <published>2026-05-20T13:00:00.000Z</published>
     <updated>2026-05-20T13:00:00.000Z</updated>
     <summary>At Google I/O 2026, Sundar Pichai showcased the massive adoption of Gemini across Google&apos;s surfaces, revealing token processing scale of 3.2 quadrillion per month and over 2.5 billion active users for AI Overviews.</summary>
@@ -300,8 +300,8 @@
   </entry>
   <entry>
     <title>Gemini 3.5: Frontier Intelligence with Action</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/gemini-3-5-frontier-intelligence-action.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/gemini-3-5-frontier-intelligence-action.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/gemini-3-5-frontier-intelligence-action" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/gemini-3-5-frontier-intelligence-action</id>
     <published>2026-05-14T08:30:00.000Z</published>
     <updated>2026-05-14T08:30:00.000Z</updated>
     <summary>Google&apos;s Gemini 3.5 announcement moves the focus from &apos;what the model knows&apos; to &apos;what the model can do.&apos; The Omni architecture integrates intelligence with immediate, system-level action.</summary>
@@ -318,8 +318,8 @@
   </entry>
   <entry>
     <title>Domain Experts in Silicon: Cyber and Rosalind</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/openai-domain-experts-cyber-rosalind.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/openai-domain-experts-cyber-rosalind.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/openai-domain-experts-cyber-rosalind" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/openai-domain-experts-cyber-rosalind</id>
     <published>2026-05-07T10:00:00.000Z</published>
     <updated>2026-05-07T10:00:00.000Z</updated>
     <summary>With the release of GPT-5.5-Cyber and GPT-Rosalind, OpenAI acknowledges that the future of enterprise AI requires deep, domain-specific architectures rather than just larger generalist models.</summary>
@@ -336,8 +336,8 @@
   </entry>
   <entry>
     <title>GPT-5.5: The End of Hallucinations?</title>
-    <link href="https://alessandrosblog.it.eu.org/posts/gpt-5-5-end-of-hallucinations-reasoning.html" rel="alternate" type="text/html" />
-    <id>https://alessandrosblog.it.eu.org/posts/gpt-5-5-end-of-hallucinations-reasoning.html</id>
+    <link href="https://alessandrosblog.it.eu.org/posts/gpt-5-5-end-of-hallucinations-reasoning" rel="alternate" type="text/html" />
+    <id>https://alessandrosblog.it.eu.org/posts/gpt-5-5-end-of-hallucinations-reasoning</id>
     <published>2026-04-30T09:00:00.000Z</published>
     <updated>2026-04-30T09:00:00.000Z</updated>
     <summary>The rapid follow-up release of GPT-5.5 focuses entirely on reliability and reasoning. By treating coding as the primary engine for thought, OpenAI has dramatically reduced the hallucination rate, making the model safe for critical systems.</summary>

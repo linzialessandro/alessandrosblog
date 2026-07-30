@@ -63,7 +63,8 @@ function loadPostContent(slug) {
 // ---------------------------------------------------------------------------
 
 function buildEntry(post) {
-  const permalink = `${DOMAIN}/posts/${post.slug}.html`;
+  // Extensionless public URL (host redirects *.html → clean path)
+  const permalink = `${DOMAIN}/posts/${post.slug}`;
   const published = toISO(post.publishedAt);
   const updated = toISO(post.updatedAt || post.publishedAt);
 

@@ -51,7 +51,8 @@ function prepareContent(html) {
 }
 
 function generateHtml(post, buildId) {
-  const canonicalUrl = `${SITE_URL}/posts/${post.slug}.html`;
+  // Public post URL is extensionless; host 308s *.html → /posts/{slug}
+  const canonicalUrl = `${SITE_URL}/posts/${post.slug}`;
   const ogImageUrl = `${SITE_URL}/assets/og/${post.slug}.png`;
   const summaryText = escapeHtml((post.summary || '').substring(0, 160));
   const titleText = escapeHtml(post.title);
