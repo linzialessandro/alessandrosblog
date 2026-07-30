@@ -1,0 +1,181 @@
+/* Static post pages — shares design tokens via style.css; layout for crawler HTML. */
+
+body.static-post {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 15% 10%, rgba(146, 64, 14, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 90%, rgba(146, 64, 14, 0.02) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+body.static-post .site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+
+body.static-post .site-nav .wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+body.static-post .nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+body.static-post .nav-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+body.static-post .static-main {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+body.static-post .post-page-wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+body.static-post .post-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+body.static-post .post-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  color: var(--text-2);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+body.static-post .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+body.static-post .tag {
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.8rem;
+  color: var(--text-2);
+}
+
+body.static-post .post-content {
+  font-size: 1.1rem;
+  line-height: 1.75;
+}
+
+body.static-post .post-content h2,
+body.static-post .post-content h3 {
+  font-family: var(--font-serif);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+body.static-post .post-content p {
+  margin-bottom: 1.1rem;
+}
+
+body.static-post .post-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+body.static-post .post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+body.static-post .post-content pre {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  font-size: 0.92rem;
+}
+
+body.static-post .post-content :not(pre) > code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.9em;
+}
+
+body.static-post .post-content pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+body.static-post .post-content blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  color: var(--text-2);
+  font-style: italic;
+}
+
+body.static-post .post-content ul,
+body.static-post .post-content ol {
+  margin: 0 0 1.1rem 1.25rem;
+}
+
+body.static-post .read-more {
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+body.static-post .read-more a {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+body.static-post .noscript-note {
+  background: var(--bg-raised);
+  border-left: 3px solid var(--accent);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+  color: var(--text-2);
+}
+
+/* Prism theme bridge — keep code readable in both themes */
+body.static-post pre[class*="language-"],
+body.static-post code[class*="language-"] {
+  text-shadow: none;
+  background: transparent;
+}

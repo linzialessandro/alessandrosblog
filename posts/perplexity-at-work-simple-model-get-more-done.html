@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perplexity at Work: a simple model for getting more done — Alessandro's blog</title>
   <meta name="description" content="Perplexity at Work argues AI productivity fails less from weak models and more from fragmented workflows. It proposes a three-step approach: reclaim focus by re">
-  
+
   <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/perplexity-at-work-simple-model-get-more-done.html">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  
-  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=bafa7db4ceb4">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=bafa7db4ceb4">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Perplexity at Work: a simple model for getting more done">
   <meta property="og:description" content="Perplexity at Work argues AI productivity fails less from weak models and more from fragmented workflows. It proposes a three-step approach: reclaim focus by re">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/perplexity-at-work-simple-model-get-more-done.html">
   <meta property="og:site_name" content="Alessandro's blog">
-  
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/perplexity-at-work-simple-model-get-more-done.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Perplexity at Work: a simple model for getting more done">
   <meta name="twitter:description" content="Perplexity at Work argues AI productivity fails less from weak models and more from fragmented workflows. It proposes a three-step approach: reclaim focus by re">
-  
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/perplexity-at-work-simple-model-get-more-done.png">
+
   <!-- Article Meta -->
   <meta property="article:published_time" content="2025-12-15T09:00:00+01:00">
   <meta property="article:modified_time" content="2025-12-15T09:00:00+01:00">
@@ -40,6 +47,9 @@
   "@type": "Article",
   "headline": "Perplexity at Work: a simple model for getting more done",
   "description": "Perplexity at Work argues AI productivity fails less from weak models and more from fragmented workflows. It proposes a three-step approach: reclaim focus by reducing context switching, scale your output with integrated research/creation tools, then convert that leverage into measurable results through repeatable automations like shortcuts and scheduled tasks.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/perplexity-at-work-simple-model-get-more-done.png"
+  ],
   "datePublished": "2025-12-15T09:00:00+01:00",
   "dateModified": "2025-12-15T09:00:00+01:00",
   "author": {
@@ -56,227 +66,67 @@
   }
 }
   </script>
-
-  <style>
-    :root {
-      --bg-color: #FAF9F6;
-      --text-color: #1C1917;
-      --accent-color: #92400E;
-      --nav-border: rgba(28, 25, 23, 0.1);
-      --card-bg: rgba(255, 255, 255, 0.5);
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #0D0B0A;
-        --text-color: #F5F0EB;
-        --accent-color: #FBBF24;
-        --nav-border: rgba(245, 240, 235, 0.1);
-        --card-bg: rgba(255, 255, 255, 0.05);
-      }
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      color: var(--text-color);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 0;
-    }
-    
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    .nav {
-      border-bottom: 1px solid var(--nav-border);
-      padding: 1rem 0;
-      margin-bottom: 3rem;
-    }
-    
-    .nav-content {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .nav-logo {
-      height: 32px;
-      width: auto;
-    }
-    
-    .nav-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-    
-    .nav-title:hover {
-      text-decoration: none;
-    }
-    
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1rem 4rem;
-    }
-    
-    .meta {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .tag {
-      background: var(--card-bg);
-      border: 1px solid var(--nav-border);
-      padding: 0.1rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    
-    .content {
-      font-size: 1.1rem;
-    }
-    
-    .content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    
-    .content pre {
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: monospace;
-      font-size: 0.9rem;
-      border: 1px solid var(--nav-border);
-    }
-    
-    .content code {
-      font-family: monospace;
-      background: var(--card-bg);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-    
-    .content pre code {
-      background: none;
-      padding: 0;
-    }
-    
-    .content blockquote {
-      border-left: 4px solid var(--accent-color);
-      margin: 1.5rem 0;
-      padding-left: 1rem;
-      font-style: italic;
-      opacity: 0.9;
-    }
-    
-    .read-more {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--nav-border);
-      text-align: center;
-    }
-    
-    .read-more a {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #FFF;
-      padding: 0.75rem 1.5rem;
-      border-radius: 24px;
-      font-weight: 500;
-    }
-    
-    .read-more a:hover {
-      text-decoration: none;
-      opacity: 0.9;
-    }
-    
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
 </head>
-<body>
-  <nav class="nav">
-    <div class="nav-content">
-      <a href="/" class="nav-logo-link">
-        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
       </a>
-      <a href="/" class="nav-title">Alessandro's blog</a>
     </div>
   </nav>
-  
-  <main class="container">
-    <noscript>
-      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
-        This is a static version of the page. <a href="/#post/perplexity-at-work-simple-model-get-more-done">View the full interactive blog experience</a> if you enable JavaScript.
-      </div>
-    </noscript>
 
-    <article>
-      <h1>Perplexity at Work: a simple model for getting more done</h1>
-      
-      <div class="meta">
-        <time datetime="2025-12-15T09:00:00+01:00">December 15, 2025</time>
-        <div class="tags"><span class="tag">AI</span><span class="tag">Productivity</span><span class="tag">Work</span><span class="tag">Perplexity</span></div>
-      </div>
-      
-      <div class="content">
-        <p>AI productivity doesn’t fail because the models are weak. It fails because modern work is already fragmented: too many tabs, too many apps, too many interruptions, too many tiny handoffs that drain attention. <em>Perplexity at Work</em> is interesting because it treats AI as a workflow design problem, not a “prompting” problem.</p><p>The guide frames productive work as a progression in three layers: first you reclaim focus, then you scale your capabilities, and finally you convert that leverage into measurable results. The point is not to add another tool to manage, but to remove the friction that keeps you reacting all day instead of building anything substantial.</p><h2>Block distractions</h2><p>The foundational move is getting your attention back. The guide argues that the biggest productivity win comes from eliminating the admin overhead and context switching that constantly pulls you out of deep work. That’s where Perplexity’s workflow concept shows up: instead of bouncing between email, docs, calendar, research tabs, and internal tools, you delegate the repetitive glue tasks to AI.</p><p>Two practical ideas stood out:</p><ul><li>Use an AI assistant as an “attention shield”: summarize, triage, and surface what actually needs action.</li><li>Collapse multi-step workflows into a single prompt so you don’t pay the mental tax of switching tools and re-orienting.</li></ul><h2>Scale yourself</h2><p>Once focus returns, AI becomes a force multiplier. The guide’s core claim is that AI is best when your own talent stays in the lead: you bring the goals, taste, judgment, and constraints; AI brings speed, synthesis, and execution support. Instead of treating research and creation as separate phases, you can keep context connected and iterate faster.</p><p>Perplexity’s toolkit is presented as a unified platform (rather than scattered subscriptions), with components like an AI browser for research and actions, a research agent that reads broadly and cites sources, a creation studio for deliverables, and spaces to keep context organized across projects. The consistent theme: keep everything in one working environment so the context follows you.</p><h2>Get results</h2><p>The final layer is where most “AI productivity” talk gets vague, but this guide keeps it grounded: results are about outcomes other people recognize. That could be shipping faster, creating clearer deliverables, building better proposals, or showing impact in performance reviews. The idea is to channel the extra bandwidth into visible wins rather than just doing more busywork.</p><p>The guide encourages turning recurring work into automation primitives:</p><ul><li>Shortcuts for repeatable multi-step routines you trigger on demand.</li><li>Scheduled tasks for recurring research and reporting so the updates happen without you remembering to ask.</li></ul><p>That’s how AI stops being a clever assistant and starts functioning like a quiet operations layer.</p><h2>A better prompt habit</h2><p>A subtle but important point: prompting works best when you “think out loud” from the goal, not the keywords. Strong prompts describe the outcome, the workflow steps, and the format—so the assistant can execute like a capable teammate, not a search box.</p><p>In practice, that means asking for sequences (“first do X, then do Y, then produce Z”), and reusing those sequences as templates for the work you do every week.</p><p><strong>Contributor:</strong> Alessandro Linzi</p>
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/perplexity-at-work-simple-model-get-more-done">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>Perplexity at Work: a simple model for getting more done</h1>
+          <div class="post-info">
+            <time datetime="2025-12-15T09:00:00+01:00">December 15, 2025</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Productivity</span><span class="tag">Work</span><span class="tag">Perplexity</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>AI productivity doesn’t fail because the models are weak. It fails because modern work is already fragmented: too many tabs, too many apps, too many interruptions, too many tiny handoffs that drain attention. <em>Perplexity at Work</em> is interesting because it treats AI as a workflow design problem, not a “prompting” problem.</p><p>The guide frames productive work as a progression in three layers: first you reclaim focus, then you scale your capabilities, and finally you convert that leverage into measurable results. The point is not to add another tool to manage, but to remove the friction that keeps you reacting all day instead of building anything substantial.</p><h2>Block distractions</h2><p>The foundational move is getting your attention back. The guide argues that the biggest productivity win comes from eliminating the admin overhead and context switching that constantly pulls you out of deep work. That’s where Perplexity’s workflow concept shows up: instead of bouncing between email, docs, calendar, research tabs, and internal tools, you delegate the repetitive glue tasks to AI.</p><p>Two practical ideas stood out:</p><ul><li>Use an AI assistant as an “attention shield”: summarize, triage, and surface what actually needs action.</li><li>Collapse multi-step workflows into a single prompt so you don’t pay the mental tax of switching tools and re-orienting.</li></ul><h2>Scale yourself</h2><p>Once focus returns, AI becomes a force multiplier. The guide’s core claim is that AI is best when your own talent stays in the lead: you bring the goals, taste, judgment, and constraints; AI brings speed, synthesis, and execution support. Instead of treating research and creation as separate phases, you can keep context connected and iterate faster.</p><p>Perplexity’s toolkit is presented as a unified platform (rather than scattered subscriptions), with components like an AI browser for research and actions, a research agent that reads broadly and cites sources, a creation studio for deliverables, and spaces to keep context organized across projects. The consistent theme: keep everything in one working environment so the context follows you.</p><h2>Get results</h2><p>The final layer is where most “AI productivity” talk gets vague, but this guide keeps it grounded: results are about outcomes other people recognize. That could be shipping faster, creating clearer deliverables, building better proposals, or showing impact in performance reviews. The idea is to channel the extra bandwidth into visible wins rather than just doing more busywork.</p><p>The guide encourages turning recurring work into automation primitives:</p><ul><li>Shortcuts for repeatable multi-step routines you trigger on demand.</li><li>Scheduled tasks for recurring research and reporting so the updates happen without you remembering to ask.</li></ul><p>That’s how AI stops being a clever assistant and starts functioning like a quiet operations layer.</p><h2>A better prompt habit</h2><p>A subtle but important point: prompting works best when you “think out loud” from the goal, not the keywords. Strong prompts describe the outcome, the workflow steps, and the format—so the assistant can execute like a capable teammate, not a search box.</p><p>In practice, that means asking for sequences (“first do X, then do Y, then produce Z”), and reusing those sequences as templates for the work you do every week.</p><p><strong>Contributor:</strong> Alessandro Linzi</p>
 
 <p>Read more here: <a href="https://www.perplexity.ai/enterprise/perplexity-at-work" target="_blank" rel="noopener noreferrer">Perplexity at Work</a>.</p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/perplexity-at-work-simple-model-get-more-done">View on blog →</a>
       </div>
-    </article>
-    
-    <div class="read-more">
-      <a href="/#post/perplexity-at-work-simple-model-get-more-done">View on blog &rarr;</a>
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
 </body>
 </html>

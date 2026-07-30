@@ -1,10 +1,10 @@
 ---
 type: Concept
 title: Guest Contributions Workflow
-description: Outlines the lifecycle of guest post submissions and the contributor draft compilation script.
+description: Outlines the lifecycle of guest post submissions and the full publish pipeline after compilation.
 resource: Website/submissions/
 tags: [workflows, contributions, markdown, compilation]
-timestamp: 2026-06-30T18:23:00Z
+timestamp: 2026-07-30T23:55:00Z
 ---
 
 # Guest Contributions Workflow
@@ -20,7 +20,7 @@ Contributors can submit drafts via a convenient modal on the blog's homepage wit
 
 ## Manual Submission Directory States
 
-The guest post ingestion pipeline is segmented across three directories under `/submissions/`:
+The guest post ingestion pipeline is segmented across directories under `/submissions/`:
 
 1. `/submissions/inbox/`: New candidate drafts submitted by contributors.
 2. `/submissions/accepted/`: Approved drafts placed here by maintainers, ready for compilation.
@@ -46,18 +46,12 @@ The guest post ingestion pipeline is segmented across three directories under `/
 4. **HTML Transpiler (Markdown -> HTML)**:
    - Converts Markdown headers (`##`, `###`), lists (`-`), code snippets/fences (```), bold (`**`), and italics (`*`) to semantic HTML tags.
    - **Escapes Raw HTML**: Converts potential scripts and inline handlers (`on*`, `javascript:`) to safe strings to prevent XSS.
-5. **Appends Attribution**: Attaches a standard contributor section at the bottom of the article:
-   ```html
-   <p><strong>Contributor:</strong> Contributor Name</p>
-   <p>Read more here: <a href="Source URL" target="_blank" rel="noopener noreferrer">source</a></p>
-   ```
+5. **Appends Attribution**: Attaches a standard contributor section at the bottom of the article.
 6. **Commits and Moves**:
    - Prepends the new articles to the front of `posts.json`.
    - Moves the compiled draft files to `/submissions/processed/`.
 
 ## Running the Compiler
-
-Maintainers should execute the compiler using the following commands:
 
 ```bash
 # Perform a dry-run check without updating files
@@ -67,11 +61,37 @@ node tools/compile-contrib-posts.js --dry-run
 node tools/compile-contrib-posts.js
 ```
 
+## After compilation: full publish pipeline
+
 > [!IMPORTANT]
-> Running the compiler updates `posts.json` but does not automatically rebuild static API files. After compilation, you **MUST** run the Static API Builder:
-> ```bash
-> node scripts/build-static-api.js
-> ```
+> Compiling only updates `posts.json`. Regenerate **all** publish artifacts (or push to `main` and let CI do it).
+
+```bash
+blogq check posts.json
+
+# 1. API JSON + BUILD_ID (+ patches index.html asset ?v=)
+node scripts/build-static-api.js
+
+# 2. Open Graph card images (requires Pillow)
+python3 scripts/build-og-images.py
+
+# 3. Static HTML for crawlers / social unfurlers
+node scripts/build-static-pages.js
+
+# 4. Atom feed + sitemap
+node tools/generate-feed.js
+node tools/generate-sitemap.js
+
+# 5. Optional local PDFs
+node scripts/build-pdfs.mjs
+
+# 6. On-repo SEO surface check
+node tools/check-seo.js
+```
+
+**CI:** On push to `main`, `.github/workflows/publish.yml` runs validation, API, OG images, static pages, feed, sitemap, SEO check, and (when enabled) PDFs, then commits artifacts with `[skip ci]`.
 
 ## Relevant Files
-- [compile-contrib-posts.js](file:///Users/alessandro/Library/Mobile%20Documents/iCloud~AsheKube~Carnets/Documents/Projects/Blog/Website/tools/compile-contrib-posts.js)
+- [compile-contrib-posts.js](../../../tools/compile-contrib-posts.js)
+- [Build Pipelines](build_pipelines.md)
+- [SEO Strategy](seo.md)

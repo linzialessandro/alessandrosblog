@@ -42,6 +42,7 @@ export class Renderer {
         this.THEMETOGGLE.addEventListener("click", () => {
             const next = (localStorage.getItem("theme") || "light") === "dark" ? "light" : "dark";
             this.applyTheme(next);
+            this._syncPrismTheme(next);
         });
 
         // Filter popover
@@ -96,6 +97,33 @@ export class Renderer {
             : document.documentElement.removeAttribute("data-theme");
         localStorage.setItem("theme", t);
         this.THEMETOGGLE.textContent = t === "dark" ? "☀️" : "🌙";
+        this._syncPrismTheme(t);
+    }
+
+    _syncPrismTheme(theme) {
+        const link = document.getElementById("prism-theme");
+        if (!link) return;
+        const dark = theme === "dark";
+        link.href = dark
+            ? "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+            : "https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css";
+    }
+
+    _prepareCodeBlocks(root) {
+        if (!root) return;
+        root.querySelectorAll("pre code").forEach((block) => {
+            const hasLang = [...block.classList].some((c) => c.startsWith("language-"));
+            if (!hasLang) block.classList.add("language-none");
+        });
+    }
+
+    _highlightCode(root = this.POSTPAGE) {
+        this._prepareCodeBlocks(root);
+        if (window.Prism && typeof window.Prism.highlightAllUnder === "function" && root) {
+            window.Prism.highlightAllUnder(root);
+        } else if (window.Prism) {
+            window.Prism.highlightAll();
+        }
     }
 
     /* ── Modals ── */
@@ -353,6 +381,7 @@ export class Renderer {
                 document.head.appendChild(metaDesc);
             }
             metaDesc.content = post.summary || "";
+            this._highlightCode(this.POSTPAGE);
 
         } catch {
             this.POSTPAGE.innerHTML = "<p>Error loading post.</p>";

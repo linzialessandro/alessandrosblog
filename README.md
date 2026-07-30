@@ -135,16 +135,20 @@ After changing `posts.json` (or accepting a contribution), regenerate artifacts 
 
 ```bash
 blogq check posts.json
-node scripts/build-static-api.js    # also writes assets/js/build-id.js for cache busting
+node scripts/build-static-api.js      # API + BUILD_ID + index.html ?v= for CSS/JS
+python3 scripts/build-og-images.py    # requires: pip install pillow
 node scripts/build-static-pages.js
 node tools/generate-feed.js
 node tools/generate-sitemap.js
-# optional (local only): node scripts/build-pdfs.mjs
+node tools/check-seo.js
+node scripts/build-pdfs.mjs           # requires pandoc + xelatex
 ```
 
-On push to `main`, `.github/workflows/publish.yml` runs validation, rebuilds API/pages/feed/sitemap, and commits artifacts with `[skip ci]`. **PDFs are not built in CI** (TeX Live is heavy); generate them locally when needed.
+On push to `main`, `.github/workflows/publish.yml` rebuilds API/OG/pages/feed/sitemap, runs the SEO check, builds PDFs in a second job, and commits artifacts with `[skip ci]`.
 
-`BUILD_ID` is a short content hash of `posts.json`. The SPA appends `?v=BUILD_ID` to API fetches so browsers/CDNs can cache JSON between publishes without `cache: "no-store"`.
+`BUILD_ID` is a short content hash of `posts.json`. It cache-busts API fetches and SPA shell assets (`style.css`, `main.js`).
+
+**After the first deploy of static pages:** submit `https://alessandrosblog.it.eu.org/sitemap.xml` in Google Search Console and request indexing for a few post URLs (see `docs/knowledge/workflows/seo.md`).
 
 ## Content Guidelines
 
@@ -251,12 +255,14 @@ To compile accepted drafts into `posts.json` and regenerate site artifacts:
     ```bash
     blogq check posts.json
     node scripts/build-static-api.js
+    python3 scripts/build-og-images.py
     node scripts/build-static-pages.js
     node tools/generate-feed.js
     node tools/generate-sitemap.js
-    # optional: node scripts/build-pdfs.mjs
+    node tools/check-seo.js
+    # optional locally: node scripts/build-pdfs.mjs
     ```
-    Or push to `main` and let the publish workflow regenerate API/pages/feed/sitemap.
+    Or push to `main` and let the publish workflow regenerate artifacts (including PDFs).
 
 
 ### General Guidelines

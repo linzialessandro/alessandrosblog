@@ -12,7 +12,22 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <link rel="alternate" type="application/atom+xml" title="Alessandro's blog" href="feed.xml">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=bafa7db4ceb4">
+    <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+    <!-- Open Graph / Twitter (homepage) -->
+    <meta property="og:title" content="Alessandro's blog — Publicly collecting what I learn">
+    <meta property="og:description" content="A distilled collection of things I discovered — in articles, books, and online explorations — that shifted my thinking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alessandrosblog.it.eu.org/">
+    <meta property="og:site_name" content="Alessandro's blog">
+    <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/default.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alessandro's blog — Publicly collecting what I learn">
+    <meta name="twitter:description" content="A distilled collection of things I discovered — in articles, books, and online explorations — that shifted my thinking.">
+    <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/default.png">
 
     <script type="application/ld+json">
     {
@@ -26,7 +41,15 @@
           "description": "A distilled collection of things I discovered — in articles, books, and online explorations — that shifted my thinking.",
           "inLanguage": "en",
           "publisher": { "@id": "https://alessandrosblog.it.eu.org/#person" },
-          "author": { "@id": "https://alessandrosblog.it.eu.org/#person" }
+          "author": { "@id": "https://alessandrosblog.it.eu.org/#person" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.google.com/search?q=site%3Aalessandrosblog.it.eu.org+{search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
         },
         {
           "@type": "Person",
@@ -313,6 +336,14 @@
 
     </div><!-- #app -->
 
-    <script type="module" src="assets/js/main.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+    <script type="module" src="assets/js/main.js?v=bafa7db4ceb4"></script>
 </body>
 </html>

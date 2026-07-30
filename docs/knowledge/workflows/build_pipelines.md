@@ -105,7 +105,7 @@ graph TD
   ```bash
   node scripts/build-pdfs.mjs
   ```
-- **CI**: PDFs are **not** built in GitHub Actions (TeX Live is too heavy). Generate them locally when needed.
+- **CI**: Built in the `pdfs` job of `publish.yml` (pandoc + TeX Live via apt). Incremental: existing PDFs are skipped.
 
 ---
 
@@ -114,11 +114,11 @@ graph TD
 After compiling new posts with `compile-contrib-posts.js`, run these steps (or rely on CI for everything except PDFs):
 
 ```bash
-# 1. Generate split API JSON files + BUILD_ID (required for lazy loading / cache bust)
+# 1. Generate split API JSON files + BUILD_ID (also patches index.html ?v= for CSS/JS)
 node scripts/build-static-api.js
 
-# 2. Build PDFs for any new posts (local only; requires pandoc & xelatex)
-node scripts/build-pdfs.mjs
+# 2. Branded Open Graph images (requires: pip install pillow)
+python3 scripts/build-og-images.py
 
 # 3. Generate static HTML pages (for SEO indexing and social cards)
 node scripts/build-static-pages.js
@@ -128,10 +128,17 @@ node tools/generate-feed.js
 
 # 5. Generate the sitemap (must be run AFTER build-static-pages.js so it detects the HTML files)
 node tools/generate-sitemap.js
+
+# 6. On-repo SEO surface check
+node tools/check-seo.js
+
+# 7. Build PDFs for any new posts (requires pandoc & xelatex; also run in CI)
+node scripts/build-pdfs.mjs
 ```
 
 **Order Matters:**
 - `build-static-api.js` should run before feed generation because `generate-feed.js` embeds content from `api/posts/{slug}.json`.
+- `build-og-images.py` should run before (or with) static pages so `og:image` files exist for check-seo.
 - `build-static-pages.js` should run before `generate-sitemap.js` because the sitemap prefers `posts/{slug}.html` when present.
 
 ---
@@ -140,15 +147,14 @@ node tools/generate-sitemap.js
 
 `.github/workflows/publish.yml` runs on push to `main` (and `workflow_dispatch`):
 
-1. `blogq check posts.json`
-2. `pytest` for blogq
-3. `build-static-api.js` → `build-static-pages.js` → `generate-feed.js` → `generate-sitemap.js`
-4. Commits dirty artifacts with message `chore: regenerate static artifacts [skip ci]`
+**Job `publish`:**
+1. `blogq check` + `pytest`
+2. `build-static-api.js` → `build-og-images.py` → `build-static-pages.js` → `generate-feed.js` → `generate-sitemap.js` → `check-seo.js`
+3. Commits dirty artifacts with `chore: regenerate static artifacts [skip ci]`
+
+**Job `pdfs`:** installs pandoc + TeX Live, runs `build-pdfs.mjs`, commits PDF changes with `[skip ci]`.
 
 The `[skip ci]` token prevents an infinite regenerate loop.
-
-> [!IMPORTANT]
-> Skipping the PDF build step will leave newly published posts without a downloadable PDF artifact. Run `node scripts/build-pdfs.mjs` locally when you care about PDFs.
 
 ---
 

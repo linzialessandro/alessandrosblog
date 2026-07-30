@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perplexity Model Council: the rise of Ensemble UI — Alessandro's blog</title>
   <meta name="description" content="Perplexity’s new Model Council feature allows users to query multiple frontier models simultaneously. This isn&#039;t just a UI convenience; it marks a shift towards">
-  
+
   <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/perplexity-model-council-ensemble-ui.html">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  
-  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=bafa7db4ceb4">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=bafa7db4ceb4">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Perplexity Model Council: the rise of Ensemble UI">
   <meta property="og:description" content="Perplexity’s new Model Council feature allows users to query multiple frontier models simultaneously. This isn&#039;t just a UI convenience; it marks a shift towards">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/perplexity-model-council-ensemble-ui.html">
   <meta property="og:site_name" content="Alessandro's blog">
-  
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/perplexity-model-council-ensemble-ui.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Perplexity Model Council: the rise of Ensemble UI">
   <meta name="twitter:description" content="Perplexity’s new Model Council feature allows users to query multiple frontier models simultaneously. This isn&#039;t just a UI convenience; it marks a shift towards">
-  
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/perplexity-model-council-ensemble-ui.png">
+
   <!-- Article Meta -->
   <meta property="article:published_time" content="2026-02-08T09:00:00+01:00">
   <meta property="article:modified_time" content="2026-02-08T09:00:00+01:00">
@@ -41,6 +48,9 @@
   "@type": "Article",
   "headline": "Perplexity Model Council: the rise of Ensemble UI",
   "description": "Perplexity’s new Model Council feature allows users to query multiple frontier models simultaneously. This isn't just a UI convenience; it marks a shift towards “Ensemble UI,” where the value lies in comparing and triangulating answers rather than relying on a single source of truth.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/perplexity-model-council-ensemble-ui.png"
+  ],
   "datePublished": "2026-02-08T09:00:00+01:00",
   "dateModified": "2026-02-08T09:00:00+01:00",
   "author": {
@@ -57,225 +67,65 @@
   }
 }
   </script>
-
-  <style>
-    :root {
-      --bg-color: #FAF9F6;
-      --text-color: #1C1917;
-      --accent-color: #92400E;
-      --nav-border: rgba(28, 25, 23, 0.1);
-      --card-bg: rgba(255, 255, 255, 0.5);
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #0D0B0A;
-        --text-color: #F5F0EB;
-        --accent-color: #FBBF24;
-        --nav-border: rgba(245, 240, 235, 0.1);
-        --card-bg: rgba(255, 255, 255, 0.05);
-      }
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      color: var(--text-color);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 0;
-    }
-    
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    .nav {
-      border-bottom: 1px solid var(--nav-border);
-      padding: 1rem 0;
-      margin-bottom: 3rem;
-    }
-    
-    .nav-content {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .nav-logo {
-      height: 32px;
-      width: auto;
-    }
-    
-    .nav-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-    
-    .nav-title:hover {
-      text-decoration: none;
-    }
-    
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1rem 4rem;
-    }
-    
-    .meta {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .tag {
-      background: var(--card-bg);
-      border: 1px solid var(--nav-border);
-      padding: 0.1rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    
-    .content {
-      font-size: 1.1rem;
-    }
-    
-    .content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    
-    .content pre {
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: monospace;
-      font-size: 0.9rem;
-      border: 1px solid var(--nav-border);
-    }
-    
-    .content code {
-      font-family: monospace;
-      background: var(--card-bg);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-    
-    .content pre code {
-      background: none;
-      padding: 0;
-    }
-    
-    .content blockquote {
-      border-left: 4px solid var(--accent-color);
-      margin: 1.5rem 0;
-      padding-left: 1rem;
-      font-style: italic;
-      opacity: 0.9;
-    }
-    
-    .read-more {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--nav-border);
-      text-align: center;
-    }
-    
-    .read-more a {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #FFF;
-      padding: 0.75rem 1.5rem;
-      border-radius: 24px;
-      font-weight: 500;
-    }
-    
-    .read-more a:hover {
-      text-decoration: none;
-      opacity: 0.9;
-    }
-    
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
 </head>
-<body>
-  <nav class="nav">
-    <div class="nav-content">
-      <a href="/" class="nav-logo-link">
-        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
       </a>
-      <a href="/" class="nav-title">Alessandro's blog</a>
     </div>
   </nav>
-  
-  <main class="container">
-    <noscript>
-      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
-        This is a static version of the page. <a href="/#post/perplexity-model-council-ensemble-ui">View the full interactive blog experience</a> if you enable JavaScript.
-      </div>
-    </noscript>
 
-    <article>
-      <h1>Perplexity Model Council: the rise of Ensemble UI</h1>
-      
-      <div class="meta">
-        <time datetime="2026-02-08T09:00:00+01:00">February 8, 2026</time>
-        <div class="tags"><span class="tag">AI</span><span class="tag">Perplexity</span><span class="tag">Search</span><span class="tag">LLMs</span><span class="tag">UX</span></div>
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/perplexity-model-council-ensemble-ui">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>Perplexity Model Council: the rise of Ensemble UI</h1>
+          <div class="post-info">
+            <time datetime="2026-02-08T09:00:00+01:00">February 8, 2026</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Perplexity</span><span class="tag">Search</span><span class="tag">LLMs</span><span class="tag">UX</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>For the last few years, AI adoption has felt oddly tribal. You were either on “Team GPT-4” or “Team Claude.” You picked your ecosystem, paid your subscription, and learned to live with that specific model’s quirks. If you wanted a second opinion, you had to copy-paste your prompt into a different tab.</p><p>Perplexity’s new <strong>Model Council</strong> feature changes the topology of how we interact with these systems. By allowing users to query multiple frontier models simultaneously and view their outputs side-by-side, they are effectively bringing <em>ensemble methods</em> out of the machine learning backend and into the user interface.</p><h2>The shift to “Ensemble UI”</h2><p>In machine learning, an “ensemble” combines the predictions of several base estimators to improve robustness. Usually, this happens invisibly: the system aggregates the results and serves you the winner. Model Council does something different: it leaves the aggregation to the user.</p><p>This is significant because LLMs are not search engines; they are reasoning engines. And reasoning often benefits from debate. When you see three distinct models tackle the same complex prompt, you aren’t just looking for the “correct” answer. You are looking for consensus.</p><h2>Triangulation as a defense against hallucination</h2><p>The most immediate implication is error correction. If three models agree on a fact and the fourth one diverges wildy, the outlier becomes obvious. This “visual triangulation” empowers the user to spot hallucinations that might have otherwise slipped through in a single-model interface.</p><p>This creates a new layer of trust. Instead of trusting a specific brand (“I trust OpenAI”), you trust the <em>intersection</em> of multiple independent systems. It acknowledges that no single model is the “God Model” anymore. They are just distinct perspectives on the same latent space.</p><h2>Commoditizing the intelligence layer</h2><p>From a market perspective, this is aggressive commoditization. When models are displayed side-by-side in a uniform grid, the brand halo fades. You stop caring about the logo and start caring exclusively about the output quality. If the open-source Llama model consistently matches the performance of the proprietary models in your specific domain, the justification for expensive, closed-source moats begins to erode.</p><p>It forces a brutal meritocracy. The models are no longer protected by their walled gardens; they are fighting for your attention in real-time, on every single query.</p><h2>The user as the meta-learner</h2><p>Finally, this feature forces the user to become a more active participant. We are shifting from “answer retrieval” to “answer synthesis.” The cognitive load is slightly higher—you have to read and compare—but the potential for insight is deeper. You start to learn <em>how</em> the models think: which one is verbose, which one is terse, which one is better at code, and which one is better at nuance.</p><p>We are moving away from the idea of an AI Oracle. We are moving toward an AI Committee, and for now, you are the chairperson.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://www.perplexity.ai/hub/blog/introducing-model-council" target="_blank" rel="noopener noreferrer">Perplexity Blog</a></p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/perplexity-model-council-ensemble-ui">View on blog →</a>
       </div>
-      
-      <div class="content">
-        <p>For the last few years, AI adoption has felt oddly tribal. You were either on “Team GPT-4” or “Team Claude.” You picked your ecosystem, paid your subscription, and learned to live with that specific model’s quirks. If you wanted a second opinion, you had to copy-paste your prompt into a different tab.</p><p>Perplexity’s new <strong>Model Council</strong> feature changes the topology of how we interact with these systems. By allowing users to query multiple frontier models simultaneously and view their outputs side-by-side, they are effectively bringing <em>ensemble methods</em> out of the machine learning backend and into the user interface.</p><h2>The shift to “Ensemble UI”</h2><p>In machine learning, an “ensemble” combines the predictions of several base estimators to improve robustness. Usually, this happens invisibly: the system aggregates the results and serves you the winner. Model Council does something different: it leaves the aggregation to the user.</p><p>This is significant because LLMs are not search engines; they are reasoning engines. And reasoning often benefits from debate. When you see three distinct models tackle the same complex prompt, you aren’t just looking for the “correct” answer. You are looking for consensus.</p><h2>Triangulation as a defense against hallucination</h2><p>The most immediate implication is error correction. If three models agree on a fact and the fourth one diverges wildy, the outlier becomes obvious. This “visual triangulation” empowers the user to spot hallucinations that might have otherwise slipped through in a single-model interface.</p><p>This creates a new layer of trust. Instead of trusting a specific brand (“I trust OpenAI”), you trust the <em>intersection</em> of multiple independent systems. It acknowledges that no single model is the “God Model” anymore. They are just distinct perspectives on the same latent space.</p><h2>Commoditizing the intelligence layer</h2><p>From a market perspective, this is aggressive commoditization. When models are displayed side-by-side in a uniform grid, the brand halo fades. You stop caring about the logo and start caring exclusively about the output quality. If the open-source Llama model consistently matches the performance of the proprietary models in your specific domain, the justification for expensive, closed-source moats begins to erode.</p><p>It forces a brutal meritocracy. The models are no longer protected by their walled gardens; they are fighting for your attention in real-time, on every single query.</p><h2>The user as the meta-learner</h2><p>Finally, this feature forces the user to become a more active participant. We are shifting from “answer retrieval” to “answer synthesis.” The cognitive load is slightly higher—you have to read and compare—but the potential for insight is deeper. You start to learn <em>how</em> the models think: which one is verbose, which one is terse, which one is better at code, and which one is better at nuance.</p><p>We are moving away from the idea of an AI Oracle. We are moving toward an AI Committee, and for now, you are the chairperson.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://www.perplexity.ai/hub/blog/introducing-model-council" target="_blank" rel="noopener noreferrer">Perplexity Blog</a></p>
-      </div>
-    </article>
-    
-    <div class="read-more">
-      <a href="/#post/perplexity-model-council-ensemble-ui">View on blog &rarr;</a>
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
 </body>
 </html>

@@ -73,25 +73,23 @@ Node.js scripts have **no `package.json`** — they use only Node built-ins (`fs
 
 ## CI: Publish Artifacts
 
-`.github/workflows/publish.yml` runs on push to `main` and `workflow_dispatch`:
+`.github/workflows/publish.yml` runs on push to `main` and `workflow_dispatch`.
 
-1. Install and run `blogq check posts.json`
-2. Run blogq unit tests (`pytest`)
-3. `node scripts/build-static-api.js` (API + **BUILD_ID**)
-4. `node scripts/build-static-pages.js`
-5. `node tools/generate-feed.js`
-6. `node tools/generate-sitemap.js`
-7. Commit dirty artifacts with message `chore: regenerate static artifacts [skip ci]` (loop-safe)
+**Job `publish`:**
+1. `blogq check` + `pytest`
+2. API + BUILD_ID + `index.html` asset `?v=`
+3. OG images (Pillow)
+4. Static pages, Atom feed, sitemap
+5. `node tools/check-seo.js`
+6. Commit dirty artifacts with `chore: regenerate static artifacts [skip ci]`
 
-**Out of CI:** `build-pdfs.mjs` (pandoc + TeX Live are too heavy for the default runner).
+**Job `pdfs`:** (after successful publish) installs pandoc + TeX Live and runs `build-pdfs.mjs`, committing any new PDFs with `[skip ci]`.
 
 **Manual / local workflow for a new post:**
 
 1. Add entry to `posts.json` (or compile a guest draft).
-2. `blogq check posts.json`
-3. Full pipeline: API → static pages → feed → sitemap (see [Build Pipelines](../workflows/build_pipelines.md)).
-4. Optionally `node scripts/build-pdfs.mjs`.
-5. Commit and push — CI re-validates and regenerates if needed.
+2. Full pipeline in [Build Pipelines](../workflows/build_pipelines.md) (or push and let CI run).
+3. Harvest indexing in Search Console (see [SEO Strategy](../workflows/seo.md)).
 
 ---
 

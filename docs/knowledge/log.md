@@ -1,6 +1,7 @@
 # Directory Update Log
 
 ## 2026-07-30
+* **Update**: High→low backlog — OG images, Prism highlighting, SEO check + Search Console harvest docs, SPA asset `?v=` bust, static pages on design system, guest-contrib pipeline docs, PDFs in CI, SearchAction, extra blogq tests; removed `index.html.bak`.
 * **Update**: Synced OKF graph with the Unlock the Blog ship — static pre-render, Atom feed, JSON-LD, BUILD_ID cache busting, blogq tests, and CI publish.
 * **Update**: Refreshed index blurbs under `workflows/`, `architecture/`, and `components/`.
 * **Update**: Expanded [glossary](glossary.md) with Static API, Static Post Page, BUILD_ID, Atom Feed, JSON-LD, Publish Pipeline.

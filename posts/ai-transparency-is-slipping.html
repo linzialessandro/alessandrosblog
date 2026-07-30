@@ -5,27 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Transparency Is Slipping (And That’s a Problem) — Alessandro's blog</title>
   <meta name="description" content="A new Stanford-led index finds that AI companies are sharing less information about how their flagship models are built and governed. The result is a widening t">
-  
+
   <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/ai-transparency-is-slipping.html">
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-  
-  <!-- Google Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=bafa7db4ceb4">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=bafa7db4ceb4">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
   <!-- Open Graph -->
   <meta property="og:title" content="AI Transparency Is Slipping (And That’s a Problem)">
   <meta property="og:description" content="A new Stanford-led index finds that AI companies are sharing less information about how their flagship models are built and governed. The result is a widening t">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/ai-transparency-is-slipping.html">
   <meta property="og:site_name" content="Alessandro's blog">
-  
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/ai-transparency-is-slipping.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AI Transparency Is Slipping (And That’s a Problem)">
   <meta name="twitter:description" content="A new Stanford-led index finds that AI companies are sharing less information about how their flagship models are built and governed. The result is a widening t">
-  
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/ai-transparency-is-slipping.png">
+
   <!-- Article Meta -->
   <meta property="article:published_time" content="2025-12-22T07:27:12+01:00">
   <meta property="article:modified_time" content="2025-12-22T07:27:12+01:00">
@@ -39,6 +46,9 @@
   "@type": "Article",
   "headline": "AI Transparency Is Slipping (And That’s a Problem)",
   "description": "A new Stanford-led index finds that AI companies are sharing less information about how their flagship models are built and governed. The result is a widening transparency gap that makes independent oversight harder exactly when foundation models are becoming infrastructure.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/ai-transparency-is-slipping.png"
+  ],
   "datePublished": "2025-12-22T07:27:12+01:00",
   "dateModified": "2025-12-22T07:27:12+01:00",
   "author": {
@@ -55,225 +65,65 @@
   }
 }
   </script>
-
-  <style>
-    :root {
-      --bg-color: #FAF9F6;
-      --text-color: #1C1917;
-      --accent-color: #92400E;
-      --nav-border: rgba(28, 25, 23, 0.1);
-      --card-bg: rgba(255, 255, 255, 0.5);
-    }
-    
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #0D0B0A;
-        --text-color: #F5F0EB;
-        --accent-color: #FBBF24;
-        --nav-border: rgba(245, 240, 235, 0.1);
-        --card-bg: rgba(255, 255, 255, 0.05);
-      }
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      color: var(--text-color);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
-      margin-top: 0;
-    }
-    
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    .nav {
-      border-bottom: 1px solid var(--nav-border);
-      padding: 1rem 0;
-      margin-bottom: 3rem;
-    }
-    
-    .nav-content {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .nav-logo {
-      height: 32px;
-      width: auto;
-    }
-    
-    .nav-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-color);
-    }
-    
-    .nav-title:hover {
-      text-decoration: none;
-    }
-    
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 1rem 4rem;
-    }
-    
-    .meta {
-      font-size: 0.9rem;
-      opacity: 0.8;
-      margin-bottom: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-    
-    .tag {
-      background: var(--card-bg);
-      border: 1px solid var(--nav-border);
-      padding: 0.1rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    
-    .content {
-      font-size: 1.1rem;
-    }
-    
-    .content img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    
-    .content pre {
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: monospace;
-      font-size: 0.9rem;
-      border: 1px solid var(--nav-border);
-    }
-    
-    .content code {
-      font-family: monospace;
-      background: var(--card-bg);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-    
-    .content pre code {
-      background: none;
-      padding: 0;
-    }
-    
-    .content blockquote {
-      border-left: 4px solid var(--accent-color);
-      margin: 1.5rem 0;
-      padding-left: 1rem;
-      font-style: italic;
-      opacity: 0.9;
-    }
-    
-    .read-more {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--nav-border);
-      text-align: center;
-    }
-    
-    .read-more a {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #FFF;
-      padding: 0.75rem 1.5rem;
-      border-radius: 24px;
-      font-weight: 500;
-    }
-    
-    .read-more a:hover {
-      text-decoration: none;
-      opacity: 0.9;
-    }
-    
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-    }
-  </style>
 </head>
-<body>
-  <nav class="nav">
-    <div class="nav-content">
-      <a href="/" class="nav-logo-link">
-        <img src="../assets/logo.png" alt="Alessandro's blog logo" class="nav-logo">
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
       </a>
-      <a href="/" class="nav-title">Alessandro's blog</a>
     </div>
   </nav>
-  
-  <main class="container">
-    <noscript>
-      <div style="background: var(--card-bg); border-left: 4px solid var(--accent-color); padding: 1rem; margin-bottom: 2rem; font-size: 0.9rem;">
-        This is a static version of the page. <a href="/#post/ai-transparency-is-slipping">View the full interactive blog experience</a> if you enable JavaScript.
-      </div>
-    </noscript>
 
-    <article>
-      <h1>AI Transparency Is Slipping (And That’s a Problem)</h1>
-      
-      <div class="meta">
-        <time datetime="2025-12-22T07:27:12+01:00">December 22, 2025</time>
-        <div class="tags"><span class="tag">AI</span><span class="tag">Transparency</span><span class="tag">Governance</span></div>
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/ai-transparency-is-slipping">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>AI Transparency Is Slipping (And That’s a Problem)</h1>
+          <div class="post-info">
+            <time datetime="2025-12-22T07:27:12+01:00">December 22, 2025</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Transparency</span><span class="tag">Governance</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>AI models are quickly turning into critical infrastructure: they shape how people search, write, create, and make decisions at scale. Yet a Stanford-led research team argues that the industry is moving in the opposite direction on disclosure, with companies increasingly withholding information that would enable meaningful scrutiny.</p><p>The findings come from the <em>2025 Foundation Model Transparency Index</em>, which evaluates major AI developers on a 100-point scale across areas such as training data disclosure, risk mitigation, and broader impacts. According to the index, the overall level of transparency is low, and it has declined compared to the previous year.</p><h2>What the index measures</h2><p>The Foundation Model Transparency Index is designed to score how much companies disclose about their flagship foundation models and related practices. It spans multiple dimensions—such as where data comes from, what safety processes exist, and what is known about downstream use and impacts—because transparency isn’t a single checkbox: it’s a collection of concrete, verifiable disclosures.</p><p>In 2025, the index assessed 13 companies and found large variation in disclosure practices. The average score was about 40/100, and companies tended to fall into three rough clusters: top performers around 75, a middle group around 35, and low scorers around 15.</p><h2>Big gaps between companies</h2><p>One striking result is how uneven disclosure has become. IBM sits at the top with a reported 95/100—described as the highest score in the index’s history—and is highlighted for providing unusually detailed information, including enough detail for external researchers to replicate training data practices and allowing access for external entities such as auditors.</p><p>At the other end, xAI and Midjourney are reported at 14/100, with the write-up stating they share essentially no information about training data, risks, or mitigation steps. The overall picture is not just “some companies are better than others,” but that a meaningful portion of the market is operating with minimal public accountability.</p><h2>The environmental blind spot</h2><p>The Stanford HAI write-up emphasizes a major omission across the board: environmental impact. It claims that 10 of the assessed companies disclose none of the key information related to environmental impact (including energy usage, carbon emissions, or water use), which matters because datacenter expansion and training workloads have real-world resource costs.</p><p>This is a practical transparency issue, not a philosophical one. Without standardized disclosures, it becomes difficult for policymakers, researchers, and even customers to compare footprint claims or validate sustainability commitments.</p><h2>Openness isn’t the same as transparency</h2><p>A useful distinction in the piece is that “open” (publishing model weights) doesn’t automatically mean “transparent” (explaining practices and impacts). The write-up warns that even influential open-weight developers can still be opaque about core items like training compute, risk assessment, and downstream use.</p><p>This matters because public debate often treats open-weight releases as a proxy for accountability. The index argues that assumption is risky: disclosure must be specific, structured, and repeatable to support real oversight.</p><h2>Why this matters now</h2><p>The researchers frame transparency as an “essential public good” for governance, harm mitigation, and oversight, and they point to growing policy interest in mandating disclosures for frontier AI risks. They also note that the index aims to help identify which transparency areas resist improvement without policy pressure.</p><p>Even if one disagrees with any single score, the direction of travel is the key signal: as foundation models become more central to economies and institutions, baseline disclosure is not keeping up.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://hai.stanford.edu/news/transparency-in-ai-is-on-the-decline" target="_blank" rel="noopener noreferrer">Stanford Edu News</a></p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/ai-transparency-is-slipping">View on blog →</a>
       </div>
-      
-      <div class="content">
-        <p>AI models are quickly turning into critical infrastructure: they shape how people search, write, create, and make decisions at scale. Yet a Stanford-led research team argues that the industry is moving in the opposite direction on disclosure, with companies increasingly withholding information that would enable meaningful scrutiny.</p><p>The findings come from the <em>2025 Foundation Model Transparency Index</em>, which evaluates major AI developers on a 100-point scale across areas such as training data disclosure, risk mitigation, and broader impacts. According to the index, the overall level of transparency is low, and it has declined compared to the previous year.</p><h2>What the index measures</h2><p>The Foundation Model Transparency Index is designed to score how much companies disclose about their flagship foundation models and related practices. It spans multiple dimensions—such as where data comes from, what safety processes exist, and what is known about downstream use and impacts—because transparency isn’t a single checkbox: it’s a collection of concrete, verifiable disclosures.</p><p>In 2025, the index assessed 13 companies and found large variation in disclosure practices. The average score was about 40/100, and companies tended to fall into three rough clusters: top performers around 75, a middle group around 35, and low scorers around 15.</p><h2>Big gaps between companies</h2><p>One striking result is how uneven disclosure has become. IBM sits at the top with a reported 95/100—described as the highest score in the index’s history—and is highlighted for providing unusually detailed information, including enough detail for external researchers to replicate training data practices and allowing access for external entities such as auditors.</p><p>At the other end, xAI and Midjourney are reported at 14/100, with the write-up stating they share essentially no information about training data, risks, or mitigation steps. The overall picture is not just “some companies are better than others,” but that a meaningful portion of the market is operating with minimal public accountability.</p><h2>The environmental blind spot</h2><p>The Stanford HAI write-up emphasizes a major omission across the board: environmental impact. It claims that 10 of the assessed companies disclose none of the key information related to environmental impact (including energy usage, carbon emissions, or water use), which matters because datacenter expansion and training workloads have real-world resource costs.</p><p>This is a practical transparency issue, not a philosophical one. Without standardized disclosures, it becomes difficult for policymakers, researchers, and even customers to compare footprint claims or validate sustainability commitments.</p><h2>Openness isn’t the same as transparency</h2><p>A useful distinction in the piece is that “open” (publishing model weights) doesn’t automatically mean “transparent” (explaining practices and impacts). The write-up warns that even influential open-weight developers can still be opaque about core items like training compute, risk assessment, and downstream use.</p><p>This matters because public debate often treats open-weight releases as a proxy for accountability. The index argues that assumption is risky: disclosure must be specific, structured, and repeatable to support real oversight.</p><h2>Why this matters now</h2><p>The researchers frame transparency as an “essential public good” for governance, harm mitigation, and oversight, and they point to growing policy interest in mandating disclosures for frontier AI risks. They also note that the index aims to help identify which transparency areas resist improvement without policy pressure.</p><p>Even if one disagrees with any single score, the direction of travel is the key signal: as foundation models become more central to economies and institutions, baseline disclosure is not keeping up.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://hai.stanford.edu/news/transparency-in-ai-is-on-the-decline" target="_blank" rel="noopener noreferrer">Stanford Edu News</a></p>
-      </div>
-    </article>
-    
-    <div class="read-more">
-      <a href="/#post/ai-transparency-is-slipping">View on blog &rarr;</a>
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
 </body>
 </html>

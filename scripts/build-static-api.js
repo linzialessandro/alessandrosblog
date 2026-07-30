@@ -71,6 +71,30 @@ try {
     );
     console.log(`Wrote assets/js/build-id.js (BUILD_ID=${buildId}).`);
 
+    // Bust CSS/JS caches on the SPA shell (style.css + main.js module graph).
+    const indexPath = path.join(rootDir, 'index.html');
+    if (fs.existsSync(indexPath)) {
+        let indexHtml = fs.readFileSync(indexPath, 'utf8');
+        const before = indexHtml;
+        indexHtml = indexHtml.replace(
+            /(href|src)="(assets\/(?:css|js)\/[^"?]+)(?:\?v=[^"]*)?"/g,
+            `$1="$2?v=${buildId}"`
+        );
+        // Keep module entry explicitly versioned even if path pattern drifts.
+        indexHtml = indexHtml.replace(
+            /src="assets\/js\/main\.js(?:\?v=[^"]*)?"/g,
+            `src="assets/js/main.js?v=${buildId}"`
+        );
+        indexHtml = indexHtml.replace(
+            /href="assets\/css\/style\.css(?:\?v=[^"]*)?"/g,
+            `href="assets/css/style.css?v=${buildId}"`
+        );
+        if (indexHtml !== before) {
+            fs.writeFileSync(indexPath, indexHtml, 'utf8');
+            console.log(`Patched index.html asset URLs with ?v=${buildId}`);
+        }
+    }
+
 } catch (err) {
     console.error('Error building static API:', err);
     process.exit(1);

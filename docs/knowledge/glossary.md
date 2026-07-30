@@ -20,4 +20,6 @@ timestamp: 2026-07-30T23:45:00Z
 - **BUILD_ID**: Short content hash of `posts.json` written to `assets/js/build-id.js` by the Static API builder. The SPA appends it as `?v=` on API fetches to bust browser/CDN caches after publishes.
 - **Atom Feed**: Machine-readable subscription document at `feed.xml` (Atom), generated from recent Posts with static permalinks.
 - **JSON-LD**: Schema.org structured data embedded as `<script type="application/ld+json">`. Static Post Pages use `Article`; the homepage uses `WebSite` + `Person`.
-- **Publish Pipeline**: Ordered regeneration of Static API, Static Post Pages, Atom Feed, and sitemap (plus optional PDFs). Automated on `main` by GitHub Actions except PDFs, which remain local.
+- **Publish Pipeline**: Ordered regeneration of Static API, OG images, Static Post Pages, Atom Feed, sitemap, SEO check, and PDFs. Automated on `main` by GitHub Actions.
+- **OG Image**: Branded 1200×630 social card PNG under `assets/og/` used as `og:image` / `twitter:image` for homepage and Static Post Pages.
+- **Prism**: Client-side syntax highlighter for code blocks in the SPA and Static Post Pages; theme follows light/dark mode.
