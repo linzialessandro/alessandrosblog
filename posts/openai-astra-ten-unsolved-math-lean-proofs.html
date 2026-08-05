@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI’s Astra Solves Ten Unsolved Math Problems — With Verifiable Lean Proofs — Alessandro's blog</title>
+  <meta name="description" content="OpenAI revealed that an internal version of its next major model, Astra, generated machine-verifiable Lean 4 proofs for ten long-standing open problems across g">
+
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/openai-astra-ten-unsolved-math-lean-proofs">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=0b8e641f9ce7">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=0b8e641f9ce7">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OpenAI’s Astra Solves Ten Unsolved Math Problems — With Verifiable Lean Proofs">
+  <meta property="og:description" content="OpenAI revealed that an internal version of its next major model, Astra, generated machine-verifiable Lean 4 proofs for ten long-standing open problems across g">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/openai-astra-ten-unsolved-math-lean-proofs">
+  <meta property="og:site_name" content="Alessandro's blog">
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/openai-astra-ten-unsolved-math-lean-proofs.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenAI’s Astra Solves Ten Unsolved Math Problems — With Verifiable Lean Proofs">
+  <meta name="twitter:description" content="OpenAI revealed that an internal version of its next major model, Astra, generated machine-verifiable Lean 4 proofs for ten long-standing open problems across g">
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/openai-astra-ten-unsolved-math-lean-proofs.png">
+
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-08-01T12:00:00+02:00">
+  <meta property="article:modified_time" content="2026-08-01T12:00:00+02:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="OpenAI">
+  <meta property="article:tag" content="Mathematics">
+  <meta property="article:tag" content="Research">
+  <meta property="article:tag" content="Astra">
+  <meta property="article:tag" content="Reasoning">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OpenAI’s Astra Solves Ten Unsolved Math Problems — With Verifiable Lean Proofs",
+  "description": "OpenAI revealed that an internal version of its next major model, Astra, generated machine-verifiable Lean 4 proofs for ten long-standing open problems across group theory, high-dimensional geometry, and theoretical computer science — at a total compute cost of roughly $2,000.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/openai-astra-ten-unsolved-math-lean-proofs.png"
+  ],
+  "datePublished": "2026-08-01T12:00:00+02:00",
+  "dateModified": "2026-08-01T12:00:00+02:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/openai-astra-ten-unsolved-math-lean-proofs"
+  }
+}
+  </script>
+</head>
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/openai-astra-ten-unsolved-math-lean-proofs">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>OpenAI’s Astra Solves Ten Unsolved Math Problems — With Verifiable Lean Proofs</h1>
+          <div class="post-info">
+            <time datetime="2026-08-01T12:00:00+02:00">August 1, 2026</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">OpenAI</span><span class="tag">Mathematics</span><span class="tag">Research</span><span class="tag">Astra</span><span class="tag">Reasoning</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>On August 1, 2026, OpenAI announced a result that is already reshaping conversations across mathematics departments and AI labs alike: an internal version of its upcoming model <strong>Astra</strong> generated formal, machine-verifiable proofs for <strong>ten previously unsolved mathematical problems</strong>. Each proof was formalized in <strong>Lean 4</strong>, making the results checkable by a computer rather than dependent on human expert review.</p><p>The total compute cost for all ten solutions: approximately <strong>$2,000 at API rates</strong>.</p><h2>The Problems and What Was Solved</h2><p>The ten problems span several distinct fields of mathematics and theoretical computer science, and each had remained open for at least a decade. Among the highlights:</p><p>In <strong>group theory</strong>, Astra produced the first explicit construction of a non-sofic group — a class of mathematical object whose existence had been conjectured but never demonstrated. In <strong>high-dimensional geometry</strong>, it derived new asymptotic upper bounds on sphere-packing density that reach the Cohn–Elkies threshold, a theoretical ceiling that had long resisted explicit construction. In <strong>theoretical computer science</strong>, it proved new lower bounds for the circuit complexity of computing the permanent (n⁴/log n formula lower bound), alongside exponential parallel repetition results for two-player quantum games.</p><p>Several of the results address problems from <strong>Paul Erdős’s catalogue</strong> of open combinatorics questions — including problems 146, 180, and 183, relating to multicolor Ramsey numbers. Other results address operator algebras (a counterexample to Connes’s rigidity conjecture) and lattice problems (polynomial-factor hardness of approximation for the Closest Vector Problem).</p><blockquote><p>When a Lean formalization accompanies an AI-generated proof, the question shifts from “is the AI correct?” to “is the checker correct?” — a much more tractable problem.</p></blockquote><h2>Why Lean Matters Here</h2><p>AI-generated mathematics has faced a persistent credibility problem: models can produce plausible-looking but subtly flawed proofs, and expert review takes time. The use of Lean 4 as a verification layer addresses this directly. Lean is a formal proof assistant that only accepts proofs that are logically complete and internally consistent. If the Lean checker accepts a proof, the mathematics is correct — not approximately correct, not probably correct.</p><p>This transforms the nature of the output. OpenAI is not publishing a set of text documents that experts need to audit; it is publishing a set of <em>mathematical certificates</em>. The 249-page collection of manuscripts and accompanying Lean formalizations are publicly available on GitHub for independent review.</p><h2>Astra and Long-Horizon Reasoning</h2><p>Astra is described as a model family designed for long-horizon tasks — reasoning processes that unfold over hours or days, involving coordinated multi-step planning and execution. Mathematical theorem proving is an ideal testbed for this capability: the search space is enormous, intermediate steps need to be tracked carefully, and the final answer is objectively verifiable.</p><p>The results suggest that Astra can sustain coherent multi-step reasoning across the kind of problem complexity that previously required human experts working for years. Critically, it does this in a domain with a ground-truth verification mechanism — Lean — which removes ambiguity from the evaluation.</p><p>OpenAI has made Astra available to a limited set of internal researchers. A broader release timeline has not been announced, though the August 1 publication of results signals the lab is confident enough in the findings to invite public scrutiny before a commercial launch.</p><p>For the mathematics community, the announcement marks a shift from viewing AI as a research assistant to confronting it as a potential contributor to mathematical knowledge itself — one that works faster, sleeps never, and leaves checkable receipts.</p><p><strong>Contributor:</strong> Alessandro Linzi</p><p>Read more here: <a href="https://openai.com/research" target="_blank" rel="noopener noreferrer">OpenAI Research</a></p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/openai-astra-ten-unsolved-math-lean-proofs">View on blog →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
+</body>
+</html>
