@@ -116,6 +116,7 @@ jobs:
             pandoc \
             texlive-xetex \
             texlive-fonts-recommended \
+            texlive-fonts-extra \
             texlive-latex-recommended \
             texlive-latex-extra \
             fonts-texgyre \
