@@ -150,9 +150,9 @@ node scripts/build-pdfs.mjs
 **Job `publish`:**
 1. `blogq check` + `pytest`
 2. `build-static-api.js` → `build-og-images.py` → `build-static-pages.js` → `generate-feed.js` → `generate-sitemap.js` → `check-seo.js`
-3. Commits dirty artifacts with `chore: regenerate static artifacts [skip ci]`
+3. Commits dirty artifacts with `chore: regenerate static artifacts [skip gha]`
 
-**Job `pdfs`:** installs pandoc + TeX Live, runs `build-pdfs.mjs`, commits PDF changes with `[skip ci]`.
+**Job `pdfs`:** installs pandoc + TeX Live, runs `build-pdfs.mjs`, commits PDF changes with `[skip gha]`.
 
 The `[skip ci]` token prevents an infinite regenerate loop.
 
