@@ -144,7 +144,7 @@ node tools/check-seo.js
 node scripts/build-pdfs.mjs           # requires pandoc + xelatex
 ```
 
-On push to `main`, `.github/workflows/publish.yml` rebuilds API/OG/pages/feed/sitemap, runs the SEO check, builds PDFs in a second job, and commits artifacts with `[skip ci]`.
+On push to `main`, `.github/workflows/publish.yml` rebuilds API/OG/pages/feed/sitemap, runs the SEO check, builds PDFs in a second job, and commits artifacts with `[skip gha]`.
 
 `BUILD_ID` is a short content hash of `posts.json`. It cache-busts API fetches and SPA shell assets (`style.css`, `main.js`).
 
