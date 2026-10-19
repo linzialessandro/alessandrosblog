@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>When AI Agents Cooperate, Who Can Still Say Stop? — Alessandro's blog</title>
+  <meta name="description" content="The Hugging Face incident showed how supposedly isolated AI agents can form unexpected collaborations. An authority budget, independent access controls and revo">
+
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/when-ai-agents-cooperate-who-can-still-say-stop">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=1867b79c68b1">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=1867b79c68b1">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="When AI Agents Cooperate, Who Can Still Say Stop?">
+  <meta property="og:description" content="The Hugging Face incident showed how supposedly isolated AI agents can form unexpected collaborations. An authority budget, independent access controls and revo">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/when-ai-agents-cooperate-who-can-still-say-stop">
+  <meta property="og:site_name" content="Alessandro's blog">
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/when-ai-agents-cooperate-who-can-still-say-stop.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="When AI Agents Cooperate, Who Can Still Say Stop?">
+  <meta name="twitter:description" content="The Hugging Face incident showed how supposedly isolated AI agents can form unexpected collaborations. An authority budget, independent access controls and revo">
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/when-ai-agents-cooperate-who-can-still-say-stop.png">
+
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-10-19T09:00:00+02:00">
+  <meta property="article:modified_time" content="2026-10-19T09:00:00+02:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Agents">
+  <meta property="article:tag" content="Safety">
+  <meta property="article:tag" content="Governance">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "When AI Agents Cooperate, Who Can Still Say Stop?",
+  "description": "The Hugging Face incident showed how supposedly isolated AI agents can form unexpected collaborations. An authority budget, independent access controls and revocation drills can preserve human choice while helping organizations adopt useful agentic systems.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/when-ai-agents-cooperate-who-can-still-say-stop.png"
+  ],
+  "datePublished": "2026-10-19T09:00:00+02:00",
+  "dateModified": "2026-10-19T09:00:00+02:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/when-ai-agents-cooperate-who-can-still-say-stop"
+  }
+}
+  </script>
+</head>
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/when-ai-agents-cooperate-who-can-still-say-stop">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>When AI Agents Cooperate, Who Can Still Say Stop?</h1>
+          <div class="post-info">
+            <time datetime="2026-10-19T09:00:00+02:00">October 19, 2026</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Agents</span><span class="tag">Safety</span><span class="tag">Governance</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>An AI assistant can draft a plan while a person decides what happens next. An AI agent can receive tools and make the plan happen. That change sounds small in a product announcement, but it radically alters the practical meaning of human control. Once a system can retrieve credentials, modify records, call external services, and enlist other agents, being helpful is no guarantee that it remains within the authority a person intended to give it.</p><p>The concern extends far beyond inaccurate answers. Jacob Coxon warned that AI laboratories were &quot;racing straight to self-improving superintelligence and gambling with our lives.&quot; Anthropic alignment researcher Evan Hubinger said researchers &quot;really do earnestly believe AI could kill all humans&quot; and personally estimated greater than a 10 percent chance within the next decade. He also said the risk from present models is low (source: <a href="https://www.bbc.com/news/articles/ckgwy1k42w4o" target="_blank" rel="noopener noreferrer">BBC News</a>). These are individual risk judgments about a possible human-extinction catastrophe, not scientific consensus probabilities. Yet one aspect of the underlying concern can already be studied: a capable system may pursue its objective through channels nobody authorized.</p><h2>What the Hugging Face incident actually shows</h2><p>In July 2026, OpenAI reported that AI agents working on cybersecurity evaluations moved beyond expected boundaries and compromised Hugging Face infrastructure. The incident involved a real platform, although the agents originated in research and evaluation. OpenAI&#039;s own account distinguishes observed misaligned activity from the company&#039;s later interpretation of its causes: <a href="https://openai.com/hugging-face-incident-and-misalignment/" target="_blank" rel="noopener noreferrer">OpenAI's incident report</a></p><p>METR&#039;s independent investigation adds a remarkable detail. Roughly 1,200 agents that were meant to operate separately discovered a shared, unauthorized message board. They exchanged more than 70,000 messages and files. Approximately 700 of them participated in the Hugging Face attack. The agents coordinated work across individual runs, while some attempted to influence how their behavior would be recorded or scored. The evidence and scope limitations are described here: <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noopener noreferrer">METR's investigation</a></p><p>These facts do not prove that present agents want to dominate the world. They demonstrate that useful-seeming local objectives, flexible tools, and unexpected communication channels can combine into behavior that exceeds the designers&#039; plan. The practical question is whether institutions can constrain these systems even when they find clever ways to cooperate.</p><p>See also <a href="https://alessandrosblog.it.eu.org/posts/uk-aisi-serious-ai-security-incident-2026" target="_blank" rel="noopener noreferrer">AI Agents Gone Rogue: The UK&#039;s First Serious AI Security Incident</a>.</p><h2>An authority budget for delegated work</h2><p>I propose treating every agent&#039;s permitted actions as an authority budget. The budget specifies what information it can see, which tools it can invoke, the maximum transactions it can carry out, whether it can contact anyone outside the organization, and which changes require human approval. It should also set expiration dates for permissions and prevent delegation from expanding the authority available to the parent agent.</p><p>Consider a research assistant that gathers sources for an analyst. Reading public reports belongs inside its budget. Editing the organization&#039;s private client database does not. An automated development agent could be allowed to create a proposed patch while being denied the credentials needed to deploy it. A customer support agent could recommend a refund but have no authority to transfer money until a person approves.</p><p>These boundaries should be enforced by systems the agent does not control. Telling a model to &quot;never share confidential information&quot; is inadequate if it can obtain another tool that bypasses the instruction. An external permission service, independent logging, restricted credentials, and human approval for consequential actions offer a more reliable foundation.</p><h2>Test the failure, not just the success</h2><p>Model evaluations typically emphasize how often an agent completes a desired task. Teams should also measure how quickly it can be stopped after an unexpected action. In a safe test environment, give it misleading instructions embedded in a document, an apparently useful but unauthorized credential, or a way to communicate with another supposedly isolated agent.</p><p>Then test three things. First, whether the agent attempts the prohibited action. Second, how quickly an independent operator can revoke its credentials and terminate delegated jobs. Third, whether the action record lets an investigator reconstruct what actually happened without trusting the agent&#039;s own account. A nominal off switch means little if a child agent continues working.</p><p>Repeat these exercises after meaningful changes in models, connected tools, and permissions. A security demonstration from an earlier configuration cannot establish that a modified system still obeys the same limits.</p><h2>Preserve the human&#039;s ability to choose</h2><p>My work on AI adoption has repeatedly shown that people respond differently when they know what authority a tool has and what choices they retain. A system that makes bounded recommendations can improve productivity while keeping workers involved. As it proves itself, some actions can move into an approved automatic workflow. Other actions, particularly those affecting money, safety, employment, or sensitive information, should require an explicit decision.</p><p>Good limits can encourage adoption because managers and employees can experiment without assuming that one error will spread across every connected system. They also create a clear basis for accountability: who granted access, who can stop the agent, and who owns recovery if the system makes a mistake.</p><p>The hardest AI safety problem may eventually involve systems far more capable than today&#039;s products. The current generation already gives organizations a chance to practice the essential discipline. An agent earns trust when a human can demonstrate that its authority ends where the human decided it should.</p><p>Gleb Tsipursky, PhD, a behavioral scientist, CEO of Disaster Avoidance Experts, and author of The Psychology of AI Adoption at Work: From Resistance to Results (Georgetown University Press, 2026).</p><p><a href="https://disasteravoidanceexperts.com/aibook" target="_blank" rel="noopener noreferrer">The Psychology of AI Adoption at Work</a></p><p>Contact: gleb@disasteravoidanceexperts.com</p>
+<p><strong>Contributor:</strong> Dr. Gleb Tsipursky</p>
+<p>Read more here: <a href="https://disasteravoidanceexperts.com/aibook" target="_blank" rel="noopener noreferrer">disasteravoidanceexperts.com</a></p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/when-ai-agents-cooperate-who-can-still-say-stop">View on blog →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
+</body>
+</html>
