@@ -69,6 +69,8 @@ function memoirDoc({ title, bodyLatex }) {
 % Pandoc helpers
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
+% Allow long URLs / path segments to break at line ends (needs texlive-latex-extra / xurl)
+\usepackage{xurl}
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
