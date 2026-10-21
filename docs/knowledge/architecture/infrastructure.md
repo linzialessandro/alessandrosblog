@@ -81,9 +81,9 @@ Node.js scripts have **no `package.json`** — they use only Node built-ins (`fs
 3. OG images (Pillow)
 4. Static pages, Atom feed, sitemap
 5. `node tools/check-seo.js`
-6. Commit dirty artifacts with `chore: regenerate static artifacts [skip ci]`
+6. Commit dirty artifacts with `chore: regenerate static artifacts [skip gha]`
 
-**Job `pdfs`:** (after successful publish) installs pandoc + TeX Live and runs `build-pdfs.mjs`, committing any new PDFs with `[skip ci]`.
+**Job `pdfs`:** (after successful publish) installs pandoc + TeX Live and runs `build-pdfs.mjs`, committing any new PDFs with `[skip gha]`.
 
 **Manual / local workflow for a new post:**
 

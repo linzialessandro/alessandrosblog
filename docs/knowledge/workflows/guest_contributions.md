@@ -89,7 +89,7 @@ node scripts/build-pdfs.mjs
 node tools/check-seo.js
 ```
 
-**CI:** On push to `main`, `.github/workflows/publish.yml` runs validation, API, OG images, static pages, feed, sitemap, SEO check, and (when enabled) PDFs, then commits artifacts with `[skip ci]`.
+**CI:** On push to `main`, `.github/workflows/publish.yml` runs validation, API, OG images, static pages, feed, sitemap, SEO check, and (when enabled) PDFs, then commits artifacts with `[skip gha]`.
 
 ## Relevant Files
 - [compile-contrib-posts.js](../../../tools/compile-contrib-posts.js)

@@ -23,10 +23,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     # Avoid infinite loops when this workflow commits regenerated artifacts.
+    # Use [skip gha] (not [skip ci]): Cloudflare Pages also ignores [skip ci] commits,
+    # which left the live site on the pre-artifact merge and broke new /posts/{slug} pages.
     if: >
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'push' &&
-       !contains(github.event.head_commit.message, '[skip ci]'))
+       !contains(github.event.head_commit.message, '[skip gha]'))
 
     steps:
       - name: Checkout
@@ -82,7 +84,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No artifact changes to commit."
           else
-            git commit -m "chore: regenerate static artifacts [skip ci]"
+            git commit -m "chore: regenerate static artifacts [skip gha]"
             git push
           fi
 
@@ -116,6 +118,7 @@ jobs:
             pandoc \
             texlive-xetex \
             texlive-fonts-recommended \
+            texlive-fonts-extra \
             texlive-latex-recommended \
             texlive-latex-extra \
             fonts-texgyre \
@@ -132,6 +135,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No PDF changes to commit."
           else
-            git commit -m "chore: regenerate PDF artifacts [skip ci]"
+            git commit -m "chore: regenerate PDF artifacts [skip gha]"
             git push
           fi

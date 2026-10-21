@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What OpenAI’s Navier–Stokes Lean certificates actually certify — Alessandro's blog</title>
+  <meta name="description" content="OpenAI says an internal system established finite-time blowup for the forced three-dimensional Navier–Stokes equations, Clay alternatives (C) and (D), and publi">
+
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/openai-navier-stokes-lean-what-it-certifies">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=d79fb3ebb981">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=d79fb3ebb981">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What OpenAI’s Navier–Stokes Lean certificates actually certify">
+  <meta property="og:description" content="OpenAI says an internal system established finite-time blowup for the forced three-dimensional Navier–Stokes equations, Clay alternatives (C) and (D), and publi">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/openai-navier-stokes-lean-what-it-certifies">
+  <meta property="og:site_name" content="Alessandro's blog">
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/openai-navier-stokes-lean-what-it-certifies.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What OpenAI’s Navier–Stokes Lean certificates actually certify">
+  <meta name="twitter:description" content="OpenAI says an internal system established finite-time blowup for the forced three-dimensional Navier–Stokes equations, Clay alternatives (C) and (D), and publi">
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/openai-navier-stokes-lean-what-it-certifies.png">
+
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-10-16T18:00:00+02:00">
+  <meta property="article:modified_time" content="2026-10-16T18:00:00+02:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="OpenAI">
+  <meta property="article:tag" content="Mathematics">
+  <meta property="article:tag" content="Lean">
+  <meta property="article:tag" content="Research">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What OpenAI’s Navier–Stokes Lean certificates actually certify",
+  "description": "OpenAI says an internal system established finite-time blowup for the forced three-dimensional Navier–Stokes equations, Clay alternatives (C) and (D), and published Lean certificates. An independent rebuild reports that those certificates check. Compilation does not show that the Lean text matches the paper, and it leaves the unforced problem untouched.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/openai-navier-stokes-lean-what-it-certifies.png"
+  ],
+  "datePublished": "2026-10-16T18:00:00+02:00",
+  "dateModified": "2026-10-16T18:00:00+02:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/openai-navier-stokes-lean-what-it-certifies"
+  }
+}
+  </script>
+</head>
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/openai-navier-stokes-lean-what-it-certifies">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>What OpenAI’s Navier–Stokes Lean certificates actually certify</h1>
+          <div class="post-info">
+            <time datetime="2026-10-16T18:00:00+02:00">October 16, 2026</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">OpenAI</span><span class="tag">Mathematics</span><span class="tag">Lean</span><span class="tag">Research</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>On 8 September 2026, OpenAI <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener noreferrer">published</a> a write-up and a Lean formalization that, it said, show the three-dimensional incompressible Navier–Stokes equations can develop a singularity in finite time. The announcement calls this a solution to one of the Clay Millennium Prize Problems. The narrower question is what the Lean files certify, and which of the official statements they address.</p><h2>Forced breakdown, not the unforced problem</h2><p>Charles Fefferman’s <a href="https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf" target="_blank" rel="noopener noreferrer">problem statement</a> for the Clay Mathematics Institute asks for a proof of one of four alternatives. In (A), on R³, and (B), on the periodic torus, the external force is identically zero, and a smooth solution of the required kind is supposed to exist for every allowed initial velocity. In (C) and (D) the claim is existential and the force is not required to vanish: there exist a smooth divergence-free initial velocity and a smooth external force, satisfying the decay conditions in (C) or the periodicity conditions in (D), for which no such smooth solution exists. (C) also requires the kinetic energy to stay bounded; (D) requires a smooth solution that stays periodic.</p><p>OpenAI’s <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener noreferrer">account</a> says the fluid in its argument starts smooth and at rest, a smooth force is applied, the energy stays finite, and the velocity becomes unbounded in finite time. It says this establishes statement (C) and also (D). The <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener noreferrer">repository README</a> states the same pair, for every positive viscosity: smooth initial data and forcing on R³ with no global smooth solution of uniformly bounded kinetic energy, and smooth periodic initial data and forcing on the torus with no global smooth solution. Those are the forced breakdown alternatives. They are not (A) or (B). Fefferman’s text treats a proof of any one of the four as an answer to the problem as posed. OpenAI <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener noreferrer">says</a> it does not intend to claim the Millennium Prize for the result.</p><p>The same README records a separate Euler theorem: a smooth, compactly supported, divergence-free initial velocity on R³ whose solution of the unforced incompressible Euler equations becomes singular in finite time. OpenAI’s post says that unforced Euler question was resolved by nearly 100 agents over about 50 hours, and that Levent Alpöge and Tristan Buckmaster, using an internal Anthropic model, had produced a resolution of the forced Euler problem. OpenAI says its own Euler result has no external force, and that it recognizes their priority on the forced problem.</p><h2>What an independent kernel check covers</h2><p>Matthew Ray’s <a href="https://github.com/rayman813/navierstokes-lean-independent-rebuild" target="_blank" rel="noopener noreferrer">rebuild</a> uses commit <code>f9e8bc5</code> of that repository, which he records as pushed on 10 September 2026. He reports a clean <code>lake build</code>, and that four theorems — <code>navier_stokes_breakdown_R3</code>, <code>navier_stokes_breakdown_periodic</code>, <code>euler_breakdown_R3</code>, and <code>exists_compact_smooth_euler_singularity</code> — depend only on <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. Through the Lean Comparator, with the independent nanoda kernel enabled, he reports that both kernels accept all four, including a pass that compiled the solution inside a sandbox from a fresh clone. He also reports that the proof libraries contain no <code>sorry</code>, no custom axiom, and no native or unsafe code. The challenge files, by contrast, contain intentional <code>sorry</code> placeholders; those are not the proofs.</p><p>His scope note is the useful part. The check, he writes, shows that the published proof terms are accepted against the statements in the challenge files. It does not show that those statements faithfully encode Fefferman’s prose. It does not show anything about the unforced Navier–Stokes problem, alternatives (A) and (B), which he describes as what most analysts mean by the Navier–Stokes problem. It does not address priority, or whether a reader can extract the argument.</p><blockquote><p>In all cases the correctness of the formal proof does not say anything about the correctness of the NL proof.</p></blockquote><h2>Where the paper and the Lean text part company</h2><p>A paper by A. Bastounis, F. Circelli, and A. C. Hansen, <a href="https://arxiv.org/html/2610.08144" target="_blank" rel="noopener noreferrer">“Navier–Stokes lost in translation”</a>, They distinguish two tasks. One, which they label (i), is to produce some Lean proof of a formal statement that Lean accepts. The other, (ii), is a semantically faithful translation of a written argument. Success at (i), they write, does not certify the written proof: the formal proof can be right while the prose is wrong, both can be right and different, or the prose can claim something stronger than the formal text establishes. They say the third of these is what they find in OpenAI’s Navier–Stokes files. Their disclaimer is explicit: they do not claim that OpenAI’s natural-language proof is incorrect. They claim the Lean formalization is not a faithful translation of it, and so does not guarantee that the prose is right.</p><p>One comparison is Lemma 8.6, equation (8.19), of the natural-language paper, as they report it. They say the paper bounds torus derivatives of order m of an inverse by a constant times derivatives of order m+4 of the input. The declaration they cite, <code>norm_derivativeWord_inverse_le</code> in <code>SmoothFamilyTorusInverse.lean</code> at that same commit, assumes bounds on jets of order <code>w.length + 5</code>. That hypothesis is in the <a href="https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/SmoothFamilyTorusInverse.lean#L1059-L1080" target="_blank" rel="noopener noreferrer">file</a> at the lines they name. They treat the resulting estimate as weaker than (8.19), and they trace the extra derivative to a different Fourier majorant in the Lean argument than the series the paper’s proof sketch invokes. The m+4 side of the comparison is their reading of the PDF; the m+5 side is visible in the Lean source they link.</p><p>A second comparison, also theirs, is the pressure-flux bound (10.19). They say the paper’s inequality is stated in a localized velocity norm, for almost every time, while the Lean estimate they cite also depends on a localized gradient norm, holds at every time in the open interval, and is proved by a different route: a Sobolev embedding into an L² bound for the Riesz transform, rather than an L<sup>3/2</sup> bound. They say equation (10.17) of the paper does not let you remove the extra norm and recover (10.19), so the two bounds are hard to compare. They do not present this as a list of the only mismatches. They say they examined two in detail.</p><p>They also say they did not give the Euler formalization the same treatment. From preliminary checks they expect substantial mismatches there too. That is their prediction, not a second exhibited counterexample. The mechanism they describe for how such gaps appear is the acceptance test itself: if the loop stops when Lean accepts a proof of the formal statement, a revision that repairs or replaces the written argument still counts as success. Separately, they argue that the ambiguities a faithful translation has to resolve sit arbitrarily high in the arithmetical hierarchy. Their informal reading is that a translator which must always return either a faithful formalization or an honest refusal would have to solve problems harder than any of finite solvability complexity, the halting problem included. That claim is about faithful translation in general. It is not a claim that this Lean development fails to compile.</p><h2>An audit that does not close the gap</h2><p>Davit Gondauri’s deposit <a href="https://doi.org/10.5281/zenodo.22694088" target="_blank" rel="noopener noreferrer">10.5281/zenodo.22694088</a> — the concept record; the version DOI on the record is 10.5281/zenodo.22694089, published 10 September 2026 — is an audit of what the abstract calls OpenAI’s 166-page paper, the public Lean files, and the correspondence with Fefferman’s (C) and (D). The abstract says the point is not a percentage score. It separates four layers: the analytical architecture, traceability from the PDF to named Lean declarations, a comparison of the final Comparator statement types with Fefferman’s formulation, and whether an independent kernel replay actually ran.</p><p>Where the abstract reports a finished check, it reports no specific fatal contradiction in the algebraic, scaling, energy, residual-closure, and functional-analytic checks he did, and no material weakening in a comparison covering quantifier order, the allowed data and forcing, smoothness and decay, bounded energy, and periodic pressure. It also says those findings are not a lemma-by-lemma match between the PDF and the Lean, and not a kernel-checked proof that the formal statements are equivalent to Fefferman’s. In particular, it says the full dependency tree of Theorem 4.6, the weighted estimates in Lemma 5.4 and Proposition 9.9, the term calculus of Proposition 9.6, and the distributional and commutator passages in Lemma 10.5 were not discharged line by line. In that audit’s environment, <code>lake build</code>, <code>#print axioms</code>, Comparator, and nanoda were not reached, so the abstract says neither replay success nor replay failure was established there. The closing sentence is two-part: strong positive source, structural, and semantic evidence within that scope, and no fatal defect identified there, but no complete independent certification.</p><p>Set next to Ray’s report, the two documents answer different questions. Ray reports that two kernels accept four named theorems. Gondauri’s abstract says a different review did not finish that replay and did not claim a line-by-line match to the paper. Bastounis, Circelli, and Hansen exhibit intermediate estimates where, on their reading, the paper says more than the cited Lean declarations prove. Agreement among them is limited to a boundary: a successful Lean check is evidence about the formal statement that was checked.</p><h2>Astra, in OpenAI’s own timeline</h2><p>The search log is OpenAI’s. The <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener noreferrer">post</a> says work began on 1 September 2026, after a rumor; that the group which produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents; that those agents reached a resolution on 5 September, about 88 hours after the first agents were launched; and that Lean formalization and verification took a further 17 hours, using GPT-6 Astra. This blog’s <a href="https://alessandrosblog.it.eu.org/#post/openai-astra-ten-unsolved-math-lean-proofs">1 August note</a> covered an earlier OpenAI announcement in which an internal Astra model was said to have produced Lean proofs of ten other open problems. The September post presents a newer internal model as the one that searched, and Astra as the formalizer. Both descriptions are OpenAI’s account of its own runs.</p><p>The certificates are a concrete object. On Ray’s report, four theorems at a named commit check under two kernels, on three standard axioms, with the proof libraries free of <code>sorry</code> and custom axioms. What that certifies is those theorems. It does not certify that the natural-language paper’s intermediate claims are the ones in the Lean files, and the Navier–Stokes theorems OpenAI identifies with the Millennium problem are the forced alternatives (C) and (D).</p><p><strong>Contributor:</strong> Alessandro Linzi</p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/openai-navier-stokes-lean-what-it-certifies">View on blog →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
+</body>
+</html>
