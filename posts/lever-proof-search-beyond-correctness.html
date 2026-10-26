@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choosing Among Correct Proofs: What LEVER Optimizes While the Lean Kernel Checks — Alessandro's blog</title>
+  <meta name="description" content="An 8 October 2026 Columbia University preprint introduces LEVER (arXiv:2610.11862), a proof-search algorithm for Lean 4 that scores partial proofs over an AND/O">
+
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/lever-proof-search-beyond-correctness">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=62c765516527">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=62c765516527">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Choosing Among Correct Proofs: What LEVER Optimizes While the Lean Kernel Checks">
+  <meta property="og:description" content="An 8 October 2026 Columbia University preprint introduces LEVER (arXiv:2610.11862), a proof-search algorithm for Lean 4 that scores partial proofs over an AND/O">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/lever-proof-search-beyond-correctness">
+  <meta property="og:site_name" content="Alessandro's blog">
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/lever-proof-search-beyond-correctness.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Choosing Among Correct Proofs: What LEVER Optimizes While the Lean Kernel Checks">
+  <meta name="twitter:description" content="An 8 October 2026 Columbia University preprint introduces LEVER (arXiv:2610.11862), a proof-search algorithm for Lean 4 that scores partial proofs over an AND/O">
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/lever-proof-search-beyond-correctness.png">
+
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-10-26T19:00:00+01:00">
+  <meta property="article:modified_time" content="2026-10-26T19:00:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Mathematics">
+  <meta property="article:tag" content="Lean">
+  <meta property="article:tag" content="Research">
+  <meta property="article:tag" content="Agents">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Choosing Among Correct Proofs: What LEVER Optimizes While the Lean Kernel Checks",
+  "description": "An 8 October 2026 Columbia University preprint introduces LEVER (arXiv:2610.11862), a proof-search algorithm for Lean 4 that scores partial proofs over an AND/OR graph to optimize remaining compute cost, proof length, and topical impurity during search while the Lean kernel checks correctness. On an 80-problem PutnamBench slice under a $3 budget at a 90% cache-hit rate, LEVER solves 96.3% of problems versus 80.0% for the NearAI agent at $0.95 versus $1.44 per problem, and cuts topical impurity by 42% on 20 problems.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/lever-proof-search-beyond-correctness.png"
+  ],
+  "datePublished": "2026-10-26T19:00:00+01:00",
+  "dateModified": "2026-10-26T19:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/lever-proof-search-beyond-correctness"
+  }
+}
+  </script>
+</head>
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/lever-proof-search-beyond-correctness">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>Choosing Among Correct Proofs: What LEVER Optimizes While the Lean Kernel Checks</h1>
+          <div class="post-info">
+            <time datetime="2026-10-26T19:00:00+01:00">October 26, 2026</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Mathematics</span><span class="tag">Lean</span><span class="tag">Research</span><span class="tag">Agents</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>Mathematicians care which correct proof they obtain because valid proofs of a theorem differ in simplicity, purity, and search compute (Section 1). Most LLM provers search for any verified proof and improve it only afterwards through post-hoc refactoring, which revisits a proof already paid for and keeps an argument that was chosen for a different objective. On 8 October 2026, Nihal Jain, Shuangjie Yao, Begum Cicekdag, Zhuo Zhang, and Suman Jana at Columbia University submitted <a href="https://arxiv.org/abs/2610.11862" target="_blank" rel="noopener noreferrer">"LEVER: Adaptive Cost-Aware Proof Search Over AND/OR Graphs"</a> (<code>arXiv:2610.11862v1</code>). LEVER makes the objective over correct proofs programmable and optimizes it during search while the Lean 4 kernel checks every decomposition and final proof under standard axioms without <code>sorry</code>, <code>admit</code>, <code>axiom</code>, or <code>native_decide</code> (Section 4.2).</p><h2>AND/OR proof graphs and scoring partial proofs</h2><p>LEVER models partial proofs as a bipartite directed acyclic AND/OR graph alternating between OR and AND nodes (Section 3.1). Goals (theorems or lemmas) are OR nodes, with root <em>r</em> as the main theorem, and decompositions into subgoals are AND nodes checked by the Lean kernel. An OR node is solved if any child is solved, and an AND node if all children are solved. Childless AND nodes are proved directly. A solution subgraph contains <em>r</em>, one AND child per OR node, and all OR children per AND node.</p><p>With nonnegative edge costs <code>c(n, d)</code>, decompositions pay for all subgoals whereas goals take their cheapest proof. Values back up by summing at AND nodes, <code>V(n) = ∑ (c(n, d) + V(d))</code>, and taking the minimum at OR nodes, <code>V(n) = min (c(n, d) + V(d))</code>, with <code>V = 0</code> at solved leaves and <code>V = ∞</code> at false goals. LEVER scores each partial proof as realized cost on proved parts plus predicted value on open subgoals, expanding the best-scoring partial proof first.</p><h2>Priors, redraws, and the programmable objective</h2><p>Classical AO* assumes deterministic expansion. Because LLM expansion at temperature 1.0 is stochastic, drawing from an expanded OR node again can return a cheaper decomposition (Section 3.3). Every OR node <em>g</em> therefore carries an unexpanded prior AND child holding an estimate <code>Ṽ(g)</code> of finishing <em>g</em> via a fresh draw. Each iteration of Algorithm 1 runs three steps:</p><ul><li><strong>Selection.</strong> Follow the minimizing child at each OR node and all children at each AND node from <em>r</em>. When an OR node's minimizing child is its prior, expand that goal (up to 25 concurrently, Appendix A). Re-expanding a goal with existing children is a redraw, which must beat the incumbent by factor δ (<code>δ = exp(σ)</code> on log scales, equal to 1.85 for compute cost, 1.50 for length, and 1.72 for impurity, Table 4).</li><li><strong>Expansion.</strong> Each expansion is one LLM agent conversation with a Lean workspace that has tools for Lean compilation (Kimina Lean Server), Mathlib retrieval, and Python (Section 4.2). The agent writes a Lean proof that relies on open subgoals, proving small helpers in place and annotating dependencies among open subgoals with LeanArchitect's <code>sorry_using</code> tactic. The goal-to-decomposition edge takes the realized cost, new subgoals get priors, and decomposition-to-subgoal edges cost zero.</li><li><strong>Backpropagation and posterior update.</strong> Costs pass upward through the AND/OR backup equations and update priors along the path. On a log scale, fresh draws of <em>g</em> are normal around mean <code>μ_g</code> with spread σ, and initial prediction <code>V_0(g)</code> has error ρ. After <em>k</em> draws with costs <code>v_1, ..., v_k</code>, the posterior mean (Equation 1) is <code>μ̂_g = (n log V_0(g) + ∑ log v_i) / (n + k)</code> with <code>n = σ² / ρ²</code>, giving <code>Ṽ(g) = exp(μ̂_g)</code>. The prior counts as <em>n</em> draws (0.33 for compute cost, 0.32 for length, and 0.05 linearly for impurity, Table 4) and each realized draw as one. Failed attempts add one σ.</li></ul><p>Because past spend is sunk, LEVER optimizes only remaining compute cost <code>comp</code> (<code>V_comp</code>), where realized edges add zero and open goals add their prior (Section 3.3). Combining <code>V_comp</code> with additive metrics <code>V_m</code> weighted by <code>λ_m</code> dollars per unit yields <code>C(n) = V_comp(n) + ∑_m λ_m V_m(n)</code>. For <code>comp</code> and proof length (<code>len</code>), <code>DeepSeek-V4-Flash</code> with 40 calibration examples assigns open goals to seven log<sub>2</sub> bins ($0.016 to $0.512 for <code>comp</code>, and 512 to 16,384 Lean tokens for <code>len</code>, scaled by 0.2 to favor shorter proofs, Section 4.4). Value calls (0.89% of spend) and one planner call (capped at $0.20, Appendix A) are included in all reported costs. For topical impurity (<code>imp</code>), predicting 0 caused unstable redraws because open goals looked pure, so open goals start at 4 references (the 25th calibration percentile).</p><h2>Topical impurity and the unit triangle example</h2><p>Following work on purity of method (Detlefsen and Arana, 2011, Martinot, 2024), LEVER reads topical impurity off Mathlib's structure via <code>#lever_uses</code> (Section 4.3, Appendix B). Every Mathlib name has a namespace (such as <code>ZMod</code> in <code>ZMod.wilsons_lemma</code>) and a three-level directory (such as <code>Mathlib/NumberTheory</code>). A theorem's subject is the set of namespaces and directories of the names its statement uses. A referenced theorem is impure if it falls outside the subject on both accounts, while a root-namespace lemma such as <code>mul_pos</code> is impure only if it also lies outside a 12-directory infrastructure set (such as <code>Mathlib/Data/Nat</code>). In Figure 3, <code>std_tri_volume</code> states that the unit triangle has area 1/2 using <code>MeasureTheory.volume</code> and <code>convexHull</code>. Plan 1 slices the triangle and integrates via <code>intervalIntegral.integral_sub</code>, flagging 25 impure references because the statement mentions no integrals. Plan 2 halves the unit square in measure theory via <code>MeasureTheory.measure_union_add_inter</code>, flagging 6 references.</p><h2>PutnamBench results on compute cost and proof quality</h2><p>Experiments use PutnamBench (672 Lean 4 v4.31.0 problems) with <code>DeepSeek-V4-Flash-0731</code> for all calls at $0.22, $0.007, and $0.66 per million input, cached input, and output tokens (Section 4.1). Taking ranks 51 through 150 of the NearAI (2026) single-conversation run (20 calibration and 80 evaluation problems, Appendix C.1), the authors re-price main-text costs at a fixed 90% cache-hit rate (between NearAI's 93.7% per-call rate and LEVER's 86.2%).</p><p>Under a $3 budget on the 80 evaluation problems (Section 5.1, Table 1, charging unsolved runs $3 and proving goals five levels deep or under bin 5 directly), LEVER solves 96.3% of problems versus 80.0% for NearAI, at a mean cost of $0.95 versus $1.44 (34% less). Local subgoal contexts cut input tokens per problem from 42.0M to 17.9M (0.62M versus 0.36M output tokens). At actual cache rates (Appendix C.3, Table 6), LEVER still solves 96.3% versus 86.3% at $0.90 versus $1.07 per problem (16% cheaper). On <code>putnam_1972_a3</code> (Appendix C.4.1), LEVER rejects a three-subgoal decomposition priced at $1.54 in total against a $0.72 root prior before attempting any subgoal (the margin is δ = 1.85). It then draws a second decomposition whose two subgoals are priced at $0.91 in total, proves both, and finishes the run for $1.75.</p><p>On <em>N</em> = 20 solved problems under a $4.5 budget (Section 5.2, Figure 5, Table 2), LEVER is compared against NearAI with prompt steering (<code>+Instruct</code>) and post-hoc rewriting (<code>+Refactor</code>, charged initial plus refactoring cost):</p><ul><li><strong>Topical impurity.</strong> At <code>λ = 0.1</code>, LEVER cuts impurity by 42% at $1.85 per problem (-15% at <code>λ = 0.01</code>, +1% at <code>λ = 0</code>), beating <code>+Refactor</code> (-33% at $2.88) at two-thirds of the cost with lower per-problem standard deviation (32 versus 101 points, with <code>+Refactor</code> rising from 29 to 132 impure references on <code>putnam_2007_a2</code>). <code>+Instruct</code> was 11% less pure than the baseline.</li><li><strong>Proof length and cross-metric effects.</strong> At <code>λ = 10⁻³</code>, LEVER cuts length by 21% at $2.59 (-5% at <code>λ = 10⁻⁴</code>, +4% at <code>λ = 0</code>), while <code>+Refactor</code> reaches -31% at $1.83, so refactoring still wins on length. Optimizing length (<code>λ = 10⁻³</code>) also lowered impurity by 18%, whereas optimizing impurity (<code>λ = 0.1</code>) made proofs 10% longer (+10%).</li></ul><h2>Limitations and implications for formalization</h2><p>Several limitations apply. Topical impurity is a proxy. Mathlib's organization stands in for subject, the 12-directory infrastructure set comes from one pilot corpus, and references are counted unweighted (Section 4.3, Appendix B). Because helper statements do not charge definitions, local re-proofs could game impurity. On the 20 quality problems, LEVER at <code>λ = 0.1</code> wrote 36.1 helpers per proof versus 25.9 at <code>λ = 0</code>, and 11.2 versus 10.1 off-subject helpers (NearAI wrote 14.1), changing the 42% reduction by under one point when penalized. Length can similarly be gamed by tactics such as <code>nlinarith</code>. Evaluation uses a selected PutnamBench slice (ranks 51 through 150, not the hardest 50 which took up to 5.5 days), one model (<code>DeepSeek-V4-Flash-0731</code>), and costs re-priced at a 90% cache rate. The Lean-verified exactness proof (<code>lemma1_exact_values</code>, Appendix D) assumes exact priors and tree unfolding, leaving noisy-value analysis for future work and charging shared subgoals to one owner because exact shared-subgoal optimization is NP-hard (Sahni, 1974). Finally, <code>+Instruct</code> and <code>+Refactor</code> were built on NearAI because dedicated refactoring tools (Lean Refactor, ProofOptimizer) were unavailable or on Lean v4.9 (ImProver).</p><p>For people formalizing mathematics in Lean, LEVER separates verification from proof selection. The kernel guarantees that any accepted proof is sound, while the search objective turns properties of the proof artifact, including library dependencies, token length, and compute spend, into parameters chosen before search begins.</p><p><strong>Contributor:</strong> Alessandro Linzi</p>
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/lever-proof-search-beyond-correctness">View on blog →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
+</body>
+</html>
