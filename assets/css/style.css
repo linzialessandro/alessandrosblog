@@ -671,6 +671,11 @@
         .post-content h2 { font-size: 1.875rem; margin-top: 4rem; margin-bottom: 1.5rem; }
         .post-content h3 { font-size: 1.5rem; margin-top: 3rem; margin-bottom: 1.25rem; }
         .post-content p  { margin-bottom: 1.75rem; color: var(--text); }
+        .post-content .formula {
+            margin: 0.35rem 0 1.75rem;
+            text-align: center;
+        }
+        .post-content .formula math { font-size: 1.15rem; }
         .post-content ul, .post-content ol { margin-bottom: 1.75rem; padding-left: 1.75rem; }
         .post-content li { margin-bottom: 0.625rem; }
         .post-content a  { text-decoration: underline; text-underline-offset: 5px; text-decoration-color: var(--accent); }
