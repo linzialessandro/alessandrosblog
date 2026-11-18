@@ -39,10 +39,15 @@ function latexEscapeTitle(s) {
 }
 
 function toLatexBodyViaPandoc(html) {
-  return execSync("pandoc -f html -t latex --wrap=none --no-highlight", {
+  let latex = execSync("pandoc -f html -t latex --wrap=none --no-highlight", {
     input: html,
     encoding: "utf-8",
   });
+  // Pandoc 3.x emits \def\LTcaptype{none} so uncaptioned tables
+  // do not increment a counter. memoir's longtable treats LTcaptype
+  // as a counter name and then errors with "No counter 'none'".
+  latex = latex.replace(/\\def\\LTcaptype\{none\}/g, "");
+  return latex;
 }
 
 function memoirDoc({ title, bodyLatex }) {
@@ -67,6 +72,8 @@ function memoirDoc({ title, bodyLatex }) {
 \setlength{\parskip}{0.55\baselineskip}
 
 % Pandoc helpers
+\usepackage{longtable}
+\usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 % Allow long URLs / path segments to break at line ends (needs texlive-latex-extra / xurl)

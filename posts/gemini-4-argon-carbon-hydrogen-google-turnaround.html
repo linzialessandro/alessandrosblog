@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini 4 Argon, Carbon, and Hydrogen: What Google Changed After Falling Behind — Alessandro's blog</title>
+  <meta name="description" content="Google released Gemini 4 Argon, Carbon, and Hydrogen between 30 September and 12 November 2026, after months in which Gemini 3.5 Pro was cancelled and DeepMind ">
+
+  <link rel="canonical" href="https://alessandrosblog.it.eu.org/posts/gemini-4-argon-carbon-hydrogen-google-turnaround">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..600;1,9..40,300..600&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css?v=c7158fdb9e94">
+  <link rel="stylesheet" href="../assets/css/static-post.css?v=c7158fdb9e94">
+  <link id="prism-theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gemini 4 Argon, Carbon, and Hydrogen: What Google Changed After Falling Behind">
+  <meta property="og:description" content="Google released Gemini 4 Argon, Carbon, and Hydrogen between 30 September and 12 November 2026, after months in which Gemini 3.5 Pro was cancelled and DeepMind ">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessandrosblog.it.eu.org/posts/gemini-4-argon-carbon-hydrogen-google-turnaround">
+  <meta property="og:site_name" content="Alessandro's blog">
+  <meta property="og:image" content="https://alessandrosblog.it.eu.org/assets/og/gemini-4-argon-carbon-hydrogen-google-turnaround.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gemini 4 Argon, Carbon, and Hydrogen: What Google Changed After Falling Behind">
+  <meta name="twitter:description" content="Google released Gemini 4 Argon, Carbon, and Hydrogen between 30 September and 12 November 2026, after months in which Gemini 3.5 Pro was cancelled and DeepMind ">
+  <meta name="twitter:image" content="https://alessandrosblog.it.eu.org/assets/og/gemini-4-argon-carbon-hydrogen-google-turnaround.png">
+
+  <!-- Article Meta -->
+  <meta property="article:published_time" content="2026-11-18T12:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-18T12:00:00+01:00">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Google">
+  <meta property="article:tag" content="Gemini">
+  <meta property="article:tag" content="Models">
+  <meta property="article:tag" content="Benchmarks">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gemini 4 Argon, Carbon, and Hydrogen: What Google Changed After Falling Behind",
+  "description": "Google released Gemini 4 Argon, Carbon, and Hydrogen between 30 September and 12 November 2026, after months in which Gemini 3.5 Pro was cancelled and DeepMind changed leaders. This explainer uses Google's model cards, launch posts, and reporting to set out what changed: a larger flagship built first, reinforcement learning on long tasks, staged releases, new prices, and routing inside Google's products. It compares the models with OpenAI, Anthropic, and xAI on Artificial Analysis and LMArena, and lists the costs.",
+  "image": [
+    "https://alessandrosblog.it.eu.org/assets/og/gemini-4-argon-carbon-hydrogen-google-turnaround.png"
+  ],
+  "datePublished": "2026-11-18T12:00:00+01:00",
+  "dateModified": "2026-11-18T12:00:00+01:00",
+  "author": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alessandro Linzi"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://alessandrosblog.it.eu.org/posts/gemini-4-argon-carbon-hydrogen-google-turnaround"
+  }
+}
+  </script>
+</head>
+<body class="static-post">
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="wrap">
+      <a href="/" class="nav-brand" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;color:inherit;">
+        <img src="../assets/logo.png" alt="" class="nav-avatar">
+        <span class="nav-name">Alessandro's blog</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="static-main">
+    <div class="wrap post-page-wrap">
+      <noscript>
+        <div class="noscript-note">
+          Static version of this post.
+          <a href="/#post/gemini-4-argon-carbon-hydrogen-google-turnaround">Open the interactive blog</a> if you enable JavaScript.
+        </div>
+      </noscript>
+
+      <article>
+        <header class="post-header">
+          <h1>Gemini 4 Argon, Carbon, and Hydrogen: What Google Changed After Falling Behind</h1>
+          <div class="post-info">
+            <time datetime="2026-11-18T12:00:00+01:00">November 18, 2026</time>
+            <div class="tags"><span class="tag">AI</span><span class="tag">Google</span><span class="tag">Gemini</span><span class="tag">Models</span><span class="tag">Benchmarks</span></div>
+          </div>
+        </header>
+
+        <div class="post-content">
+          <p>Between 30 September and 12 November 2026, Google announced three Gemini 4 models. Gemini 4 Argon came first, then Gemini 4 Carbon, then Gemini 4 Hydrogen. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">[1]</a> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">[2]</a> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a> The names replace the Pro and Flash labels that Google used through Gemini 3.8. They arrived after most of a year in which, according to Reuters and The New York Times, Google's models fell behind those of OpenAI and Anthropic. <a href="https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/">[4]</a> <a href="https://www.nytimes.com/2026/09/30/technology/google-releases-a-new-flagship-ai-model-with-limits.html">[5]</a> This post sets out what Google says it changed, what independent rankings show, and what the turnaround has cost. The Anthropic side of the same period is covered in <a href="/posts/claude-fable-5-to-5-2-history-and-competition">the earlier post on Claude Fable 5 to 5.2</a>, so this post refers to it rather than repeating it.</p>
+
+<h2>Three models in six weeks</h2>
+<p>Google announced Argon on 30 September and gave it first to vetted cybersecurity defenders in its Fairwind Program. The company said it was taking part in the US government's voluntary process for pre-release model access. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">[1]</a> On 13 October, Argon became available in the paid tier of the Gemini API under the model ID <code>gemini-4-argon</code>, in Gemini for business, and for Google AI Pro and Ultra subscribers in the Gemini app and AI Mode in Search. At launch, Google Antigravity access was limited to Ultra subscribers. <a href="https://blog.google/intl/en-mena/product-updates/explore-get-answers/gemini-4-argon-built-to-solve-your-hardest-problems/">[6]</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud">[7]</a></p>
+<p>Carbon followed the same path. Google announced it on 28 October as its strongest model and released it first to a subset of cyber defenders. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">[2]</a> On 10 November, Carbon opened to all paying API developers and enterprises, and to Google AI Ultra subscribers in Antigravity, the Gemini app, and AI Mode. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/">[8]</a></p>
+<p>Hydrogen, released on 12 November, skipped the staged rollout. <a href="https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash/">[9]</a> Google made it available on the same day in AI Studio, the Gemini API, Gemini for business, the Gemini app, and Google Search. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a> Ars Technica reported that Hydrogen replaced Gemini 3.8 Flash across Google's products. <a href="https://arstechnica.com/google/2026/11/google-rolls-out-gemini-4-hydrogen-finally-replacing-3-8-flash/">[9]</a></p>
+
+<h2>How Google fell behind</h2>
+<p>Google started the period in front. The New York Times reports that a Google model released in November 2025 reached the top of the AI leaderboards and led OpenAI to declare a "code red". <a href="https://www.nytimes.com/2026/09/30/technology/google-releases-a-new-flagship-ai-model-with-limits.html">[5]</a> WinBuzzer's timeline identifies that model as Gemini 3 Pro, the first Google model to lead the Artificial Analysis Intelligence Index. It also records that Gemini 3.1 Pro Preview led the index again in February 2026 with a score of 57. <a href="https://winbuzzer.com/2026/10/28/artificial-analysis-reweights-ai-rankings-toward-private-tests-xcxwbn/">[10]</a> According to the Times, OpenAI and Anthropic pulled ahead again within months. Argon was the first significant Google model since February. <a href="https://www.nytimes.com/2026/09/30/technology/google-releases-a-new-flagship-ai-model-with-limits.html">[5]</a></p>
+<p>The planned successor did not arrive. At Google I/O in May, Google released Gemini 3.5 Flash, and Sundar Pichai said that Gemini 3.5 Pro would follow in June. <a href="https://winbuzzer.com/2026/10/28/artificial-analysis-reweights-ai-rankings-toward-private-tests-xcxwbn/">[10]</a> On 16 July, Bloomberg reported that the model was months behind schedule because it fell short of internal targets, particularly in coding. The report cited ten current and former employees. It said that a late-June update to the training data had produced disappointing results, and that teams across Google Cloud, DeepMind, Android, and other parts of the company were each building AI coding tools. <a href="https://www.androidauthority.com/google-gemini-3-5-pro-launch-delayed-3688434/">[11]</a> On the July earnings call, Pichai defended Google's models and said people would be "pleased" with Gemini 4. <a href="https://www.thehindu.com/sci-tech/technology/googles-sundar-pichai-hails-amazing-quarter-during-earnings-call-as-investors-fret-about-delayed-gemini-35-pro/article71256966.ece">[12]</a></p>
+<p>In the meantime, Google shipped Flash models. Gemini 3.8 Flash, released on 2 September, was its third Flash release in six weeks. Ars Technica noted that Google had not released a frontier-level Pro model since early 2026, and that 3.8 Flash still trailed Claude Opus on the OSWorld-2.0 computer-use test. <a href="https://arstechnica.com/ai/2026/09/google-releases-gemini-3-8-flash-its-third-flash-model-in-six-weeks/">[13]</a> Reuters observed that Google had shifted its messaging from frontier capability to cost advantage. <a href="https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/">[4]</a> OfficeChai, an industry news site, wrote that Google's best model fell as low as ninth among labs on the Artificial Analysis index. That figure is OfficeChai's own count across several index versions. <a href="https://officechai.com/ai/gemini-is-back-to-the-frontier-with-gemini-4-argon/">[14]</a></p>
+<p>On 5 August, Alphabet reorganized Google DeepMind. Demis Hassabis left the CEO role to become DeepMind's chairman and Alphabet's chief scientist. Koray Kavukcuoglu, the lab's chief technology officer, took over day-to-day leadership with the title of senior vice president. Jeff Dean, Sanjay Ghemawat, Oriol Vinyals, and Quoc Le left Google to found a startup called Discovery Loop. Alphabet shares fell 4% after the news. A source told Reuters that Kavukcuoglu's appointment was expected to make Gemini development more product-oriented. <a href="https://www.reuters.com/business/google-shakes-up-ai-leadership-deepmind-chief-shifts-role-2026-08-05/">[15]</a> On 30 September, a Google spokesperson told Reuters that Google no longer planned to release Gemini 3.5 Pro. <a href="https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/">[4]</a></p>
+
+<h2>What Google changed</h2>
+<p>The public record shows six changes. I found no Gemini 4 technical report, so the evidence comes from model cards, launch posts, and reporting. Most performance figures in the launch posts are Google's own claims.</p>
+
+<h3>A larger flagship, built first</h3>
+<p>A Google spokesperson told Reuters that Argon is larger than Google's previous line of Pro models. <a href="https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/">[4]</a> The Argon model card describes a large sparse mixture-of-experts transformer, in which only some sub-networks run for each token. It accepts text, image, audio, and video input. <a href="https://deepmind.google/models/model-cards/gemini-4-argon/">[16]</a> The model cards also show the order of construction. Carbon "is based on" Argon, and Hydrogen "is adapted from" Carbon. <a href="https://deepmind.google/models/model-cards/gemini-4-carbon/">[17]</a> <a href="https://deepmind.google/models/model-cards/gemini-4-hydrogen/">[18]</a> In the months before Argon, Google's newest releases were all Flash models. With Gemini 4, the fast, cheap model came last and derives from the frontier model.</p>
+
+<h3>Reinforcement learning on reasoning and long tasks</h3>
+<p>The Argon model card says that Google trained the model with reinforcement learning techniques that use multi-step reasoning, problem-solving, and theorem-proving data. <a href="https://deepmind.google/models/model-cards/gemini-4-argon/">[16]</a> Google raised Argon's output limit to 1 million tokens, up from 64,000, so that the model can produce very long reasoning traces in a single run. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">[1]</a> Google says its internal teams have seen Carbon work on a single engineering task for days. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">[2]</a> Hydrogen offers four thinking levels: low, medium, high, and a new xhigh setting. Each level trades more reasoning tokens for quality. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a></p>
+
+<h3>A target on coding and cybersecurity</h3>
+<p>Coding was the reported weakness of Gemini 3.5 Pro, and Gemini 4 targets it directly. Google reports that Argon set a state-of-the-art 77.9% on DeepSWE v1.1. It also reports that Argon led the Vals Index, which weights finance, coding, legal, and tax work by their share of US GDP. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">[1]</a> Reuters noted that Argon still trailed rival models on two of the four coding benchmarks in Google's own release. <a href="https://www.reuters.com/legal/litigation/google-announces-gemini-4-flagship-ai-model-after-months-delays-2026-09-30/">[4]</a> For Carbon, Google claims 88.2% on SEC-bench Pro, 54.8% on ExploitGym, and 71.0% on CWE-bench. These are vulnerability-finding, exploitation, and patching tests, run without guardrails. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">[2]</a> The Fairwind Program gives vetted defenders versions of the models without cyber guardrails. <a href="https://www.reuters.com/business/google-launches-flagship-ai-model-gemini-4-argon-developers-businesses-2026-10-13/">[19]</a></p>
+
+<h3>Safety measures as part of the release</h3>
+<p>Google says that it monitors Argon's chain of thought and actions in deployment and stops execution when the model oversteps the user's intent. It used a similar monitor during training. Google says it avoided feeding the monitor's findings back into training, so that Argon would not learn to hide its reasoning. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">[1]</a> For Carbon, Google reports that successful cheating on Terminal-Bench 4.0 fell to 0.0% and that unsupported claims fell by about half compared with Argon. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/">[2]</a> For Hydrogen, Google reports that fabricated claims fell by a factor of more than five compared with Gemini 3.8 Flash. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a> These are internal evaluations that outside groups have not reproduced. The staged release through cyber defenders resembles the approach Anthropic took with Fable, which the earlier post describes.</p>
+
+<h3>Prices that rise after launch</h3>
+<p>Argon and Carbon launched at an introductory price of $2 per million input tokens and $10 per million output tokens. The price rises to $4 and $20 after 30 November. <a href="https://blog.google/intl/en-mena/product-updates/explore-get-answers/gemini-4-argon-built-to-solve-your-hardest-problems/">[6]</a> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/">[8]</a> Hydrogen costs $1.50 and $7.50, at the same rate across its whole 1-million-token context window. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a> That matches the standard price of Gemini 3.8 Flash, which was sold at an introductory $0.75 and $3.75. <a href="https://arstechnica.com/ai/2026/09/google-releases-gemini-3-8-flash-its-third-flash-model-in-six-weeks/">[13]</a> For developers who paid the introductory Flash rate, Hydrogen costs twice as much per token.</p>
+
+<h3>Routing between models inside Google's products</h3>
+<p>Google now sells the models as a team. Antigravity's new Orchestrator switches between Carbon and Hydrogen within one session. Google reports that, on Terminal-Bench 4.0, Orchestrator came close to Carbon's success rate while using 24% less quota and finishing 19% faster. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a> A preview feature called <code>/swarm</code> turns one prompt into a group of Carbon agents. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/">[8]</a> Hydrogen also runs in Google Search for all users. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a> Google reported 950 million monthly active users for the Gemini app in July. <a href="https://www.thehindu.com/sci-tech/technology/googles-sundar-pichai-hails-amazing-quarter-during-earnings-call-as-investors-fret-about-delayed-gemini-35-pro/article71256966.ece">[12]</a></p>
+<p>Some things did not change. The Argon model card says that Google trained the model on its own Tensor Processing Units, with JAX and ML Pathways. <a href="https://deepmind.google/models/model-cards/gemini-4-argon/">[16]</a> Google does not present the hardware as new, and none of the sources connects the turnaround to a change in hardware.</p>
+
+<h2>What the independent rankings show</h2>
+<p>Artificial Analysis changed its index during the turnaround. Version 5, launched on 27 October, gives 60% of the weight to tests with private tasks or answers, up from 45% in version 4.3. It also weights four categories equally: knowledge work, coding, science, and general ability. <a href="https://winbuzzer.com/2026/10/28/artificial-analysis-reweights-ai-rankings-toward-private-tests-xcxwbn/">[10]</a> Scores from earlier versions are therefore not comparable with current ones. OfficeChai reported that Argon scored 53 under version 4.3.2. <a href="https://officechai.com/ai/gemini-is-back-to-the-frontier-with-gemini-4-argon/">[14]</a> Under version 5, Argon scored 50. Carbon took first place on 28 October with 59, one point above Claude Opus 5.5. <a href="https://winbuzzer.com/2026/10/28/artificial-analysis-reweights-ai-rankings-toward-private-tests-xcxwbn/">[10]</a></p>
+<p>The lead did not last. On the current leaderboard, Carbon is the best Google model and Google is third among labs, behind Anthropic and OpenAI. The table below shows the Artificial Analysis figures for index version 5.0.1, read on 18 November. <a href="https://artificialanalysis.ai/leaderboards/models">[20]</a></p>
+<table>
+<thead><tr><th>Model (setting)</th><th>Index score</th><th>Cost per index task</th><th>Minutes per task</th></tr></thead>
+<tbody>
+<tr><td>Claude Fable 5.2 (max)</td><td>65</td><td>$26.54</td><td>41.1</td></tr>
+<tr><td>GPT-6.2 Astra (max)</td><td>62</td><td>$4.00</td><td>12.9</td></tr>
+<tr><td>Gemini 4 Carbon (high)</td><td>60</td><td>$7.76</td><td>34.5</td></tr>
+<tr><td>Claude Opus 5.5 (max)</td><td>59</td><td>$10.04</td><td>24.6</td></tr>
+<tr><td>Gemini 4 Hydrogen (xhigh)</td><td>54</td><td>$3.16</td><td>15.0</td></tr>
+<tr><td>Gemini 4 Argon (high)</td><td>50</td><td>$4.97</td><td>29.3</td></tr>
+<tr><td>Grok 4.7 (xhigh)</td><td>35</td><td>$7.77</td><td>24.4</td></tr>
+</tbody>
+</table>
+<p>Two details affect how to read the table. Artificial Analysis computes Carbon's cost at the $4 and $20 standard price but Argon's at the $2 and $10 introductory price. Gemini 4 models also produce many tokens. Carbon generated 205 million output tokens across the index and Hydrogen generated 304 million, against a median of 65.1 million. <a href="https://artificialanalysis.ai/models/gemini-4-carbon">[21]</a> <a href="https://artificialanalysis.ai/models/gemini-4-hydrogen">[22]</a> GPT-6.2 Astra has twice Carbon's standard token price but costs about half as much per task, so it must use far fewer tokens per task. Hydrogen at xhigh scores above Argon at about two thirds of Argon's cost per task. Google's own figures put Hydrogen at 51 on its default high setting. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">[3]</a></p>
+<p>Human preference votes rank Google higher. On the LMArena text leaderboard of 11 November, Carbon was first with 1526 ± 10 points and Argon second with 1522 ± 5. Their rank spreads overlap with Meta's Muse Wonder at 1511 and Claude Opus 5.5 at 1507. LMArena labels Carbon's score as preliminary, based on 4,273 votes. Grok 4.7 placed 92nd with 1443. That snapshot does not include Claude Fable 5.2 or GPT-6.2 Astra. <a href="https://lmarena.ai/leaderboard/text">[23]</a> Arena measures which answer people prefer in a chat, and the Artificial Analysis index measures scores on fixed tests, so the two rankings answer different questions.</p>
+
+<h2>Setbacks and costs</h2>
+<p>The turnaround came at a price. Google abandoned a flagship that its CEO had promised for June. It lost Jeff Dean and other senior Gemini leaders, and Alphabet shares fell on the day of the reorganization. <a href="https://www.reuters.com/business/google-shakes-up-ai-leadership-deepmind-chief-shifts-role-2026-08-05/">[15]</a> Access to the strongest model is still narrow. In the Gemini app, Carbon is available only to Google AI Ultra subscribers. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/">[8]</a> Prices for Argon and Carbon double on 1 December. Artificial Analysis rates Carbon as notably slow, at 34.5 minutes per index task against a median of 12.4 minutes. <a href="https://artificialanalysis.ai/models/gemini-4-carbon">[21]</a> Carbon's first place on the index lasted only until rivals released new models. WinBuzzer also cites VentureBeat's point that Google's launch figures come without uncertainty estimates, so a one-point gap cannot show which model is better for a given workload. <a href="https://winbuzzer.com/2026/10/28/artificial-analysis-reweights-ai-rankings-toward-private-tests-xcxwbn/">[10]</a></p>
+
+<h2>What the record supports</h2>
+<p>The evidence supports a limited claim. After a cancelled model and a leadership change, Google built a larger frontier model first and derived its cheaper models from it. It trained Argon with reinforcement learning on long reasoning tasks, released it in stages, and put the result into Search and its developer tools at once. By the independent measures, these changes moved Google from well behind the frontier back to third place among labs on Artificial Analysis, and to first place on LMArena within overlapping confidence ranges. They have not given Google a lasting benchmark lead. The sources also do not show which change mattered most. No public document separates the effect of model size, training method, and the new leadership. The next tests are whether customers stay after the 1 December price rise, and whether Hydrogen's speed holds up in Search at full scale.</p>
+
+        </div>
+      </article>
+
+      <div class="read-more">
+        <a href="/#post/gemini-4-argon-carbon-hydrogen-google-turnaround">View on blog →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+  <script>
+    (function () {
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var link = document.getElementById('prism-theme');
+      if (link) {
+        link.href = dark
+          ? 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css'
+          : 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css';
+      }
+      if (window.Prism) Prism.highlightAll();
+    })();
+  </script>
+</body>
+</html>
